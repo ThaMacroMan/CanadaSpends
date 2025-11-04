@@ -199,7 +199,7 @@ export default function Budget() {
             <StatBox
               title={<Trans>Total Budget</Trans>}
               value={`$${budgetData.spending.toFixed(1)}B`}
-              description={<Trans>Projected government budget</Trans>}
+              description={<Trans>Est. projected government budget</Trans>}
               growthPercentage={calculateGrowthPercentage(
                 budgetData.spending,
                 513.9,
@@ -208,7 +208,7 @@ export default function Budget() {
             <StatBox
               title={<Trans>Revenue</Trans>}
               value={`$${budgetData.revenue.toFixed(1)}B`}
-              description={<Trans>Projected government revenue</Trans>}
+              description={<Trans>Est. projected government revenue</Trans>}
               growthPercentage={calculateGrowthPercentage(
                 budgetData.revenue,
                 459.5,
@@ -239,7 +239,7 @@ export default function Budget() {
             <StatBox
               title={<Trans>Deficit</Trans>}
               value={`$${budgetData.deficit.toFixed(1)}B`}
-              description={<Trans>Projected budget deficit</Trans>}
+              description={<Trans>Est. projected budget deficit</Trans>}
               growthPercentage={calculateGrowthPercentage(
                 budgetData.deficit,
                 54.4,
