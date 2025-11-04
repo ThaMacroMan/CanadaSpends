@@ -434,12 +434,12 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
           children: [
             {
               name: t`Other transfer payments`,
-              amount2024: 88.7,
+              amount2024: 107.1,
               amount2025: 115.6,
             },
             {
               name: t`Other direct program expenses`,
-              amount2024: 130.9,
+              amount2024: 130.5,
               amount2025: 150.2,
             },
           ],
