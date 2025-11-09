@@ -19,6 +19,7 @@ const provinces = [
 ];
 
 const municipalities = [
+  { slug: "edmonton", name: "Edmonton" },
   { slug: "toronto", name: "Toronto" },
   { slug: "vancouver", name: "Vancouver" },
 ];
@@ -60,6 +61,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
     pathname.startsWith("/ontario") ||
     pathname.startsWith("/alberta") ||
     pathname.startsWith("/british-columbia") ||
+    pathname.startsWith("/edmonton") ||
     pathname.startsWith("/toronto") ||
     pathname.startsWith("/vancouver");
 
