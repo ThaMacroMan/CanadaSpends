@@ -2,6 +2,18 @@
   "name": "British Columbia",
   "financialYear": "2024-25",
   "source": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/pa-2024-25-crf-supplementary-schedules.pdf",
+  "sources": [
+    {
+      "label": "Consolidated Revenue Fund (CRF) Supplementary Schedules",
+      "url": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/pa-2024-25-crf-supplementary-schedules.pdf",
+      "scope": "Ministry-level spending and revenue"
+    },
+    {
+      "label": "Summary Financial Statements",
+      "url": "https://www2.gov.bc.ca/assets/gov/british-columbians-our-governments/government-finances/public-accounts/2024-25/pa-2024-25-summary-financial-statements.pdf",
+      "scope": "Debt and financial position data"
+    }
+  ],
   "totalProvincialSpending": "77.368925",
   "totalProvincialSpendingFormatted": "$77.4B",
   "totalEmployees": "39,036",

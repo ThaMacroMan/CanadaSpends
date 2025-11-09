@@ -2,6 +2,18 @@
   "name": "Edmonton",
   "financialYear": "2024",
   "source": "https://www.edmonton.ca/sites/default/files/public-files/FinancialAnnualReportConsolidatedFinancialStatements2024.pdf?cb=1761586265",
+  "sources": [
+    {
+      "label": "Financial Annual Report Consolidated Financial Statements 2024",
+      "url": "https://www.edmonton.ca/sites/default/files/public-files/FinancialAnnualReportConsolidatedFinancialStatements2024.pdf?cb=1761586265",
+      "scope": "City-level revenue and spending"
+    },
+    {
+      "label": "Financial Annual Report 2024",
+      "url": "https://www.edmonton.ca/sites/default/files/public-files/2024FinancialAnnualReport.pdf?cb=1746489478",
+      "scope": "Debt and employee data"
+    }
+  ],
   "totalProvincialSpending": 3.819822,
   "totalProvincialSpendingFormatted": "$3.8B",
   "totalEmployees": 16064,
