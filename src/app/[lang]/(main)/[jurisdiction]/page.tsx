@@ -148,16 +148,14 @@ export default async function ProvinceIndex({
       key: "budget-balance",
       title: (
         <div className="flex items-center">
-          <Trans>Budget Surplus/Deficit</Trans>
+          <Trans>Cash Surplus/Deficit</Trans>
           <Tooltip text="The difference between revenue and spending. A surplus indicates revenue exceeded spending.">
             <HelpIcon />
           </Tooltip>
         </div>
       ),
       value: budgetValue,
-      description: (
-        <Trans>Budget balance for {jurisdiction.financialYear}</Trans>
-      ),
+      description: <Trans>Balance for {jurisdiction.financialYear}</Trans>,
     },
     {
       key: "total-revenue",
@@ -302,18 +300,10 @@ export default async function ProvinceIndex({
         <Section>
           <H2>
             <Trans>
-              Financial Year {jurisdiction.financialYear} {jurisdiction.name}
-              {jurisdiction.name === "Toronto" ? `'s Operational` : ""} Revenue
-              and Spending
+              {jurisdiction.name}'s Revenue and Spending in Financial Year{" "}
+              {jurisdiction.financialYear}
             </Trans>
           </H2>
-          <P>
-            <Trans>
-              Explore {jurisdiction.name}
-              {jurisdiction.name === "Toronto" ? "'s operational" : ""} revenue
-              and spending categories or filter by ministry for deeper insights.
-            </Trans>
-          </P>
         </Section>
         <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
           <JurisdictionSankey data={sankey} />
@@ -348,14 +338,6 @@ export default async function ProvinceIndex({
               />
             ))}
           </div>
-          {jurisdiction.name === "Toronto" && (
-            <P className="text-sm text-gray-600">
-              <Trans>
-                Note: Figures above refer to Toronto's operational expenses
-                only.
-              </Trans>
-            </P>
-          )}
         </Section>
         <Section>
           <H2>
