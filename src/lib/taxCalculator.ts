@@ -99,6 +99,38 @@ export function calculateOntarioTax(income: number): number {
   return Math.max(0, taxOnFullIncome - bpaCredit);
 }
 
+function calculateOntarioSurtax(basetax: number): number {
+  if (basetax <= 5710) {
+        return 0;
+    } else if (basetax > 5710 && basetax <= 7307) {
+        return 0.20 * (basetax - 5710);
+    } else {
+        const surtaxAbove5710 = 0.20 * (7307 - 5710);
+        const surtaxAbove7307 = 0.36 * (basetax - 7307);
+        return surtaxAbove5710 + surtaxAbove7307;
+    }
+}
+
+function calculateOntarioHealthPm(income: number): number {
+    if (income <= 20000) {
+        return 0;
+    } else if (income > 20000 && income <= 36000) {
+        return Math.min(300, 0.06 * (income - 20000));
+    } else if (income > 36000 && income <= 48000) {
+        const taxAbove36000 = 0.06 * (income - 36000);
+        return Math.min(450, 300 + taxAbove36000);
+    } else if (income > 48000 && income <= 72000) {
+        const taxAbove48000 = 0.25 * (income - 48000);
+        return Math.min(600, 450 + taxAbove48000);
+    } else if (income > 72000 && income <= 200000) {
+        const taxAbove72000 = 0.25 * (income - 72000);
+        return Math.min(750, 600 + taxAbove72000);
+    } else {
+        const taxAbove200000 = 0.25 * (income - 200000);
+        return 750 + taxAbove200000;
+    }
+}
+
 export function calculateAlbertaTax(income: number): number {
   // Step 1: Calculate tax on full income using progressive brackets
   const taxOnFullIncome = calculateTaxFromBrackets(
@@ -123,12 +155,16 @@ export function calculateTotalTax(
   switch (province.toLowerCase()) {
     case "ontario":
       provincialTax = calculateOntarioTax(income);
+      provincialTax += calculateOntarioHealthPm(income);
+      provincialTax += calculateOntarioSurtax(provincialTax);
       break;
     case "alberta":
       provincialTax = calculateAlbertaTax(income);
       break;
     default:
       provincialTax = calculateOntarioTax(income); // Default to Ontario for now
+      provincialTax += calculateOntarioHealthPm(income);
+      provincialTax += calculateOntarioSurtax(provincialTax);
   }
 
   const totalTax = federalTax + provincialTax;
