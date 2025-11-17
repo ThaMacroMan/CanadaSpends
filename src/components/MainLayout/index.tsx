@@ -1,6 +1,7 @@
 "use client";
 import { Footer } from "@/components/MainLayout/Footer";
 import { RecruitmentBanner } from "@/components/RecruitmentBanner";
+import BuildCanadaBanner from "@/components/BuildCanadaBanner";
 import { Trans, useLingui } from "@lingui/react/macro";
 import Image from "next/image";
 import Link from "next/link";
@@ -251,6 +252,7 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
           </div>
         </div>
       </div>
+      <BuildCanadaBanner />
       {/* Mobile menu */}
       {isMenuOpen && (
         <div className="md:hidden border-t border-gray-200">
