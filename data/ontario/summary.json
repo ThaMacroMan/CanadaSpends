@@ -275,5 +275,6 @@
     }
   ],
   "methodology": "Top-level figures are taken from the [Annual Report](https://www.ontario.ca/page/public-accounts-2023-24-annual-report), which is independetly audited by a third-party. Granular spending data is based off of [Ministry Statements and Schedules](https://www.ontario.ca/page/public-accounts-ontario-2023-24#section-3).\n\nIn cases where the Ministry's total expenses did not sum up to the audited totals, an \"Unreported\" line-item was added ([see here](https://docs.google.com/spreadsheets/d/13IXbEx_Lu9FxYSOZkM9BHzHDICauj3TyRXfiGQHHnTU/edit?gid=1120240224#gid=1120240224)).",
+  "credits": "Built by [Jesse](https://www.linkedin.com/in/jesseleecan/)",
   "generatedAt": "2025-06-23T08:00:06.275Z"
 }

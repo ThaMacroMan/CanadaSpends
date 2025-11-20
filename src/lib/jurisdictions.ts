@@ -18,6 +18,7 @@ export type Jurisdiction = {
   netDebt: number;
   totalDebt: number;
   methodology?: string;
+  credits?: string;
 };
 
 type Category = {
