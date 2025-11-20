@@ -89,5 +89,6 @@
       "percentageFormatted": "1.4%"
     }
   ],
+  "methodology": "This diagram is based off of the City's Statement of Operations, which can be interpreted as what the City brought in (revenues) and spent (expenses) during the year.\n\nThese are sourced from the [Consolidated Financial Statements](https://www.toronto.ca/wp-content/uploads/2025/07/97e1-2024-Consolidated-Financial-Statements-07-29-2025.pdf), which is audited by an independent third-party, and [Revenues and Expenses Datasheet](https://open.toronto.ca/dataset/revenues-and-expenses/). The former offered more granular data on the revenue side, while the latter offered more granular data on the expense side.\n\nIn cases where there were discrepancies between the audited totals and the sums of the granular data, the audited totals was used as the source of truth, and an \"Unreported\" line-item was added to ensure totals matched.",
   "generatedAt": "2025-10-21T22:57:13Z"
 }

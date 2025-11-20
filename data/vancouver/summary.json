@@ -88,5 +88,6 @@
       "percentage": 2.164089,
       "percentageFormatted": "2.16%"
     }
-  ]
+  ],
+  "methodology": "This diagram is based off of the City's Statement of Operations, which can be interpreted as what the City brought in (revenues) and spent (expenses) during the year.\n\nData is sourced from Vancouver's [Annual Financial Report](https://vancouver.ca/files/cov/2024-annual-financial-report.pdf). Taxes collected by the City on behalf of other authorities have been included in the diagram (see Note 15(g) in the Report). Expenses for tangible capital assets have been included as well (see Note 13 in the Report). Full worksheet [here](https://docs.google.com/spreadsheets/d/1_ZBTlhPj9aCwj5lxCkX3EKZxm4DNQPun). "
 }

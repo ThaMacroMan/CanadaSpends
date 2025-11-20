@@ -393,6 +393,32 @@ export default async function ProvinceIndex({
             />
           </Section>
         )}
+        {jurisdiction.methodology && (
+          <Section>
+            <H2>
+              <Trans>Methodology</Trans>
+            </H2>
+            {jurisdiction.methodology.split("\n\n").map((paragraph, index) => (
+              <P key={index}>
+                {paragraph.match(/\*\*([^*]+)\*\*/) ||
+                paragraph.match(/\[([^\]]+)\]\(([^)]+)\)/) ? (
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: paragraph
+                        .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+                        .replace(
+                          /\[([^\]]+)\]\(([^)]+)\)/g,
+                          '<a href="$2" class="text-blue-500 underline hover:text-blue-600" target="_blank" rel="noopener noreferrer">$1</a>',
+                        ),
+                    }}
+                  />
+                ) : (
+                  <Trans>{paragraph}</Trans>
+                )}
+              </P>
+            ))}
+          </Section>
+        )}
         <Section>
           <H2>
             <Trans>Sources</Trans>

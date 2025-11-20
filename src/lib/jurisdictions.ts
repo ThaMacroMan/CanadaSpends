@@ -13,11 +13,11 @@ export type Jurisdiction = {
   totalProvincialSpending: number;
   total: number;
   source: string;
-  // Optional list of ministries from summary.json; used for fallback counts
   ministries?: unknown[];
   debtInterest: number;
   netDebt: number;
   totalDebt: number;
+  methodology?: string;
 };
 
 type Category = {
