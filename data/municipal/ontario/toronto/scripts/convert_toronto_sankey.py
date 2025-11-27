@@ -449,10 +449,10 @@ def main():
 
     # Create output directory
     import os
-    os.makedirs('data/toronto', exist_ok=True)
+    os.makedirs('data/municipal/ontario/toronto', exist_ok=True)
 
     # Save to file
-    output_path = 'data/toronto/sankey.json'
+    output_path = 'data/municipal/ontario/toronto/sankey.json'
     print(f"\nSaving to {output_path}...")
     with open(output_path, 'w') as f:
         json.dump(final_json, f, indent=2)
@@ -468,7 +468,7 @@ def main():
         financial_year=financial_year,
     )
 
-    summary_path = 'data/toronto/summary.json'
+    summary_path = 'data/municipal/ontario/toronto/summary.json'
     print(f"Saving to {summary_path}...")
     with open(summary_path, 'w') as f:
         json.dump(summary, f, indent=2)

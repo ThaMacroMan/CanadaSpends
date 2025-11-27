@@ -11,18 +11,7 @@ import { useState, memo } from "react";
 import { X, Menu, ChevronDown, ChevronRight } from "lucide-react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import { usePathname } from "next/navigation";
-
-// NOTE: please keep these lists in alphabetical order
-const provinces = [
-  { slug: "alberta", name: "Alberta" },
-  { slug: "british-columbia", name: "British Columbia" },
-  { slug: "ontario", name: "Ontario" },
-];
-
-const municipalities = [
-  { slug: "toronto", name: "Toronto" },
-  { slug: "vancouver", name: "Vancouver" },
-];
+import { provinceNames } from "@/lib/provinceNames";
 
 // Memoize NavLink
 const NavLink = memo(
@@ -51,18 +40,41 @@ const NavLink = memo(
 );
 NavLink.displayName = "NavLink"; // Add display name for better debugging
 
-export const MainLayout = ({ children }: { children: React.ReactNode }) => {
+export const MainLayout = ({
+  children,
+  provinces,
+  municipalitiesByProvince,
+}: {
+  children: React.ReactNode;
+  provinces: string[];
+  municipalitiesByProvince: Array<{
+    province: string;
+    municipalities: Array<{ slug: string; name: string }>;
+  }>;
+}) => {
   const { i18n } = useLingui();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const jurisdictionSlugsSet = new Set<string>();
+  for (const province of provinces) {
+    jurisdictionSlugsSet.add(province);
+  }
+  for (const { municipalities } of municipalitiesByProvince) {
+    for (const municipality of municipalities) {
+      jurisdictionSlugsSet.add(municipality.slug);
+    }
+  }
+
+  // Extract first path segment (after locale if present) and check if it's a jurisdiction
+  const pathSegments = pathname.split("/").filter(Boolean);
+  const firstSegment =
+    pathSegments[0] === i18n.locale ? pathSegments[1] : pathSegments[0];
+
   const spendingActive =
     pathname.startsWith(`/${i18n.locale}/spending`) ||
     pathname.startsWith(`/${i18n.locale}/budget`) ||
-    pathname.startsWith("/ontario") ||
-    pathname.startsWith("/alberta") ||
-    pathname.startsWith("/british-columbia") ||
-    pathname.startsWith("/toronto") ||
-    pathname.startsWith("/vancouver");
+    (firstSegment ? jurisdictionSlugsSet.has(firstSegment) : false);
 
   return (
     <>
@@ -133,13 +145,13 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                           className="bg-white rounded-md shadow-lg p-1 flex flex-col min-w-[180px] z-[200]"
                           sideOffset={8}
                         >
-                          {provinces.map((province) => (
-                            <DropdownMenu.Item key={province.slug} asChild>
+                          {provinces.map((provinceSlug) => (
+                            <DropdownMenu.Item key={provinceSlug} asChild>
                               <Link
-                                href={`/${province.slug}`}
+                                href={`/${provinceSlug}`}
                                 className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
                               >
-                                {province.name}
+                                {provinceNames[provinceSlug]}
                               </Link>
                             </DropdownMenu.Item>
                           ))}
@@ -154,19 +166,39 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
                       </DropdownMenu.SubTrigger>
                       <DropdownMenu.Portal>
                         <DropdownMenu.SubContent
-                          className="bg-white rounded-md shadow-lg p-1 flex flex-col min-w-[180px] z-[200]"
+                          className="bg-white rounded-md shadow-lg p-1 flex flex-col min-w-[200px] z-[200]"
                           sideOffset={8}
                         >
-                          {municipalities.map((municipality) => (
-                            <DropdownMenu.Item key={municipality.slug} asChild>
-                              <Link
-                                href={`/${municipality.slug}`}
-                                className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
-                              >
-                                {municipality.name}
-                              </Link>
-                            </DropdownMenu.Item>
-                          ))}
+                          {municipalitiesByProvince.map(
+                            ({ province, municipalities }) => (
+                              <DropdownMenu.Sub key={province}>
+                                <DropdownMenu.SubTrigger className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer flex items-center justify-between data-[highlighted]:bg-gray-100">
+                                  {provinceNames[province] || province}
+                                  <ChevronRight className="w-4 h-4" />
+                                </DropdownMenu.SubTrigger>
+                                <DropdownMenu.Portal>
+                                  <DropdownMenu.SubContent
+                                    className="bg-white rounded-md shadow-lg p-1 flex flex-col min-w-[200px] z-[200] max-h-[400px] overflow-y-auto"
+                                    sideOffset={8}
+                                  >
+                                    {municipalities.map((municipality) => (
+                                      <DropdownMenu.Item
+                                        key={municipality.slug}
+                                        asChild
+                                      >
+                                        <Link
+                                          href={`/${municipality.slug}`}
+                                          className="px-3 py-2 text-sm hover:bg-gray-100 rounded cursor-pointer"
+                                        >
+                                          {municipality.name}
+                                        </Link>
+                                      </DropdownMenu.Item>
+                                    ))}
+                                  </DropdownMenu.SubContent>
+                                </DropdownMenu.Portal>
+                              </DropdownMenu.Sub>
+                            ),
+                          )}
                         </DropdownMenu.SubContent>
                       </DropdownMenu.Portal>
                     </DropdownMenu.Sub>
@@ -285,14 +317,16 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <p className="px-3 pl-7 pt-2 text-sm font-medium text-gray-500">
               <Trans>Provincial</Trans>
             </p>
-            {provinces.map((province) => (
+            {provinces.map((provinceSlug) => (
               <MobileNavLink
-                key={province.slug}
-                href={`/${province.slug}`}
-                active={pathname.startsWith(`/${province.slug}`)}
+                key={provinceSlug}
+                href={`/${provinceSlug}`}
+                active={pathname.startsWith(`/${provinceSlug}`)}
                 onClick={() => setIsMenuOpen(false)}
               >
-                <span className="pl-8 inline-block">{province.name}</span>
+                <span className="pl-8 inline-block">
+                  {provinceNames[provinceSlug]}
+                </span>
               </MobileNavLink>
             ))}
 
@@ -300,15 +334,24 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
             <p className="px-3 pl-7 text-sm font-medium text-gray-500">
               <Trans>Municipal</Trans>
             </p>
-            {municipalities.map((municipality) => (
-              <MobileNavLink
-                key={municipality.slug}
-                href={`/${municipality.slug}`}
-                active={pathname.startsWith(`/${municipality.slug}`)}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <span className="pl-8 inline-block">{municipality.name}</span>
-              </MobileNavLink>
+            {municipalitiesByProvince.map(({ province, municipalities }) => (
+              <div key={province}>
+                <p className="px-3 pl-11 pt-2 text-xs font-medium text-gray-400">
+                  {provinceNames[province] || province}
+                </p>
+                {municipalities.map((municipality) => (
+                  <MobileNavLink
+                    key={municipality.slug}
+                    href={`/${municipality.slug}`}
+                    active={pathname.startsWith(`/${municipality.slug}`)}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span className="pl-12 inline-block">
+                      {municipality.name}
+                    </span>
+                  </MobileNavLink>
+                ))}
+              </div>
             ))}
             <MobileNavLink
               href={`/${i18n.locale}/tax-visualizer`}
