@@ -1,6 +1,7 @@
 import { initLingui } from "@/initLingui";
 
 import { PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { useLingui } from "@lingui/react/macro";
 import { PropsWithChildren } from "react";
 
@@ -14,6 +15,7 @@ export async function generateMetadata(
   return {
     title: t`Government Workforce & Spending Data | See the Breakdown`,
     description: t`See how Canada's government spends tax dollars—track workforce data, spending trends, and federal debt with clear, non-partisan insights.`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

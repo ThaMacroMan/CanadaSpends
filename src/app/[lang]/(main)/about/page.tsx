@@ -1,5 +1,6 @@
 import { H1, H2, Intro, Page, PageContent, Section } from "@/components/Layout";
 import { initLingui, PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PropsWithChildren } from "react";
 import { Contributors } from "./contributors";
@@ -16,6 +17,7 @@ export async function generateMetadata(
   return {
     title: t`Making Government Spending Clear | About Us | Canada Spends`,
     description: t`We don't tell you what to think—we give you the facts. Meet the team making government spending data accessible to all Canadians.`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

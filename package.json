@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "pnpm extract && next build",
+    "build": "pnpm extract && pnpm generate-statics && next build",
+    "generate-statics": "tsx scripts/generate-statics.ts",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

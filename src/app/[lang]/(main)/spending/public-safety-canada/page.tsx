@@ -16,6 +16,7 @@ import NoSSR from "@/components/NoSSR";
 import { StatCard, StatCardContainer } from "@/components/StatCard";
 import { useFindDepartment } from "@/hooks/useDepartments";
 import { initLingui, type PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { PropsWithChildren } from "react";
 import { FederalSpendingByEntity } from "./FederalSpendingByEntity";
@@ -31,6 +32,7 @@ export async function generateMetadata(
   return {
     title: t`Public Safety Canada | Canada Spends`,
     description: t`A look at how Public Safety Canada spends its budget`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

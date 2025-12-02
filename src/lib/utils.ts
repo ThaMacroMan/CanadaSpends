@@ -41,6 +41,56 @@ export const hasErrorInput = [
  * @param locale - The locale code (e.g., "en", "fr")
  * @returns The localized path (e.g., "/en/contact", "/fr/spending")
  */
+import { BASE_URL, locales } from "@/lib/constants";
+import { Metadata } from "next";
+
+/**
+ * Generate hreflang alternates for a given path
+ * @param currentLang - Current language code
+ * @param path - Path without language prefix (e.g., "/spending" or "/articles/[slug]")
+ *               If not provided, derives from calling file using import.meta.url
+ * @param params - Optional params to replace placeholders in path (e.g., { slug: "article-name" })
+ */
+export function generateHreflangAlternates(
+  currentLang: string,
+  path?: string,
+  params?: Record<string, string>,
+): Metadata["alternates"] {
+  // Derive path from file if not provided
+  if (!path && typeof import.meta !== "undefined" && import.meta.url) {
+    try {
+      const url = new URL(import.meta.url);
+      const match = url.pathname.match(
+        /\/src\/app\/(.+?)(?:\/page|\/layout)\.tsx?$/,
+      );
+      if (match) {
+        path =
+          "/" +
+          match[1]
+            .replace(/\([^)]+\)\//g, "") // Remove route groups
+            .replace(/\[[^\]]+\]\//g, ""); // Remove dynamic segments
+      }
+    } catch {
+      // Fallback to empty path
+    }
+  }
+
+  // Replace placeholders with actual values
+  let resolvedPath = path || "";
+  if (params) {
+    for (const [key, value] of Object.entries(params)) {
+      resolvedPath = resolvedPath.replace(`[${key}]`, value);
+    }
+  }
+
+  return {
+    languages: Object.fromEntries(
+      locales.map((lang) => [`${lang}`, `${BASE_URL}/${lang}${resolvedPath}`]),
+    ),
+    canonical: `${BASE_URL}/${currentLang}${resolvedPath}`,
+  };
+}
+
 export function localizedPath(path: string, locale: string): string {
   // Remove leading slash for processing
   const cleanPath = path.startsWith("/") ? path.slice(1) : path;

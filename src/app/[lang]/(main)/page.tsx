@@ -8,7 +8,17 @@ import { FiCornerLeftDown, FiCornerRightDown } from "react-icons/fi";
 import { LuReceipt, LuUsersRound } from "react-icons/lu";
 import { PiBank } from "react-icons/pi";
 import { IS_BUDGET_2025_LIVE } from "@/lib/featureFlags";
-import { localizedPath } from "@/lib/utils";
+import { generateHreflangAlternates, localizedPath } from "@/lib/utils";
+import { Metadata } from "next";
+
+export async function generateMetadata(
+  props: PageLangParam,
+): Promise<Metadata> {
+  const lang = (await props.params).lang;
+  return {
+    alternates: generateHreflangAlternates(lang),
+  };
+}
 
 export default async function Page(props: PageLangParam) {
   const lang = (await props.params).lang;
