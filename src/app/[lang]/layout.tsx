@@ -1,7 +1,7 @@
 import { allMessages } from "@/appRouterI18n";
 import { LinguiClientProvider } from "@/components/LinguiClientProvider";
 import { initLingui, PageLangParam } from "@/initLingui";
-import { cn } from "@/lib/utils";
+import { cn, generateHreflangAlternates } from "@/lib/utils";
 import { useLingui } from "@lingui/react/macro";
 import { Analytics } from "@vercel/analytics/next";
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -22,6 +22,7 @@ export async function generateMetadata(
   return {
     title: t`Get The Facts About Government Spending`,
     description: t`Government spending shouldn't be a black box. We turn complex data into clear, non-partisan insights so every Canadian knows where their money goes.`,
+    alternates: generateHreflangAlternates(lang),
     openGraph: {
       images: [
         {

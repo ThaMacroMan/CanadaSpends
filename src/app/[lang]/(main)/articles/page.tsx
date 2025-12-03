@@ -2,6 +2,7 @@ import { H1, Intro, Page, PageContent, Section } from "@/components/Layout";
 import { ArticleCard } from "@/components/articles/ArticleCard";
 import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
 import { initLingui, PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PropsWithChildren } from "react";
 
@@ -16,6 +17,7 @@ export async function generateMetadata(
   return {
     title: t`Articles | Canada Spends`,
     description: t`Explore in-depth articles about Canadian government spending, budget analysis, and public finance. Stay informed about how your tax dollars are used through Canada Spends.`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

@@ -15,8 +15,16 @@ export function middleware(request: NextRequest) {
   );
 
   const pathnameIsPostHog = pathname.startsWith("/ph");
+  const pathnameIsSitemap = pathname === "/sitemap.xml";
+  const pathnameIsRobots = pathname === "/robots.txt";
 
-  if (pathnameHasLocale || pathnameIsPostHog) return;
+  if (
+    pathnameHasLocale ||
+    pathnameIsPostHog ||
+    pathnameIsSitemap ||
+    pathnameIsRobots
+  )
+    return;
 
   // Redirect if there is no locale
   const locale = getRequestLocale(request.headers);

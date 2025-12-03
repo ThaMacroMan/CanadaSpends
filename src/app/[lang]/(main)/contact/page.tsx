@@ -7,6 +7,7 @@ import {
   Section,
 } from "@/components/Layout";
 import { initLingui, PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans, useLingui } from "@lingui/react/macro";
 import { PropsWithChildren } from "react";
 
@@ -21,6 +22,7 @@ export async function generateMetadata(
   return {
     title: t`Connect with us`,
     description: t`Have questions or feedback? Email us at hi@canadaspends.com or connect with us on X @canada_spends - we'd love to hear from you!`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

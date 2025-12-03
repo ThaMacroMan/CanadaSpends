@@ -1,13 +1,23 @@
 import { H1, Intro, P, Page, PageContent, Section } from "@/components/Layout";
+import { PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Metadata } from "next";
+import { PropsWithChildren } from "react";
 import Search from "@/components/Search";
-export const metadata: Metadata = {
-  title: "Spending Database | Canada Spends",
-  description:
-    "A searchable database of federal spending data, consolidated from multiple open data sources.",
-};
 
-export default function Contact() {
+export async function generateMetadata(
+  props: PropsWithChildren<PageLangParam>,
+): Promise<Metadata> {
+  const lang = (await props.params).lang;
+  return {
+    title: "Spending Database | Canada Spends",
+    description:
+      "A searchable database of federal spending data, consolidated from multiple open data sources.",
+    alternates: generateHreflangAlternates(lang),
+  };
+}
+
+export default function SearchPage() {
   return (
     <Page>
       <PageContent className="sm:px-0 px-0">

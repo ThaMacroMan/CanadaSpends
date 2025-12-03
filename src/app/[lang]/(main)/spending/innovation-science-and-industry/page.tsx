@@ -14,6 +14,7 @@ import NoSSR from "@/components/NoSSR";
 import { StatCard, StatCardContainer } from "@/components/StatCard";
 import { useFindDepartment } from "@/hooks/useDepartments";
 import { initLingui, type PageLangParam } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans, useLingui } from "@lingui/react/macro";
 import type { PropsWithChildren } from "react";
 import { FederalSpendingByEntity } from "./FederalSpendingByEntity";
@@ -29,6 +30,7 @@ export async function generateMetadata(
   return {
     title: t`Innovation, Science and Industry Canada | Canada Spends`,
     description: t`A look at how Innovation, Science and Industry Canada spends its budget`,
+    alternates: generateHreflangAlternates(lang),
   };
 }
 

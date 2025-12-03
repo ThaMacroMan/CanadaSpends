@@ -9,6 +9,7 @@ import {
   formatDate,
 } from "@/lib/articles";
 import { initLingui } from "@/initLingui";
+import { generateHreflangAlternates } from "@/lib/utils";
 import { Trans } from "@lingui/react/macro";
 import { notFound } from "next/navigation";
 import { FiClock, FiCalendar } from "react-icons/fi";
@@ -52,6 +53,7 @@ export async function generateMetadata(
   return {
     title: `${article.metadata.title} | Canada Spends`,
     description: article.metadata.subtitle,
+    alternates: generateHreflangAlternates(lang, "/articles/[slug]", { slug }),
     openGraph: {
       title: article.metadata.title,
       description: article.metadata.subtitle,
