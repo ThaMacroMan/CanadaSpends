@@ -204,7 +204,7 @@ function SearchControls() {
           }}
         />
       </div>
-      <div className="w-full px-4 mt-2 pb-2 border-b border-stone">
+      <div className="w-full px-4 mt-2 pb-2 border-b border-charcoal">
         <div className="flex flex-wrap gap-2">
           {/* Your RefinementListCombobox instances */}
           <RefinementListCombobox
@@ -329,12 +329,12 @@ function SearchControls() {
                   {/* Separator */}
                   <div className="border-l pl-2 ml-2 h-6 hidden sm:block"></div>
                   {/* View Toggle with fixed styling */}
-                  <div className="flex rounded-md overflow-hidden border border-stone">
+                  <div className="flex rounded-md overflow-hidden border border-charcoal">
                     <Button
                       variant={viewMode === "table" ? "secondary" : "ghost"}
                       className={cn(
                         "h-9 rounded-none",
-                        viewMode === "table" && "bg-stone/30 text-charcoal",
+                        viewMode === "table" && "bg-charcoal/30 text-charcoal",
                       )}
                       size="sm"
                       onClick={() => setViewMode("table")}
@@ -345,7 +345,7 @@ function SearchControls() {
                       variant={viewMode === "cards" ? "secondary" : "ghost"}
                       className={cn(
                         "h-9 rounded-none",
-                        viewMode === "cards" && "bg-stone/30 text-charcoal",
+                        viewMode === "cards" && "bg-charcoal/30 text-charcoal",
                       )}
                       size="sm"
                       onClick={() => setViewMode("cards")}
@@ -378,7 +378,7 @@ function SearchControls() {
                       root: "flex list-none p-0",
                       list: "flex list-none p-0 items-center",
                       item: "mx-1",
-                      link: "block px-3 py-1 border border-stone rounded-md hover:bg-linen text-charcoal",
+                      link: "block px-3 py-1 border border-charcoal rounded-md hover:bg-linen text-charcoal",
                       selectedItem: "bg-auburn text-linen border-auburn",
                       disabledItem: "opacity-50 cursor-not-allowed",
                       previousPageItem: "mr-2",

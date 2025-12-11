@@ -39,7 +39,7 @@ export const MDXComponents = {
     return (
       <Component
         href={href || "#"}
-        className="text-teal hover:text-teal-dark underline font-medium"
+        className="text-auburn underline font-medium"
         {...(!isInternal && {
           target: "_blank",
           rel: "noopener noreferrer",
@@ -67,7 +67,7 @@ export const MDXComponents = {
 
   // Blockquotes
   blockquote: ({ children }: { children: ReactNode }) => (
-    <blockquote className="border-l-4 border-auburn pl-4 py-2 my-4 italic text-charcoal bg-stone/10">
+    <blockquote className="border-l-4 border-auburn pl-4 py-2 my-4 italic text-charcoal bg-charcoal/10">
       {children}
     </blockquote>
   ),
@@ -83,7 +83,7 @@ export const MDXComponents = {
     const isInline = !className;
     if (isInline) {
       return (
-        <code className="bg-stone/20 text-charcoal px-1.5 py-0.5 rounded text-sm font-mono">
+        <code className="bg-charcoal/20 text-charcoal px-1.5 py-0.5 rounded text-sm font-mono">
           {children}
         </code>
       );
@@ -106,15 +106,15 @@ export const MDXComponents = {
 
   // Tables
   table: ({ children }: { children: ReactNode }) => (
-    <div className="overflow-x-auto my-8 shadow-sm rounded-lg border border-stone">
-      <table className="min-w-full divide-y divide-stone">{children}</table>
+    <div className="overflow-x-auto my-8 shadow-sm rounded-lg border border-charcoal">
+      <table className="min-w-full divide-y divide-charcoal">{children}</table>
     </div>
   ),
   thead: ({ children }: { children: ReactNode }) => (
-    <thead className="bg-stone/20">{children}</thead>
+    <thead className="bg-charcoal/20">{children}</thead>
   ),
   tbody: ({ children }: { children: ReactNode }) => (
-    <tbody className="bg-white divide-y divide-stone/30">{children}</tbody>
+    <tbody className="bg-white divide-y divide-charcoal/30">{children}</tbody>
   ),
   tr: ({ children }: { children: ReactNode }) => (
     <tr className="hover:bg-linen/50 transition-colors">{children}</tr>
@@ -129,7 +129,7 @@ export const MDXComponents = {
   ),
 
   // Horizontal Rule
-  hr: () => <hr className="my-8 border-stone" />,
+  hr: () => <hr className="my-8 border-charcoal" />,
 
   // Images With Next.js Image Component
   img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
@@ -159,7 +159,7 @@ export const MDXComponents = {
     children: ReactNode;
   }) => {
     const styles = {
-      info: "bg-teal/10 border-teal text-charcoal",
+      info: "bg-charcoal/10 border-charcoal text-charcoal",
       warning: "bg-auburn/10 border-auburn text-charcoal",
       success: "bg-pine-100 border-pine-600 text-charcoal",
       error: "bg-auburn-dark/10 border-auburn-dark text-charcoal",

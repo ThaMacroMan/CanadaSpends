@@ -35,9 +35,6 @@
   --auburn-burgundy: #771e1e;
 
   /* Utility Colors */
-  --stone: #a8a19b;
-  --teal: #38a0b4;
-  --teal-dark: #19464f;
   --background-light: #fafafa;
 
   --background: var(--linen);
@@ -56,9 +53,6 @@
   --color-auburn-burgundy: var(--auburn-burgundy);
 
   /* Utility Colors */
-  --color-stone: var(--stone);
-  --color-teal: var(--teal);
-  --color-teal-dark: var(--teal-dark);
   --color-background-light: var(--background-light);
 
   /* System Colors */

@@ -9,7 +9,7 @@ import logoText from "./logo-text.svg";
 
 export const Footer = () => {
   return (
-    <footer className="border-t-2 border-solid border-t-stone bg-charcoal">
+    <footer className="border-t-2 border-solid border-t-charcoal bg-charcoal">
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 ">
         <div className="mx-auto max-w-7xl px-6 pb-8 pt-20 sm:pt-24 lg:px-8 lg:pt-32">
           <div className="xl:grid xl:grid-cols-3 xl:gap-8">
@@ -21,7 +21,7 @@ export const Footer = () => {
                     <li>
                       <Link
                         href="/about"
-                        className="text-sm/6 text-linen hover:text-stone"
+                        className="text-sm/6 text-linen hover:text-charcoal"
                       >
                         <Trans>About Us</Trans>
                       </Link>
@@ -30,7 +30,7 @@ export const Footer = () => {
                       <Link
                         href="https://buildcanada.com/get-involved"
                         target="_blank"
-                        className="text-sm/6 text-linen hover:text-stone"
+                        className="text-sm/6 text-linen hover:text-charcoal"
                       >
                         <Trans>Get Involved</Trans>
                       </Link>
@@ -38,7 +38,7 @@ export const Footer = () => {
                     <li>
                       <Link
                         href="/contact"
-                        className="text-sm/6 text-linen hover:text-stone"
+                        className="text-sm/6 text-linen hover:text-charcoal"
                       >
                         <Trans>Contact</Trans>
                       </Link>
@@ -59,18 +59,18 @@ export const Footer = () => {
               <a
                 href="https://buildcanada.substack.com/subscribe"
                 target="_blank"
-                className="bg-auburn px-3 py-2 text-sm font-semibold text-linen shadow-sm hover:bg-auburn-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-auburn rounded-md w-fit"
+                className="bg-auburn px-3 py-2 text-sm font-semibold text-linen shadow-sm hover:bg-auburn-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-auburn rounded-none w-fit"
               >
                 Subscribe
               </a>
             </div>
           </div>
 
-          <div className="mt-16 border-t border-stone/30 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
+          <div className="mt-16 border-t border-charcoal/30 pt-8 sm:mt-20 md:flex md:items-center md:justify-between lg:mt-24">
             <div className="flex gap-x-6 md:order-2">
               <ExternalLink
                 href="https://x.com/canada_spends"
-                className="text-linen hover:text-stone"
+                className="text-linen hover:text-charcoal"
               >
                 <span className="sr-only">X</span>
                 <FaXTwitter aria-hidden="true" className="size-6" />
@@ -81,7 +81,7 @@ export const Footer = () => {
                 &copy; 2025 Canada Spends. All rights reserved. A Project of{" "}
                 <ExternalLink
                   href="https://www.buildcanada.com"
-                  className="underline text-linen font-bold hover:text-stone"
+                  className="underline text-linen font-bold hover:text-charcoal"
                 >
                   Build Canada
                 </ExternalLink>

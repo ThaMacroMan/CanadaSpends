@@ -22,7 +22,7 @@ export function ResultsTable() {
     <div className="border rounded-md overflow-hidden mb-8">
       <Table className="table-fixed w-full">
         <TableHeader>
-          <TableRow className="bg-stone/20">
+          <TableRow className="bg-charcoal/20">
             <TableHead className="w-[40%] pl-4 pr-2 sm:pl-6 text-charcoal">
               Recipient / Department
             </TableHead>

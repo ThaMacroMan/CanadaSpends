@@ -141,7 +141,7 @@ export const ExternalLink = ({
 }) => (
   <a
     href={href}
-    className={`text-teal underline hover:text-teal-dark ${className}`}
+    className={`text-auburn underline hover:text-auburn-dark ${className}`}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -166,7 +166,7 @@ export const InternalLink = ({
   return (
     <Link
       href={localizedHref}
-      className={`text-teal underline hover:text-teal-dark ${className}`}
+      className={`text-auburn underline hover:text-auburn-dark ${className}`}
     >
       {children}
     </Link>
