@@ -6,25 +6,29 @@ import { ReactNode } from "react";
 export const MDXComponents = {
   // Headings With Custom Styling
   h1: ({ children }: { children: ReactNode }) => (
-    <h1 className="text-4xl font-bold mt-8 mb-4 text-gray-900">{children}</h1>
+    <h1 className="text-4xl font-bold mt-8 mb-4 text-[#272727] font-display">
+      {children}
+    </h1>
   ),
   h2: ({ children }: { children: ReactNode }) => (
-    <h2 className="text-3xl font-bold mt-8 mb-4 text-gray-900">{children}</h2>
+    <h2 className="text-3xl font-bold mt-8 mb-4 text-[#272727] font-display">
+      {children}
+    </h2>
   ),
   h3: ({ children }: { children: ReactNode }) => (
-    <h3 className="text-2xl font-semibold mt-6 mb-3 text-gray-900">
+    <h3 className="text-2xl font-semibold mt-6 mb-3 text-[#272727] font-display">
       {children}
     </h3>
   ),
   h4: ({ children }: { children: ReactNode }) => (
-    <h4 className="text-xl font-semibold mt-4 mb-2 text-gray-900">
+    <h4 className="text-xl font-semibold mt-4 mb-2 text-[#272727] font-display">
       {children}
     </h4>
   ),
 
   // Paragraphs With Better Spacing
   p: ({ children }: { children: ReactNode }) => (
-    <p className="text-base leading-7 text-gray-700 mb-4">{children}</p>
+    <p className="text-base leading-7 text-[#272727] mb-4">{children}</p>
   ),
 
   // Links With Custom Styling
@@ -35,7 +39,7 @@ export const MDXComponents = {
     return (
       <Component
         href={href || "#"}
-        className="text-blue-600 hover:text-blue-800 underline font-medium"
+        className="text-[#38a0b4] hover:text-[#19464F] underline font-medium"
         {...(!isInternal && {
           target: "_blank",
           rel: "noopener noreferrer",
@@ -48,12 +52,12 @@ export const MDXComponents = {
 
   // Lists With Custom Styling
   ul: ({ children }: { children: ReactNode }) => (
-    <ul className="list-disc list-inside mb-4 space-y-2 text-gray-700">
+    <ul className="list-disc list-inside mb-4 space-y-2 text-[#272727]">
       {children}
     </ul>
   ),
   ol: ({ children }: { children: ReactNode }) => (
-    <ol className="list-decimal list-inside mb-4 space-y-2 text-gray-700">
+    <ol className="list-decimal list-inside mb-4 space-y-2 text-[#272727]">
       {children}
     </ol>
   ),
@@ -63,7 +67,7 @@ export const MDXComponents = {
 
   // Blockquotes
   blockquote: ({ children }: { children: ReactNode }) => (
-    <blockquote className="border-l-4 border-indigo-600 pl-4 py-2 my-4 italic text-gray-700 bg-gray-50">
+    <blockquote className="border-l-4 border-[#932f2f] pl-4 py-2 my-4 italic text-[#272727] bg-[#A8A19B]/10">
       {children}
     </blockquote>
   ),
@@ -79,14 +83,14 @@ export const MDXComponents = {
     const isInline = !className;
     if (isInline) {
       return (
-        <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-mono">
+        <code className="bg-[#A8A19B]/20 text-[#272727] px-1.5 py-0.5 rounded text-sm font-mono">
           {children}
         </code>
       );
     }
     return (
       <code
-        className={`${className} block bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4`}
+        className={`${className} block bg-[#272727] text-[#f6ebe3] p-4 rounded-lg overflow-x-auto my-4 font-mono`}
       >
         {children}
       </code>
@@ -95,37 +99,37 @@ export const MDXComponents = {
 
   // Pre (For Code Blocks)
   pre: ({ children }: { children: ReactNode }) => (
-    <pre className="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4">
+    <pre className="bg-[#272727] text-[#f6ebe3] p-4 rounded-lg overflow-x-auto my-4 font-mono">
       {children}
     </pre>
   ),
 
   // Tables
   table: ({ children }: { children: ReactNode }) => (
-    <div className="overflow-x-auto my-8 shadow-sm rounded-lg border border-gray-200">
-      <table className="min-w-full divide-y divide-gray-300">{children}</table>
+    <div className="overflow-x-auto my-8 shadow-sm rounded-lg border border-[#A8A19B]">
+      <table className="min-w-full divide-y divide-[#A8A19B]">{children}</table>
     </div>
   ),
   thead: ({ children }: { children: ReactNode }) => (
-    <thead className="bg-gray-100">{children}</thead>
+    <thead className="bg-[#A8A19B]/20">{children}</thead>
   ),
   tbody: ({ children }: { children: ReactNode }) => (
-    <tbody className="bg-white divide-y divide-gray-200">{children}</tbody>
+    <tbody className="bg-white divide-y divide-[#A8A19B]/30">{children}</tbody>
   ),
   tr: ({ children }: { children: ReactNode }) => (
-    <tr className="hover:bg-gray-50 transition-colors">{children}</tr>
+    <tr className="hover:bg-[#f6ebe3]/50 transition-colors">{children}</tr>
   ),
   th: ({ children }: { children: ReactNode }) => (
-    <th className="px-6 py-4 text-left text-sm font-bold text-gray-900 tracking-wide">
+    <th className="px-6 py-4 text-left text-sm font-bold text-[#272727] tracking-wide">
       {children}
     </th>
   ),
   td: ({ children }: { children: ReactNode }) => (
-    <td className="px-6 py-4 text-base text-gray-800">{children}</td>
+    <td className="px-6 py-4 text-base text-[#272727]">{children}</td>
   ),
 
   // Horizontal Rule
-  hr: () => <hr className="my-8 border-gray-300" />,
+  hr: () => <hr className="my-8 border-[#A8A19B]" />,
 
   // Images With Next.js Image Component
   img: ({ src, alt, ...props }: { src?: string; alt?: string }) => (
@@ -139,7 +143,7 @@ export const MDXComponents = {
         {...props}
       />
       {alt && (
-        <span className="block text-center text-sm text-gray-500 mt-2 italic">
+        <span className="block text-center text-sm text-[#272727]/70 mt-2 italic">
           {alt}
         </span>
       )}
@@ -155,10 +159,10 @@ export const MDXComponents = {
     children: ReactNode;
   }) => {
     const styles = {
-      info: "bg-blue-50 border-blue-500 text-blue-900",
-      warning: "bg-yellow-50 border-yellow-500 text-yellow-900",
-      success: "bg-green-50 border-green-500 text-green-900",
-      error: "bg-red-50 border-red-500 text-red-900",
+      info: "bg-[#38a0b4]/10 border-[#38a0b4] text-[#272727]",
+      warning: "bg-[#932f2f]/10 border-[#932f2f] text-[#272727]",
+      success: "bg-pine-100 border-pine-600 text-[#272727]",
+      error: "bg-[#471717]/10 border-[#471717] text-[#272727]",
     };
 
     return (
@@ -190,7 +194,7 @@ export const MDXComponents = {
         className="rounded-lg w-full h-auto"
       />
       {caption && (
-        <figcaption className="text-center text-sm text-gray-500 mt-2 italic">
+        <figcaption className="text-center text-sm text-[#272727]/70 mt-2 italic">
           {caption}
         </figcaption>
       )}

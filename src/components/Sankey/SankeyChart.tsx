@@ -74,7 +74,7 @@ const chartConfig = {
   revenue: {
     id: "revenue-chart-root",
     colors: {
-      primary: "#249EDC",
+      primary: "#38a0b4",
     },
     direction: "right-to-left",
     differenceLabel: "Deficit",
@@ -82,7 +82,7 @@ const chartConfig = {
   spending: {
     id: "spending-chart-root",
     colors: {
-      primary: "#E3007D",
+      primary: "#932f2f",
     },
     direction: "left-to-right",
     differenceLabel: "Surplus",
@@ -227,17 +227,17 @@ export function SankeyChart(props: SankeyChartProps) {
             styles={{
               input: (base: any) => ({
                 ...base,
-                color: "#fff",
+                color: "#f6ebe3",
               }),
               singleValue: (base: any) => ({
                 ...base,
-                color: "#fff",
+                color: "#f6ebe3",
               }),
               control: (base: any) => ({
                 ...base,
-                color: "#fff",
-                backgroundColor: "#000",
-                borderColor: "#444",
+                color: "#f6ebe3",
+                backgroundColor: "#272727",
+                borderColor: "#A8A19B",
               }),
             }}
           />

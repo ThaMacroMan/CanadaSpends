@@ -18,7 +18,6 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import { useState, useCallback } from "react";
 import { NewsItem, budgetNewsData } from "@/lib/budgetNewsData";
 import { IS_BUDGET_2025_LIVE } from "@/lib/featureFlags";
-import Link from "next/link";
 import { localizedPath } from "@/lib/utils";
 
 const StatBox = ({
@@ -38,7 +37,7 @@ const StatBox = ({
     <div className="text-sm text-gray-600">{description}</div>
     {growthPercentage && (
       <div
-        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-green-600" : "text-red-600"}`}
+        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-pine-500" : "text-red-600"}`}
       >
         {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last year
@@ -85,7 +84,7 @@ const NewsTable = ({ newsData }: { newsData: NewsItem[] }) => (
               <span
                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                   item.isIncrease
-                    ? "bg-green-100 text-green-800"
+                    ? "bg-pine-100 text-pine-800"
                     : "bg-red-100 text-red-800"
                 }`}
               >
@@ -151,21 +150,6 @@ export default function Budget() {
   return (
     <Page>
       {/* Official Budget Banner - Only Show When Budget is Live */}
-      {IS_BUDGET_2025_LIVE && (
-        <div className="bg-indigo-950 text-white py-12 px-4 text-center">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4">
-              <Trans>Official Fall 2025 Federal Budget Released</Trans>
-            </h2>
-            <Link
-              href={localizedPath("/budget", i18n.locale)}
-              className="inline-block bg-white text-indigo-950 hover:bg-gray-100 font-medium py-3 px-6 transition-colors"
-            >
-              <Trans>View Federal 2025 Budget Details</Trans>
-            </Link>
-          </div>
-        </div>
-      )}
 
       <PageContent>
         <Section>
@@ -173,22 +157,12 @@ export default function Budget() {
             <Trans>Federal Fall 2025 Government Budget</Trans>
           </H1>
           <Intro>
-            {IS_BUDGET_2025_LIVE ? (
-              <Trans>
-                This page presents the official Fall 2025 Federal Budget as
-                released by the Government of Canada on November 4th, 2025. All
-                data is sourced directly from official government publications
-                and public accounts from the Government of Canada.
-              </Trans>
-            ) : (
-              <Trans>
-                The values you see here are based on the FY 2024 Budget with
-                preliminary updates based on government announcements, memos,
-                and leaks, and are meant to provide a rough idea of the budget.
-                Once the official Fall 2025 Budget is released on November 4th,
-                we will update this page to reflect the official budget.
-              </Trans>
-            )}
+            <Trans>
+              This page presents the official Fall 2025 Federal Budget as
+              released by the Government of Canada on November 4th, 2025. All
+              data is sourced directly from official government publications and
+              public accounts from the Government of Canada.
+            </Trans>
           </Intro>
         </Section>
         <Section>

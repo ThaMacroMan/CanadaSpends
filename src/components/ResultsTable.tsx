@@ -22,18 +22,20 @@ export function ResultsTable() {
     <div className="border rounded-md overflow-hidden mb-8">
       <Table className="table-fixed w-full">
         <TableHeader>
-          <TableRow className="bg-gray-50">
-            <TableHead className="w-[40%] pl-4 pr-2 sm:pl-6">
+          <TableRow className="bg-[#A8A19B]/20">
+            <TableHead className="w-[40%] pl-4 pr-2 sm:pl-6 text-[#272727]">
               Recipient / Department
             </TableHead>
-            <TableHead className="w-[27%] hidden md:table-cell px-2">
+            <TableHead className="w-[27%] hidden md:table-cell px-2 text-[#272727]">
               Program
             </TableHead>
-            <TableHead className="w-[8%] hidden sm:table-cell px-2">
+            <TableHead className="w-[8%] hidden sm:table-cell px-2 text-[#272727]">
               Fiscal Year
             </TableHead>
-            <TableHead className="w-[15%] text-right px-2">Amount</TableHead>
-            <TableHead className="w-[10%] text-center px-2 pr-4 sm:pr-6">
+            <TableHead className="w-[15%] text-right px-2 text-[#272727]">
+              Amount
+            </TableHead>
+            <TableHead className="w-[10%] text-center px-2 pr-4 sm:pr-6 text-[#272727]">
               Action
             </TableHead>
           </TableRow>
@@ -46,7 +48,7 @@ export function ResultsTable() {
             const formattedAmount = formatCurrency(hit.amount);
 
             return (
-              <TableRow key={hit.objectID} className="hover:bg-gray-50">
+              <TableRow key={hit.objectID} className="hover:bg-[#f6ebe3]/50">
                 <TableCell className="pl-4 pr-2 sm:pl-6">
                   <div className="max-w-md truncate">
                     <div
@@ -56,7 +58,7 @@ export function ResultsTable() {
                       {displayRecipient}
                     </div>
                     <div
-                      className="text-sm text-gray-500 truncate"
+                      className="text-sm text-[#272727]/70 truncate"
                       title={hit.payer}
                     >
                       {hit.payer}
@@ -72,7 +74,7 @@ export function ResultsTable() {
                 <TableCell className="hidden sm:table-cell px-2">
                   {hit.fiscal_year}
                 </TableCell>
-                <TableCell className="text-right font-medium text-blue-600 px-2 tabular-nums">
+                <TableCell className="text-right font-medium text-[#932f2f] px-2 tabular-nums">
                   ${formattedAmount}
                 </TableCell>
                 <TableCell className="text-center px-2 pr-4 sm:pr-6">
@@ -97,7 +99,7 @@ export function ResultsTable() {
                       </Button>
                     </a>
                   ) : (
-                    <span className="text-gray-400 text-sm">N/A</span> // Show N/A if no source_url
+                    <span className="text-[#272727]/40 text-sm">N/A</span> // Show N/A if no source_url
                   )}
                 </TableCell>
               </TableRow>

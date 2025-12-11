@@ -1,11 +1,11 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Financier Text", ui-sans-serif, system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   /* color-scheme: light dark; */
   /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #202122;
+  background-color: #272727;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,19 +15,19 @@
 
   --block-inner-padding: 16px;
   --block-outer-padding: 16px;
-  --color-text-base: #ffffff;
-  --color-neg-hover: #2763a4;
-  --color-neg-highlight: #00347b;
-  --color-neg-active: #299ed9;
-  --color-neg-text-active: #ffffff;
-  --color-neg-base: #9bc6ed;
-  --color-neg-text-base: #66c4ef;
-  --color-short-text: #ffffff;
-  --color-difference: #d9dada;
-  --color-difference-text: #ffffff;
-  --color-background: #202122;
-  --color-secondary-active: #fffde9;
-  --color-primary-active: #fff392;
+  --color-text-base: #f6ebe3;
+  --color-neg-hover: #19464f;
+  --color-neg-highlight: #19464f;
+  --color-neg-active: #38a0b4;
+  --color-neg-text-active: #f6ebe3;
+  --color-neg-base: #38a0b4;
+  --color-neg-text-base: #38a0b4;
+  --color-short-text: #f6ebe3;
+  --color-difference: #a8a19b;
+  --color-difference-text: #f6ebe3;
+  --color-background: #272727;
+  --color-secondary-active: #932f2f;
+  --color-primary-active: #471717;
 }
 
 #revenue-chart-root {
@@ -51,7 +51,7 @@
 /* Optionally adjust min-width to fit the charts */
 .sankey-chart-container {
   position: relative;
-  background-color: #202122;
+  background-color: #272727;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -66,9 +66,9 @@
   .sankey-chart-header {
     position: sticky;
     top: 0;
-    background-color: #202122;
+    background-color: #272727;
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(246, 235, 227, 0.1);
     z-index: 10;
     display: flex;
     justify-content: flex-end;
@@ -88,10 +88,10 @@
 
   .search-select-placeholder {
     height: 38px;
-    background-color: #000;
-    border: 1px solid #444;
+    background-color: #272727;
+    border: 1px solid #a8a19b;
     border-radius: 4px;
-    color: #fff;
+    color: #f6ebe3;
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -103,13 +103,13 @@
     min-width: 200px;
     max-width: 320px;
     position: fixed;
-    background-color: #000;
+    background-color: #272727;
     color: var(--color-text-base);
     padding: 10px;
     font-size: 12px;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(246, 235, 227, 0.1);
     pointer-events: all;
   }
 
@@ -142,13 +142,13 @@
   }
 
   .node-tooltip-link {
-    color: #66c4ef;
+    color: #38a0b4;
     text-decoration: none;
     font-size: 11px;
   }
 
   .node-tooltip-link:hover {
-    color: #299ed9;
+    color: #19464f;
     text-decoration: underline;
   }
   .charts {
@@ -259,7 +259,7 @@
   }
 
   .block.highlight:not(.with-background) .label {
-    color: #000000 !important;
+    color: #f6ebe3 !important;
   }
 
   .sankey-chart-svg .link {

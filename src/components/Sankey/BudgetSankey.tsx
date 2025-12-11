@@ -658,7 +658,7 @@ export function BudgetSankey({ onDataChange }: BudgetSankeyProps = {}) {
                       }
                       className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                       style={{
-                        background: `linear-gradient(to right, #3B82F6 0%, #3B82F6 ${(reduction / 15) * 100}%, #E5E7EB ${(reduction / 20) * 100}%, #E5E7EB 100%)`,
+                        background: `linear-gradient(to right, #932f2f 0%, #932f2f ${(reduction / 15) * 100}%, #A8A19B ${(reduction / 20) * 100}%, #A8A19B 100%)`,
                       }}
                     />
                     <div className="flex justify-between text-xs text-white">

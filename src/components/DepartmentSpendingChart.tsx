@@ -18,7 +18,7 @@ export function DepartmentSpendingChart(props: {
       value: item.Percentage,
       className:
         deps.includes(item.name) || deps.includes(item.slug)
-          ? "bg-emerald-500"
+          ? "bg-pine-300"
           : "",
     }));
   }, [departments]);
