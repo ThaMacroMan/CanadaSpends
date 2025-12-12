@@ -64,7 +64,7 @@ export class SankeyChartD3 {
           left: 1,
         },
         colors: {
-          primary: "#E3007D",
+          primary: "#932f2f",
         },
         shortBlockHeight: 16,
         data: null,

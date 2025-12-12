@@ -62,7 +62,7 @@ export const SalaryDistributionChart = () => {
     return [
       {
         value: adjustedMedian,
-        color: "amber",
+        color: "auburn",
         label: "Median Salary",
         axis: "x",
       },
@@ -146,7 +146,7 @@ export const SalaryDistributionChart = () => {
           data={chartData}
           index="range"
           categories={["Employees"]}
-          colors={["blue"]}
+          colors={["teal"]}
           showLegend={true}
           showGridLines={true}
           xAxisLabel={t`Salary Range`}

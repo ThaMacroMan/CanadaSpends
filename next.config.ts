@@ -11,19 +11,14 @@ const nextConfig: NextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   experimental: {
     swcPlugins: [["@lingui/swc-plugin", {}]],
-    turbo: {
-      rules: {
-        "*.po": {
-          loaders: ["@lingui/loader"],
-          as: "*.js",
-        },
-        "*.mdx": {
-          loaders: ["@mdx-js/loader"],
-          as: "*.js",
-        },
+  },
+  turbopack: {
+    rules: {
+      "*.po": {
+        loaders: ["@lingui/loader"],
+        as: "*.js",
       },
     },
-    mdxRs: false,
   },
   webpack: (config) => {
     config.module.rules.push({

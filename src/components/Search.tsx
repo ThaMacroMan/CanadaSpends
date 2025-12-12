@@ -204,7 +204,7 @@ function SearchControls() {
           }}
         />
       </div>
-      <div className="w-full px-4 mt-2 pb-2 border-b border-gray-200">
+      <div className="w-full px-4 mt-2 pb-2 border-b border-charcoal">
         <div className="flex flex-wrap gap-2">
           {/* Your RefinementListCombobox instances */}
           <RefinementListCombobox
@@ -270,7 +270,7 @@ function SearchControls() {
                 <div className="flex items-center gap-2 flex-wrap">
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
-                    <span className="text-sm text-gray-600 mr-2 shrink-0">
+                    <span className="text-sm text-charcoal mr-2 shrink-0">
                       Order By:
                     </span>
                     <Select
@@ -329,13 +329,12 @@ function SearchControls() {
                   {/* Separator */}
                   <div className="border-l pl-2 ml-2 h-6 hidden sm:block"></div>
                   {/* View Toggle with fixed styling */}
-                  <div className="flex rounded-md overflow-hidden border">
+                  <div className="flex rounded-md overflow-hidden border border-charcoal">
                     <Button
                       variant={viewMode === "table" ? "secondary" : "ghost"}
                       className={cn(
                         "h-9 rounded-none",
-                        viewMode === "table" &&
-                          "bg-slate-200 dark:bg-slate-700",
+                        viewMode === "table" && "bg-charcoal/30 text-charcoal",
                       )}
                       size="sm"
                       onClick={() => setViewMode("table")}
@@ -346,8 +345,7 @@ function SearchControls() {
                       variant={viewMode === "cards" ? "secondary" : "ghost"}
                       className={cn(
                         "h-9 rounded-none",
-                        viewMode === "cards" &&
-                          "bg-slate-200 dark:bg-slate-700",
+                        viewMode === "cards" && "bg-charcoal/30 text-charcoal",
                       )}
                       size="sm"
                       onClick={() => setViewMode("cards")}
@@ -360,7 +358,7 @@ function SearchControls() {
               {/* --- End Results Header Area --- */}
 
               {totalHits === 0 && hasFilters && (
-                <div className="text-center my-8 text-gray-600">
+                <div className="text-center my-8 text-charcoal">
                   <p>No results found matching your current filters.</p>
                 </div>
               )}
@@ -380,8 +378,8 @@ function SearchControls() {
                       root: "flex list-none p-0",
                       list: "flex list-none p-0 items-center",
                       item: "mx-1",
-                      link: "block px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100",
-                      selectedItem: "bg-blue-600 text-white border-blue-600",
+                      link: "block px-3 py-1 border border-charcoal rounded-md hover:bg-linen text-charcoal",
+                      selectedItem: "bg-auburn text-linen border-auburn",
                       disabledItem: "opacity-50 cursor-not-allowed",
                       previousPageItem: "mr-2",
                       nextPageItem: "ml-2",

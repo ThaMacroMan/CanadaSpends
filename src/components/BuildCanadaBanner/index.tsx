@@ -4,7 +4,7 @@ import React from "react";
 
 export default function BuildCanadaBanner() {
   return (
-    <div className="w-full bg-[#771e1e] text-white py-3 px-4 sm:px-12">
+    <div className="w-full bg-auburn-burgundy text-white py-3 px-4 sm:px-12">
       <div className="max-w-[120rem] m-auto text-center">
         <p className="text-sm sm:text-base">
           Help bring transparency to Canadians —{" "}

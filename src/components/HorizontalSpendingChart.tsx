@@ -17,12 +17,12 @@ interface HorizontalSpendingChartProps {
 }
 
 const defaultColors = [
-  "#1e40af", // blue-800
-  "#2563eb", // blue-600
-  "#3b82f6", // blue-500
-  "#60a5fa", // blue-400
-  "#93c5fd", // blue-300
-  "#dbeafe", // blue-100
+  "#471717", // darker auburn
+  "#932f2f", // auburn
+  "#19464F", // darker teal
+  "#38a0b4", // teal
+  "#A8A19B", // darker linen
+  "#f6ebe3", // linen
 ];
 
 export function HorizontalSpendingChart({
