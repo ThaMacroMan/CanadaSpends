@@ -256,7 +256,12 @@ export default async function ProvinceIndex({
           </Tooltip>
         </div>
       ),
-      value: `$${perCapitaSpending.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${perCapitaSpending.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>
           Annual municipal spending per {jurisdiction.name} resident
@@ -276,7 +281,12 @@ export default async function ProvinceIndex({
           </Tooltip>
         </div>
       ),
-      value: `$${propertyTaxPerCapita.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${propertyTaxPerCapita.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>Property tax revenue per {jurisdiction.name} resident</Trans>
       ),
