@@ -1,0 +1,223 @@
+{
+  "name": "Alberta",
+  "financialYear": "2024-25",
+  "source": "https://www.alberta.ca/government-and-ministry-annual-reports#24-25",
+  "totalProvincialSpending": "74.1",
+  "totalProvincialSpendingFormatted": "$74.1B",
+  "totalEmployees": "30,500",
+  "netDebt": null,
+  "totalDebt": null,
+  "debtInterest": 3.2,
+  "ministries": [
+    {
+      "name": "Advanced Education",
+      "slug": "advanced-education",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Affordability and Utilities",
+      "slug": "affordability-and-utilities",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Agriculture and Irrigation",
+      "slug": "agriculture-and-irrigation",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Arts, Culture and Status of Women",
+      "slug": "arts-culture-and-status-of-women",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Assisted Living and Social Services",
+      "slug": "assisted-living-and-social-services",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Children and Family Services",
+      "slug": "children-and-family-services",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Education and Childcare",
+      "slug": "education-and-childcare",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Energy and Minerals",
+      "slug": "energy-and-minerals",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Environment and Protected Areas",
+      "slug": "environment-and-protected-areas",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Executive Council",
+      "slug": "executive-council",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Forestry and Parks",
+      "slug": "forestry-and-parks",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Hospital and Surgical Health Services",
+      "slug": "hospital-and-surgical-health-services",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Indigenous Relations",
+      "slug": "indigenous-relations",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Infrastructure",
+      "slug": "infrastructure",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Jobs, Economy, Trade and Immigration",
+      "slug": "jobs-economy-trade-and-immigration",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Justice",
+      "slug": "justice",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Mental Health and Addiction",
+      "slug": "mental-health-and-addiction",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Municipal Affairs",
+      "slug": "municipal-affairs",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Primary and Preventive Health Services",
+      "slug": "primary-and-preventive-health-services",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Public Safety and Emergency Services",
+      "slug": "public-safety-and-emergency-services",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Service Alberta and Red Tape Reduction",
+      "slug": "service-alberta-and-red-tape-reduction",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Technology and Innovation",
+      "slug": "technology-and-innovation",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Tourism and Sport",
+      "slug": "tourism-and-sport",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Transportation and Economic Corridors",
+      "slug": "transportation-and-economic-corridors",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Treasury Board and Finance",
+      "slug": "treasury-board-and-finance",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    },
+    {
+      "name": "Other Expenses",
+      "slug": "other-expenses",
+      "totalSpending": null,
+      "totalSpendingFormatted": "",
+      "percentage": null,
+      "percentageFormatted": ""
+    }
+  ],
+  "credits": "Built by [Sathvik](https://www.linkedin.com/in/sathvik-divili/)",
+  "generatedAt": ""
+}

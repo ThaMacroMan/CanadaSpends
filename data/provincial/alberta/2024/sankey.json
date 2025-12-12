@@ -1,0 +1,209 @@
+{
+  "total": 74.1,
+  "spending": 74.1,
+  "revenue": 82.469,
+  "spending_data": {
+    "name": "Spending",
+    "children": [
+      {
+        "name": "Advanced Education",
+        "children": []
+      },
+      {
+        "name": "Affordability and Utilities",
+        "children": []
+      },
+      {
+        "name": "Agriculture and Irrigation",
+        "children": []
+      },
+      {
+        "name": "Arts, Culture and Status of Women",
+        "children": []
+      },
+      {
+        "name": "Assisted Living and Social Services",
+        "children": []
+      },
+      {
+        "name": "Children and Family Services",
+        "children": []
+      },
+      {
+        "name": "Education and Childcare",
+        "children": []
+      },
+      {
+        "name": "Energy and Minerals",
+        "children": []
+      },
+      {
+        "name": "Environment and Protected Areas",
+        "children": []
+      },
+      {
+        "name": "Executive Council",
+        "children": []
+      },
+      {
+        "name": "Forestry and Parks",
+        "children": []
+      },
+      {
+        "name": "Hospital and Surgical Health Services",
+        "children": []
+      },
+      {
+        "name": "Indigenous Relations",
+        "children": []
+      },
+      {
+        "name": "Infrastructure",
+        "children": []
+      },
+      {
+        "name": "Jobs, Economy, Trade and Immigration",
+        "children": []
+      },
+      {
+        "name": "Justice",
+        "children": []
+      },
+      {
+        "name": "Mental Health and Addiction",
+        "children": []
+      },
+      {
+        "name": "Municipal Affairs",
+        "children": []
+      },
+      {
+        "name": "Primary and Preventive Health Services",
+        "children": []
+      },
+      {
+        "name": "Public Safety and Emergency Services",
+        "children": []
+      },
+      {
+        "name": "Service Alberta and Red Tape Reduction",
+        "children": []
+      },
+      {
+        "name": "Technology and Innovation",
+        "children": []
+      },
+      {
+        "name": "Tourism and Sport",
+        "children": []
+      },
+      {
+        "name": "Transportation and Economic Corridors",
+        "children": []
+      },
+      {
+        "name": "Treasury Board and Finance",
+        "children": []
+      },
+      {
+        "name": "Other Expenses",
+        "children": []
+      }
+    ]
+  },
+  "revenue_data": {
+    "name": "Revenue",
+    "children": [
+      {
+        "name": "Revenue → Income and Other Taxes",
+        "children": [
+          {
+            "name": "Revenue → Income and Other Taxes → Personal Income Tax",
+            "amount": 16.12
+          },
+          {
+            "name": "Revenue → Income and Other Taxes → Corporate Income Tax",
+            "amount": 8.125
+          },
+          {
+            "name": "Revenue → Income and Other Taxes → Education Property Tax",
+            "amount": 2.797
+          },
+          {
+            "name": "Revenue → Income and Other Taxes → Other Taxes",
+            "amount": 3.314
+          }
+        ]
+      },
+      {
+        "name": "Revenue → Non-Renewable Resource Revenue",
+        "children": [
+          {
+            "name": "Revenue → Non-Renewable Resource Revenue → Bitumen Royalties",
+            "amount": 17.167
+          },
+          {
+            "name": "Revenue → Non-Renewable Resource Revenue → Other Non-Renewable Resource Revenue",
+            "amount": 4.819
+          }
+        ]
+      },
+      {
+        "name": "Revenue → Transfers From Government of Canada",
+        "children": [
+          {
+            "name": "Revenue → Transfers From Government of Canada → Canada Social Transfer / Canada Health Transfer",
+            "amount": 8.154
+          },
+          {
+            "name": "Revenue → Transfers From Government of Canada → Other Transfers From Government of Canada",
+            "amount": 4.465
+          }
+        ]
+      },
+      {
+        "name": "Revenue → Investment Income",
+        "children": [
+          {
+            "name": "Revenue → Investment Income → Heritage / Endowment Fund Investment Income",
+            "amount": 2.571
+          },
+          {
+            "name": "Revenue → Investment Income → Other Investment Income",
+            "amount": 2.232
+          }
+        ]
+      },
+      {
+        "name": "Revenue → Net Income / (Loss) From Government Business Enterprises",
+        "children": [
+          {
+            "name": "Revenue → Net Income / (Loss) From Government Business Enterprises → Net Income / (Loss) From Government Business Enterprises",
+            "amount": 2.053
+          }
+        ]
+      },
+      {
+        "name": "Revenue → Other Revenue (Incl. Premiums, Fees and Licences)",
+        "children": [
+          {
+            "name": "Revenue → Other Revenue (Incl. Premiums, Fees and Licences) → Post-Secondary Institution Tuition Fees",
+            "amount": 2.058
+          },
+          {
+            "name": "Revenue → Other Revenue (Incl. Premiums, Fees and Licences) → Other Premiums, Fees and Licenses",
+            "amount": 3.445
+          },
+          {
+            "name": "Revenue → Other Revenue (Incl. Premiums, Fees and Licences) → SUCH Sector Sales, Rentals / Fundraising, Donations",
+            "amount": 1.973
+          },
+          {
+            "name": "Revenue → Other Revenue (Incl. Premiums, Fees and Licences) → Other Revenue",
+            "amount": 3.176
+          }
+        ]
+      }
+    ]
+  }
+}
