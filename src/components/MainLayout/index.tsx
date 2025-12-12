@@ -6,7 +6,6 @@ import { Trans, useLingui } from "@lingui/react/macro";
 import Image from "next/image";
 import Link from "next/link";
 import logoFull from "./logo-full.svg";
-import logoGlyph from "./logo-glyph.svg";
 import { useState, memo } from "react";
 import { X, Menu, ChevronDown, ChevronRight } from "lucide-react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
@@ -83,18 +82,13 @@ export const MainLayout = ({
         <div className="w-full max-w-6xl mx-auto">
           <div className="items-stretch auto-cols-fr justify-between flex min-h-16 gap-2 sm:gap-8 m-auto">
             <Link
-              className="items-center float-left justify-center flex pl-0"
+              className="items-center justify-start flex pl-0"
               href={`/${i18n.locale}`}
             >
               <Image
-                className="cursor-pointer align-middle w-40 h-12 max-w-full hidden sm:block"
+                className="cursor-pointer align-middle w-40 h-12 max-w-full"
                 alt="Canada Spends Logo"
                 src={logoFull}
-              />
-              <Image
-                className="cursor-pointer align-middle inline-block w-40 h-12 max-w-full sm:hidden min-w-[75px]"
-                alt="Canada Spends Logo"
-                src={logoGlyph}
               />
             </Link>
             {/* Desktop Navigation */}

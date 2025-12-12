@@ -179,7 +179,7 @@ export default async function Page(props: PageLangParam) {
         </PageContent>
       </div>
       <PageContent>
-        <Section className="bg-[#fafafa]">
+        <Section className="bg-background-light">
           <NoSSR>
             <TwitterFeed />
           </NoSSR>

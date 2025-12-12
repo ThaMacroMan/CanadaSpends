@@ -606,7 +606,7 @@
  * SearchBox
  */
 .ais-SearchBox-form {
-  background-color: #fff;
+  background-color: #ffffff;
   display: flex;
   font-size: 0.875rem;
   height: 2.5rem;
@@ -632,12 +632,12 @@
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: #fff;
-  border: 1px solid #d6d6e7;
+  background-color: #ffffff;
+  border: 1px solid #a8a19b;
   border-radius: 3px;
-  box-shadow: rgba(119, 122, 175, 0.3) 0 1px 4px 0 inset;
-  caret-color: #5a5e9a;
-  color: #23263b;
+  box-shadow: rgba(168, 161, 155, 0.3) 0 1px 4px 0 inset;
+  caret-color: #272727;
+  color: #272727;
   flex: 1 1 0%;
   font: inherit;
   max-width: 100%;
@@ -645,16 +645,18 @@
 }
 
 .ais-SearchBox-input::-moz-placeholder {
-  color: #5a5e9a;
+  color: #272727;
+  opacity: 0.5;
 }
 
 .ais-SearchBox-input::placeholder {
-  color: #5a5e9a;
+  color: #272727;
+  opacity: 0.5;
 }
 
 .ais-SearchBox-input:focus {
-  border-color: #3c4fe0;
-  box-shadow: rgba(35, 38, 59, 0.05) 0 1px 0 0;
+  border-color: #38a0b4;
+  box-shadow: rgba(56, 160, 180, 0.2) 0 0 0 3px;
   outline: currentcolor none medium;
 }
 
@@ -757,8 +759,8 @@
  */
 .ais-Highlight-highlighted,
 .ais-Snippet-highlighted {
-  background-color: rgba(84, 104, 255, 0.1);
-  color: #5468ff;
+  background-color: rgba(147, 47, 47, 0.1);
+  color: #932f2f;
   font-style: normal;
 }
 

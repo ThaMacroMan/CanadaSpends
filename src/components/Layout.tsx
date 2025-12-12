@@ -37,7 +37,9 @@ export const H1 = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <h1 className={`text-4xl sm:text-5xl font-bold tracking-tight ${className}`}>
+  <h1
+    className={`text-4xl sm:text-5xl font-bold tracking-tight font-display ${className}`}
+  >
     {children}
   </h1>
 );
@@ -48,7 +50,11 @@ export const H2 = ({
 }: {
   children: React.ReactNode;
   className?: string;
-}) => <h2 className={`text-2xl font-bold mb-6 ${className}`}>{children}</h2>;
+}) => (
+  <h2 className={`text-2xl font-bold mb-6 font-display ${className}`}>
+    {children}
+  </h2>
+);
 
 export const H3 = ({
   children,
@@ -57,7 +63,9 @@ export const H3 = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <h3 className={`text-xl text-gray-600 font-bold mb-6 ${className}`}>
+  <h3
+    className={`text-xl text-charcoal font-bold mb-6 font-display ${className}`}
+  >
     {children}
   </h3>
 );
@@ -77,7 +85,7 @@ export const P = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <p className={`text-gray-600 leading-relaxed mb-4 ${className}`}>
+  <p className={`text-charcoal leading-relaxed mb-4 ${className}`}>
     {children}
   </p>
 );
@@ -90,7 +98,7 @@ export const UL = ({
   className?: string;
 }) => (
   <ul
-    className={`text-gray-600 leading-relaxed mb-4 list-disc list-inside ${className}`}
+    className={`text-charcoal leading-relaxed mb-4 list-disc list-inside ${className}`}
   >
     {children}
   </ul>
@@ -105,7 +113,7 @@ export const Intro = ({
 }) => <P className={`mt-4 text-lg ${className}`}>{children}</P>;
 
 export const Page = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen bg-[#f8fafc]">{children}</div>
+  <div className="min-h-screen bg-linen">{children}</div>
 );
 
 export const PageContent = ({
@@ -133,7 +141,7 @@ export const ExternalLink = ({
 }) => (
   <a
     href={href}
-    className={`text-blue-500 underline hover:text-blue-600 ${className}`}
+    className={`text-auburn underline hover:text-auburn-dark ${className}`}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -158,7 +166,7 @@ export const InternalLink = ({
   return (
     <Link
       href={localizedHref}
-      className={`text-blue-500 underline hover:text-blue-600 ${className}`}
+      className={`text-auburn underline hover:text-auburn-dark ${className}`}
     >
       {children}
     </Link>
