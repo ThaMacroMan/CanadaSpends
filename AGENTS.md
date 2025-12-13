@@ -95,6 +95,11 @@ src/
 │   ├── jurisdictions.ts  # Jurisdiction data
 │   ├── articles.ts       # Article utilities
 │   └── ...
+├── styles/               # Styling and Design Tokens
+│   ├── colours/          # Color definitions (TS + CSS)
+│   ├── charts/           # Chart-specific CSS (Sankey, etc.)
+│   ├── themes/           # Theme definitions
+│   └── ...
 ├── hooks/                # Custom React hooks
 ├── locales/              # i18n message catalogs (en.po, fr.po)
 └── types/                # TypeScript type definitions
@@ -112,7 +117,27 @@ scrapers/                # Data scraping scripts
 ├── public_accounts/     # Public accounts PDF scraping
 ├── nserc/              # NSERC grant scraping
 └── ...
+
+colours/                  # Documentation and previews for color palettes
 ```
+
+## Styling & Theming
+
+The project uses a hybrid styling approach:
+
+1.  **Tailwind CSS 4**: The primary engine for utility classes and layout.
+2.  **Design Tokens**: Colors are defined in `src/styles/colours/` and exported both as:
+    - **TypeScript objects**: In `src/styles/colours/index.ts` (e.g., `colours.canada_red`) for use in D3/Recharts.
+    - **CSS Variables**: In `src/styles/colours/*.css` for use in Tailwind and custom CSS.
+3.  **Chart Styling**: Complex charts (like Sankey) use dedicated CSS files in `src/styles/charts/`.
+    - **Sankey Charts**: Styled via `src/styles/charts/sankey.css`. Highlighting classes are grouped at the end of the file under a "Highlighting" comment section.
+4.  **Reference**: The root `colours/` directory contains HTML previews and Markdown documentation for the design system.
+
+**Best Practices**:
+
+- **Colors**: Use `var(--color-name)` in CSS or import `colours` from `@/styles/colours` in TS.
+- **Charts**: Keep chart-specific CSS in `src/styles/charts/` rather than `globals.css`.
+- **Theme Updates**: When adding colors, update both the TS definition and the corresponding CSS file.
 
 ## Key Patterns
 
@@ -150,13 +175,6 @@ scrapers/                # Data scraping scripts
 - **Data Utilities**: Use functions from `@/lib/jurisdictions` for jurisdiction/department data
 - **File-based Data**: JSON data files in `data/` directory are referenced by slug
 - **Type Safety**: Data loading functions return typed results based on file structure
-
-### Styling
-
-- Tailwind CSS with custom configuration in `tailwind.config.ts`
-- Custom animations defined in theme extensions
-- CSS variables for theming (shadcn/ui)
-- Use `@tailwindcss/forms` plugin for better form styling
 
 ### Routing
 
@@ -235,12 +253,6 @@ scrapers/                # Data scraping scripts
 - `scripts/generate-statics.ts` runs during build
 - Generates `data/static-data.json` with file metadata and structure
 - Used for sitemap generation and build optimization
-
-### Branding and Design
-
-- Colour palettes and design tokens documented in `colours/` directory
-- Includes HTML previews and Markdown documentation
-- Refer to these files when creating new UI components to maintain brand consistency
 
 ## Scrapers
 

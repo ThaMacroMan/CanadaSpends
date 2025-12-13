@@ -53,3 +53,7 @@ scrapers/*/data/**
 scrapers/data
 
 tmp/
+
+flake.lock
+flake.nix
+bun.lock
