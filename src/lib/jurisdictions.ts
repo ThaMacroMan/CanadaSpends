@@ -116,6 +116,12 @@ export type Jurisdiction = {
   totalProvincialSpending: number;
   total: number;
   source: string;
+  sources?: Array<{
+    label: string;
+    url: string;
+    scope?: string;
+  }>;
+  // Optional list of ministries from summary.json; used for fallback counts
   ministries?: unknown[];
   debtInterest: number;
   netDebt: number;

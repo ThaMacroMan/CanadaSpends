@@ -1,0 +1,195 @@
+{
+  "name": "Edmonton",
+  "financialYear": "2024",
+  "source": "https://www.edmonton.ca/sites/default/files/public-files/FinancialAnnualReportConsolidatedFinancialStatements2024.pdf?cb=1761586265",
+  "sources": [
+    {
+      "label": "Financial Annual Report Consolidated Financial Statements 2024",
+      "url": "https://www.edmonton.ca/sites/default/files/public-files/FinancialAnnualReportConsolidatedFinancialStatements2024.pdf?cb=1761586265",
+      "scope": "City-level revenue and spending"
+    },
+    {
+      "label": "Financial Annual Report 2024",
+      "url": "https://www.edmonton.ca/sites/default/files/public-files/2024FinancialAnnualReport.pdf?cb=1746489478",
+      "scope": "Debt and employee data"
+    }
+  ],
+  "totalProvincialSpending": 3.819822,
+  "totalProvincialSpendingFormatted": "$3.8B",
+  "totalEmployees": 16064,
+  "netDebt": 4.368432,
+  "totalDebt": 4.79598,
+  "debtInterest": 0.162024,
+  "ministries": [
+    {
+      "name": "Transportation Services",
+      "slug": "transportation-services",
+      "totalSpending": 1113.995,
+      "percentage": 29.161461127597398,
+      "percentageFormatted": "29.2%",
+      "totalSpendingFormatted": "$1.1B",
+      "subcategories": [
+        {
+          "name": "Bus and light rail transit",
+          "totalSpending": 623.513,
+          "percentage": 55.97,
+          "percentageFormatted": "56.0%",
+          "totalSpendingFormatted": "$0.6B"
+        },
+        {
+          "name": "Roadway and parking",
+          "totalSpending": 490.482,
+          "percentage": 44.03,
+          "percentageFormatted": "44.0%",
+          "totalSpendingFormatted": "$0.5B"
+        }
+      ]
+    },
+    {
+      "name": "Protective Services",
+      "slug": "protective-services",
+      "totalSpending": 909.246,
+      "percentage": 23.80268829032058,
+      "percentageFormatted": "23.8%",
+      "totalSpendingFormatted": "$0.9B",
+      "subcategories": [
+        {
+          "name": "Police",
+          "totalSpending": 587.58,
+          "percentage": 64.62,
+          "percentageFormatted": "64.6%",
+          "totalSpendingFormatted": "$0.6B"
+        },
+        {
+          "name": "Fire rescue",
+          "totalSpending": 239.633,
+          "percentage": 26.35,
+          "percentageFormatted": "26.4%",
+          "totalSpendingFormatted": "$0.2B"
+        },
+        {
+          "name": "Bylaw enforcement",
+          "totalSpending": 82.033,
+          "percentage": 9.02,
+          "percentageFormatted": "9.0%",
+          "totalSpendingFormatted": "$0.1B"
+        }
+      ]
+    },
+    {
+      "name": "Community Services",
+      "slug": "community-services",
+      "totalSpending": 839.792,
+      "percentage": 21.987002779905847,
+      "percentageFormatted": "22.0%",
+      "totalSpendingFormatted": "$0.8B",
+      "subcategories": [
+        {
+          "name": "Parks and recreation",
+          "totalSpending": 342.819,
+          "percentage": 40.82,
+          "percentageFormatted": "40.8%",
+          "totalSpendingFormatted": "$0.3B"
+        },
+        {
+          "name": "Planning and corporate properties",
+          "totalSpending": 171.579,
+          "percentage": 20.43,
+          "percentageFormatted": "20.4%",
+          "totalSpendingFormatted": "$0.2B"
+        },
+        {
+          "name": "Convention and tourism",
+          "totalSpending": 98.381,
+          "percentage": 11.71,
+          "percentageFormatted": "11.7%",
+          "totalSpendingFormatted": "$0.1B"
+        },
+        {
+          "name": "Community and family",
+          "totalSpending": 73.09,
+          "percentage": 8.7,
+          "percentageFormatted": "8.7%",
+          "totalSpendingFormatted": "$0.1B"
+        },
+        {
+          "name": "Public library",
+          "totalSpending": 72.034,
+          "percentage": 8.58,
+          "percentageFormatted": "8.6%",
+          "totalSpendingFormatted": "$0.1B"
+        },
+        {
+          "name": "Public housing",
+          "totalSpending": 81.889,
+          "percentage": 9.75,
+          "percentageFormatted": "9.8%",
+          "totalSpendingFormatted": "$0.1B"
+        }
+      ]
+    },
+    {
+      "name": "General Municipal",
+      "slug": "general-municipal",
+      "totalSpending": 372.114,
+      "percentage": 9.741662825907722,
+      "percentageFormatted": "9.7%",
+      "totalSpendingFormatted": "$0.4B"
+    },
+    {
+      "name": "Utility and Enterprise Services",
+      "slug": "utility-and-enterprise-services",
+      "totalSpending": 270.485,
+      "percentage": 7.082149807398833,
+      "percentageFormatted": "7.1%",
+      "totalSpendingFormatted": "$0.3B",
+      "subcategories": [
+        {
+          "name": "Waste services utility",
+          "totalSpending": 236.861,
+          "percentage": 87.56,
+          "percentageFormatted": "87.6%",
+          "totalSpendingFormatted": "$0.2B"
+        },
+        {
+          "name": "Land enterprise",
+          "totalSpending": 30.388,
+          "percentage": 11.24,
+          "percentageFormatted": "11.2%",
+          "totalSpendingFormatted": "$0.0B"
+        },
+        {
+          "name": "Blatchford renewable energy utility",
+          "totalSpending": 3.236,
+          "percentage": 1.2,
+          "percentageFormatted": "1.2%",
+          "totalSpendingFormatted": "$0.0B"
+        }
+      ]
+    },
+    {
+      "name": "Corporate Administration",
+      "slug": "corporate-administration",
+      "totalSpending": 266.713,
+      "percentage": 6.980754169138894,
+      "percentageFormatted": "7.0%",
+      "totalSpendingFormatted": "$0.3B"
+    },
+    {
+      "name": "Fleet Services",
+      "slug": "fleet-services",
+      "totalSpending": 43.227,
+      "percentage": 1.1317399877304824,
+      "percentageFormatted": "1.1%",
+      "totalSpendingFormatted": "$0.0B"
+    },
+    {
+      "name": "Ed Tel Endowment Fund",
+      "slug": "ed-tel-endowment-fund",
+      "totalSpending": 4.25,
+      "percentage": 0.11130101199910565,
+      "percentageFormatted": "0.1%",
+      "totalSpendingFormatted": "$0.0B"
+    }
+  ]
+}

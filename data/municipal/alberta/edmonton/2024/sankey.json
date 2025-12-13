@@ -1,0 +1,240 @@
+{
+  "total": 5.335634,
+  "spending": 4.353534,
+  "revenue": 5.335634,
+  "spending_data": {
+    "name": "Spending",
+    "children": [
+      {
+        "name": "Transportation Services",
+        "children": [
+          {
+            "name": "Transportation Services → Bus and light rail transit",
+            "amount": 0.623513
+          },
+          {
+            "name": "Transportation Services → Roadway and parking",
+            "amount": 0.490482
+          }
+        ]
+      },
+      {
+        "name": "Protective Services",
+        "children": [
+          {
+            "name": "Protective Services → Police",
+            "amount": 0.58758
+          },
+          {
+            "name": "Protective Services → Fire rescue",
+            "amount": 0.239633
+          },
+          {
+            "name": "Protective Services → Bylaw enforcement",
+            "amount": 0.082033
+          }
+        ]
+      },
+      {
+        "name": "Community Services",
+        "children": [
+          {
+            "name": "Community Services → Parks and recreation",
+            "amount": 0.342819
+          },
+          {
+            "name": "Community Services → Planning and corporate properties",
+            "amount": 0.171579
+          },
+          {
+            "name": "Community Services → Convention and tourism",
+            "amount": 0.098381
+          },
+          {
+            "name": "Community Services → Community and family",
+            "amount": 0.07309
+          },
+          {
+            "name": "Community Services → Public library",
+            "amount": 0.072034
+          },
+          {
+            "name": "Community Services → Public housing",
+            "amount": 0.081889
+          }
+        ]
+      },
+      {
+        "name": "Utility and Enterprise Services",
+        "children": [
+          {
+            "name": "Utility and Enterprise Services → Waste services utility",
+            "amount": 0.236861
+          },
+          {
+            "name": "Utility and Enterprise Services → Land enterprise",
+            "amount": 0.030388
+          },
+          {
+            "name": "Utility and Enterprise Services → Blatchford renewable energy utility",
+            "amount": 0.003236
+          }
+        ]
+      },
+      {
+        "name": "General Municipal",
+        "children": [
+          {
+            "name": "General Municipal → General municipal",
+            "amount": 0.372114
+          }
+        ]
+      },
+      {
+        "name": "Corporate Administration",
+        "children": [
+          {
+            "name": "Corporate Administration → Corporate administration",
+            "amount": 0.266713
+          }
+        ]
+      },
+      {
+        "name": "Fleet Services",
+        "children": [
+          {
+            "name": "Fleet Services → Fleet Services",
+            "amount": 0.043227
+          }
+        ]
+      },
+      {
+        "name": "Ed Tel Endowment Fund",
+        "children": [
+          {
+            "name": "Ed Tel Endowment Fund → Ed Tel Endowment Fund",
+            "amount": 0.00425
+          }
+        ]
+      },
+      {
+        "name": "Transfers to Partners",
+        "children": [
+          {
+            "name": "Transfers → Transferred to the Provincial Government (Education Tax)",
+            "amount": 0.52912
+          },
+          {
+            "name": "Transfers → Transferred to Local Business Boards (Business Improvement Areas)",
+            "amount": 0.004592
+          }
+        ]
+      }
+    ]
+  },
+  "revenue_data": {
+    "name": "Revenue",
+    "children": [
+      {
+        "name": "Taxes Collected for Municipal & Provincial Purposes",
+        "children": [
+          {
+            "name": "Taxes Collected → Property taxes",
+            "amount": 2.61634
+          },
+          {
+            "name": "Taxes Collected → Community revitalization levy (CRL)",
+            "amount": 0.040729
+          },
+          {
+            "name": "Taxes Collected → Revenue in lieu of taxes",
+            "amount": 0.02571
+          },
+          {
+            "name": "Taxes Collected → Special tax - alley lighting",
+            "amount": 0.000897
+          },
+          {
+            "name": "Taxes Collected → Tax appeals and allowances",
+            "amount": -0.026549
+          },
+          {
+            "name": "Taxes Collected → Other",
+            "amount": 0.013473
+          }
+        ]
+      },
+      {
+        "name": "User fees and sale of goods and services",
+        "amount": 0.652311
+      },
+      {
+        "name": "Subsidiary operations - EPCOR",
+        "amount": 0.426479
+      },
+      {
+        "name": "Franchise fees",
+        "amount": 0.222436
+      },
+      {
+        "name": "Investment earnings",
+        "amount": 0.201723
+      },
+      {
+        "name": "Government transfers - operating",
+        "children": [
+          {
+            "name": "Government transfers - operating → Federal",
+            "amount": 0.060082
+          },
+          {
+            "name": "Government transfers - operating → Provincial",
+            "amount": 0.105711
+          }
+        ]
+      },
+      {
+        "name": "Licences and permits",
+        "amount": 0.093958
+      },
+      {
+        "name": "Fines and penalties",
+        "amount": 0.069225
+      },
+      {
+        "name": "Developer and customer contributions - operating",
+        "amount": 0.032787
+      },
+      {
+        "name": "Other",
+        "children": [
+          {
+            "name": "Other → Government transfers - capital",
+            "children": [
+              {
+                "name": "Other → Government transfers - capital → Federal",
+                "amount": 0.290385
+              },
+              {
+                "name": "Other → Government transfers - capital → Provincial",
+                "amount": 0.411098
+              }
+            ]
+          },
+          {
+            "name": "Other → Contributed tangible capital assets",
+            "amount": 0.061611
+          },
+          {
+            "name": "Other → Developer and customer contributions - capital",
+            "amount": 0.030235
+          },
+          {
+            "name": "Other → Local improvements",
+            "amount": 0.006993
+          }
+        ]
+      }
+    ]
+  }
+}

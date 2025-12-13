@@ -256,7 +256,12 @@ export default async function ProvinceIndex({
           </Tooltip>
         </div>
       ),
-      value: `$${perCapitaSpending.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${perCapitaSpending.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>
           Annual municipal spending per {jurisdiction.name} resident
@@ -276,7 +281,12 @@ export default async function ProvinceIndex({
           </Tooltip>
         </div>
       ),
-      value: `$${propertyTaxPerCapita.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${propertyTaxPerCapita.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>Property tax revenue per {jurisdiction.name} resident</Trans>
       ),
@@ -322,7 +332,11 @@ export default async function ProvinceIndex({
           <div className="absolute bottom-3 left-6">
             <ExternalLink
               className="text-xs text-gray-400"
-              href={jurisdiction.source}
+              href={
+                jurisdiction.sources && jurisdiction.sources.length > 0
+                  ? jurisdiction.sources[0].url
+                  : jurisdiction.source
+              }
             >
               <Trans>Source</Trans>
             </ExternalLink>
@@ -373,15 +387,33 @@ export default async function ProvinceIndex({
               description={<Trans>Government organizations</Trans>}
             />
           </div>
-          <P className="text-sm mt-4">
-            <Trans>Sources:</Trans>{" "}
-            <ExternalLink href={jurisdiction.source}>
-              <Trans>
-                Public Accounts of {jurisdiction.name} FY{" "}
-                {jurisdiction.financialYear}
-              </Trans>
-            </ExternalLink>
-          </P>
+          {jurisdiction.sources && jurisdiction.sources.length > 0 ? (
+            <div className="text-sm mt-4">
+              <span className="font-medium">
+                <Trans>Sources:</Trans>
+              </span>
+              <ul className="mt-2 space-y-1">
+                {jurisdiction.sources.map((src, idx) => (
+                  <li key={idx}>
+                    <ExternalLink href={src.url}>{src.label}</ExternalLink>
+                    {src.scope && (
+                      <span className="text-gray-500"> — {src.scope}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <P className="text-sm mt-4">
+              <Trans>Sources:</Trans>{" "}
+              <ExternalLink href={jurisdiction.source}>
+                <Trans>
+                  Public Accounts of {jurisdiction.name} FY{" "}
+                  {jurisdiction.financialYear}
+                </Trans>
+              </ExternalLink>
+            </P>
+          )}
         </Section>
         {departments && departments.length > 0 && (
           <Section>

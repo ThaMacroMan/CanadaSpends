@@ -274,6 +274,10 @@
     background-color: var(--color-background-sankey);
   }
 
+  #revenue-chart-root .block.current-node {
+    background-color: var(--color-revenue-primary-active) !important;
+  }
+
   .label .label-amount {
     font-weight: 700;
     min-width: 60px;
