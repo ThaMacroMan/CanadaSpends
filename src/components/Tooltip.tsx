@@ -3,7 +3,7 @@ import "./Tooltip.css";
 
 type TooltipProps = {
   children: React.ReactNode;
-  text: string;
+  text: React.ReactNode;
 };
 
 export const Tooltip = ({ children, text }: TooltipProps) => {
