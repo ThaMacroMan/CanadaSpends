@@ -54,6 +54,11 @@ scrapers/data
 
 tmp/
 
+# Local UNIX dev
 flake.lock
 flake.nix
 bun.lock
+.dockerignore
+AGENTS.md
+Dockerfile
+docker-compose.yml
