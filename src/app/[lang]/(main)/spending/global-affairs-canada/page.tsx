@@ -23,6 +23,7 @@ import type { PropsWithChildren } from "react";
 import { FederalSpendingByEntity } from "./FederalSpendingByEntity";
 import { FederalSpendingChart } from "./FederalSpendingChart";
 import { MiniSankey } from "./MiniSankey";
+import UpdatedAt from "../_common/updatedAt";
 
 export async function generateMetadata(
   props: PropsWithChildren<PageLangParam>,
@@ -71,9 +72,9 @@ export default async function Department(props: PageLangParam) {
         </Section>
 
         <Section>
-          <div className="text-sm text-gray-500 italic">
+          <UpdatedAt>
             <Trans>Data updated March 21, 2025</Trans>
-          </div>
+          </UpdatedAt>
           <StatCardContainer>
             <StatCard
               title={t`In FY 2024,`}

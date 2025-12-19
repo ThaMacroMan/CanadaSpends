@@ -4,10 +4,10 @@ import { SankeyData } from "./SankeyChartD3";
 
 export function JurisdictionSankey({
   data,
-  jurisdictionSlug,
+  // jurisdictionSlug,
 }: {
   data: SankeyData;
-  jurisdictionSlug?: string;
+  // jurisdictionSlug?: string;
 }) {
-  return <SankeyChart data={data} jurisdictionSlug={jurisdictionSlug} />;
+  return <SankeyChart data={data} />;
 }

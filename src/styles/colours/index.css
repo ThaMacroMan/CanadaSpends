@@ -1,0 +1,20 @@
+/* Build Canada Colours */
+@import "./canada-red.css";
+@import "./charcoal.css";
+@import "./linen.css";
+
+/* Mackenzie's Chart Colours */
+@import "./aurora.css";
+@import "./copper.css";
+@import "./lake.css";
+@import "./maritime.css";
+@import "./nickel.css";
+@import "./pine.css";
+@import "./steel.css";
+
+/* Andrew's Vibrant Colours */
+@import "./auburn.css"; /* Parity with Canada Red */
+@import "./cerulean.css";
+@import "./sienna.css";
+@import "./amethyst.css";
+@import "./emerald.css";

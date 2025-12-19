@@ -38,7 +38,7 @@ export default function SearchPage() {
           <Search />
         </Section>
         <Section className="px-6 mb-4">
-          <P className="text-xs text-charcoal/60">
+          <P className="text-xs text-smuted-foreground">
             While we make every effort to ensure accuracy, we rely on
             government-released information and cannot guarantee completeness or
             correctness. Users access and use this tool at their own risk, and

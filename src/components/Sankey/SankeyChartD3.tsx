@@ -7,6 +7,7 @@ import { cumsum, pairs, rollups, sum } from "d3-array";
 import { hierarchy } from "d3-hierarchy";
 import { formatNumber } from "./utils";
 import { nodeToDepartment } from "@/lib/sankeyDepartmentMappings";
+import { colours } from "@/styles/colours";
 
 export type SankeyNode = {
   id: string; // Unique identifier for internal operations
@@ -64,7 +65,7 @@ export class SankeyChartD3 {
           left: 1,
         },
         colors: {
-          primary: "#932f2f",
+          primary: colours.canada_red[800],
         },
         shortBlockHeight: 16,
         data: null,
@@ -282,8 +283,8 @@ export class SankeyChartD3 {
       return;
     }
 
-    // Skip difference and fake nodes
-    if (node.isDifference || node.fake) {
+    // Skip fake nodes
+    if (node.fake) {
       return;
     }
 
@@ -342,10 +343,7 @@ export class SankeyChartD3 {
       });
 
     this.sankeySvg.selectAll(".link").classed("highlight", (x) => {
-      return (
-        path.some((d) => d.id === x.id) ||
-        nodesToHighlight.includes(x.target.id)
-      );
+      return nodesToHighlight.includes(x.target.id);
     });
 
     const highlightedNodeElements = [];

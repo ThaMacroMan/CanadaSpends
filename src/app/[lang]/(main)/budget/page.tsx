@@ -32,12 +32,12 @@ const StatBox = ({
   growthPercentage?: number;
 }) => (
   <div className="flex flex-col mr-8 mb-8">
-    <div className="text-sm text-gray-600 mb-1">{title}</div>
+    <div className="text-sm text-muted-foreground mb-1">{title}</div>
     <div className="text-3xl font-bold mb-1">{value}</div>
-    <div className="text-sm text-gray-600">{description}</div>
+    <div className="text-sm text-muted-foreground">{description}</div>
     {growthPercentage && (
       <div
-        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-pine-500" : "text-red-600"}`}
+        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-lake-500" : "text-canada-red-600"}`}
       >
         {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last year
@@ -49,43 +49,42 @@ const StatBox = ({
 // Reusable News Table Component
 const NewsTable = ({ newsData }: { newsData: NewsItem[] }) => (
   <div className="overflow-x-auto mt-6">
-    <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded-lg">
-      <thead className="bg-gray-50">
+    <table className="min-w-full divide-y divide-border border border-border rounded-lg">
+      <thead className="bg-muted">
         <tr>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground/80 uppercase tracking-wider">
             <Trans>News Source & Date</Trans>
           </th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground/80 uppercase tracking-wider">
             <Trans>Budget Impact</Trans>
           </th>
-          <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+          <th className="px-6 py-3 text-left text-xs font-medium text-muted-foreground/80 uppercase tracking-wider">
             <Trans>Amount/Change</Trans>
           </th>
         </tr>
       </thead>
-      <tbody className="bg-white divide-y divide-gray-200">
+      <tbody className="bg-card divide-y divide-border">
         {newsData.map((item) => (
-          <tr key={item.id} className="hover:bg-gray-50">
+          <tr key={item.id} className="hover:bg-muted">
             <td className="px-6 py-4 whitespace-nowrap">
               <div className="text-sm">
-                <ExternalLink
-                  href={item.url}
-                  className="text-blue-600 hover:text-blue-800 font-medium"
-                >
+                <ExternalLink href={item.url} className="link font-medium">
                   {item.source} - {item.date}
                 </ExternalLink>
-                <p className="text-gray-500 text-xs mt-1">{item.headline}</p>
+                <p className="text-muted-foreground/80 text-xs mt-1">
+                  {item.headline}
+                </p>
               </div>
             </td>
-            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+            <td className="px-6 py-4 whitespace-nowrap text-sm text-foreground">
               {item.budgetImpact}
             </td>
             <td className="px-6 py-4 whitespace-nowrap">
               <span
                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                   item.isIncrease
-                    ? "bg-pine-100 text-pine-800"
-                    : "bg-red-100 text-red-800"
+                    ? "bg-lake-100 text-lake-700"
+                    : "bg-canada-red-100 text-canada-red-900"
                 }`}
               >
                 {item.isIncrease ? "+" : "-"}
@@ -223,21 +222,21 @@ export default function Budget() {
             />
           </div>
         </Section>
-        <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
+        <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-7xl w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
           <NoSSR>
             <BudgetSankey onDataChange={handleBudgetDataChange} />
           </NoSSR>
           <div className="absolute bottom-3 left-6">
             <ExternalLink
-              className="text-xs text-gray-400"
+              className="text-xs text-muted-foreground/60"
               href="https://budget.canada.ca/2025/report-rapport/pdf/budget-2025.pdf"
             >
               Source
             </ExternalLink>
           </div>
-          <div className="absolute top-0 left-0 w-[100vw] h-full  backdrop-blur-sm z-10 text-white md:hidden flex items-center justify-center">
+          <div className="absolute top-0 left-0 w-100 h-full  backdrop-blur-sm z-10 text-background md:hidden flex items-center justify-center">
             <ExternalLink
-              className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              className="rounded-md bg-maritime-700 px-3.5 py-2.5 text-sm font-semibold text-background shadow-sm hover:bg-maritime-800 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-ring"
               href={localizedPath("/budget-full-screen", i18n.locale)}
             >
               <Trans>View this chart in full screen</Trans>

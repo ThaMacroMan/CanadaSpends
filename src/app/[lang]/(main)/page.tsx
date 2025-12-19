@@ -25,7 +25,7 @@ export default async function Page(props: PageLangParam) {
   initLingui(lang);
   return (
     <>
-      <section className="border-b-gray-200 border-b-2 flex-col justify-center relative flex overflow-hidden border-solid">
+      <section className="border-b-muted border-b-2 flex-col justify-center relative flex overflow-hidden border-solid">
         <div className="px-4 py-0">
           <div className="items-center flex-col auto-cols-fr grid-cols-[.5fr_1.5fr_.5fr] grid-rows-[50px_auto_auto] justify-center justify-items-stretch text-center grid min-h-[88vh] py-0">
             <div
@@ -35,20 +35,20 @@ export default async function Page(props: PageLangParam) {
               }}
             >
               <div className="relative my-4">
-                <div className="text-fuchsia-600 bg-gray-200 bottom-0 left-0 absolute right-[51.88rem] top-[-216.75rem] z-[1] w-0 h-[200vw]" />
-                <div className="text-gray-200 bg-gray-200 col-end-2 col-start-1 row-end-3 row-start-2 left-[-100vw] absolute z-[2] w-[300vw] h-0" />
+                <div className="text-aurora-600 bg-muted bottom-0 left-0 absolute right-[51.88rem] top-[-216.75rem] z-[1] w-0 h-[200vw]" />
+                <div className="text-muted bg-muted col-end-2 col-start-1 row-end-3 row-start-2 left-[-100vw] absolute z-[2] w-[300vw] h-0" />
                 <div className="overflow-hidden text-[3.00rem] md:text-[5.00rem] leading-none font-medium">
                   <h1 className="pb-3 max-w-[18ch] m-0" id="h1-1">
                     <Trans>Get The Facts About Government Spending</Trans>
                   </h1>
                 </div>
-                <div className="text-gray-200 bg-gray-200 bottom-0 left-[-113.75rem] absolute right-0 top-[10.75rem] z-[2] w-[300vw] h-0" />
-                <div className="bg-gray-200 self-start bottom-[-103.00rem] col-end-2 col-start-1 row-end-2 row-start-1 justify-self-start left-[51.88rem] absolute right-0 top-0 z-[1] w-0 h-[100vw]" />
+                <div className="text-muted bg-muted bottom-0 left-[-113.75rem] absolute right-0 top-[10.75rem] z-[2] w-[300vw] h-0" />
+                <div className="bg-muted self-start bottom-[-103.00rem] col-end-2 col-start-1 row-end-2 row-start-1 justify-self-start left-[51.88rem] absolute right-0 top-0 z-[1] w-0 h-[100vw]" />
               </div>
             </div>
             <div className="self-start col-end-3 col-start-2 row-end-4 row-start-3 relative overflow-hidden">
               <div className="items-center flex-col justify-center flex gap-8">
-                <div className="flex-col flex max-w-[45.00rem] text-[1.63rem] leading-8 font-light">
+                <div className="flex-col flex max-w-180 text-[1.63rem] leading-8 font-light">
                   <p className="opacity-75">
                     <Trans>
                       We share clear insights to level up transparency
@@ -58,7 +58,7 @@ export default async function Page(props: PageLangParam) {
                 </div>
                 <div className="flex gap-4">
                   <Link
-                    className="text-white bg-indigo-950 hover:bg-indigo-900 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-[7.00rem] max-w-full overflow-hidden"
+                    className="text-card bg-lake-700 hover:bg-lake-800 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-28 max-w-full overflow-hidden"
                     href={localizedPath(
                       IS_BUDGET_2025_LIVE ? "/budget" : "/spending",
                       lang,
@@ -75,7 +75,7 @@ export default async function Page(props: PageLangParam) {
                     </div>
                   </Link>
                   <Link
-                    className="text-indigo-950 bg-white border-indigo-950 border-2 hover:bg-gray-100 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-[7.00rem] max-w-full overflow-hidden"
+                    className=" bg-accent text-accent-foreground border-border border-2 hover:bg-muted items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-28 max-w-full overflow-hidden"
                     href={localizedPath("/ontario", lang)}
                   >
                     <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
@@ -99,7 +99,7 @@ export default async function Page(props: PageLangParam) {
           </div>
         </div>
       </section>
-      <div className="border-b-gray-200 border-b-2 pb-20">
+      <div className="border-b-muted border-b-2 pb-20">
         <PageContent>
           <Section className="items-center flex-col justify-center flex ">
             <H2 className="text-5xl font-medium">
@@ -124,7 +124,7 @@ export default async function Page(props: PageLangParam) {
           </Section>
         </PageContent>
       </div>
-      <div className="border-b-gray-200 border-b-2 pb-20">
+      <div className="border-b-muted border-b-2 pb-20">
         <PageContent>
           <Section>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -179,7 +179,7 @@ export default async function Page(props: PageLangParam) {
         </PageContent>
       </div>
       <PageContent>
-        <Section className="bg-background-light">
+        <Section className="bg-card">
           <NoSSR>
             <TwitterFeed />
           </NoSSR>

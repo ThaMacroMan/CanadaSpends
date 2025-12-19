@@ -21,9 +21,9 @@ export const GraphMock = ({
   department?: string;
   className?: string;
 }) => (
-  <div className="mt-8 max-w-5xl mx-auto bg-white rounded-xl shadow-chart slide-up slide-up-delay-2">
+  <div className="mt-8 max-w-5xl mx-auto bg-card rounded-xl shadow-chart slide-up slide-up-delay-2">
     <div
-      className={`w-full h-80 bg-gray-600 text-white flex items-center justify-center`}
+      className={`w-full h-80 bg-foreground/60 text-card flex items-center justify-center`}
     >
       {department} {text ?? "Graph"}
     </div>
@@ -63,9 +63,7 @@ export const H3 = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <h3
-    className={`text-xl text-charcoal font-bold mb-6 font-display ${className}`}
-  >
+  <h3 className={`text-xl font-bold mb-6 font-display ${className}`}>
     {children}
   </h3>
 );
@@ -97,9 +95,7 @@ export const UL = ({
   children: React.ReactNode;
   className?: string;
 }) => (
-  <ul
-    className={`text-charcoal leading-relaxed mb-4 list-disc list-inside ${className}`}
-  >
+  <ul className={`leading-relaxed mb-4 list-disc list-inside ${className}`}>
     {children}
   </ul>
 );
@@ -113,7 +109,7 @@ export const Intro = ({
 }) => <P className={`mt-4 text-lg ${className}`}>{children}</P>;
 
 export const Page = ({ children }: { children: React.ReactNode }) => (
-  <div className="min-h-screen bg-linen">{children}</div>
+  <div className="min-h-screen bg-background text-foreground">{children}</div>
 );
 
 export const PageContent = ({
@@ -141,7 +137,7 @@ export const ExternalLink = ({
 }) => (
   <a
     href={href}
-    className={`text-auburn underline hover:text-auburn-dark ${className}`}
+    className={`text-primary underline hover:text-canada-red-900 ${className}`}
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -166,7 +162,7 @@ export const InternalLink = ({
   return (
     <Link
       href={localizedHref}
-      className={`text-auburn underline hover:text-auburn-dark ${className}`}
+      className={`text-primary underline hover:text-canada-red-900 ${className}`}
     >
       {children}
     </Link>
