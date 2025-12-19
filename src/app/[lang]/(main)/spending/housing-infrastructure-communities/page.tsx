@@ -171,7 +171,11 @@ export default async function Department(props: PageLangParam) {
         </Section>
 
         <Section>
-          <H2>Who leads Housing, Infrastructure and Communities Canada?</H2>
+          <H2>
+            <Trans>
+              Who leads Housing, Infrastructure and Communities Canada?
+            </Trans>
+          </H2>
           <P>
             <Trans>
               Housing, Infrastructure and Communities Canada (HICC) is led by

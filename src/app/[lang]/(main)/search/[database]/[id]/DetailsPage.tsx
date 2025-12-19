@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Trans } from "@lingui/react/macro";
 import { Badge } from "@/components/badge";
 import BackButton from "./BackButton";
 
@@ -45,8 +46,7 @@ export async function DetailsPage({
     finalSourceUrl = `${source_url}?filters=${filters}`;
   }
 
-  // Simplified link text
-  const linkText = "View source data";
+  // Simplified link text - will be translated inline
 
   return (
     <main className="max-w-4xl mx-auto p-4">
@@ -64,8 +64,12 @@ export async function DetailsPage({
           </div>
         </div>
         <h3 className="text-xl font-bold">{title}</h3>
-        <p className="text-xs text-mutred- mb-4 font-bold">FY {fiscal_year}</p>
-        <div className="font-bold text-foreground">Summary</div>
+        <p className="text-xs text-muted-foreground mb-4 font-bold">
+          <Trans>FY</Trans> {fiscal_year}
+        </p>
+        <div className="font-bold text-foreground">
+          <Trans>Summary</Trans>
+        </div>
         <div className="text-sm text-muted-foreground mb-4 whitespace-pre-wrap">
           {summary || "—"}
         </div>
@@ -74,7 +78,9 @@ export async function DetailsPage({
         </div>
         {keywords.length > 0 && (
           <>
-            <div className="font-bold text-foreground mt-2">Keywords</div>
+            <div className="font-bold text-foreground mt-2">
+              <Trans>Keywords</Trans>
+            </div>
             <div>
               {keywords.map((kw: string) => (
                 <Badge className="mr-1" variant="outline" key={kw}>
@@ -92,7 +98,7 @@ export async function DetailsPage({
               target="_blank"
               rel="noopener noreferrer"
             >
-              {linkText}
+              <Trans>View source data</Trans>
             </a>
           </div>
         )}

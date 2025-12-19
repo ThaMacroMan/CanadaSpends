@@ -78,7 +78,7 @@ function TaxCalculatorForm({
                 setIncome(numericValue);
               }
             }}
-            placeholder="100,000"
+            placeholder={t`100,000`}
             className="w-full bg-input/50 px-3 py-2 border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
           />
         </div>
@@ -152,10 +152,10 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
   return (
     <div className="mt-16">
       <h2 className="text-2xl font-bold text-center mb-2">
-        {data.name} Provincial and Federal tax brackets
+        <Trans>{data.name} Provincial and Federal tax brackets</Trans>
       </h2>
       <p className="text-center text-foreground mb-8">
-        Your taxable income is taxed at the following rates.
+        <Trans>Your taxable income is taxed at the following rates.</Trans>
       </p>
       <div className="flex flex-col md:flex-row gap-8 justify-center">
         {/* Federal Tax Brackets */}
@@ -163,13 +163,19 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
           <table className="w-full text-left">
             <thead>
               <tr>
-                <th className="pb-2 font-bold">Federal tax bracket</th>
-                <th className="pb-2 font-bold text-right">Federal tax rate</th>
+                <th className="pb-2 font-bold">
+                  <Trans>Federal tax bracket</Trans>
+                </th>
+                <th className="pb-2 font-bold text-right">
+                  <Trans>Federal tax rate</Trans>
+                </th>
               </tr>
             </thead>
             <tbody className="text-card-foreground/80 text-base">
               <tr>
-                <td className="py-2">First $55,867</td>
+                <td className="py-2">
+                  <Trans>First $55,867</Trans>
+                </td>
                 <td className="py-2 text-right">15%</td>
               </tr>
               <tr>
@@ -185,7 +191,9 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
                 <td className="py-2 text-right">29%</td>
               </tr>
               <tr>
-                <td className="py-2">More than $246,752</td>
+                <td className="py-2">
+                  <Trans>More than $246,752</Trans>
+                </td>
                 <td className="py-2 text-right">33%</td>
               </tr>
             </tbody>
@@ -196,9 +204,11 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
           <table className="w-full text-left">
             <thead>
               <tr>
-                <th className="pb-2 font-bold">{data.name} tax bracket</th>
+                <th className="pb-2 font-bold">
+                  <Trans>{data.name} tax bracket</Trans>
+                </th>
                 <th className="pb-2 font-bold text-right">
-                  {data.name} tax rate
+                  <Trans>{data.name} tax rate</Trans>
                 </th>
               </tr>
             </thead>
@@ -214,8 +224,10 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
         </div>
       </div>
       <p className="text-center text-xs text-foreground/50 mt-8">
-        Basic personal amount of $15,705 for federal and {data.bpa} for{" "}
-        {data.name} have been deducted.
+        <Trans>
+          Basic personal amount of $15,705 for federal and {data.bpa} for{" "}
+          {data.name} have been deducted.
+        </Trans>
       </p>
     </div>
   );
