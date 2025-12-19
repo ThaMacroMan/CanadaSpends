@@ -295,8 +295,8 @@ function Detail({
 }) {
   return (
     <div className={className}>
-      <div className="font-bold text-gray-900">{label}</div>
-      <div className="text-gray-700">{String(value || "—")}</div>
+      <div className="font-bold text-foreground">{label}</div>
+      <div className="text-foreground-muted">{String(value || "—")}</div>
     </div>
   );
 }

@@ -56,17 +56,17 @@ export async function DetailsPage({
         </h1>
         <BackButton />
       </div>
-      <div className="rounded-2xl border p-6 shadow-sm bg-white">
+      <div className="rounded-2xl border p-6 shadow-sm bg-card">
         <div className="flex justify-between items-start mb-2">
           <h2 className="text-2xl font-bold">{recipient}</h2>
-          <div className="text-right text-lg font-bold text-blue-600 whitespace-nowrap tabular-nums">
+          <div className="text-right text-lg font-bold text-primary whitespace-nowrap tabular-nums">
             ${Number(award_amount).toLocaleString()}
           </div>
         </div>
         <h3 className="text-xl font-bold">{title}</h3>
-        <p className="text-xs text-gray-500 mb-4 font-bold">FY {fiscal_year}</p>
-        <div className="font-bold text-gray-900">Summary</div>
-        <div className="text-sm text-gray-700 mb-4 whitespace-pre-wrap">
+        <p className="text-xs text-mutred- mb-4 font-bold">FY {fiscal_year}</p>
+        <div className="font-bold text-foreground">Summary</div>
+        <div className="text-sm text-muted-foreground mb-4 whitespace-pre-wrap">
           {summary || "—"}
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-2 text-sm">
@@ -74,7 +74,7 @@ export async function DetailsPage({
         </div>
         {keywords.length > 0 && (
           <>
-            <div className="font-bold text-gray-900 mt-2">Keywords</div>
+            <div className="font-bold text-foreground mt-2">Keywords</div>
             <div>
               {keywords.map((kw: string) => (
                 <Badge className="mr-1" variant="outline" key={kw}>
@@ -88,7 +88,7 @@ export async function DetailsPage({
           <div className="mt-6">
             <a
               href={finalSourceUrl}
-              className="text-blue-600 underline"
+              className="link underline"
               target="_blank"
               rel="noopener noreferrer"
             >

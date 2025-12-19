@@ -71,9 +71,7 @@ export default function FAQ() {
           <ExternalLink href="https://buy.stripe.com/3cI5kCdi8a2K2xY2bgdZ600https://buy.stripe.com/3cI5kCdi8a2K2xY2bgdZ600">
             here
           </ExternalLink>{" "}
-          <Trans>
-            to help us support our mission.
-          </Trans>
+          <Trans>to help us support our mission.</Trans>
         </P>
       ),
     },
@@ -81,12 +79,8 @@ export default function FAQ() {
       question: t`How can I stay up to date on your work?`,
       answer: (
         <P>
-          <Trans>
-            Stay connected by following us on
-          </Trans>{" "}
-          <ExternalLink href="https://www.x.com/canada_spends">
-            X
-          </ExternalLink>{" "}
+          <Trans>Stay connected by following us on</Trans>{" "}
+          <ExternalLink href="https://www.x.com/canada_spends">X</ExternalLink>{" "}
           <Trans>or subscribe to</Trans>{" "}
           <ExternalLink href="https://buildcanada.substack.com/subscribe">
             Build Canada's newsletter
@@ -104,9 +98,7 @@ export default function FAQ() {
             difference. Whether it's by contributing your skills, helping with
             outreach, or amplifying our work, we'd love to hear from you
           </Trans>{" "}
-          <ExternalLink
-            href="https://buildcanada.com/get-involved"
-          >
+          <ExternalLink href="https://buildcanada.com/get-involved">
             here
           </ExternalLink>
           .
@@ -141,13 +133,21 @@ export default function FAQ() {
   ];
 
   return (
-    <Accordion type="single" collapsible className="w-full">
+    <Accordion
+      type="single"
+      collapsible
+      className="w-full bg-card/50 px-8 py-6"
+    >
       {faqs.map((faq) => (
-        <AccordionItem key={faq.question} value={faq.question}>
+        <AccordionItem
+          key={faq.question}
+          value={faq.question}
+          className="bg-card text-card-foreground px-4 py-2 my-2"
+        >
           <AccordionTrigger>
             <strong>{faq.question}</strong>
           </AccordionTrigger>
-          <AccordionContent>{faq.answer}</AccordionContent>
+          <AccordionContent className="">{faq.answer}</AccordionContent>
         </AccordionItem>
       ))}
     </Accordion>

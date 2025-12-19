@@ -32,12 +32,12 @@ const StatBox = ({
   growthPercentage?: number;
 }) => (
   <div className="flex flex-col mr-8 mb-8">
-    <div className="text-sm text-gray-600 mb-1">{title}</div>
+    <div className="text-sm text-muted-foreground mb-1">{title}</div>
     <div className="text-3xl font-bold mb-1">{value}</div>
-    <div className="text-sm text-gray-600">{description}</div>
+    <div className="text-sm text-muted-foreground">{description}</div>
     {growthPercentage && (
       <div
-        className={`text-xs font-medium ${growthPercentage > 0 ? "text-pine-500" : "text-red-600"}`}
+        className={`text-xs font-medium ${growthPercentage > 0 ? "text-chart-2" : "text-chart-11"}`}
       >
         {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last 5 years
@@ -129,21 +129,21 @@ export default function Spending() {
           </P>
         </Section>
       </PageContent>
-      <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
+      <div className="sankey-chart-container relative overflow-clip sm:(mr-0 ml-0) md:(min-h-[776px] min-w-7xl w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
         <NoSSR>
           <Sankey />
         </NoSSR>
         <div className="absolute bottom-3 left-6">
           <ExternalLink
-            className="text-xs text-gray-400"
+            className="text-xs text-foreground/40"
             href="https://www.canada.ca/en/public-services-procurement/services/payments-accounting/public-accounts/2024.html"
           >
             Source
           </ExternalLink>
         </div>
-        <div className="absolute top-0 left-0 w-[100vw] h-full  backdrop-blur-sm z-10 text-white md:hidden flex items-center justify-center">
+        <div className="absolute top-0 left-0 w-100 h-full  backdrop-blur-sm z-10 text-card md:hidden flex items-center justify-center">
           <ExternalLink
-            className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="rounded-md bg-link px-3.5 py-2.5 text-sm font-semibold text-card shadow-sm hover:bg-link-hover focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-primary"
             href={localizedPath("/spending-full-screen", i18n.locale)}
           >
             <Trans>View this chart in full screen</Trans>
@@ -195,7 +195,7 @@ export default function Spending() {
               <h3 className="font-medium mb-2">
                 <Trans>Age</Trans>
               </h3>
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-muted-foreground">
                 <Trans>The average employee is 43.3 years old</Trans>
               </p>
               <div className="mt-4">
@@ -237,7 +237,7 @@ export default function Spending() {
               <h3 className="font-medium mb-2">
                 <Trans>Salary Distribution</Trans>
               </h3>
-              <p className="text-sm text-gray-600 mb-4">
+              <p className="text-sm text-muted-foreground mb-4">
                 <Trans>
                   Explore federal employee salary distribution by year and
                   demographic group

@@ -1,8 +1,9 @@
 @import "tailwindcss";
+@import "../../styles/main.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-@font-face {
+/* @font-face {
   font-family: "Söhne Kraftig";
   src: url("/soehne-kraftig.woff2") format("woff2");
   font-weight: 500;
@@ -24,21 +25,21 @@
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
+} */
 
 :root {
   /* Build Canada Brand Colors */
-  --linen: #f6ece3;
+  /* --linen: #f6ece3;
   --charcoal: #272727;
   --auburn: #932f2f;
   --auburn-dark: #471717;
-  --auburn-burgundy: #771e1e;
+  --auburn-burgundy: #771e1e; */
 
   /* Utility Colors */
-  --background-light: #fafafa;
+  /* --background-light: #fafafa;
 
   --background: var(--linen);
-  --foreground: var(--charcoal);
+  --foreground: var(--charcoal); */
   --font-sans: "Financier Text", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Söhne Kraftig", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Founder's Grotesk Mono", ui-monospace, monospace;
@@ -46,17 +47,17 @@
 
 @theme inline {
   /* Build Canada Brand Colors */
-  --color-linen: var(--linen);
+  /* --color-linen: var(--linen);
   --color-charcoal: var(--charcoal);
   --color-auburn: var(--auburn);
   --color-auburn-dark: var(--auburn-dark);
-  --color-auburn-burgundy: var(--auburn-burgundy);
+  --color-auburn-burgundy: var(--auburn-burgundy); */
 
   /* Utility Colors */
-  --color-background-light: var(--background-light);
+  /* --color-background-light: var(--background-light); */
 
   /* System Colors */
-  --color-background: var(--background);
+  /* --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -86,10 +87,10 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
+  --color-card: var(--card); */
 
   /* Pine Palette */
-  --color-pine-50: #f2f7f3;
+  /* --color-pine-50: #f2f7f3;
   --color-pine-100: #dfece0;
   --color-pine-200: #c0dac3;
   --color-pine-300: #86b58f;
@@ -99,7 +100,7 @@
   --color-pine-700: #2a5236;
   --color-pine-800: #24412d;
   --color-pine-900: #1e3626;
-  --color-pine-950: #101e15;
+  --color-pine-950: #101e15; */
 
   /* Fonts */
   --font-family-sans: var(--font-sans);
@@ -112,7 +113,7 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 }
-
+/* 
 :root {
   --radius: 0.625rem;
   --background: oklch(0.94 0.02 60);
@@ -146,9 +147,9 @@
   --sidebar-accent-foreground: oklch(0.17 0 0);
   --sidebar-border: oklch(0.67 0.015 50);
   --sidebar-ring: oklch(0.62 0.08 200);
-}
+} */
 
-.dark {
+/* .dark {
   --background: oklch(0.09 0 0);
   --foreground: oklch(0.94 0.02 60);
   --card: oklch(0.17 0 0);
@@ -180,11 +181,11 @@
   --sidebar-accent-foreground: oklch(0.94 0.02 60);
   --sidebar-border: oklch(0.17 0 0);
   --sidebar-ring: oklch(0.62 0.08 200);
-}
+} */
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border focus:outline-ring/50 hover:outline-none;
   }
   body {
     @apply bg-background text-foreground;
