@@ -7,107 +7,1004 @@
     "children": [
       {
         "name": "Advanced Education",
-        "children": []
+        "children": [
+          {
+            "name": "Public Post-Secondary Institutions",
+            "amount": 6.654287
+          },
+          {
+            "name": "Ministry Support Services",
+            "amount": 0.014612
+          },
+          {
+            "name": "Support for Adult Learning",
+            "amount": 0.056056
+          },
+          {
+            "name": "Private Career Colleges and Student Aid",
+            "amount": 0.35149
+          },
+          {
+            "name": "Regulated Professions",
+            "amount": 0.002258
+          },
+          {
+            "name": "Apprenticeship",
+            "amount": 0.06341
+          },
+          {
+            "name": "Foundational Learning",
+            "amount": 0.098564
+          },
+          {
+            "name": "Inter-Ministry Consolidation Adjustments",
+            "amount": -0.091485
+          }
+        ]
       },
       {
         "name": "Affordability and Utilities",
-        "children": []
+        "children": [
+          {
+            "name": "Affordability and Utilities → Ministry Support Services",
+            "amount": 0.005404
+          },
+          {
+            "name": "Affordability and Utilities → Affordability and Utilities",
+            "amount": 0.023746
+          },
+          {
+            "name": "Affordability and Utilities → Utility Rebate and Grant Programs",
+            "amount": 0.001554
+          },
+          {
+            "name": "Affordability and Utilities → Climate Change",
+            "amount": 0.069687
+          },
+          {
+            "name": "Affordability and Utilities → Utilities Regulation",
+            "amount": 0.032961
+          },
+          {
+            "name": "Affordability and Utilities → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.000155
+          }
+        ]
       },
       {
         "name": "Agriculture and Irrigation",
-        "children": []
+        "children": [
+          {
+            "name": "Agriculture and Irrigation → Ministry Support Services",
+            "amount": 0.012842
+          },
+          {
+            "name": "Agriculture and Irrigation → Rural Programming and Agricultural Societies",
+            "amount": 0.027503
+          },
+          {
+            "name": "Agriculture and Irrigation → Trade, Investment and Food Management",
+            "amount": 0.036268
+          },
+          {
+            "name": "Agriculture and Irrigation → Primary Agriculture",
+            "amount": 0.153065
+          },
+          {
+            "name": "Agriculture and Irrigation → Lending",
+            "amount": 0.032574
+          },
+          {
+            "name": "Agriculture and Irrigation → Insurance",
+            "amount": 1.48658
+          },
+          {
+            "name": "Agriculture and Irrigation → Agriculture Income Support",
+            "amount": 0.125855
+          },
+          {
+            "name": "Agriculture and Irrigation → Water Management",
+            "amount": 0.054413
+          },
+          {
+            "name": "Agriculture and Irrigation → Sustainable Canadian Agricultural Partnership",
+            "amount": 0.061415
+          },
+          {
+            "name": "Agriculture and Irrigation → Debt Servicing Costs",
+            "amount": 0.105658
+          },
+          {
+            "name": "Agriculture and Irrigation → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.107796
+          }
+        ]
       },
       {
         "name": "Arts, Culture and Status of Women",
-        "children": []
+        "children": [
+          {
+            "name": "Arts, Culture and Status of Women → Ministry Support Services",
+            "amount": 0.007186
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Community and Voluntary Support Services",
+            "amount": 0.122599
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Cultural Industries",
+            "amount": 0.015185
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Arts",
+            "amount": 0.031192
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Francophone Secretariat",
+            "amount": 0.00416
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Heritage",
+            "amount": 0.054337
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Status of Women",
+            "amount": 0.005077
+          },
+          {
+            "name": "Arts, Culture and Status of Women → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.00193
+          }
+        ]
       },
       {
-        "name": "Assisted Living and Social Services",
-        "children": []
+        "name": "Health",
+        "children": [
+          {
+            "name": "Health → Ministry Support Services",
+            "amount": 0.104861
+          },
+          {
+            "name": "Health → Physician Compensation and Development",
+            "amount": 7.150758
+          },
+          {
+            "name": "Health → Acute Care",
+            "amount": 4.719389
+          },
+          {
+            "name": "Health → Diagnostic, Therapeutic, and Other Patient Service",
+            "amount": 2.569171
+          },
+          {
+            "name": "Health → Drugs and Supplemental Health Benefits",
+            "amount": 2.98466
+          },
+          {
+            "name": "Health → Community Care",
+            "amount": 1.408562
+          },
+          {
+            "name": "Health → Continuing Care",
+            "amount": 1.480965
+          },
+          {
+            "name": "Health → Home Care",
+            "amount": 0.958955
+          },
+          {
+            "name": "Health → Population and Public Health",
+            "amount": 0.907892
+          },
+          {
+            "name": "Health → Emergency Medical Services",
+            "amount": 0.704133
+          },
+          {
+            "name": "Health → Support Services",
+            "amount": 2.732235
+          },
+          {
+            "name": "Health → Information Technology",
+            "amount": 0.932964
+          },
+          {
+            "name": "Health → Administration",
+            "amount": 0.561462
+          },
+          {
+            "name": "Health → Research and Education",
+            "amount": 0.134831
+          },
+          {
+            "name": "Health → Other Health Services",
+            "amount": 0.636826
+          },
+          {
+            "name": "Health → Debt Servicing",
+            "amount": 0.015335
+          },
+          {
+            "name": "Health → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.449543
+          }
+        ]
       },
       {
         "name": "Children and Family Services",
-        "children": []
+        "children": [
+          {
+            "name": "Children and Family Services → Ministry Support Services",
+            "amount": 0.006209
+          },
+          {
+            "name": "Children and Family Services → Child Intervention",
+            "amount": 0.90654
+          },
+          {
+            "name": "Children and Family Services → Early Intervention Services for Children and Youth",
+            "amount": 0.155137
+          },
+          {
+            "name": "Children and Family Services → Prevention of Family and Sexual Violence",
+            "amount": 0.08785
+          },
+          {
+            "name": "Children and Family Services → Indigenous Partnerships",
+            "amount": 0.008068
+          },
+          {
+            "name": "Children and Family Services → Alberta Child and Family Benefit",
+            "amount": 0.355062
+          },
+          {
+            "name": "Children and Family Services → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.003831
+          }
+        ]
       },
       {
-        "name": "Education and Childcare",
-        "children": []
+        "name": "Education",
+        "children": [
+          {
+            "name": "Education → Ministry Support Services",
+            "amount": 0.006161
+          },
+          {
+            "name": "Education → Instruction - ECS to Grade 12",
+            "amount": 7.20845
+          },
+          {
+            "name": "Education → Operations and Maintenance",
+            "amount": 0.792668
+          },
+          {
+            "name": "Education → Student Transportation",
+            "amount": 0.49
+          },
+          {
+            "name": "Education → School Facilities",
+            "amount": 0.570335
+          },
+          {
+            "name": "Education → Governance and System Administration",
+            "amount": 0.279511
+          },
+          {
+            "name": "Education → Program Support Services",
+            "amount": 0.110485
+          },
+          {
+            "name": "Education → Accredited Private Schools and Early Childhood Service Operators",
+            "amount": 0.428817
+          },
+          {
+            "name": "Education → Debt Servicing Costs",
+            "amount": 0.056223
+          },
+          {
+            "name": "Education → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.03649
+          }
+        ]
       },
       {
         "name": "Energy and Minerals",
-        "children": []
+        "children": [
+          {
+            "name": "Energy and Minerals → Ministry Support Services",
+            "amount": 0.005933
+          },
+          {
+            "name": "Energy and Minerals → Resource Development and Management",
+            "amount": 0.429625
+          },
+          {
+            "name": "Energy and Minerals → Cost of Selling Oil",
+            "amount": 0.399234
+          },
+          {
+            "name": "Energy and Minerals → Carbon Capture and Storage",
+            "amount": 0.018256
+          },
+          {
+            "name": "Energy and Minerals → Energy Regulation",
+            "amount": 0.247604
+          },
+          {
+            "name": "Energy and Minerals → Orphan Well Abandonment",
+            "amount": 0.150376
+          },
+          {
+            "name": "Energy and Minerals → Economic Recovery Support",
+            "amount": 0.146952
+          },
+          {
+            "name": "Energy and Minerals → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.00058
+          }
+        ]
       },
       {
         "name": "Environment and Protected Areas",
-        "children": []
+        "children": [
+          {
+            "name": "Environment and Protected Areas → Ministry Support Services",
+            "amount": 0.019888
+          },
+          {
+            "name": "Environment and Protected Areas → Air",
+            "amount": 0.012415
+          },
+          {
+            "name": "Environment and Protected Areas → Land",
+            "amount": 0.031871
+          },
+          {
+            "name": "Environment and Protected Areas → Water",
+            "amount": 0.088936
+          },
+          {
+            "name": "Environment and Protected Areas → Fish and Wildlife",
+            "amount": 0.0676
+          },
+          {
+            "name": "Environment and Protected Areas → Integrated Planning",
+            "amount": 0.041086
+          },
+          {
+            "name": "Environment and Protected Areas → Land Use Secretariat",
+            "amount": 0.001905
+          },
+          {
+            "name": "Environment and Protected Areas → Science and Monitoring",
+            "amount": 0.076851
+          },
+          {
+            "name": "Environment and Protected Areas → Emissions Management",
+            "amount": 0.075521
+          },
+          {
+            "name": "Environment and Protected Areas → Quasi-Judicial Bodies",
+            "amount": 0.061085
+          },
+          {
+            "name": "Environment and Protected Areas → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.028949
+          }
+        ]
       },
       {
         "name": "Executive Council",
-        "children": []
+        "children": [
+          {
+            "name": "Executive Council → Office of the Premier / Executive Council",
+            "amount": 0.018774
+          },
+          {
+            "name": "Executive Council → Intergovernmental Relations",
+            "amount": 0.038086
+          }
+        ]
       },
       {
         "name": "Forestry and Parks",
-        "children": []
-      },
-      {
-        "name": "Hospital and Surgical Health Services",
-        "children": []
+        "children": [
+          {
+            "name": "Forestry and Parks → Ministry Support Services",
+            "amount": 0.006764
+          },
+          {
+            "name": "Forestry and Parks → Forests",
+            "amount": 0.89933
+          },
+          {
+            "name": "Forestry and Parks → Parks",
+            "amount": 0.112455
+          },
+          {
+            "name": "Forestry and Parks → Lands",
+            "amount": 0.051382
+          },
+          {
+            "name": "Forestry and Parks → Hunting and Angling",
+            "amount": 0.014271
+          },
+          {
+            "name": "Forestry and Parks → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.002524
+          }
+        ]
       },
       {
         "name": "Indigenous Relations",
-        "children": []
+        "children": [
+          {
+            "name": "Indigenous Relations → Ministry Support Services",
+            "amount": 0.004175
+          },
+          {
+            "name": "Indigenous Relations → First Nations and Metis Relations",
+            "amount": 0.033278
+          },
+          {
+            "name": "Indigenous Relations → Indigenous Women's Initiatives",
+            "amount": 0.008704
+          },
+          {
+            "name": "Indigenous Relations → First Nations Development Fund",
+            "amount": 0.159237
+          },
+          {
+            "name": "Indigenous Relations → Metis Settlements Appeal Tribunal",
+            "amount": 0.001074
+          },
+          {
+            "name": "Indigenous Relations → Consultation, Land and Policy",
+            "amount": 0.017844
+          },
+          {
+            "name": "Indigenous Relations → Investing in Canada Infrastructure",
+            "amount": 0.003333
+          },
+          {
+            "name": "Indigenous Relations → Land and Legal Settlements",
+            "amount": 0.001051
+          },
+          {
+            "name": "Indigenous Relations → Alberta Indigenous Opportunities Corporation",
+            "amount": 0.006583
+          },
+          {
+            "name": "Indigenous Relations → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.000097
+          }
+        ]
       },
       {
         "name": "Infrastructure",
-        "children": []
+        "children": [
+          {
+            "name": "Infrastructure → Ministry Support Services",
+            "amount": 0.01033
+          },
+          {
+            "name": "Infrastructure → Capital Construction",
+            "amount": 1.035935
+          },
+          {
+            "name": "Infrastructure → Property Management",
+            "amount": 0.443919
+          },
+          {
+            "name": "Infrastructure → Asset Management",
+            "amount": 0.006622
+          },
+          {
+            "name": "Infrastructure → Realty Services",
+            "amount": 0.212948
+          },
+          {
+            "name": "Infrastructure → Alternative Capital Financing Partnerships Office",
+            "amount": 0.001496
+          },
+          {
+            "name": "Infrastructure → Inter-Ministry Consolidation Adjustments",
+            "amount": -1.021294
+          }
+        ]
       },
       {
-        "name": "Jobs, Economy, Trade and Immigration",
-        "children": []
+        "name": "Immigration and Multiculturalism",
+        "children": [
+          {
+            "name": "Immigration and Multiculturalism → Ministry Support Services",
+            "amount": 0.005674
+          },
+          {
+            "name": "Immigration and Multiculturalism → Immigration",
+            "amount": 0.012686
+          },
+          {
+            "name": "Immigration and Multiculturalism → Newcomer and Multiculturalism Supports",
+            "amount": 0.021995
+          },
+          {
+            "name": "Immigration and Multiculturalism → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.000384
+          }
+        ]
+      },
+      {
+        "name": "Jobs, Economy and Trade",
+        "children": [
+          {
+            "name": "Jobs, Economy and Trade → Ministry Support Services",
+            "amount": 0.006412
+          },
+          {
+            "name": "Jobs, Economy and Trade → Workforce Strategies",
+            "amount": 0.094487
+          },
+          {
+            "name": "Jobs, Economy and Trade → Safe, Fair and Healthy Workplaces",
+            "amount": 0.06774
+          },
+          {
+            "name": "Jobs, Economy and Trade → Economic Development and Trade",
+            "amount": 0.118763
+          },
+          {
+            "name": "Jobs, Economy and Trade → Child Care",
+            "amount": 1.558458
+          },
+          {
+            "name": "Jobs, Economy and Trade → Labour Relations Board",
+            "amount": 0.004847
+          },
+          {
+            "name": "Jobs, Economy and Trade → Appeals Commission for Alberta Workers' Compensation",
+            "amount": 0.018383
+          },
+          {
+            "name": "Jobs, Economy and Trade → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.008706
+          }
+        ]
       },
       {
         "name": "Justice",
-        "children": []
+        "children": [
+          {
+            "name": "Justice → Ministry Support Services",
+            "amount": 0.011308
+          },
+          {
+            "name": "Justice → Court and Justice Services",
+            "amount": 0.27895
+          },
+          {
+            "name": "Justice → Legal Services",
+            "amount": 0.070141
+          },
+          {
+            "name": "Justice → Alberta Crown Prosecution Service",
+            "amount": 0.144369
+          },
+          {
+            "name": "Justice → Strategy, Support and Integrated Initiatives",
+            "amount": 0.17139
+          },
+          {
+            "name": "Justice → Alberta Human Rights",
+            "amount": 0.007647
+          },
+          {
+            "name": "Justice → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.00111
+          }
+        ]
       },
       {
         "name": "Mental Health and Addiction",
-        "children": []
+        "children": [
+          {
+            "name": "Mental Health and Addiction → Ministry Support Services",
+            "amount": 0.013592
+          },
+          {
+            "name": "Mental Health and Addiction → Mental Health and Addiction",
+            "amount": 0.221866
+          },
+          {
+            "name": "Mental Health and Addiction → Recovery Alberta",
+            "amount": 1.492151
+          },
+          {
+            "name": "Mental Health and Addiction → Canadian Centre of Recovery Excellence",
+            "amount": 0.002217
+          },
+          {
+            "name": "Mental Health and Addiction → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.024285
+          }
+        ]
       },
       {
         "name": "Municipal Affairs",
-        "children": []
-      },
-      {
-        "name": "Primary and Preventive Health Services",
-        "children": []
+        "children": [
+          {
+            "name": "Municipal Affairs → Ministry Support Services",
+            "amount": 0.004907
+          },
+          {
+            "name": "Municipal Affairs → Municipal Services",
+            "amount": 0.049033
+          },
+          {
+            "name": "Municipal Affairs → Municipal Assessment and Grants",
+            "amount": 0.023821
+          },
+          {
+            "name": "Municipal Affairs → Local Government Fiscal Framework",
+            "amount": 0.784171
+          },
+          {
+            "name": "Municipal Affairs → Federal Grant Programs",
+            "amount": 0.282011
+          },
+          {
+            "name": "Municipal Affairs → Grants in Place of Taxes",
+            "amount": 0.034835
+          },
+          {
+            "name": "Municipal Affairs → Alberta Community Partnership",
+            "amount": 0.013937
+          },
+          {
+            "name": "Municipal Affairs → Technical and Corporate Services",
+            "amount": 0.015919
+          },
+          {
+            "name": "Municipal Affairs → Land and Property Rights Tribunal",
+            "amount": 0.007017
+          },
+          {
+            "name": "Municipal Affairs → Calgary Event Centre-Community Rink",
+            "amount": 0.0146
+          },
+          {
+            "name": "Municipal Affairs → Local Growth and Sustainability Grant",
+            "amount": 0.02
+          },
+          {
+            "name": "Municipal Affairs → Disaster and Emergency Assistance",
+            "amount": 0.019026
+          },
+          {
+            "name": "Municipal Affairs → Safety Codes Council",
+            "amount": 0.017799
+          }
+        ]
       },
       {
         "name": "Public Safety and Emergency Services",
-        "children": []
+        "children": [
+          {
+            "name": "Public Safety and Emergency Services → Ministry Support Services",
+            "amount": 0.010806
+          },
+          {
+            "name": "Public Safety and Emergency Services → Public Security",
+            "amount": 0.772125
+          },
+          {
+            "name": "Public Safety and Emergency Services → Correctional Services",
+            "amount": 0.346144
+          },
+          {
+            "name": "Public Safety and Emergency Services → Alberta Emergency Management Agency",
+            "amount": 0.270915
+          },
+          {
+            "name": "Public Safety and Emergency Services → Strategy, Support and Integrated Initiatives",
+            "amount": 0.019144
+          },
+          {
+            "name": "Public Safety and Emergency Services → Victims of Crime and Public Safety Fund",
+            "amount": 0.037931
+          },
+          {
+            "name": "Public Safety and Emergency Services → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.011086
+          }
+        ]
       },
       {
         "name": "Service Alberta and Red Tape Reduction",
-        "children": []
+        "children": [
+          {
+            "name": "Service Alberta and Red Tape Reduction → Ministry Support Services",
+            "amount": 0.005186
+          },
+          {
+            "name": "Service Alberta and Red Tape Reduction → Consumer and Registry Services",
+            "amount": 0.077435
+          },
+          {
+            "name": "Service Alberta and Red Tape Reduction → Red Tape Reduction, Audit and Investigations, and Gaming",
+            "amount": 0.061248
+          },
+          {
+            "name": "Service Alberta and Red Tape Reduction → Financial and Administrative Shared Services",
+            "amount": 0.083845
+          },
+          {
+            "name": "Service Alberta and Red Tape Reduction → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.029801
+          }
+        ]
+      },
+      {
+        "name": "Seniors, Community and Social Services",
+        "children": [
+          {
+            "name": "Seniors, Community and Social Services → Ministry Support Services",
+            "amount": 0.032542
+          },
+          {
+            "name": "Seniors, Community and Social Services → Employment and Income Support",
+            "amount": 0.984309
+          },
+          {
+            "name": "Seniors, Community and Social Services → Assured Income for the Severely Handicapped",
+            "amount": 1.673226
+          },
+          {
+            "name": "Seniors, Community and Social Services → Disability Services",
+            "amount": 1.63647
+          },
+          {
+            "name": "Seniors, Community and Social Services → Homeless and Outreach Support Services",
+            "amount": 0.256109
+          },
+          {
+            "name": "Seniors, Community and Social Services → Community Supports and Family Safety",
+            "amount": 0.135105
+          },
+          {
+            "name": "Seniors, Community and Social Services → Seniors Services",
+            "amount": 0.025506
+          },
+          {
+            "name": "Seniors, Community and Social Services → Alberta Seniors Benefit",
+            "amount": 0.493814
+          },
+          {
+            "name": "Seniors, Community and Social Services → Housing",
+            "amount": 0.012766
+          },
+          {
+            "name": "Seniors, Community and Social Services → Public Guardian and Trustee Services",
+            "amount": 0.027853
+          },
+          {
+            "name": "Seniors, Community and Social Services → Continuing Care",
+            "amount": 0.341917
+          },
+          {
+            "name": "Seniors, Community and Social Services → Services Provided to Other Ministries",
+            "amount": 0.002073
+          },
+          {
+            "name": "Seniors, Community and Social Services → Disaster Recovery and Emergency Assistance",
+            "amount": 0.015224
+          },
+          {
+            "name": "Seniors, Community and Social Services → Affordability Supports and Inflation Relief",
+            "amount": 0.000285
+          },
+          {
+            "name": "Seniors, Community and Social Services → Alberta Social Housing Corporation",
+            "amount": 0.357527
+          },
+          {
+            "name": "Seniors, Community and Social Services → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.126248
+          }
+        ]
       },
       {
         "name": "Technology and Innovation",
-        "children": []
+        "children": [
+          {
+            "name": "Technology and Innovation → Ministry Support Services",
+            "amount": 0.005145
+          },
+          {
+            "name": "Technology and Innovation → Innovation, Privacy and Policy",
+            "amount": 0.17473
+          },
+          {
+            "name": "Technology and Innovation → Technology Support and Operations",
+            "amount": 0.433557
+          },
+          {
+            "name": "Technology and Innovation → Digital Design and Delivery",
+            "amount": 0.147261
+          },
+          {
+            "name": "Technology and Innovation → Cybersecurity",
+            "amount": 0.014543
+          },
+          {
+            "name": "Technology and Innovation → Data and Content Management",
+            "amount": 0.039548
+          },
+          {
+            "name": "Technology and Innovation → Alberta Enterprise Corporation",
+            "amount": 0.017369
+          },
+          {
+            "name": "Technology and Innovation → Alberta Innovates Corporation",
+            "amount": 0.250576
+          },
+          {
+            "name": "Technology and Innovation → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.19275
+          }
+        ]
       },
       {
         "name": "Tourism and Sport",
-        "children": []
+        "children": [
+          {
+            "name": "Tourism and Sport → Ministry Support Services",
+            "amount": 0.002092
+          },
+          {
+            "name": "Tourism and Sport → Tourism",
+            "amount": 0.081913
+          },
+          {
+            "name": "Tourism and Sport → Sport, Physical Activity and Recreation",
+            "amount": 0.050943
+          },
+          {
+            "name": "Tourism and Sport → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.000502
+          }
+        ]
       },
       {
         "name": "Transportation and Economic Corridors",
-        "children": []
+        "children": [
+          {
+            "name": "Transportation and Economic Corridors → Ministry Support Services",
+            "amount": 0.011592
+          },
+          {
+            "name": "Transportation and Economic Corridors → Program Services and Support",
+            "amount": 0.058399
+          },
+          {
+            "name": "Transportation and Economic Corridors → Traffic Safety Programs",
+            "amount": 0.047421
+          },
+          {
+            "name": "Transportation and Economic Corridors → Provincial Highway Maintenance",
+            "amount": 1.374334
+          },
+          {
+            "name": "Transportation and Economic Corridors → Municipal Transit and Transportation Grant Programs",
+            "amount": 0.555881
+          },
+          {
+            "name": "Transportation and Economic Corridors → Municipal Water Infrastructure Grant Programs",
+            "amount": 0.13551
+          },
+          {
+            "name": "Transportation and Economic Corridors → Federal Grant Programs",
+            "amount": 0.338609
+          },
+          {
+            "name": "Transportation and Economic Corridors → Legal Obligations",
+            "amount": 0.002105
+          },
+          {
+            "name": "Transportation and Economic Corridors → Ring Roads - Debt Servicing",
+            "amount": 0.114921
+          },
+          {
+            "name": "Transportation and Economic Corridors → Water Management Projects",
+            "amount": 0.024796
+          },
+          {
+            "name": "Transportation and Economic Corridors → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.025809
+          }
+        ]
       },
       {
         "name": "Treasury Board and Finance",
-        "children": []
-      },
-      {
-        "name": "Other Expenses",
-        "children": []
+        "children": [
+          {
+            "name": "Treasury Board and Finance → Ministry Support Services",
+            "amount": 0.009
+          },
+          {
+            "name": "Treasury Board and Finance → Treasury Board Secretariat",
+            "amount": 0.009
+          },
+          {
+            "name": "Treasury Board and Finance → Fiscal Planning and Economic Analysis",
+            "amount": 0.009
+          },
+          {
+            "name": "Treasury Board and Finance → Investment, Treasury and Risk Management",
+            "amount": 0.414
+          },
+          {
+            "name": "Treasury Board and Finance → AIMCo Investment Management Services",
+            "amount": 0.921
+          },
+          {
+            "name": "Treasury Board and Finance → Office of the Controller",
+            "amount": 0.007
+          },
+          {
+            "name": "Treasury Board and Finance → Tax and Revenue Management",
+            "amount": 0.039
+          },
+          {
+            "name": "Treasury Board and Finance → Carbon Tax - Consumer Rebates",
+            "amount": 0.004
+          },
+          {
+            "name": "Treasury Board and Finance → Financial Sector and Pensions",
+            "amount": 0.205
+          },
+          {
+            "name": "Treasury Board and Finance → Provincial Bargaining Coordination Office",
+            "amount": 0.004
+          },
+          {
+            "name": "Treasury Board and Finance → Public Service Commission",
+            "amount": 0.074
+          },
+          {
+            "name": "Treasury Board and Finance → Communications and Public Engagement",
+            "amount": 0.037
+          },
+          {
+            "name": "Treasury Board and Finance → Alberta Family Employment Tax Credit",
+            "amount": 0.001
+          },
+          {
+            "name": "Treasury Board and Finance → Teachers' Pre-1992 Pensions - Payments",
+            "amount": 0.504
+          },
+          {
+            "name": "Treasury Board and Finance → Motor Vehicle Accident Claims",
+            "amount": 0.055
+          },
+          {
+            "name": "Treasury Board and Finance → Change in Unfunded Pension Obligations",
+            "amount": -0.344
+          },
+          {
+            "name": "Treasury Board and Finance → Corporate Income Tax Allowance Provision",
+            "amount": 0.024
+          },
+          {
+            "name": "Treasury Board and Finance → Debt Servicing - General Government",
+            "amount": 3.272
+          },
+          {
+            "name": "Treasury Board and Finance → Inter-Ministry Consolidation Adjustments",
+            "amount": -0.382
+          }
+        ]
       }
     ]
   },
