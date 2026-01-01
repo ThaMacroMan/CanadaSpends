@@ -16,9 +16,6 @@ interface CombinedSpendingChartProps {
   totalAmount: number;
 }
 
-// const FEDERAL_COLOR = "#2563eb"; // Blue
-// const PROVINCIAL_COLOR = "#f97316"; // Orange
-
 export function CombinedSpendingChart({
   data,
   title,

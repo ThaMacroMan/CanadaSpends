@@ -34,7 +34,7 @@
   /* Highlighting interactions */
 
   /* Undifferentiated - for when you want all the same */
-  /* 
+  /*
     To Activate: replace side-chart variants with these values
     To Deactivate: make the side-chart variants unique again
   */
@@ -52,11 +52,11 @@
 
   /* Spending Use */
   /* Highlighted Current Node */
-  --color-hcs-spending: var(--color-canada-red-600);
+  --color-hcs-spending: var(--color-auburn-600);
   /* Highlighted Nodes in Flow */
-  --color-hbs-spending: var(--color-canada-red-500);
+  --color-hbs-spending: var(--color-auburn-500);
   /* Unused - Highlighted "downstream" (more right) Nodes in Flow */
-  --color-hbs-spending-ds: var(--color-canada-red-500);
+  --color-hbs-spending-ds: var(--color-auburn-500);
   /* Highlighted Differences in Flow */
   --color-hds-spending: var(--color-copper-500);
   /* Highlighted Links in Flow */

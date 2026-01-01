@@ -1,5 +1,5 @@
 /* Build Canada Colours */
-import { canada_red } from "./canada-red";
+import { auburn } from "./auburn";
 import { charcoal } from "./charcoal";
 import { linen } from "./linen";
 
@@ -13,13 +13,11 @@ import { pine } from "./pine";
 import { steel } from "./steel";
 
 /* Andrew's Vibrant Colours */
-import { auburn } from "./auburn"; /* Parity with Canada Red */
 import { cerulean } from "./cerulean";
 import { sienna } from "./sienna";
 import { amethyst } from "./amethyst";
 import { emerald } from "./emerald";
 export const colours = {
-  canada_red,
   linen,
   charcoal,
   aurora,

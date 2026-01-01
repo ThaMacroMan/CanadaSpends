@@ -185,9 +185,6 @@
     align-items: center;
     padding: 0px 10px;
 
-    /* This variable seems undefined in local scope, keeping it as is or could safely be removed if unused by JS */
-    background-color: var(--color-base);
-
     color: var(--color-text-base-sankey);
     display: flex;
 

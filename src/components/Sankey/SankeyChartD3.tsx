@@ -65,7 +65,7 @@ export class SankeyChartD3 {
           left: 1,
         },
         colors: {
-          primary: colours.canada_red[800],
+          primary: colours.auburn[800],
         },
         shortBlockHeight: 16,
         data: null,
