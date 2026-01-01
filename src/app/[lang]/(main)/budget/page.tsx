@@ -37,7 +37,7 @@ const StatBox = ({
     <div className="text-sm text-muted-foreground">{description}</div>
     {growthPercentage && (
       <div
-        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-lake-500" : "text-canada-red-600"}`}
+        className={`text-xs py-1 font-medium ${growthPercentage > 0 ? "text-lake-500" : "text-auburn-600"}`}
       >
         {growthPercentage > 0 ? "+" : ""}
         {growthPercentage}% over the last year
@@ -84,7 +84,7 @@ const NewsTable = ({ newsData }: { newsData: NewsItem[] }) => (
                 className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
                   item.isIncrease
                     ? "bg-lake-100 text-lake-700"
-                    : "bg-canada-red-100 text-canada-red-900"
+                    : "bg-auburn-100 text-auburn-900"
                 }`}
               >
                 {item.isIncrease ? "+" : "-"}

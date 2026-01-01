@@ -84,7 +84,7 @@ const chartConfig = {
   spending: {
     id: "spending-chart-root",
     colors: {
-      primary: colours.canada_red[800],
+      primary: colours.auburn[800],
     },
     direction: "left-to-right",
     differenceLabel: "Surplus",

@@ -1,5 +1,5 @@
 /* Build Canada Colours */
-@import "./canada-red.css";
+@import "./auburn.css";
 @import "./charcoal.css";
 @import "./linen.css";
 
@@ -13,7 +13,6 @@
 @import "./steel.css";
 
 /* Andrew's Vibrant Colours */
-@import "./auburn.css"; /* Parity with Canada Red */
 @import "./cerulean.css";
 @import "./sienna.css";
 @import "./amethyst.css";
