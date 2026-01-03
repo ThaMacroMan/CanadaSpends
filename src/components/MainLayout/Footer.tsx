@@ -70,7 +70,7 @@ export const Footer = () => {
               <a
                 href="https://buildcanada.substack.com/subscribe"
                 target="_blank"
-                className="bg-primary text-primary-foreground px-3 py-2 text-sm font-semibold shadow-sm hover:bg-canada-red-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-none w-fit"
+                className="bg-primary text-primary-foreground px-3 py-2 text-sm font-semibold shadow-sm hover:bg-auburn-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary rounded-none w-fit"
               >
                 Subscribe
               </a>
