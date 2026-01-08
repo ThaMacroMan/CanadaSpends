@@ -1,6 +1,6 @@
 {
-  "total": 74.1,
-  "spending": 74.1,
+  "total": 74.149,
+  "spending": 74.149,
   "revenue": 82.469,
   "spending_data": {
     "name": "Spending",
@@ -1003,6 +1003,15 @@
           {
             "name": "Treasury Board and Finance → Inter-Ministry Consolidation Adjustments",
             "amount": -0.382
+          }
+        ]
+      },
+      {
+        "name": "Legislative Assembly",
+        "children": [
+          {
+            "name": "Legislative Assembly → Legislative Assembly Operations",
+            "amount": 0.144
           }
         ]
       }
