@@ -51,7 +51,7 @@ export default async function ArticlesPage(
         {/* Featured Articles Section */}
         {featuredArticles.length > 0 && (
           <Section>
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">
+            <h2 className="text-2xl font-bold text-foreground mb-6">
               <Trans>Featured Articles</Trans>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -64,13 +64,13 @@ export default async function ArticlesPage(
 
         {/* All Articles Section */}
         <Section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             <Trans>All Articles</Trans>
           </h2>
 
           {allArticles.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">
+              <p className="text-muted-foreground text-lg">
                 <Trans>
                   No articles available yet on Canada Spends. Check back soon!
                 </Trans>

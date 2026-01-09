@@ -7,6 +7,7 @@ import {
   useInstantSearch,
   SortBy,
 } from "react-instantsearch";
+/* @ts-ignore CSS doesn't export types */
 import "./search.css"; // Make sure this path is correct
 import TypesenseInstantSearchAdapter from "typesense-instantsearch-adapter";
 import { useMemo, useState, useCallback } from "react"; // Ensure useCallback and useState are imported
@@ -204,7 +205,7 @@ function SearchControls() {
           }}
         />
       </div>
-      <div className="w-full px-4 mt-2 pb-2 border-b border-gray-200">
+      <div className="w-full px-4 mt-2 pb-2 border-b border-charcoal">
         <div className="flex flex-wrap gap-2">
           {/* Your RefinementListCombobox instances */}
           <RefinementListCombobox
@@ -270,14 +271,14 @@ function SearchControls() {
                 <div className="flex items-center gap-2 flex-wrap">
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
-                    <span className="text-sm text-gray-600 mr-2 shrink-0">
+                    <span className="text-sm text-foreground mr-2 shrink-0">
                       Order By:
                     </span>
                     <Select
                       value={currentSortValueForSelect}
                       onValueChange={handleSortChange}
                     >
-                      <SelectTrigger className="w-[180px] h-9 text-sm">
+                      <SelectTrigger className="w-45 h-9 text-sm">
                         <SelectValue placeholder="Relevance" />
                       </SelectTrigger>
                       <SelectContent>
@@ -329,13 +330,12 @@ function SearchControls() {
                   {/* Separator */}
                   <div className="border-l pl-2 ml-2 h-6 hidden sm:block"></div>
                   {/* View Toggle with fixed styling */}
-                  <div className="flex rounded-md overflow-hidden border">
+                  <div className="flex rounded-md overflow-hidden border border-foreground">
                     <Button
                       variant={viewMode === "table" ? "secondary" : "ghost"}
                       className={cn(
                         "h-9 rounded-none",
-                        viewMode === "table" &&
-                          "bg-slate-200 dark:bg-slate-700",
+                        viewMode === "table" && "bg-charcoal/30 text-charcoal",
                       )}
                       size="sm"
                       onClick={() => setViewMode("table")}
@@ -347,7 +347,7 @@ function SearchControls() {
                       className={cn(
                         "h-9 rounded-none",
                         viewMode === "cards" &&
-                          "bg-slate-200 dark:bg-slate-700",
+                          "bg-foreground/30 text-foreground",
                       )}
                       size="sm"
                       onClick={() => setViewMode("cards")}
@@ -360,7 +360,7 @@ function SearchControls() {
               {/* --- End Results Header Area --- */}
 
               {totalHits === 0 && hasFilters && (
-                <div className="text-center my-8 text-gray-600">
+                <div className="text-center my-8 text-foreground">
                   <p>No results found matching your current filters.</p>
                 </div>
               )}
@@ -380,8 +380,8 @@ function SearchControls() {
                       root: "flex list-none p-0",
                       list: "flex list-none p-0 items-center",
                       item: "mx-1",
-                      link: "block px-3 py-1 border border-gray-300 rounded-md hover:bg-gray-100",
-                      selectedItem: "bg-blue-600 text-white border-blue-600",
+                      link: "block px-3 py-1 border border-charcoal rounded-md hover:bg-linen text-charcoal",
+                      selectedItem: "bg-primary text-background border-primary",
                       disabledItem: "opacity-50 cursor-not-allowed",
                       previousPageItem: "mr-2",
                       nextPageItem: "ml-2",
@@ -397,16 +397,13 @@ function SearchControls() {
                 Not sure where to start? Try searching for:
                 <br />{" "}
                 <a
-                  className="underline text-blue-600 hover:text-blue-800"
+                  className="underline link"
                   href="?records%5Bquery%5D=Management%20Consulting&records%5BrefinementList%5D%5Bfiscal_year%5D%5B0%5D=2024-2025&records%5BrefinementList%5D%5Bfiscal_year%5D%5B1%5D=2020-2021&records%5BrefinementList%5D%5Bfiscal_year%5D%5B2%5D=2023-2024&records%5BrefinementList%5D%5Bfiscal_year%5D%5B3%5D=2021-2022&records%5BrefinementList%5D%5Bfiscal_year%5D%5B4%5D=2022-2023"
                 >
                   'Management Consulting' since 2020
                 </a>{" "}
                 or{" "}
-                <a
-                  href="?records%5Bquery%5D=Wine"
-                  className="underline text-blue-600 hover:text-blue-800"
-                >
+                <a href="?records%5Bquery%5D=Wine" className="underline link">
                   'Wine'
                 </a>
               </H3>

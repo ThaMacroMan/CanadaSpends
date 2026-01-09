@@ -94,10 +94,10 @@ const ContributorCard: React.FC<Contributor> = ({
   return (
     <div
       className={cn(
-        "bg-white rounded-xl p-6 shadow-stat transition-all duration-300 hover:shadow-lg fade-in max-w-[200px]",
+        "bg-card rounded-xl p-6 shadow-stat transition-all duration-300 hover:shadow-lg fade-in max-w-50",
       )}
     >
-      <div className="pt-[100%] relative overflow-hidden bg-white">
+      <div className="pt-[100%] relative overflow-hidden bg-card">
         <Image
           className="bottom-0 left-0 object-cover absolute top-0 align-middle inline-block w-full h-full max-w-full"
           src={photoSrc}
@@ -111,7 +111,7 @@ const ContributorCard: React.FC<Contributor> = ({
         {linkedin_username && (
           <a
             href={`https://linkedin.com/in/${linkedin_username}`}
-            className="text-2xl text-gray-500"
+            className="text-2xl link"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -122,7 +122,7 @@ const ContributorCard: React.FC<Contributor> = ({
         {x_username && (
           <a
             href={`https://x.com/${x_username}`}
-            className="text-2xl text-gray-500"
+            className="text-2xl link"
             target="_blank"
             rel="noopener noreferrer"
           >

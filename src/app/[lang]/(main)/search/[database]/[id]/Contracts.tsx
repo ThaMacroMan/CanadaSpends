@@ -11,7 +11,7 @@ function InfoHoverCard({ info }: { info: string }) {
   return (
     <HoverCard>
       <HoverCardTrigger asChild>
-        <FaCircleInfo className="text-gray-400" />
+        <FaCircleInfo className="text-muted-foreground/40" />
       </HoverCardTrigger>
       <HoverCardContent className="w-80">
         <div className="flex justify-between space-x-4 text-sm">{info}</div>
@@ -859,10 +859,10 @@ function Detail({
   return (
     <div>
       <div className="flex justify-start items-center mb-2 gap-2">
-        <div className="font-bold text-gray-900">{label}</div>
+        <div className="font-bold text-foreground">{label}</div>
         {info && <InfoHoverCard info={info} />}
       </div>
-      <div className="text-gray-700">{String(value || "—")}</div>
+      <div className="text-foreground/80">{String(value || "—")}</div>
     </div>
   );
 }

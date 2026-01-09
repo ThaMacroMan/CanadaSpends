@@ -150,7 +150,14 @@ export default async function ProvinceIndex({
       title: (
         <div className="flex items-center">
           <Trans>Surplus/Deficit</Trans>
-          <Tooltip text="The difference between revenue and spending. A surplus indicates revenue exceeded spending.">
+          <Tooltip
+            text={
+              <Trans>
+                The difference between revenue and spending. A surplus indicates
+                revenue exceeded spending.
+              </Trans>
+            }
+          >
             <HelpIcon />
           </Tooltip>
         </div>
@@ -163,7 +170,14 @@ export default async function ProvinceIndex({
       title: (
         <div className="flex items-center">
           <Trans>Total Revenue</Trans>
-          <Tooltip text="All revenue collected during the fiscal year, including taxes, transfers, and other sources.">
+          <Tooltip
+            text={
+              <Trans>
+                All revenue collected during the fiscal year, including taxes,
+                transfers, and other sources.
+              </Trans>
+            }
+          >
             <HelpIcon />
           </Tooltip>
         </div>
@@ -176,7 +190,13 @@ export default async function ProvinceIndex({
       title: (
         <div className="flex items-center">
           <Trans>Total Spending</Trans>
-          <Tooltip text="All program and operating spending recorded for the fiscal year.">
+          <Tooltip
+            text={
+              <Trans>
+                All program and operating spending recorded for the fiscal year.
+              </Trans>
+            }
+          >
             <HelpIcon />
           </Tooltip>
         </div>
@@ -200,7 +220,15 @@ export default async function ProvinceIndex({
         title: (
           <div className="flex items-center">
             <Trans>Net Debt</Trans>
-            <Tooltip text="Net Debt is what remains after subtracting financial assets (like cash and investments) from the Total Debt. It represents the debt that isn't immediately covered by liquid assets.">
+            <Tooltip
+              text={
+                <Trans>
+                  Net Debt is what remains after subtracting financial assets
+                  (like cash and investments) from the Total Debt. It represents
+                  the debt that isn't immediately covered by liquid assets.
+                </Trans>
+              }
+            >
               <HelpIcon />
             </Tooltip>
           </div>
@@ -215,7 +243,14 @@ export default async function ProvinceIndex({
         title: (
           <div className="flex items-center">
             <Trans>Total Debt</Trans>
-            <Tooltip text="Total Debt is the government's complete outstanding debt. This is the figure on which interest payments are calculated.">
+            <Tooltip
+              text={
+                <Trans>
+                  Total Debt is the government's complete outstanding debt. This
+                  is the figure on which interest payments are calculated.
+                </Trans>
+              }
+            >
               <HelpIcon />
             </Tooltip>
           </div>
@@ -230,7 +265,14 @@ export default async function ProvinceIndex({
         title: (
           <div className="flex items-center">
             <Trans>Interest on Debt</Trans>
-            <Tooltip text="Annual interest payments on outstanding debt. This represents the cost of servicing the province's debt obligations.">
+            <Tooltip
+              text={
+                <Trans>
+                  Annual interest payments on outstanding debt. This represents
+                  the cost of servicing the province's debt obligations.
+                </Trans>
+              }
+            >
               <HelpIcon />
             </Tooltip>
           </div>
@@ -251,12 +293,24 @@ export default async function ProvinceIndex({
       title: (
         <div className="flex items-center">
           <Trans>Per Capita Spending</Trans>
-          <Tooltip text="Total spending divided by population. Useful for comparing municipal efficiency across cities.">
+          <Tooltip
+            text={
+              <Trans>
+                Total spending divided by population. Useful for comparing
+                municipal efficiency across cities.
+              </Trans>
+            }
+          >
             <HelpIcon />
           </Tooltip>
         </div>
       ),
-      value: `$${perCapitaSpending.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${perCapitaSpending.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>
           Annual municipal spending per {jurisdiction.name} resident
@@ -271,12 +325,24 @@ export default async function ProvinceIndex({
       title: (
         <div className="flex items-center">
           <Trans>Property Tax Per Capita</Trans>
-          <Tooltip text="Total property tax revenue divided by population. Primary revenue source for municipalities.">
+          <Tooltip
+            text={
+              <Trans>
+                Total property tax revenue divided by population. Primary
+                revenue source for municipalities.
+              </Trans>
+            }
+          >
             <HelpIcon />
           </Tooltip>
         </div>
       ),
-      value: `$${propertyTaxPerCapita.toLocaleString("en-CA")} per resident`,
+      value: (
+        <>
+          ${propertyTaxPerCapita.toLocaleString("en-CA")}{" "}
+          <Trans>per resident</Trans>
+        </>
+      ),
       description: (
         <Trans>Property tax revenue per {jurisdiction.name} resident</Trans>
       ),
@@ -322,7 +388,11 @@ export default async function ProvinceIndex({
           <div className="absolute bottom-3 left-6">
             <ExternalLink
               className="text-xs text-gray-400"
-              href={jurisdiction.source}
+              href={
+                jurisdiction.sources && jurisdiction.sources.length > 0
+                  ? jurisdiction.sources[0].url
+                  : jurisdiction.source
+              }
             >
               <Trans>Source</Trans>
             </ExternalLink>
@@ -373,15 +443,33 @@ export default async function ProvinceIndex({
               description={<Trans>Government organizations</Trans>}
             />
           </div>
-          <P className="text-sm mt-4">
-            <Trans>Sources:</Trans>{" "}
-            <ExternalLink href={jurisdiction.source}>
-              <Trans>
-                Public Accounts of {jurisdiction.name} FY{" "}
-                {jurisdiction.financialYear}
-              </Trans>
-            </ExternalLink>
-          </P>
+          {jurisdiction.sources && jurisdiction.sources.length > 0 ? (
+            <div className="text-sm mt-4">
+              <span className="font-medium">
+                <Trans>Sources:</Trans>
+              </span>
+              <ul className="mt-2 space-y-1">
+                {jurisdiction.sources.map((src, idx) => (
+                  <li key={idx}>
+                    <ExternalLink href={src.url}>{src.label}</ExternalLink>
+                    {src.scope && (
+                      <span className="text-gray-500"> — {src.scope}</span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <P className="text-sm mt-4">
+              <Trans>Sources:</Trans>{" "}
+              <ExternalLink href={jurisdiction.source}>
+                <Trans>
+                  Public Accounts of {jurisdiction.name} FY{" "}
+                  {jurisdiction.financialYear}
+                </Trans>
+              </ExternalLink>
+            </P>
+          )}
         </Section>
         {departments && departments.length > 0 && (
           <Section>

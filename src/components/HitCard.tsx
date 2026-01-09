@@ -26,16 +26,16 @@ export function HitCard({ hit }: { hit: SearchResult }) {
       <CardHeader>
         <CardTitle className="flex justify-between text-lg">
           <h2>{displayRecipient}</h2>
-          <b className="text-blue-600 tabular-nums">${formattedAmount}</b>{" "}
+          <b className="link tabular-nums">${formattedAmount}</b>{" "}
           {/* Added tabular-nums */}
         </CardTitle>
-        <p className="text-sm text-gray-700">{hit.payer}</p>
-        <p className="text-sm text-gray-500">
+        <p className="text-sm text-foreground">{hit.payer}</p>
+        <p className="text-sm text-dmuted-foreground">
           {hit.program} {hit.timestamp && <span>({hit.timestamp})</span>}
         </p>
       </CardHeader>
       <CardContent>
-        <p className="whitespace-pre-wrap line-clamp-6 text-gray-800">
+        <p className="whitespace-pre-wrap line-clamp-6 text-foreground">
           {(hit.description || "").replace(/\\n/g, "\n\n")}
         </p>
       </CardContent>

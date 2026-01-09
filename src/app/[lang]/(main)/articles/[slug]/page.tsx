@@ -99,7 +99,7 @@ export default async function ArticlePage(
                 {article.metadata.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs font-medium px-3 py-1 rounded-full bg-indigo-100 text-indigo-800"
+                    className="text-xs font-medium px-3 py-1 rounded-full bg-maritime-100 text-maritime-800"
                   >
                     {tag}
                   </span>
@@ -108,17 +108,17 @@ export default async function ArticlePage(
             )}
 
             {/* Title */}
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               {article.metadata.title}
             </h1>
 
             {/* Subtitle */}
-            <p className="text-xl text-gray-600 mb-6">
+            <p className="text-xl text-muted-foreground mb-6">
               {article.metadata.subtitle}
             </p>
 
             {/* Metadata Row */}
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 mb-8">
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground/80 mb-8">
               {/* Publish Date */}
               <div className="flex items-center gap-2">
                 <FiCalendar className="w-4 h-4" />
@@ -139,7 +139,7 @@ export default async function ArticlePage(
 
         {/* Article Content */}
         <Section>
-          <article className="max-w-4xl mx-auto prose prose-lg prose-gray prose-headings:font-bold prose-a:text-blue-600 prose-a:no-underline hover:prose-a:underline">
+          <article className="max-w-4xl mx-auto prose prose-lg prose-gray prose-headings:font-bold prose-a:text-maritime-600 prose-a:no-underline hover:prose-a:underline visited:prose-a:text-aurora-800">
             <MDXContent components={MDXComponents} />
           </article>
         </Section>
@@ -160,7 +160,7 @@ export default async function ArticlePage(
           <div className="max-w-4xl mx-auto text-center">
             <a
               href={`/${lang}/articles`}
-              className="inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800 font-medium"
+              className="link inline-flex items-center gap-2 font-medium"
             >
               ← <Trans>Back to All Articles</Trans>
             </a>

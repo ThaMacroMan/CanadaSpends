@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { Trans } from "@lingui/react/macro";
 import { DetailsPage } from "./DetailsPage";
 import { ContractsOver10k } from "./Contracts";
 
@@ -63,17 +64,32 @@ async function NSERCGrants({ id, database }: Props & { database: string }) {
       summary={grant.award_summary}
       database={database}
     >
-      <Detail label="Awarded" value={grant.competition_year} />
-      <Detail label="Installment" value={grant.installment} />
-      <Detail label="Principal Investigator" value={grant.project_lead_name} />
-      <Detail label="Institution" value={grant.institution} />
-      <Detail label="Department" value={grant.department} />
-      <Detail label="Province" value={grant.province} />
-      <Detail label="Competition Year" value={grant.competition_year} />
-      <Detail label="Fiscal Year" value={grant.fiscal_year} />
-      <Detail label="Selection Committee" value={grant.selection_committee} />
-      <Detail label="Research Subject" value={grant.research_subject} />
-      <Detail label="Application ID" value={grant.application_id} />
+      <Detail label={<Trans>Awarded</Trans>} value={grant.competition_year} />
+      <Detail label={<Trans>Installment</Trans>} value={grant.installment} />
+      <Detail
+        label={<Trans>Principal Investigator</Trans>}
+        value={grant.project_lead_name}
+      />
+      <Detail label={<Trans>Institution</Trans>} value={grant.institution} />
+      <Detail label={<Trans>Department</Trans>} value={grant.department} />
+      <Detail label={<Trans>Province</Trans>} value={grant.province} />
+      <Detail
+        label={<Trans>Competition Year</Trans>}
+        value={grant.competition_year}
+      />
+      <Detail label={<Trans>Fiscal Year</Trans>} value={grant.fiscal_year} />
+      <Detail
+        label={<Trans>Selection Committee</Trans>}
+        value={grant.selection_committee}
+      />
+      <Detail
+        label={<Trans>Research Subject</Trans>}
+        value={grant.research_subject}
+      />
+      <Detail
+        label={<Trans>Application ID</Trans>}
+        value={grant.application_id}
+      />
     </DetailsPage>
   );
 }
@@ -97,15 +113,24 @@ async function CIHRGrants({ id, database }: Props & { database: string }) {
       keywords={grant.keywords.split(";")}
       database={database}
     >
-      <Detail label="Principal Investigator" value={grant.project_lead_name} />
-      <Detail label="Institution" value={grant.institution} />
-      <Detail label="Province" value={grant.province} />
-      <Detail label="Duration" value={grant.duration} />
-      <Detail label="Competition Year" value={grant.competition_year} />
-      <Detail label="Program Type" value={grant.program_type} />
-      <Detail label="Theme" value={grant.theme} />
-      <Detail label="Research Subject" value={grant.research_subject} />
-      <Detail label="External ID" value={grant.external_id} />
+      <Detail
+        label={<Trans>Principal Investigator</Trans>}
+        value={grant.project_lead_name}
+      />
+      <Detail label={<Trans>Institution</Trans>} value={grant.institution} />
+      <Detail label={<Trans>Province</Trans>} value={grant.province} />
+      <Detail label={<Trans>Duration</Trans>} value={grant.duration} />
+      <Detail
+        label={<Trans>Competition Year</Trans>}
+        value={grant.competition_year}
+      />
+      <Detail label={<Trans>Program Type</Trans>} value={grant.program_type} />
+      <Detail label={<Trans>Theme</Trans>} value={grant.theme} />
+      <Detail
+        label={<Trans>Research Subject</Trans>}
+        value={grant.research_subject}
+      />
+      <Detail label={<Trans>External ID</Trans>} value={grant.external_id} />
     </DetailsPage>
   );
 }
@@ -132,13 +157,25 @@ async function SSHRCGrants({ id, database }: Props & { database: string }) {
         .split("\\n")}
       database={database}
     >
-      <Detail label="Principal Applicant" value={grant.applicant} />
-      <Detail label="Organization" value={grant.organization} />
-      <Detail label="Co-Applicant(s)" value={grant.co_applicant} />
-      <Detail label="Competition Year" value={grant.competition_year} />
-      <Detail label="Fiscal Year" value={grant.fiscal_year} />
-      <Detail label="Discipline" value={grant.discipline} />
-      <Detail label="Area of Research" value={grant.area_of_research} />
+      <Detail
+        label={<Trans>Principal Applicant</Trans>}
+        value={grant.applicant}
+      />
+      <Detail label={<Trans>Organization</Trans>} value={grant.organization} />
+      <Detail
+        label={<Trans>Co-Applicant(s)</Trans>}
+        value={grant.co_applicant}
+      />
+      <Detail
+        label={<Trans>Competition Year</Trans>}
+        value={grant.competition_year}
+      />
+      <Detail label={<Trans>Fiscal Year</Trans>} value={grant.fiscal_year} />
+      <Detail label={<Trans>Discipline</Trans>} value={grant.discipline} />
+      <Detail
+        label={<Trans>Area of Research</Trans>}
+        value={grant.area_of_research}
+      />
     </DetailsPage>
   );
 }
@@ -190,49 +227,61 @@ async function GlobalAffairsGrants({
       keywords={keywords}
       database={database}
     >
-      <Detail label="Project Number" value={grant.projectNumber} />
-      <Detail label="Status" value={grant.status} />
       <Detail
-        label="Start Date"
+        label={<Trans>Project Number</Trans>}
+        value={grant.projectNumber}
+      />
+      <Detail label={<Trans>Status</Trans>} value={grant.status} />
+      <Detail
+        label={<Trans>Start Date</Trans>}
         value={new Date(grant.start).toLocaleDateString()}
       />
       <Detail
-        label="End Date"
+        label={<Trans>End Date</Trans>}
         value={new Date(grant.end).toLocaleDateString()}
       />
-      <Detail label="Countries" value={grant.countries} />
+      <Detail label={<Trans>Countries</Trans>} value={grant.countries} />
       <Detail
-        label="Executing Agency/Partner"
+        label={<Trans>Executing Agency/Partner</Trans>}
         value={grant.executingAgencyPartner}
       />
       <Detail
-        label="Maximum Contribution"
+        label={<Trans>Maximum Contribution</Trans>}
         value={`$${parseFloat(grant.maximumContribution).toLocaleString()}`}
       />
       <Detail
-        label="Contributing Organization"
+        label={<Trans>Contributing Organization</Trans>}
         value={grant.ContributingOrganization}
       />
       <Detail
         className="col-span-full"
-        label="Expected Results"
+        label={<Trans>Expected Results</Trans>}
         value={grant.expectedResults}
       />
       <Detail
         className="col-span-full"
-        label="Results Achieved"
+        label={<Trans>Results Achieved</Trans>}
         value={grant.resultsAchieved}
       />
-      <Detail label="Aid Type" value={grant.aidType} />
-      <Detail label="Collaboration Type" value={grant.collaborationType} />
-      <Detail label="Finance Type" value={grant.financeType} />
+      <Detail label={<Trans>Aid Type</Trans>} value={grant.aidType} />
       <Detail
-        label="Reporting Organization"
+        label={<Trans>Collaboration Type</Trans>}
+        value={grant.collaborationType}
+      />
+      <Detail label={<Trans>Finance Type</Trans>} value={grant.financeType} />
+      <Detail
+        label={<Trans>Reporting Organization</Trans>}
         value={grant.reportingOrganisation}
       />
-      <Detail label="Program Name" value={grant.programName} />
-      <Detail label="Selection Mechanism" value={grant.selectionMechanism} />
-      <Detail label="Regions" value={grant.regions?.replace(/[\[\]"]/g, "")} />
+      <Detail label={<Trans>Program Name</Trans>} value={grant.programName} />
+      <Detail
+        label={<Trans>Selection Mechanism</Trans>}
+        value={grant.selectionMechanism}
+      />
+      <Detail
+        label={<Trans>Regions</Trans>}
+        value={grant.regions?.replace(/[\[\]"]/g, "")}
+      />
     </DetailsPage>
   );
 }
@@ -269,14 +318,20 @@ async function Transfers({ id, database }: Props & { database: string }) {
         summary=""
         database={database}
       >
-        <Detail label="Department" value={transfer.DEPT_EN_DESC} />
-        <Detail label="Ministry" value={ministry} />
-        <Detail label="Fiscal Year" value={fiscalYear} />
-        <Detail label="Recipient Class" value={transfer.RCPNT_CLS_EN_DESC} />
-        <Detail label="Recipient" value={recipient} />
-        <Detail label="Location" value={location} />
         <Detail
-          label="Payment Amount"
+          label={<Trans>Department</Trans>}
+          value={transfer.DEPT_EN_DESC}
+        />
+        <Detail label={<Trans>Ministry</Trans>} value={ministry} />
+        <Detail label={<Trans>Fiscal Year</Trans>} value={fiscalYear} />
+        <Detail
+          label={<Trans>Recipient Class</Trans>}
+          value={transfer.RCPNT_CLS_EN_DESC}
+        />
+        <Detail label={<Trans>Recipient</Trans>} value={recipient} />
+        <Detail label={<Trans>Location</Trans>} value={location} />
+        <Detail
+          label={<Trans>Payment Amount</Trans>}
           value={`$${Number(amount).toLocaleString()}`}
         />
       </DetailsPage>
@@ -289,14 +344,14 @@ function Detail({
   value,
   className,
 }: {
-  label: string;
+  label: React.ReactNode;
   value: unknown;
   className?: string;
 }) {
   return (
     <div className={className}>
-      <div className="font-bold text-gray-900">{label}</div>
-      <div className="text-gray-700">{String(value || "—")}</div>
+      <div className="font-bold text-foreground">{label}</div>
+      <div className="text-foreground-muted">{String(value || "—")}</div>
     </div>
   );
 }

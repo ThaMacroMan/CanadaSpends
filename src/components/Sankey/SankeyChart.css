@@ -1,34 +1,4 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  /* color-scheme: light dark; */
-  /* color: rgba(255, 255, 255, 0.87); */
-  background-color: #202122;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-
-  --block-inner-padding: 16px;
-  --block-outer-padding: 16px;
-  --color-text-base: #ffffff;
-  --color-neg-hover: #2763a4;
-  --color-neg-highlight: #00347b;
-  --color-neg-active: #299ed9;
-  --color-neg-text-active: #ffffff;
-  --color-neg-base: #9bc6ed;
-  --color-neg-text-base: #66c4ef;
-  --color-short-text: #ffffff;
-  --color-difference: #d9dada;
-  --color-difference-text: #ffffff;
-  --color-background: #202122;
-  --color-secondary-active: #fffde9;
-  --color-primary-active: #fff392;
-}
+@import "../../styles/main.css";
 
 #revenue-chart-root {
   width: 40%;
@@ -51,7 +21,7 @@
 /* Optionally adjust min-width to fit the charts */
 .sankey-chart-container {
   position: relative;
-  background-color: #202122;
+  background-color: var(--color-background-sankey);
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -66,9 +36,9 @@
   .sankey-chart-header {
     position: sticky;
     top: 0;
-    background-color: #202122;
+    background-color: var(--color-background-sankey);
     padding: 16px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(246, 235, 227, 0.1);
     z-index: 10;
     display: flex;
     justify-content: flex-end;
@@ -88,10 +58,10 @@
 
   .search-select-placeholder {
     height: 38px;
-    background-color: #000;
-    border: 1px solid #444;
+    background-color: var(--color-background-sankey);
+    border: 1px solid var(--color-difference-sankey);
     border-radius: 4px;
-    color: #fff;
+    color: var(--color-text-base-sankey);
     display: flex;
     align-items: center;
     padding: 0 12px;
@@ -103,13 +73,13 @@
     min-width: 200px;
     max-width: 320px;
     position: fixed;
-    background-color: #000;
-    color: var(--color-text-base);
+    background-color: var(--color-background-sankey);
+    color: var(--color-text-base-sankey);
     padding: 10px;
     font-size: 12px;
     border-radius: 4px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(246, 235, 227, 0.1);
     pointer-events: all;
   }
 
@@ -132,7 +102,7 @@
 
   .node-tooltip-overall {
     font-size: 11px;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-short-text-sankey);
     line-height: 1.2;
   }
 
@@ -142,13 +112,13 @@
   }
 
   .node-tooltip-link {
-    color: #66c4ef;
+    color: var(--color-neg-base-sankey);
     text-decoration: none;
     font-size: 11px;
   }
 
   .node-tooltip-link:hover {
-    color: #299ed9;
+    color: var(--color-neg-hover-sankey);
     text-decoration: underline;
   }
   .charts {
@@ -215,8 +185,7 @@
     align-items: center;
     padding: 0px 10px;
 
-    background-color: var(--color-base);
-    color: var(--color-text-base);
+    color: var(--color-text-base-sankey);
     display: flex;
 
     align-content: center;
@@ -228,8 +197,8 @@
     scroll-padding-bottom: 3.5rem;
     justify-content: space-between;
     align-items: center;
-    padding-left: var(--block-inner-padding);
-    padding-right: var(--block-outer-padding);
+    padding-left: var(--block-inner-padding-sankey);
+    padding-right: var(--block-outer-padding-sankey);
   }
 
   .sankey-chart-svg {
@@ -240,45 +209,22 @@
     pointer-events: none;
   }
 
-  .block.highlight {
-    background-color: var(--color-secondary-active) !important;
-  }
-
   .block.negative {
     background-image: linear-gradient(
       135deg,
-      var(--color-neg-base) 16.67%,
-      var(--color-background) 16.67%,
-      var(--color-background) 50%,
-      var(--color-neg-base) 50%,
-      var(--color-neg-base) 66.67%,
-      var(--color-background) 66.67%,
-      var(--color-background) 100%
+      var(--color-neg-base-sankey) 16.67%,
+      var(--color-background-sankey) 16.67%,
+      var(--color-background-sankey) 50%,
+      var(--color-neg-base-sankey) 50%,
+      var(--color-neg-base-sankey) 66.67%,
+      var(--color-background-sankey) 66.67%,
+      var(--color-background-sankey) 100%
     );
     background-size: 10px 10px;
   }
 
-  .block.highlight:not(.with-background) .label {
-    color: #000000 !important;
-  }
-
   .sankey-chart-svg .link {
     opacity: 0.5;
-  }
-
-  .link.highlight {
-    opacity: 0.7 !important;
-    fill: var(--color-secondary-active) !important;
-  }
-
-  .highlight-link {
-    fill: var(--color-primary-active) !important;
-    stroke: none;
-  }
-
-  .highlight-box {
-    fill: var(--color-primary-active) !important;
-    stroke: none;
   }
 
   .column.narrow .block {
@@ -290,7 +236,7 @@
 
   .label {
     font-size: 0.7rem;
-    color: var(--color-short-text);
+    color: var(--color-short-text-sankey);
     overflow: hidden;
     margin: 0;
     text-overflow: ellipsis;
@@ -317,20 +263,16 @@
     font-size: 0.7rem;
   }
 
-  .block.short.highlight.current-node {
-    z-index: 2;
-  }
-
   .block.with-background .label {
-    background-color: var(--color-background);
+    background-color: var(--color-background-sankey);
   }
 
   .block.difference .label {
-    background-color: var(--color-background);
+    background-color: var(--color-background-sankey);
   }
 
-  .block.current-node {
-    background-color: var(--color-primary-active) !important;
+  #revenue-chart-root .block.current-node {
+    background-color: var(--color-revenue-primary-active) !important;
   }
 
   .label .label-amount {
@@ -358,16 +300,16 @@
   }
 
   .column.narrow .block.difference {
-    background-color: var(--color-background) !important;
+    background-color: var(--color-background-sankey) !important;
     background-image: linear-gradient(
       135deg,
-      var(--color-difference) 16.67%,
-      var(--color-background) 16.67%,
-      var(--color-background) 50%,
-      var(--color-difference) 50%,
-      var(--color-difference) 66.67%,
-      var(--color-background) 66.67%,
-      var(--color-background) 100%
+      var(--color-difference-sankey) 16.67%,
+      var(--color-background-sankey) 16.67%,
+      var(--color-background-sankey) 50%,
+      var(--color-difference-sankey) 50%,
+      var(--color-difference-sankey) 66.67%,
+      var(--color-background-sankey) 66.67%,
+      var(--color-background-sankey) 100%
     );
     background-size: 10px 10px;
     font-weight: 500;
@@ -386,6 +328,104 @@
 
   .column .group:last-child .block:last-child {
     margin-bottom: 15px;
+  }
+
+  /* ==========================================================================
+     Highlighting
+     ========================================================================== */
+
+  /* Current Node - The specific node being hovered/selected */
+  .block.highlight.current-node {
+    background-color: var(--color-hcs) !important;
+  }
+
+  #spending-chart-root .block.highlight.current-node {
+    background-color: var(--color-hcs-spending) !important;
+  }
+
+  #revenue-chart-root .block.highlight.current-node {
+    background-color: var(--color-hcs-revenue) !important;
+  }
+
+  /* Highlighted Block (Generic) - Applied to any node in the highlight path */
+  .block.highlight {
+    background-color: var(--color-hbs-ds) !important;
+    background-image: none !important;
+  }
+
+  #spending-chart-root .block.highlight {
+    background-color: var(--color-hbs-spending-ds) !important;
+  }
+
+  #revenue-chart-root .block.highlight {
+    background-color: var(--color-hbs-revenue-ds) !important;
+  }
+
+  /* Highlighted Block (Generic) - Upstream - Covers!! `block.highlight` */
+  .column.narrow .block.difference.highlight {
+    background-color: var(--color-hbs) !important;
+    background-image: none !important;
+  }
+
+  #spending-chart-root .column.narrow .block.difference.highlight {
+    background-color: var(--color-hbs-spending) !important;
+  }
+
+  #revenue-chart-root .column.narrow .block.difference.highlight {
+    background-color: var(--color-hbs-revenue) !important;
+  }
+
+  /* Highlighted Box (Upstream/Path) - "Difference" box matching flow */
+  .highlight-box {
+    fill: var(--color-hds) !important;
+    stroke: none;
+  }
+
+  #spending-chart-root .highlight-box {
+    fill: var(--color-hds-spending) !important;
+  }
+
+  #revenue-chart-root .highlight-box {
+    fill: var(--color-hds-revenue) !important;
+  }
+
+  /* Highlighted Link (Downstream) - Links flowing out from the node */
+  .link.highlight {
+    opacity: 0.7 !important;
+    fill: var(--color-hfs-ds) !important;
+  }
+
+  #spending-chart-root .link.highlight {
+    fill: var(--color-hfs-spending-ds) !important;
+  }
+
+  #revenue-chart-root .link.highlight {
+    fill: var(--color-hfs-revenue-ds) !important;
+  }
+
+  /* Highlighted Link (Upstream) - Drawn path flowing into the node */
+  .highlight-link {
+    fill: var(--color-hfs) !important;
+    stroke: none;
+    opacity: 0.7 !important;
+  }
+
+  #spending-chart-root .highlight-link {
+    fill: var(--color-hfs-spending) !important;
+  }
+
+  #revenue-chart-root .highlight-link {
+    fill: var(--color-hfs-revenue) !important;
+  }
+
+  /* Label contrast fix for highlighted blocks without background */
+  .block.highlight:not(.with-background) .label {
+    color: var(--color-text-base-sankey) !important;
+  }
+
+  /* Highlighted Short Block z-index fix - Ensures label appears above others */
+  .block.short.highlight.current-node {
+    z-index: 2;
   }
 
   @media (max-width: 992px) {

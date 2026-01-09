@@ -19,17 +19,17 @@ export const StatCard: React.FC<StatCardProps> = ({
   return (
     <div
       className={cn(
-        "bg-white rounded-xl p-6 shadow-stat transition-all duration-300 hover:shadow-lg fade-in",
+        "bg-card text-card-foreground rounded-xl p-6 shadow-stat transition-all duration-300 hover:shadow-lg fade-in",
         animationDelay,
         className,
       )}
     >
-      <h3 className="text-sm font-medium text-gray-500 mb-2">{title}</h3>
+      <h3 className="text-sm font-medium text-foreground/50 mb-2">{title}</h3>
       <div className="flex flex-col space-y-1">
         <p className="text-4xl font-bold tracking-tight stat-highlight inline-block">
           {value}
         </p>
-        <p className="text-sm text-gray-500">{subtitle}</p>
+        <p className="text-sm text-foreground/50">{subtitle}</p>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { hierarchy } from "d3";
 import { useCallback, useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useLingui } from "@lingui/react/macro";
+/* @ts-ignore CSS exports no types */
 import "./SankeyChart.css";
 import { SankeyData } from "./SankeyChartD3";
 import { SankeyChartSingle } from "./SankeyChartSingle";
@@ -10,6 +11,7 @@ import {
   departmentNames,
   nodeToDepartment,
 } from "@/lib/sankeyDepartmentMappings";
+import { colours } from "@/styles/colours";
 
 // Dynamically import React Select to avoid SSR hydration issues
 const Select = dynamic(() => import("react-select"), {
@@ -74,7 +76,7 @@ const chartConfig = {
   revenue: {
     id: "revenue-chart-root",
     colors: {
-      primary: "#249EDC",
+      primary: colours.lake[700],
     },
     direction: "right-to-left",
     differenceLabel: "Deficit",
@@ -82,7 +84,7 @@ const chartConfig = {
   spending: {
     id: "spending-chart-root",
     colors: {
-      primary: "#E3007D",
+      primary: colours.auburn[800],
     },
     direction: "left-to-right",
     differenceLabel: "Surplus",
@@ -227,17 +229,17 @@ export function SankeyChart(props: SankeyChartProps) {
             styles={{
               input: (base: any) => ({
                 ...base,
-                color: "#fff",
+                color: "#f6ebe3",
               }),
               singleValue: (base: any) => ({
                 ...base,
-                color: "#fff",
+                color: "#f6ebe3",
               }),
               control: (base: any) => ({
                 ...base,
-                color: "#fff",
-                backgroundColor: "#000",
-                borderColor: "#444",
+                color: "#f6ebe3",
+                backgroundColor: "#272727",
+                borderColor: "#A8A19B",
               }),
             }}
           />

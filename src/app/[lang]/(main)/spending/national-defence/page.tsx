@@ -22,6 +22,7 @@ import type { PropsWithChildren } from "react";
 import { FederalSpendingByEntity } from "./FederalSpendingByEntity";
 import { FederalSpendingChart } from "./FederalSpendingChart";
 import { MiniSankey } from "./MiniSankey";
+import UpdatedAt from "../_common/updatedAt";
 
 export async function generateMetadata(
   props: PropsWithChildren<PageLangParam>,
@@ -66,19 +67,25 @@ export default async function Department(props: PageLangParam) {
         </Section>
 
         <Section>
-          <div className="text-sm text-gray-500 italic">
+          <UpdatedAt>
             <Trans>Data updated March 21, 2025</Trans>
-          </div>
+          </UpdatedAt>
           <StatCardContainer>
             <StatCard
-              title="In FY 2024,"
+              title={<Trans>In FY 2024,</Trans>}
               value="$34.5B"
-              subtitle="was spent by the Department of National Defence"
+              subtitle={
+                <Trans>was spent by the Department of National Defence</Trans>
+              }
             />
             <StatCard
-              title="In FY 2024,"
+              title={<Trans>In FY 2024,</Trans>}
               value="6.7%"
-              subtitle="of federal spending was by the Department of National Defence"
+              subtitle={
+                <Trans>
+                  of federal spending was by the Department of National Defence
+                </Trans>
+              }
             />
           </StatCardContainer>
         </Section>
@@ -200,7 +207,9 @@ export default async function Department(props: PageLangParam) {
         </Section>
 
         <Section>
-          <H2>Who leads the Department of National Defence?</H2>
+          <H2>
+            <Trans>Who leads the Department of National Defence?</Trans>
+          </H2>
           <P>
             <Trans>
               The Department of National Defence is led by the{" "}
