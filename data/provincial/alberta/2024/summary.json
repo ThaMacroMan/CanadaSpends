@@ -210,6 +210,6 @@
       "percentageFormatted": "6.6%"
     }
   ],
-  "credits": "Built by [Sathvik](https://www.linkedin.com/in/sathvik-divili/)",
-  "generatedAt": ""
+  "methodology": "This chart is based on the Government of Alberta's FY 2024-25 Annual Reports. All the data is sourced from the Government of Alberta's [Annual Financial Reports](https://www.alberta.ca/government-and-ministry-annual-reports#24-25). All revenue data and high-level spending data are derived from the [2024-25 Final Results - Year-end Report](https://open.alberta.ca/dataset/9c81a5a7-cdf1-49ad-a923-d1ecb42944e4/resource/8b2a1431-b31d-4a6f-8a50-d1eaaa638280/download/tbf-goa-2024-2025-final-results-year-end-report.pdf), while ministry-level spending breakdowns are sourced from their respective [Annual Reports](https://www.alberta.ca/government-and-ministry-annual-reports#24-25).\n\nPlease note that the Government of Alberta underwent a significant reorganization of it's Ministries in 2025. However, the financial statements are published according to the previous ministry structure.",
+  "credits": "Built by [Sathvik](https://www.linkedin.com/in/sathvik-divili/)"
 }
