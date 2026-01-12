@@ -54,6 +54,11 @@ export const Footer = () => {
                         <Trans>Contact</Trans>
                       </FooterLink>
                     </li>
+                    <li>
+                      <FooterLink href="/whistleblowers">
+                        <Trans>Whistleblowers</Trans>
+                      </FooterLink>
+                    </li>
                   </ul>
                 </div>
               </div>

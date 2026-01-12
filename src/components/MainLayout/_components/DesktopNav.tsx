@@ -227,6 +227,14 @@ export default function DesktopNav(props: DesktopNavProps) {
                 <Trans>Contact</Trans>
               </Link>
             </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/whistleblowers`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Whistleblowers</Trans>
+              </Link>
+            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
