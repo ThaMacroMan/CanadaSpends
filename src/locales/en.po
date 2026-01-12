@@ -459,8 +459,8 @@ msgid "Canada Spends is committed to responsible journalism. We will carefully e
 msgstr "Canada Spends is committed to responsible journalism. We will carefully evaluate all submissions and may not respond to or publish every tip received."
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:124
-msgid "Canada Spends is looking to expose fraud, incompetence and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
-msgstr "Canada Spends is looking to expose fraud, incompetence and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
+msgid "Canada Spends is looking to expose fraud, corruption and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
+msgstr "Canada Spends is looking to expose fraud, corruption and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
 
 #: src/app/[lang]/(main)/about/faq.tsx:16
 msgid "Canada Spends primarily relies on Public Accounts data from the Office of the Receiver General within Public Services and Procurement Canada. Data for the previous fiscal year is typically released in December of that year, though the release month can vary. For example, complete FY 2024 data covering the period April 1, 2023 - March 31, 2024 was released in December 2024. Public Accounts documents provide the final, consolidated view of total federal government spending for each fiscal year."
@@ -3429,7 +3429,7 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "While not in the top 10 departments by spend, ISED accounted for 2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:235
+#: src/components/MainLayout/_components/DesktopNav.tsx:237
 #: src/components/MainLayout/_components/MobileMenu.tsx:170
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"

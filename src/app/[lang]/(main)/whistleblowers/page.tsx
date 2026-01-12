@@ -122,7 +122,7 @@ export default async function Whistleblowers(
           </H2>
           <P>
             <Trans>
-              Canada Spends is looking to expose fraud, incompetence and
+              Canada Spends is looking to expose fraud, corruption and
               negligence inside Canadian governments at the federal, provincial,
               municipal and indigenous levels. Documents or other evidence can
               be essential to that.
