@@ -6,6 +6,7 @@ import {
   Pagination,
   useInstantSearch,
   SortBy,
+  HitsPerPage,
 } from "react-instantsearch";
 /* @ts-ignore CSS doesn't export types */
 import "./search.css"; // Make sure this path is correct
@@ -269,6 +270,24 @@ function SearchControls() {
                 </div>
                 {/* Right Side: Actions */}
                 <div className="flex items-center gap-2 flex-wrap">
+                  {/* Results Per Page Control */}
+                  <div className="flex items-center mr-2">
+                    <span className="text-sm text-foreground mr-2 shrink-0">
+                      Per Page:
+                    </span>
+                    <HitsPerPage
+                      items={[
+                        { label: "10", value: 10, default: false },
+                        { label: "25", value: 25, default: true },
+                        { label: "50", value: 50, default: false },
+                        { label: "100", value: 100, default: false },
+                      ]}
+                      classNames={{
+                        root: "",
+                        select: "h-9 px-3 py-1 text-sm border border-input bg-background rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+                      }}
+                    />
+                  </div>
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
                     <span className="text-sm text-foreground mr-2 shrink-0">
