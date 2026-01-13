@@ -230,6 +230,12 @@ export default function DesktopNav(props: DesktopNavProps) {
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
+      <NavLink
+        href={`/${i18n.locale}/whistleblowers`}
+        active={pathname === `/${i18n.locale}/whistleblowers`}
+      >
+        <Trans>Whistleblowers</Trans>
+      </NavLink>
     </nav>
   );
 }

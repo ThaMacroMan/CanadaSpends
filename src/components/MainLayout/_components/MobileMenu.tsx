@@ -162,6 +162,13 @@ export function MobileMenu(props: MobileMenuProps) {
         >
           <Trans>Contact</Trans>
         </MobileNavLink>
+        <MobileNavLink
+          href={`/${i18n.locale}/whistleblowers`}
+          active={pathname === `/${i18n.locale}/whistleblowers`}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <Trans>Whistleblowers</Trans>
+        </MobileNavLink>
       </div>
     </div>
   );
