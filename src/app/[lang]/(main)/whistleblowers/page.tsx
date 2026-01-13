@@ -45,11 +45,28 @@ export default async function Whistleblowers(
           </H1>
           <Intro>
             <Trans>
-              Canada Spends uses GlobaLeaks to provide a secure way for sources
-              to submit tips and documents anonymously. Your identity is
-              protected, and all communications are encrypted.
+              Canada Spends provides a secure way for sources to submit tips and
+              documents anonymously. Your identity is protected, and all
+              communications are encrypted.
             </Trans>
           </Intro>
+        </Section>
+
+        <Section>
+          <H2>
+            <Trans>Why Submit a Tip?</Trans>
+          </H2>
+          <P>
+            <Trans>
+              Canada Spends is part of a movement that cares about government
+              effectiveness and we are willing and able to speak up against
+              corruption, fraud, self-dealing and negligence when others will
+              not. When you submit a report, members of our core team will
+              evaluate your submission, validate the authenticity of your
+              documents and either publish the documents in whole or in part as
+              part of a greater investigation.
+            </Trans>
+          </P>
         </Section>
 
         <Section>
@@ -57,13 +74,10 @@ export default async function Whistleblowers(
             <Trans>How to Submit a Tip</Trans>
           </H2>
 
-          <H3>
-            <Trans>Option 1: Standard Web Access</Trans>
-          </H3>
           <P>
             <Trans>
               You can access our whistleblower platform directly through your
-              regular web browser at:
+              web browser at:
             </Trans>
           </P>
           <P className="font-mono bg-card p-4 rounded-lg break-all">
@@ -71,21 +85,15 @@ export default async function Whistleblowers(
               https://whistleblowers.canadaspends.com
             </ExternalLink>
           </P>
-          <P>
-            <Trans>
-              This is the easiest method but provides less anonymity than using
-              Tor.
-            </Trans>
-          </P>
 
           <H3 className="mt-8">
-            <Trans>Option 2: Maximum Anonymity with Tor</Trans>
+            <Trans>Want even more anonymity?</Trans>
           </H3>
           <P>
             <Trans>
-              For maximum security and anonymity, we recommend accessing our
-              platform through the Tor network. Tor encrypts your connection and
-              hides your IP address.
+              For maximum security and anonymity, access our platform through
+              the Tor network. Tor encrypts your connection and hides your IP
+              address.
             </Trans>
           </P>
           <P>

@@ -181,7 +181,7 @@ msgstr "A significant portion of GAC's budget supports Canada's international de
 msgid "About"
 msgstr "About"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:183
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:191
 msgid "About GlobaLeaks"
 msgstr "About GlobaLeaks"
 
@@ -454,21 +454,25 @@ msgstr "Canada Spends changes this. We take raw federal spending data and turn i
 msgid "Canada Spends is a platform to make government spending more transparent. We take raw data and transform it into easy to understand facts for Canadians. We don't tell you what to think. We don't weigh in on whether spending is good or bad. We give you the facts so you can decide for yourself."
 msgstr "Canada Spends is a platform to make government spending more transparent. We take raw data and transform it into easy to understand facts for Canadians. We don't tell you what to think. We don't weigh in on whether spending is good or bad. We give you the facts so you can decide for yourself."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:218
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:226
 msgid "Canada Spends is committed to responsible journalism. We will carefully evaluate all submissions and may not respond to or publish every tip received."
 msgstr "Canada Spends is committed to responsible journalism. We will carefully evaluate all submissions and may not respond to or publish every tip received."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:124
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:132
 msgid "Canada Spends is looking to expose fraud, corruption and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
 msgstr "Canada Spends is looking to expose fraud, corruption and negligence inside Canadian governments at the federal, provincial, municipal and indigenous levels. Documents or other evidence can be essential to that."
+
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:60
+msgid "Canada Spends is part of a movement that cares about government effectiveness and we are willing and able to speak up against corruption, fraud, self-dealing and negligence when others will not. When you submit a report, members of our core team will evaluate your submission, validate the authenticity of your documents and either publish the documents in whole or in part as part of a greater investigation."
+msgstr "Canada Spends is part of a movement that cares about government effectiveness and we are willing and able to speak up against corruption, fraud, self-dealing and negligence when others will not. When you submit a report, members of our core team will evaluate your submission, validate the authenticity of your documents and either publish the documents in whole or in part as part of a greater investigation."
 
 #: src/app/[lang]/(main)/about/faq.tsx:16
 msgid "Canada Spends primarily relies on Public Accounts data from the Office of the Receiver General within Public Services and Procurement Canada. Data for the previous fiscal year is typically released in December of that year, though the release month can vary. For example, complete FY 2024 data covering the period April 1, 2023 - March 31, 2024 was released in December 2024. Public Accounts documents provide the final, consolidated view of total federal government spending for each fiscal year."
 msgstr "Canada Spends primarily relies on Public Accounts data from the Office of the Receiver General within Public Services and Procurement Canada. Data for the previous fiscal year is typically released in December of that year, though the release month can vary. For example, complete FY 2024 data covering the period April 1, 2023 - March 31, 2024 was released in December 2024. Public Accounts documents provide the final, consolidated view of total federal government spending for each fiscal year."
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:47
-msgid "Canada Spends uses GlobaLeaks to provide a secure way for sources to submit tips and documents anonymously. Your identity is protected, and all communications are encrypted."
-msgstr "Canada Spends uses GlobaLeaks to provide a secure way for sources to submit tips and documents anonymously. Your identity is protected, and all communications are encrypted."
+msgid "Canada Spends provides a secure way for sources to submit tips and documents anonymously. Your identity is protected, and all communications are encrypted."
+msgstr "Canada Spends provides a secure way for sources to submit tips and documents anonymously. Your identity is protected, and all communications are encrypted."
 
 #: src/app/[lang]/(main)/about/faq.tsx:67
 msgid "Canada Spends, as a project of Build Canada, is funded through donations from our builder network. Donate"
@@ -553,7 +557,7 @@ msgstr "Compensation per Employee"
 msgid "Competition Year"
 msgstr "Competition Year"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:154
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:162
 msgid "Connect from a public network like a coffee shop or library, not your home or work network."
 msgstr "Connect from a public network like a coffee shop or library, not your home or work network."
 
@@ -576,7 +580,7 @@ msgstr "Contributing Organization"
 msgid "Contributors / Supporters"
 msgstr "Contributors / Supporters"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:108
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:116
 msgid "Copy and paste the following .onion address into the Tor Browser:"
 msgstr "Copy and paste the following .onion address into the Tor Browser:"
 
@@ -743,11 +747,11 @@ msgstr "Discipline"
 msgid "DND's spending grew less than overall spending, meaning its share of the federal budget decreased. In 2024, the department accounted for 6.7% of all federal spending, 0.6 percentage points lower than in 1995."
 msgstr "DND's spending grew less than overall spending, meaning its share of the federal budget decreased. In 2024, the department accounted for 6.7% of all federal spending, 0.6 percentage points lower than in 1995."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:173
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:181
 msgid "Do not discuss your submission with anyone or search for related topics on work devices."
 msgstr "Do not discuss your submission with anyone or search for related topics on work devices."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:96
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:104
 msgid "Download and install the <0>Tor Browser</0> from the official Tor Project website."
 msgstr "Download and install the <0>Tor Browser</0> from the official Tor Project website."
 
@@ -1186,13 +1190,13 @@ msgstr "For example, during the COVID-19 pandemic, federal support programs led 
 msgid "For further breakdowns of spending, see <0>Federal</0> and <1>Provincial</1> spending pages."
 msgstr "For further breakdowns of spending, see <0>Federal</0> and <1>Provincial</1> spending pages."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:160
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:168
 msgid "For maximum protection, consider using <0>Tails OS</0>, a privacy-focused operating system that runs from a USB drive."
 msgstr "For maximum protection, consider using <0>Tails OS</0>, a privacy-focused operating system that runs from a USB drive."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:85
-msgid "For maximum security and anonymity, we recommend accessing our platform through the Tor network. Tor encrypts your connection and hides your IP address."
-msgstr "For maximum security and anonymity, we recommend accessing our platform through the Tor network. Tor encrypts your connection and hides your IP address."
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:93
+msgid "For maximum security and anonymity, access our platform through the Tor network. Tor encrypts your connection and hides your IP address."
+msgstr "For maximum security and anonymity, access our platform through the Tor network. Tor encrypts your connection and hides your IP address."
 
 #: src/app/[lang]/(main)/about/page.tsx:70
 msgid "Frequently Asked Questions"
@@ -1275,7 +1279,7 @@ msgstr "Global Affairs Canada spent $19.2 billion in fiscal year (FY) 2024, repr
 msgid "Global Affairs Canada, Spending by Entity, FY 2024"
 msgstr "Global Affairs Canada, Spending by Entity, FY 2024"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:186
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:194
 msgid "GlobaLeaks is an open-source, secure whistleblowing platform used by organizations worldwide, including media outlets, anti-corruption agencies, and public institutions. All submissions are encrypted end-to-end, and the platform is designed to protect the anonymity of sources."
 msgstr "GlobaLeaks is an open-source, secure whistleblowing platform used by organizations worldwide, including media outlets, anti-corruption agencies, and public institutions. All submissions are encrypted end-to-end, and the platform is designed to protect the anonymity of sources."
 
@@ -1497,7 +1501,7 @@ msgstr "How did VAC spend its budget in FY24?"
 msgid "How has Public Safety Canada's spending changed?"
 msgstr "How has Public Safety Canada's spending changed?"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:57
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:74
 msgid "How to Submit a Tip"
 msgstr "How to Submit a Tip"
 
@@ -1518,7 +1522,7 @@ msgstr "Immigration, Refugees and Citizenship Canada (IRCC) is led by the Minist
 msgid "Immigration, Refugees and Citizenship Canada | Canada Spends"
 msgstr "Immigration, Refugees and Citizenship Canada | Canada Spends"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:207
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:215
 msgid "Important Notice"
 msgstr "Important Notice"
 
@@ -1775,7 +1779,7 @@ msgstr "Labour Market Development Agreements (LMDAs): federal funding to provinc
 msgid "Latest Budget News & Impact"
 msgstr "Latest Budget News & Impact"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:195
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:203
 msgid "Learn more about the technology at <0>globaleaks.org</0>."
 msgstr "Learn more about the technology at <0>globaleaks.org</0>."
 
@@ -1990,7 +1994,7 @@ msgstr "News Source & Date"
 msgid "No articles available yet on Canada Spends. Check back soon!"
 msgstr "No articles available yet on Canada Spends. Check back soon!"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:210
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:218
 msgid "No form of electronic communication can be made 100% secure. While we take every precaution to protect your identity, you use this service at your own risk. We encourage you to take the security precautions outlined above."
 msgstr "No form of electronic communication can be made 100% secure. While we take every precaution to protect your identity, you use this service at your own risk. We encourage you to take the security precautions outlined above."
 
@@ -2164,21 +2168,13 @@ msgstr "Ontario HTP"
 msgid "Ontario STP"
 msgstr "Ontario STP"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:105
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:113
 msgid "Open Tor Browser and wait for it to connect."
 msgstr "Open Tor Browser and wait for it to connect."
 
 #: src/app/[lang]/(main)/budget/page.tsx:195
 msgid "Operational Spend"
 msgstr "Operational Spend"
-
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:61
-msgid "Option 1: Standard Web Access"
-msgstr "Option 1: Standard Web Access"
-
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:82
-msgid "Option 2: Maximum Anonymity with Tor"
-msgstr "Option 2: Maximum Anonymity with Tor"
 
 #: src/app/[lang]/(main)/about/faq.tsx:84
 msgid "or subscribe to"
@@ -2380,7 +2376,7 @@ msgstr "Percentage of federal budget dedicated to Indigenous Priorities, FYs 199
 msgid "Personnel"
 msgstr "Personnel"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:132
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:140
 msgid "Please articulate your information clearly and provide relevant names, documents, videos or pictures, highlighting any specific concerns you believe we should focus on."
 msgstr "Please articulate your information clearly and provide relevant names, documents, videos or pictures, highlighting any specific concerns you believe we should focus on."
 
@@ -2711,11 +2707,11 @@ msgstr "Saskatchewan HTP"
 msgid "Saskatchewan STP"
 msgstr "Saskatchewan STP"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:167
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:175
 msgid "Save your receipt code securely—you will need it to check for responses and communicate with our team."
 msgstr "Save your receipt code securely—you will need it to check for responses and communicate with our team."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:145
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:153
 msgid "Security Tips"
 msgstr "Security Tips"
 
@@ -2793,7 +2789,7 @@ msgstr "Sources:"
 msgid "Space"
 msgstr "Space"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:139
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:147
 msgid "Speculation does not meet the level of a strong tip."
 msgstr "Speculation does not meet the level of a strong tip."
 
@@ -2835,7 +2831,7 @@ msgstr "Status"
 msgid "Stay connected by following us on"
 msgstr "Stay connected by following us on"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:92
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:100
 msgid "Steps to submit via Tor:"
 msgstr "Steps to submit via Tor:"
 
@@ -3062,10 +3058,6 @@ msgstr "Theme"
 msgid "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 msgstr "These Ministers are some of the <0>cabinet members</0> who serve at the Prime Minister's discretion. Their tenure typically ends when they resign, are replaced, or when a new Prime Minister takes office and appoints a new cabinet. Outgoing ministers remain in their roles until their successors are sworn in."
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:75
-msgid "This is the easiest method but provides less anonymity than using Tor."
-msgstr "This is the easiest method but provides less anonymity than using Tor."
-
 #: src/app/[lang]/(main)/budget/page.tsx:159
 msgid "This page presents the official Fall 2025 Federal Budget as released by the Government of Canada on November 4th, 2025. All data is sourced directly from official government publications and public accounts from the Government of Canada."
 msgstr "This page presents the official Fall 2025 Federal Budget as released by the Government of Canada on November 4th, 2025. All data is sourced directly from official government publications and public accounts from the Government of Canada."
@@ -3219,7 +3211,7 @@ msgstr "Type of Tenure"
 msgid "Understanding Your Tax Contribution"
 msgstr "Understanding Your Tax Contribution"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:149
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:157
 msgid "Use a computer you trust, not one provided by your employer."
 msgstr "Use a computer you trust, not one provided by your employer."
 
@@ -3277,6 +3269,10 @@ msgstr "View this chart in full screen"
 #: src/components/Sankey/index.tsx:307
 msgid "Visitors, International Students + Temporary Workers"
 msgstr "Visitors, International Students + Temporary Workers"
+
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:90
+msgid "Want even more anonymity?"
+msgstr "Want even more anonymity?"
 
 #. placeholder {0}: department.name
 #: src/app/[lang]/(main)/[jurisdiction]/[department]/page.tsx:122
@@ -3403,7 +3399,7 @@ msgstr "What is your affiliation with Build Canada?"
 msgid "What is your methodology?"
 msgstr "What is your methodology?"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:121
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:129
 msgid "What Makes a Good Tip?"
 msgstr "What Makes a Good Tip?"
 
@@ -3499,13 +3495,17 @@ msgstr "Who Leads Veterans Affairs Canada (VAC)?"
 msgid "Why did you start this project?"
 msgstr "Why did you start this project?"
 
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:57
+msgid "Why Submit a Tip?"
+msgstr "Why Submit a Tip?"
+
 #: src/app/[lang]/(main)/spending/SalaryDistributionChart.tsx:80
 msgid "Year"
 msgstr "Year"
 
-#: src/app/[lang]/(main)/whistleblowers/page.tsx:64
-msgid "You can access our whistleblower platform directly through your regular web browser at:"
-msgstr "You can access our whistleblower platform directly through your regular web browser at:"
+#: src/app/[lang]/(main)/whistleblowers/page.tsx:78
+msgid "You can access our whistleblower platform directly through your web browser at:"
+msgstr "You can access our whistleblower platform directly through your web browser at:"
 
 #: src/app/[lang]/(main)/page.tsx:106
 msgid "You deserve the facts"
