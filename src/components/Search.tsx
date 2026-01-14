@@ -6,7 +6,6 @@ import {
   Pagination,
   useInstantSearch,
   SortBy,
-  HitsPerPage,
 } from "react-instantsearch";
 /* @ts-ignore CSS doesn't export types */
 import "./search.css"; // Make sure this path is correct
@@ -192,6 +191,28 @@ function SearchControls() {
     }
   }, [indexUiState.sortBy]);
 
+  // --- Hits Per Page Handler ---
+  const handleHitsPerPageChange = useCallback(
+    (value: string) => {
+      const hitsPerPage = parseInt(value, 10);
+      console.log(
+        `[handleHitsPerPageChange] Setting hitsPerPage to: ${hitsPerPage}`,
+      );
+
+      setIndexUiState((prevUiState) => ({
+        ...prevUiState,
+        page: 0,
+        hitsPerPage: hitsPerPage,
+      }));
+    },
+    [setIndexUiState],
+  );
+
+  // --- Derive Current Hits Per Page Value ---
+  const currentHitsPerPage = useMemo(() => {
+    return (indexUiState.hitsPerPage || 25).toString();
+  }, [indexUiState.hitsPerPage]);
+
   return (
     <>
       <div className="px-4">
@@ -275,18 +296,20 @@ function SearchControls() {
                     <span className="text-sm text-foreground mr-2 shrink-0">
                       Per Page:
                     </span>
-                    <HitsPerPage
-                      items={[
-                        { label: "10", value: 10, default: false },
-                        { label: "25", value: 25, default: true },
-                        { label: "50", value: 50, default: false },
-                        { label: "100", value: 100, default: false },
-                      ]}
-                      classNames={{
-                        root: "",
-                        select: "h-9 px-3 py-1 text-sm border border-input bg-background rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
-                      }}
-                    />
+                    <Select
+                      value={currentHitsPerPage}
+                      onValueChange={handleHitsPerPageChange}
+                    >
+                      <SelectTrigger className="w-20 h-9 text-sm">
+                        <SelectValue placeholder="25" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="10">10</SelectItem>
+                        <SelectItem value="25">25</SelectItem>
+                        <SelectItem value="50">50</SelectItem>
+                        <SelectItem value="100">100</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
