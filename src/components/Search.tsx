@@ -4,6 +4,7 @@ import {
   SearchBox,
   Hits,
   Pagination,
+  HitsPerPage,
   useInstantSearch,
   SortBy,
 } from "react-instantsearch";
@@ -191,28 +192,6 @@ function SearchControls() {
     }
   }, [indexUiState.sortBy]);
 
-  // --- Hits Per Page Handler ---
-  const handleHitsPerPageChange = useCallback(
-    (value: string) => {
-      const hitsPerPage = parseInt(value, 10);
-      console.log(
-        `[handleHitsPerPageChange] Setting hitsPerPage to: ${hitsPerPage}`,
-      );
-
-      setIndexUiState((prevUiState) => ({
-        ...prevUiState,
-        page: 0,
-        hitsPerPage: hitsPerPage,
-      }));
-    },
-    [setIndexUiState],
-  );
-
-  // --- Derive Current Hits Per Page Value ---
-  const currentHitsPerPage = useMemo(() => {
-    return (indexUiState.hitsPerPage || 25).toString();
-  }, [indexUiState.hitsPerPage]);
-
   return (
     <>
       <div className="px-4">
@@ -291,26 +270,6 @@ function SearchControls() {
                 </div>
                 {/* Right Side: Actions */}
                 <div className="flex items-center gap-2 flex-wrap">
-                  {/* Results Per Page Control */}
-                  <div className="flex items-center mr-2">
-                    <span className="text-sm text-foreground mr-2 shrink-0">
-                      Per Page:
-                    </span>
-                    <Select
-                      value={currentHitsPerPage}
-                      onValueChange={handleHitsPerPageChange}
-                    >
-                      <SelectTrigger className="w-20 h-9 text-sm">
-                        <SelectValue placeholder="25" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="10">10</SelectItem>
-                        <SelectItem value="25">25</SelectItem>
-                        <SelectItem value="50">50</SelectItem>
-                        <SelectItem value="100">100</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
                     <span className="text-sm text-foreground mr-2 shrink-0">
@@ -416,7 +375,7 @@ function SearchControls() {
               {/* --- End Conditional View --- */}
 
               {totalHits > 0 && (
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center items-center gap-4 mt-6">
                   <Pagination
                     classNames={{
                       root: "flex list-none p-0",
@@ -427,6 +386,19 @@ function SearchControls() {
                       disabledItem: "opacity-50 cursor-not-allowed",
                       previousPageItem: "mr-2",
                       nextPageItem: "ml-2",
+                    }}
+                  />
+                  <HitsPerPage
+                    items={[
+                      { label: "10 per page", value: 10 },
+                      { label: "25 per page", value: 25, default: true },
+                      { label: "50 per page", value: 50 },
+                      { label: "100 per page", value: 100 },
+                    ]}
+                    classNames={{
+                      root: "flex items-center",
+                      select:
+                        "h-9 px-3 py-1 border border-charcoal rounded-md bg-background text-charcoal text-sm cursor-pointer hover:bg-linen",
                     }}
                   />
                 </div>
