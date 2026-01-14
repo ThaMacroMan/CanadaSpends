@@ -191,6 +191,28 @@ function SearchControls() {
     }
   }, [indexUiState.sortBy]);
 
+  // --- Hits Per Page Handler ---
+  const handleHitsPerPageChange = useCallback(
+    (value: string) => {
+      const hitsPerPage = parseInt(value, 10);
+      console.log(
+        `[handleHitsPerPageChange] Setting hitsPerPage to: ${hitsPerPage}`,
+      );
+
+      setIndexUiState((prevUiState) => ({
+        ...prevUiState,
+        page: 0,
+        hitsPerPage: hitsPerPage,
+      }));
+    },
+    [setIndexUiState],
+  );
+
+  // --- Derive Current Hits Per Page Value ---
+  const currentHitsPerPage = useMemo(() => {
+    return (indexUiState.hitsPerPage || 25).toString();
+  }, [indexUiState.hitsPerPage]);
+
   return (
     <>
       <div className="px-4">
@@ -269,6 +291,26 @@ function SearchControls() {
                 </div>
                 {/* Right Side: Actions */}
                 <div className="flex items-center gap-2 flex-wrap">
+                  {/* Results Per Page Control */}
+                  <div className="flex items-center mr-2">
+                    <span className="text-sm text-foreground mr-2 shrink-0">
+                      Per Page:
+                    </span>
+                    <Select
+                      value={currentHitsPerPage}
+                      onValueChange={handleHitsPerPageChange}
+                    >
+                      <SelectTrigger className="w-20 h-9 text-sm">
+                        <SelectValue placeholder="25" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="10">10</SelectItem>
+                        <SelectItem value="25">25</SelectItem>
+                        <SelectItem value="50">50</SelectItem>
+                        <SelectItem value="100">100</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
                   {/* Use Custom Shadcn Select for Sort By */}
                   <div className="flex items-center mr-2">
                     <span className="text-sm text-foreground mr-2 shrink-0">
