@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useLingui, Trans } from "@lingui/react/macro";
 import { H1, H2, PageContent, Section } from "@/components/Layout";
 import { StatCard } from "@/components/StatCard";
@@ -235,10 +236,55 @@ function TaxBracketsTable({ province }: TaxBracketsTableProps) {
 
 // Remove the old SpendingVisualization component since we're using the combined chart
 
+// Province shortcodes mapping
+const PROVINCE_CODES: Record<string, string> = {
+  ON: "ontario",
+  AB: "alberta",
+};
+
+const PROVINCE_TO_CODE: Record<string, string> = {
+  ontario: "ON",
+  alberta: "AB",
+};
+
+const DEFAULT_INCOME = 100000;
+const DEFAULT_PROVINCE = "ontario";
+
 export default function TaxCalculatorPage() {
   const { t, i18n } = useLingui();
-  const [income, setIncome] = useState<number>(100000);
-  const [province, setProvince] = useState<string>("ontario");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
+  // Initialize state from URL params or defaults
+  const initialIncome = (() => {
+    const incomeParam = searchParams.get("income");
+    if (incomeParam) {
+      const parsed = Number(incomeParam);
+      if (!isNaN(parsed) && parsed > 0) return parsed;
+    }
+    return DEFAULT_INCOME;
+  })();
+
+  const initialProvince = (() => {
+    const provinceParam = searchParams.get("province")?.toUpperCase();
+    if (provinceParam && PROVINCE_CODES[provinceParam]) {
+      return PROVINCE_CODES[provinceParam];
+    }
+    return DEFAULT_PROVINCE;
+  })();
+
+  const [income, setIncome] = useState<number>(initialIncome);
+  const [province, setProvince] = useState<string>(initialProvince);
+
+  // Update URL when income or province changes
+  useEffect(() => {
+    const params = new URLSearchParams();
+    params.set("province", PROVINCE_TO_CODE[province] || "ON");
+    params.set("income", income.toString());
+
+    const newUrl = `${window.location.pathname}?${params.toString()}`;
+    router.replace(newUrl, { scroll: false });
+  }, [income, province, router]);
 
   const taxCalculation = useMemo(() => {
     if (income <= 0) return null;
