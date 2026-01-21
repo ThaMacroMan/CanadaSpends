@@ -3,42 +3,30 @@
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useLingui, Trans } from "@lingui/react/macro";
+
+import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
 import { H1, H2, PageContent, Section } from "@/components/Layout";
 import { StatCard } from "@/components/StatCard";
-import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
-import { calculateTotalTax, formatCurrency } from "@/lib/taxCalculator";
 import { calculatePersonalTaxBreakdown } from "@/lib/personalTaxBreakdown";
+import {
+  calculateCappedContribution,
+  calculateCpp2Contribution,
+  calculateDetailedTax,
+  calculateHealthPremium,
+  calculateSurtax,
+  formatCurrency,
+  getBracketTaxBreakdown,
+  getSupportedYears,
+  getTaxConfig,
+  SupportedYear,
+  TaxYearProvinceConfig,
+} from "@/lib/tax";
 import { localizedPath } from "@/lib/utils";
 
-type ProvinceData = {
-  name: string;
-  bpa: string;
-  brackets: Array<{ range: string; rate: string }>;
-};
-
-const PROVINCE_DATA: Record<string, ProvinceData> = {
-  alberta: {
-    name: "Alberta",
-    bpa: "$21,885",
-    brackets: [
-      { range: "First $148,269", rate: "10%" },
-      { range: "$148,269 - $177,922", rate: "12%" },
-      { range: "$177,922 - $237,230", rate: "13%" },
-      { range: "$237,230 - $355,845", rate: "14%" },
-      { range: "More than $355,845", rate: "15%" },
-    ],
-  },
-  ontario: {
-    name: "Ontario",
-    bpa: "$12,399",
-    brackets: [
-      { range: "First $51,446", rate: "5.05%" },
-      { range: "$51,446 - $102,894", rate: "9.15%" },
-      { range: "$102,894 - $150,000", rate: "11.16%" },
-      { range: "$150,000 - $220,000", rate: "12.16%" },
-      { range: "More than $220,000", rate: "13.16%" },
-    ],
-  },
+// Province display names
+const PROVINCE_NAMES: Record<string, string> = {
+  ontario: "Ontario",
+  alberta: "Alberta",
 };
 
 interface TaxCalculatorFormProps {
@@ -46,6 +34,8 @@ interface TaxCalculatorFormProps {
   setIncome: (income: number) => void;
   province: string;
   setProvince: (province: string) => void;
+  year: SupportedYear;
+  setYear: (year: SupportedYear) => void;
 }
 
 function TaxCalculatorForm({
@@ -53,14 +43,17 @@ function TaxCalculatorForm({
   setIncome,
   province,
   setProvince,
+  year,
+  setYear,
 }: TaxCalculatorFormProps) {
   const { t } = useLingui();
+  const supportedYears = getSupportedYears();
 
   return (
     <div className="bg-card p-6 rounded-lg shadow-sm border">
       <H2>{t`Calculate Your Tax Contribution`}</H2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
         <div>
           <label
             htmlFor="income"
@@ -104,13 +97,34 @@ function TaxCalculatorForm({
             {t`More provinces coming soon.`}
           </p>
         </div>
+
+        <div>
+          <label
+            htmlFor="year"
+            className="block text-sm font-medium text-muted-foreground mb-2"
+          >
+            {t`Tax Year`}
+          </label>
+          <select
+            id="year"
+            value={year}
+            onChange={(e) => setYear(e.target.value as SupportedYear)}
+            className="w-full px-3 py-2 border border-border bg-input/50 rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
+          >
+            {supportedYears.map((y) => (
+              <option key={y} value={y}>
+                {y}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
     </div>
   );
 }
 
 interface TaxSummaryProps {
-  taxCalculation: ReturnType<typeof calculateTotalTax>;
+  taxCalculation: ReturnType<typeof calculateDetailedTax>;
 }
 
 function TaxSummary({ taxCalculation }: TaxSummaryProps) {
@@ -142,99 +156,392 @@ function TaxSummary({ taxCalculation }: TaxSummaryProps) {
   );
 }
 
-interface TaxBracketsTableProps {
-  province: string;
+// Helper to format currency amounts
+function formatAmount(amount: number): string {
+  return new Intl.NumberFormat("en-CA", {
+    style: "currency",
+    currency: "CAD",
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
 
-function TaxBracketsTable({ province }: TaxBracketsTableProps) {
-  const data = PROVINCE_DATA[province];
-  if (!data) return null;
+// Helper to format percentage
+function formatPercent(rate: number): string {
+  return `${(rate * 100).toFixed((rate * 100) % 1 === 0 ? 0 : 2)}%`;
+}
+
+// Income tax brackets section with calculated amounts
+function IncomeTaxBracketsSection({
+  title,
+  config,
+  income,
+}: {
+  title: string;
+  config: {
+    brackets: Array<{ min: number; max: number | null; rate: number }>;
+    basicPersonalAmount: number;
+  };
+  income: number;
+}) {
+  const breakdown = getBracketTaxBreakdown(income, config.brackets);
+  const lowestRate = config.brackets[0]?.rate ?? 0;
+  const bpaCredit = config.basicPersonalAmount * lowestRate;
+  const totalBeforeCredit = breakdown.reduce((sum, b) => sum + b.taxAmount, 0);
+  const totalAfterCredit = Math.max(0, totalBeforeCredit - bpaCredit);
 
   return (
-    <div className="mt-16">
-      <h2 className="text-2xl font-bold text-center mb-2">
-        <Trans>{data.name} Provincial and Federal tax brackets</Trans>
-      </h2>
-      <p className="text-center text-foreground mb-8">
-        <Trans>Your taxable income is taxed at the following rates.</Trans>
-      </p>
-      <div className="flex flex-col md:flex-row gap-8 justify-center">
-        {/* Federal Tax Brackets */}
-        <div className="bg-card rounded-lg shadow-sm border p-6 flex-1 min-w-[320px] max-w-md">
-          <table className="w-full text-left">
-            <thead>
-              <tr>
-                <th className="pb-2 font-bold">
-                  <Trans>Federal tax bracket</Trans>
-                </th>
-                <th className="pb-2 font-bold text-right">
-                  <Trans>Federal tax rate</Trans>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-card-foreground/80 text-base">
-              <tr>
-                <td className="py-2">
-                  <Trans>First $55,867</Trans>
-                </td>
-                <td className="py-2 text-right">15%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$55,867 - $111,733</td>
-                <td className="py-2 text-right">20.5%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$111,733 - $173,205</td>
-                <td className="py-2 text-right">26%</td>
-              </tr>
-              <tr>
-                <td className="py-2">$173,205 - $246,752</td>
-                <td className="py-2 text-right">29%</td>
-              </tr>
-              <tr>
-                <td className="py-2">
-                  <Trans>More than $246,752</Trans>
-                </td>
-                <td className="py-2 text-right">33%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        {/* Provincial Tax Brackets */}
-        <div className="bg-card rounded-lg shadow-sm border p-6 flex-1 min-w-[320px] max-w-md">
-          <table className="w-full text-left">
-            <thead>
-              <tr>
-                <th className="pb-2 font-bold">
-                  <Trans>{data.name} tax bracket</Trans>
-                </th>
-                <th className="pb-2 font-bold text-right">
-                  <Trans>{data.name} tax rate</Trans>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="text-card-foreground/80 text-base">
-              {data.brackets.map((bracket, index) => (
-                <tr key={index}>
-                  <td className="py-2">{bracket.range}</td>
-                  <td className="py-2 text-right">{bracket.rate}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <p className="text-center text-xs text-foreground/50 mt-8">
-        <Trans>
-          Basic personal amount of $15,705 for federal and {data.bpa} for{" "}
-          {data.name} have been deducted.
-        </Trans>
-      </p>
+    <div>
+      <h4 className="font-semibold text-base mb-3">{title}</h4>
+      <table className="w-full text-left">
+        <thead>
+          <tr>
+            <th className="pb-2 font-medium text-sm text-muted-foreground">
+              <Trans>Tax bracket</Trans>
+            </th>
+            <th className="pb-2 font-medium text-sm text-muted-foreground text-right">
+              <Trans>Rate</Trans>
+            </th>
+            <th className="pb-2 font-medium text-sm text-muted-foreground text-right">
+              <Trans>Tax</Trans>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="text-card-foreground/80 text-sm">
+          {breakdown.map((item, index) => (
+            <tr
+              key={index}
+              className={item.taxAmount === 0 ? "opacity-40" : ""}
+            >
+              <td className="py-1">
+                {item.bracket.max === null
+                  ? `More than ${formatAmount(item.bracket.min)}`
+                  : index === 0
+                    ? `First ${formatAmount(item.bracket.max)}`
+                    : `${formatAmount(item.bracket.min)} - ${formatAmount(item.bracket.max)}`}
+              </td>
+              <td className="py-1 text-right">
+                {formatPercent(item.bracket.rate)}
+              </td>
+              <td className="py-1 text-right font-medium">
+                {formatAmount(item.taxAmount)}
+              </td>
+            </tr>
+          ))}
+          <tr className="border-t border-border">
+            <td className="py-1 text-muted-foreground text-xs" colSpan={2}>
+              <Trans>
+                BPA credit ({formatAmount(config.basicPersonalAmount)} ×{" "}
+                {formatPercent(lowestRate)})
+              </Trans>
+            </td>
+            <td className="py-1 text-right font-medium text-red-600">
+              -{formatAmount(bpaCredit)}
+            </td>
+          </tr>
+          <tr className="font-semibold">
+            <td className="py-1" colSpan={2}>
+              <Trans>Total</Trans>
+            </td>
+            <td className="py-1 text-right">
+              {formatAmount(totalAfterCredit)}
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }
 
-// Remove the old SpendingVisualization component since we're using the combined chart
+// Federal Tax Card - all federal taxes in one card
+interface FederalTaxCardProps {
+  config: TaxYearProvinceConfig["federal"];
+  income: number;
+}
+
+function FederalTaxCard({ config, income }: FederalTaxCardProps) {
+  // Calculate income tax
+  const breakdown = getBracketTaxBreakdown(income, config.incomeTax.brackets);
+  const lowestRate = config.incomeTax.brackets[0]?.rate ?? 0;
+  const bpaCredit = config.incomeTax.basicPersonalAmount * lowestRate;
+  const incomeTaxBeforeCredit = breakdown.reduce(
+    (sum, b) => sum + b.taxAmount,
+    0,
+  );
+  const incomeTaxAmount = Math.max(0, incomeTaxBeforeCredit - bpaCredit);
+
+  // Calculate payroll contributions
+  const cppAmount = calculateCappedContribution(income, config.cpp);
+  const cpp2Amount = calculateCpp2Contribution(income, config.cpp2);
+  const eiAmount = calculateCappedContribution(income, config.ei);
+  const payrollTotal = cppAmount + cpp2Amount + eiAmount;
+
+  // Overall total
+  const totalFederalTax = incomeTaxAmount + payrollTotal;
+
+  return (
+    <div className="bg-card rounded-lg shadow-sm border p-6 flex flex-col">
+      <div className="flex-grow">
+        <h3 className="font-bold text-lg mb-4">
+          <Trans>Federal Taxes</Trans>
+        </h3>
+
+        {/* Income Tax Brackets */}
+        <IncomeTaxBracketsSection
+          title={config.incomeTax.name}
+          config={config.incomeTax}
+          income={income}
+        />
+
+        {/* Payroll Contributions */}
+        <div className="mt-6 pt-4 border-t border-border">
+          <h4 className="font-semibold text-base mb-3">
+            <Trans>Payroll Contributions</Trans>
+          </h4>
+          <table className="w-full text-left text-sm">
+            <tbody>
+              <tr>
+                <td className="py-1 text-muted-foreground">
+                  {config.cpp.shortName}
+                </td>
+                <td className="py-1 text-right">
+                  {formatPercent(config.cpp.rate)}
+                </td>
+                <td className="py-1 text-right font-medium">
+                  {formatAmount(cppAmount)}
+                </td>
+              </tr>
+              <tr className={cpp2Amount === 0 ? "opacity-40" : ""}>
+                <td className="py-1 text-muted-foreground">
+                  {config.cpp2.shortName}
+                </td>
+                <td className="py-1 text-right">
+                  {formatPercent(config.cpp2.rate)}
+                </td>
+                <td className="py-1 text-right font-medium">
+                  {formatAmount(cpp2Amount)}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-1 text-muted-foreground">
+                  {config.ei.shortName}
+                </td>
+                <td className="py-1 text-right">
+                  {formatPercent(config.ei.rate)}
+                </td>
+                <td className="py-1 text-right font-medium">
+                  {formatAmount(eiAmount)}
+                </td>
+              </tr>
+              <tr className="font-semibold border-t border-border">
+                <td className="py-1" colSpan={2}>
+                  <Trans>Total</Trans>
+                </td>
+                <td className="py-1 text-right">
+                  {formatAmount(payrollTotal)}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {/* Overall Total */}
+      <div className="mt-6 pt-4 border-t-2 border-border">
+        <div className="flex justify-between items-center text-lg font-bold">
+          <span>
+            <Trans>Total Federal Tax</Trans>
+          </span>
+          <span>{formatAmount(totalFederalTax)}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Provincial Tax Card - all provincial taxes in one card
+interface ProvincialTaxCardProps {
+  provinceName: string;
+  config: TaxYearProvinceConfig["provincial"];
+  income: number;
+}
+
+function ProvincialTaxCard({
+  provinceName,
+  config,
+  income,
+}: ProvincialTaxCardProps) {
+  // Calculate provincial income tax for surtax calculation
+  const breakdown = getBracketTaxBreakdown(income, config.incomeTax.brackets);
+  const lowestRate = config.incomeTax.brackets[0]?.rate ?? 0;
+  const bpaCredit = config.incomeTax.basicPersonalAmount * lowestRate;
+  const provincialTaxBeforeCredit = breakdown.reduce(
+    (sum, b) => sum + b.taxAmount,
+    0,
+  );
+  const provincialTax = Math.max(0, provincialTaxBeforeCredit - bpaCredit);
+
+  const surtaxAmount = config.surtax
+    ? calculateSurtax(provincialTax, config.surtax)
+    : 0;
+  const healthPremiumAmount = config.healthPremium
+    ? calculateHealthPremium(income, config.healthPremium)
+    : 0;
+
+  // Overall total
+  const totalProvincialTax = provincialTax + surtaxAmount + healthPremiumAmount;
+
+  return (
+    <div className="bg-card rounded-lg shadow-sm border p-6 flex flex-col">
+      <div className="flex-grow">
+        <h3 className="font-bold text-lg mb-4">
+          <Trans>{provinceName} Taxes</Trans>
+        </h3>
+
+        {/* Income Tax Brackets */}
+        <IncomeTaxBracketsSection
+          title={config.incomeTax.name}
+          config={config.incomeTax}
+          income={income}
+        />
+
+        {/* Surtax (if applicable) */}
+        {config.surtax && (
+          <div className="mt-6 pt-4 border-t border-border">
+            <h4 className="font-semibold text-base mb-2">
+              {config.surtax.name}
+            </h4>
+            <p className="text-xs text-muted-foreground mb-2">
+              <Trans>
+                Applied to provincial tax of {formatAmount(provincialTax)}
+              </Trans>
+            </p>
+            <table className="w-full text-left text-sm">
+              <tbody>
+                {config.surtax.tiers.map((tier, index) => {
+                  const additionalRate =
+                    tier.rate -
+                    (index > 0 ? config.surtax!.tiers[index - 1].rate : 0);
+                  const taxableAboveThreshold = Math.max(
+                    0,
+                    provincialTax - tier.threshold,
+                  );
+                  const tierAmount = taxableAboveThreshold * additionalRate;
+                  return (
+                    <tr
+                      key={index}
+                      className={tierAmount === 0 ? "opacity-40" : ""}
+                    >
+                      <td className="py-1 text-muted-foreground">
+                        <Trans>Above {formatAmount(tier.threshold)}</Trans>
+                      </td>
+                      <td className="py-1 text-right">
+                        +{formatPercent(additionalRate)}
+                      </td>
+                      <td className="py-1 text-right font-medium">
+                        {formatAmount(tierAmount)}
+                      </td>
+                    </tr>
+                  );
+                })}
+                <tr className="font-semibold border-t border-border">
+                  <td className="py-1" colSpan={2}>
+                    <Trans>Total</Trans>
+                  </td>
+                  <td className="py-1 text-right">
+                    {formatAmount(surtaxAmount)}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* Health Premium (if applicable) */}
+        {config.healthPremium && (
+          <div className="mt-6 pt-4 border-t border-border">
+            <h4 className="font-semibold text-base mb-2">
+              {config.healthPremium.name}
+            </h4>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">
+                <Trans>Based on income of {formatAmount(income)}</Trans>
+              </span>
+              <span className="font-medium">
+                {formatAmount(healthPremiumAmount)}
+              </span>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Overall Total */}
+      <div className="mt-6 pt-4 border-t-2 border-border">
+        <div className="flex justify-between items-center text-lg font-bold">
+          <span>
+            <Trans>Total {provinceName} Tax</Trans>
+          </span>
+          <span>{formatAmount(totalProvincialTax)}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+interface TaxDetailsProps {
+  config: TaxYearProvinceConfig;
+  income: number;
+  setIncome: (income: number) => void;
+  province: string;
+  setProvince: (province: string) => void;
+  year: SupportedYear;
+  setYear: (year: SupportedYear) => void;
+}
+
+function TaxDetails({
+  config,
+  income,
+  setIncome,
+  province,
+  setProvince,
+  year,
+  setYear,
+}: TaxDetailsProps) {
+  const provinceName = PROVINCE_NAMES[config.province] || config.province;
+
+  return (
+    <div id="tax-details" className="mt-16 scroll-mt-8">
+      <h2 className="text-2xl font-bold text-center mb-2">
+        <Trans>
+          Tax Details for {provinceName} ({config.year})
+        </Trans>
+      </h2>
+      <p className="text-center text-foreground/60 mb-6">
+        <Trans>All the taxes that apply to your income</Trans>
+      </p>
+
+      <div className="mb-8">
+        <TaxCalculatorForm
+          income={income}
+          setIncome={setIncome}
+          province={province}
+          setProvince={setProvince}
+          year={year}
+          setYear={setYear}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <FederalTaxCard config={config.federal} income={income} />
+        <ProvincialTaxCard
+          provinceName={provinceName}
+          config={config.provincial}
+          income={income}
+        />
+      </div>
+    </div>
+  );
+}
 
 // Province shortcodes mapping
 const PROVINCE_CODES: Record<string, string> = {
@@ -249,6 +556,7 @@ const PROVINCE_TO_CODE: Record<string, string> = {
 
 const DEFAULT_INCOME = 100000;
 const DEFAULT_PROVINCE = "ontario";
+const DEFAULT_YEAR: SupportedYear = "2024";
 
 export default function TaxCalculatorPage() {
   const { t, i18n } = useLingui();
@@ -273,28 +581,43 @@ export default function TaxCalculatorPage() {
     return DEFAULT_PROVINCE;
   })();
 
+  const initialYear = (() => {
+    const yearParam = searchParams.get("year");
+    const supportedYears = getSupportedYears();
+    if (yearParam && supportedYears.includes(yearParam as SupportedYear)) {
+      return yearParam as SupportedYear;
+    }
+    return DEFAULT_YEAR;
+  })();
+
   const [income, setIncome] = useState<number>(initialIncome);
   const [province, setProvince] = useState<string>(initialProvince);
+  const [year, setYear] = useState<SupportedYear>(initialYear);
 
-  // Update URL when income or province changes
+  // Update URL when income, province, or year changes
   useEffect(() => {
     const params = new URLSearchParams();
     params.set("province", PROVINCE_TO_CODE[province] || "ON");
     params.set("income", income.toString());
+    params.set("year", year);
 
     const newUrl = `${window.location.pathname}?${params.toString()}`;
     router.replace(newUrl, { scroll: false });
-  }, [income, province, router]);
+  }, [income, province, year, router]);
 
-  const taxCalculation = useMemo(() => {
+  const taxConfig = useMemo(() => {
+    return getTaxConfig(year, province);
+  }, [year, province]);
+
+  const detailedCalculation = useMemo(() => {
     if (income <= 0) return null;
-    return calculateTotalTax(income, province);
-  }, [income, province]);
+    return calculateDetailedTax(income, province, year);
+  }, [income, province, year]);
 
   const breakdown = useMemo(() => {
-    if (!taxCalculation) return null;
-    return calculatePersonalTaxBreakdown(taxCalculation, province);
-  }, [taxCalculation, province]);
+    if (!detailedCalculation) return null;
+    return calculatePersonalTaxBreakdown(detailedCalculation, province, year);
+  }, [detailedCalculation, province, year]);
 
   return (
     <PageContent>
@@ -311,12 +634,42 @@ export default function TaxCalculatorPage() {
           setIncome={setIncome}
           province={province}
           setProvince={setProvince}
+          year={year}
+          setYear={setYear}
         />
 
-        {taxCalculation && breakdown && (
+        {detailedCalculation && breakdown && (
           <>
             <div className="mt-8">
-              <TaxSummary taxCalculation={taxCalculation} />
+              <TaxSummary taxCalculation={detailedCalculation} />
+            </div>
+
+            <div className="mt-6 text-center">
+              <a
+                href="#tax-details"
+                className="inline-flex items-center gap-2 text-primary hover:underline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document
+                    .getElementById("tax-details")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                <Trans>View detailed tax breakdown</Trans>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M12 5v14M19 12l-7 7-7-7" />
+                </svg>
+              </a>
             </div>
 
             <div className="mt-12">
@@ -334,7 +687,11 @@ export default function TaxCalculatorPage() {
                   {t`This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into "Other" for conciseness.`}
                 </p>
                 <p>
-                  {t`Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included. Tax calculations are based on 2024 federal and provincial tax brackets.`}
+                  {t`Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included.`}{" "}
+                  <Trans>
+                    Tax calculations are based on {year} federal and provincial
+                    tax brackets.
+                  </Trans>
                 </p>
                 <p>
                   {t`Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending.`}
@@ -366,7 +723,19 @@ export default function TaxCalculatorPage() {
           </>
         )}
       </Section>
-      <TaxBracketsTable province={province} />
+
+      {taxConfig && (
+        <TaxDetails
+          config={taxConfig}
+          income={income}
+          setIncome={setIncome}
+          province={province}
+          setProvince={setProvince}
+          year={year}
+          setYear={setYear}
+        />
+      )}
+
       <Section>
         <hr></hr>
         <p className="mt-6 text-center text-sm text-foreground/60">
