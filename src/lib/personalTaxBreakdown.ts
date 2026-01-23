@@ -262,14 +262,13 @@ export function calculatePersonalTaxBreakdown(
   taxCalculation: TaxCalculation,
   province: string = "ontario",
   year: string = "2024",
-): PersonalTaxBreakdown {
+): PersonalTaxBreakdown | null {
   // Get spending config from the year-specific configuration
   const spendingConfig = getSpendingConfig(year, province);
 
   if (!spendingConfig) {
-    throw new Error(
-      `Spending configuration not found for year "${year}" and province "${province}"`,
-    );
+    // Return null to allow the UI to show a "coming soon" message
+    return null;
   }
 
   // Calculate federal spending breakdown
