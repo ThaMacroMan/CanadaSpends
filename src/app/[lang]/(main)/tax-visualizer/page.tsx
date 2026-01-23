@@ -606,7 +606,7 @@ const PROVINCE_TO_CODE: Record<string, string> = {
 
 const DEFAULT_INCOME = 100000;
 const DEFAULT_PROVINCE = "ontario";
-const DEFAULT_YEAR: SupportedYear = "2024";
+const DEFAULT_YEAR: SupportedYear = "2025";
 
 export default function TaxCalculatorPage() {
   const { t, i18n } = useLingui();
