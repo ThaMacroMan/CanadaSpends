@@ -5,7 +5,8 @@ export const ALBERTA_TAX_CONFIG: ProvincialTaxConfig = {
     type: "bracket",
     name: "Alberta Income Tax",
     brackets: [
-      { min: 0, max: 151234, rate: 0.1 },
+      { min: 0, max: 60000, rate: 0.08 },
+      { min: 60000, max: 151234, rate: 0.1 },
       { min: 151234, max: 181481, rate: 0.12 },
       { min: 181481, max: 241974, rate: 0.13 },
       { min: 241974, max: 362961, rate: 0.14 },
