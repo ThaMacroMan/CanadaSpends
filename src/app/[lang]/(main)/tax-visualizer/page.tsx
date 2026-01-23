@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useLingui, Trans } from "@lingui/react/macro";
 
 import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
+import { JurisdictionComparisonChart } from "@/components/JurisdictionComparisonChart";
 import { H1, H2, PageContent, Section } from "@/components/Layout";
 import { StatCard } from "@/components/StatCard";
 import { calculatePersonalTaxBreakdown } from "@/lib/personalTaxBreakdown";
@@ -822,6 +823,16 @@ export default function TaxCalculatorPage() {
           year={year}
           setYear={setYear}
         />
+      )}
+
+      {detailedCalculation && (
+        <Section>
+          <JurisdictionComparisonChart
+            income={income}
+            year={year}
+            selectedProvince={province}
+          />
+        </Section>
       )}
 
       <Section>
