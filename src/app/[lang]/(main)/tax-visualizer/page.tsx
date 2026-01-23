@@ -23,11 +23,27 @@ import {
 } from "@/lib/tax";
 import { localizedPath } from "@/lib/utils";
 
-// Province display names
+// Province display names (sorted alphabetically)
 const PROVINCE_NAMES: Record<string, string> = {
-  ontario: "Ontario",
   alberta: "Alberta",
+  "british-columbia": "British Columbia",
+  manitoba: "Manitoba",
+  "new-brunswick": "New Brunswick",
+  "newfoundland-and-labrador": "Newfoundland and Labrador",
+  "northwest-territories": "Northwest Territories",
+  "nova-scotia": "Nova Scotia",
+  nunavut: "Nunavut",
+  ontario: "Ontario",
+  "prince-edward-island": "Prince Edward Island",
+  quebec: "Quebec",
+  saskatchewan: "Saskatchewan",
+  yukon: "Yukon",
 };
+
+// Provinces sorted alphabetically for dropdown
+const PROVINCES_SORTED = Object.entries(PROVINCE_NAMES).sort((a, b) =>
+  a[1].localeCompare(b[1]),
+);
 
 interface TaxCalculatorFormProps {
   income: number;
@@ -90,12 +106,12 @@ function TaxCalculatorForm({
             onChange={(e) => setProvince(e.target.value)}
             className="w-full px-3 py-2 border border-border bg-input/50 rounded-md focus:outline-none focus:ring-2 focus:ring-ring"
           >
-            <option value="ontario">{t`Ontario`}</option>
-            <option value="alberta">{t`Alberta`}</option>
+            {PROVINCES_SORTED.map(([value, label]) => (
+              <option key={value} value={value}>
+                {label}
+              </option>
+            ))}
           </select>
-          <p className="text-sm text-accent-foreground/50 mt-1">
-            {t`More provinces coming soon.`}
-          </p>
         </div>
 
         <div>
@@ -199,10 +215,10 @@ function IncomeTaxBracketsSection({
             <th className="pb-2 font-medium text-sm text-muted-foreground">
               <Trans>Tax bracket</Trans>
             </th>
-            <th className="pb-2 font-medium text-sm text-muted-foreground text-right">
+            <th className="pb-2 font-medium text-sm text-muted-foreground text-right w-20">
               <Trans>Rate</Trans>
             </th>
-            <th className="pb-2 font-medium text-sm text-muted-foreground text-right">
+            <th className="pb-2 font-medium text-sm text-muted-foreground text-right w-20">
               <Trans>Tax</Trans>
             </th>
           </tr>
@@ -302,34 +318,45 @@ function FederalTaxCard({ config, income }: FederalTaxCardProps) {
             <tbody>
               <tr>
                 <td className="py-1 text-muted-foreground">
-                  {config.cpp.shortName}
+                  <div>{config.cpp.shortName}</div>
+                  <div className="text-xs text-muted-foreground/70">
+                    {formatAmount(config.cpp.exemption)} -{" "}
+                    {formatAmount(config.cpp.maxEarnings)}
+                  </div>
                 </td>
-                <td className="py-1 text-right">
+                <td className="py-1 text-right align-top w-20">
                   {formatPercent(config.cpp.rate)}
                 </td>
-                <td className="py-1 text-right font-medium">
+                <td className="py-1 text-right font-medium align-top w-20">
                   {formatAmount(cppAmount)}
                 </td>
               </tr>
               <tr className={cpp2Amount === 0 ? "opacity-40" : ""}>
                 <td className="py-1 text-muted-foreground">
-                  {config.cpp2.shortName}
+                  <div>{config.cpp2.shortName}</div>
+                  <div className="text-xs text-muted-foreground/70">
+                    {formatAmount(config.cpp2.ympe)} -{" "}
+                    {formatAmount(config.cpp2.yampe)}
+                  </div>
                 </td>
-                <td className="py-1 text-right">
+                <td className="py-1 text-right align-top w-20">
                   {formatPercent(config.cpp2.rate)}
                 </td>
-                <td className="py-1 text-right font-medium">
+                <td className="py-1 text-right font-medium align-top w-20">
                   {formatAmount(cpp2Amount)}
                 </td>
               </tr>
               <tr>
                 <td className="py-1 text-muted-foreground">
-                  {config.ei.shortName}
+                  <div>{config.ei.shortName}</div>
+                  <div className="text-xs text-muted-foreground/70">
+                    <Trans>First</Trans> {formatAmount(config.ei.maxEarnings)}
+                  </div>
                 </td>
-                <td className="py-1 text-right">
+                <td className="py-1 text-right align-top w-20">
                   {formatPercent(config.ei.rate)}
                 </td>
-                <td className="py-1 text-right font-medium">
+                <td className="py-1 text-right font-medium align-top w-20">
                   {formatAmount(eiAmount)}
                 </td>
               </tr>
@@ -337,7 +364,7 @@ function FederalTaxCard({ config, income }: FederalTaxCardProps) {
                 <td className="py-1" colSpan={2}>
                   <Trans>Total</Trans>
                 </td>
-                <td className="py-1 text-right">
+                <td className="py-1 text-right w-20">
                   {formatAmount(payrollTotal)}
                 </td>
               </tr>
@@ -435,10 +462,10 @@ function ProvincialTaxCard({
                       <td className="py-1 text-muted-foreground">
                         <Trans>Above {formatAmount(tier.threshold)}</Trans>
                       </td>
-                      <td className="py-1 text-right">
+                      <td className="py-1 text-right w-20">
                         +{formatPercent(additionalRate)}
                       </td>
-                      <td className="py-1 text-right font-medium">
+                      <td className="py-1 text-right font-medium w-20">
                         {formatAmount(tierAmount)}
                       </td>
                     </tr>
@@ -448,7 +475,7 @@ function ProvincialTaxCard({
                   <td className="py-1" colSpan={2}>
                     <Trans>Total</Trans>
                   </td>
-                  <td className="py-1 text-right">
+                  <td className="py-1 text-right w-20">
                     {formatAmount(surtaxAmount)}
                   </td>
                 </tr>
@@ -543,15 +570,37 @@ function TaxDetails({
   );
 }
 
-// Province shortcodes mapping
+// Province shortcodes mapping (ISO 3166-2:CA codes)
 const PROVINCE_CODES: Record<string, string> = {
-  ON: "ontario",
   AB: "alberta",
+  BC: "british-columbia",
+  MB: "manitoba",
+  NB: "new-brunswick",
+  NL: "newfoundland-and-labrador",
+  NS: "nova-scotia",
+  NT: "northwest-territories",
+  NU: "nunavut",
+  ON: "ontario",
+  PE: "prince-edward-island",
+  QC: "quebec",
+  SK: "saskatchewan",
+  YT: "yukon",
 };
 
 const PROVINCE_TO_CODE: Record<string, string> = {
-  ontario: "ON",
   alberta: "AB",
+  "british-columbia": "BC",
+  manitoba: "MB",
+  "new-brunswick": "NB",
+  "newfoundland-and-labrador": "NL",
+  "nova-scotia": "NS",
+  "northwest-territories": "NT",
+  nunavut: "NU",
+  ontario: "ON",
+  "prince-edward-island": "PE",
+  quebec: "QC",
+  saskatchewan: "SK",
+  yukon: "YT",
 };
 
 const DEFAULT_INCOME = 100000;
@@ -638,7 +687,7 @@ export default function TaxCalculatorPage() {
           setYear={setYear}
         />
 
-        {detailedCalculation && breakdown && (
+        {detailedCalculation && (
           <>
             <div className="mt-8">
               <TaxSummary taxCalculation={detailedCalculation} />
@@ -672,54 +721,93 @@ export default function TaxCalculatorPage() {
               </a>
             </div>
 
-            <div className="mt-12">
-              <CombinedSpendingChart
-                data={breakdown.combinedChartData}
-                title={t`Where Your Tax Dollars Go`}
-                totalAmount={breakdown.taxCalculation.totalTax}
-              />
-            </div>
+            {breakdown ? (
+              <>
+                <div className="mt-12">
+                  <CombinedSpendingChart
+                    data={breakdown.combinedChartData}
+                    title={t`Where Your Tax Dollars Go`}
+                    totalAmount={breakdown.taxCalculation.totalTax}
+                  />
+                </div>
 
-            <div className="mt-12 bg-card p-6 rounded-lg">
-              <H2>{t`Understanding Your Tax Contribution`}</H2>
-              <div className="mt-4 space-y-3 text-sm text-foreground/60">
-                <p>
-                  {t`This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into "Other" for conciseness.`}
-                </p>
-                <p>
-                  {t`Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included.`}{" "}
-                  <Trans>
-                    Tax calculations are based on {year} federal and provincial
-                    tax brackets.
-                  </Trans>
-                </p>
-                <p>
-                  {t`Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending.`}
-                </p>
-                <p>
-                  <Trans>
-                    For further breakdowns of spending, see{" "}
-                    <a
-                      href={localizedPath("/spending", i18n.locale)}
-                      className="underline"
+                <div className="mt-12 bg-card p-6 rounded-lg">
+                  <H2>{t`Understanding Your Tax Contribution`}</H2>
+                  <div className="mt-4 space-y-3 text-sm text-foreground/60">
+                    <p>
+                      {t`This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into "Other" for conciseness.`}
+                    </p>
+                    <p>
+                      {t`Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included.`}{" "}
+                      <Trans>
+                        Tax calculations are based on {year} federal and
+                        provincial tax brackets.
+                      </Trans>
+                    </p>
+                    <p>
+                      {t`Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending.`}
+                    </p>
+                    <p>
+                      <Trans>
+                        For further breakdowns of spending, see{" "}
+                        <a
+                          href={localizedPath("/spending", i18n.locale)}
+                          className="underline"
+                        >
+                          Federal
+                        </a>{" "}
+                        and{" "}
+                        <a
+                          href={localizedPath(
+                            province === "alberta" ? "/alberta" : "/ontario",
+                            i18n.locale,
+                          )}
+                          className="underline"
+                        >
+                          Provincial
+                        </a>{" "}
+                        spending pages.
+                      </Trans>
+                    </p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="mt-12 bg-card p-6 rounded-lg border border-border">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-muted flex items-center justify-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-muted-foreground"
                     >
-                      Federal
-                    </a>{" "}
-                    and{" "}
-                    <a
-                      href={localizedPath(
-                        province === "alberta" ? "/alberta" : "/ontario",
-                        i18n.locale,
-                      )}
-                      className="underline"
-                    >
-                      Provincial
-                    </a>{" "}
-                    spending pages.
-                  </Trans>
-                </p>
+                      <circle cx="12" cy="12" r="10" />
+                      <line x1="12" y1="16" x2="12" y2="12" />
+                      <line x1="12" y1="8" x2="12.01" y2="8" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg mb-2">
+                      <Trans>Spending Breakdown Coming Soon</Trans>
+                    </h3>
+                    <p className="text-foreground/60">
+                      <Trans>
+                        Spending data is not yet available for this province and
+                        year combination. The income tax calculation above is
+                        still accurate based on {year} tax rates.
+                      </Trans>
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            )}
           </>
         )}
       </Section>
