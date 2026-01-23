@@ -96,7 +96,7 @@ export interface TaxYearProvinceConfig {
   province: string;
   federal: FederalTaxConfig;
   provincial: ProvincialTaxConfig;
-  spending: SpendingConfig;
+  spending?: SpendingConfig;
 }
 
 // Tax line item for detailed breakdown
@@ -154,7 +154,20 @@ export interface TaxCalculation {
 }
 
 // Supported provinces
-export type SupportedProvince = "ontario" | "alberta";
+export type SupportedProvince =
+  | "ontario"
+  | "alberta"
+  | "british-columbia"
+  | "saskatchewan"
+  | "manitoba"
+  | "new-brunswick"
+  | "nova-scotia"
+  | "prince-edward-island"
+  | "newfoundland-and-labrador"
+  | "quebec"
+  | "yukon"
+  | "northwest-territories"
+  | "nunavut";
 
 // Supported years
-export type SupportedYear = "2024" | "2025";
+export type SupportedYear = "2023" | "2024" | "2025" | "2026";
