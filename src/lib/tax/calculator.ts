@@ -2,6 +2,7 @@ import {
   calculateBracketTax,
   calculateCappedContribution,
   calculateCpp2Contribution,
+  calculateFederalAbatement,
   calculateHealthPremium,
   calculateSurtax,
 } from "./calculators";
@@ -147,9 +148,32 @@ function calculateWithConfig(
     }
   }
 
+  // Federal abatement (Quebec Abatement - reduces federal tax for Quebec residents)
+  let federalAbatement = 0;
+  if (config.provincial.federalAbatement) {
+    federalAbatement = calculateFederalAbatement(
+      federalIncomeTax,
+      config.provincial.federalAbatement,
+    );
+    if (federalAbatement > 0) {
+      lineItems.push({
+        id: "federal-abatement",
+        name: config.provincial.federalAbatement.name,
+        level: "federal",
+        amount: -federalAbatement, // Negative to show as a tax credit/reduction
+        effectiveRate: income > 0 ? (-federalAbatement / income) * 100 : 0,
+        category: "federalAbatement",
+      });
+    }
+  }
+
   // Calculate totals
   const federalTax =
-    federalIncomeTax + eiContribution + cppContribution + cpp2Contribution;
+    federalIncomeTax +
+    eiContribution +
+    cppContribution +
+    cpp2Contribution -
+    federalAbatement;
   const provincialTax = provincialIncomeTax + surtax + healthPremium;
   const totalTax = federalTax + provincialTax;
   const netIncome = income - totalTax;
@@ -175,6 +199,7 @@ function calculateWithConfig(
     cpp2Contribution,
     surtax,
     healthPremium,
+    federalAbatement,
 
     // Metadata
     year: config.year,

@@ -273,10 +273,15 @@ function IncomeTaxBracketsSection({
 // Federal Tax Card - all federal taxes in one card
 interface FederalTaxCardProps {
   config: TaxYearProvinceConfig["federal"];
+  provincialConfig: TaxYearProvinceConfig["provincial"];
   income: number;
 }
 
-function FederalTaxCard({ config, income }: FederalTaxCardProps) {
+function FederalTaxCard({
+  config,
+  provincialConfig,
+  income,
+}: FederalTaxCardProps) {
   // Calculate income tax
   const breakdown = getBracketTaxBreakdown(income, config.incomeTax.brackets);
   const lowestRate = config.incomeTax.brackets[0]?.rate ?? 0;
@@ -293,8 +298,15 @@ function FederalTaxCard({ config, income }: FederalTaxCardProps) {
   const eiAmount = calculateCappedContribution(income, config.ei);
   const payrollTotal = cppAmount + cpp2Amount + eiAmount;
 
-  // Overall total
-  const totalFederalTax = incomeTaxAmount + payrollTotal;
+  // Calculate federal abatement (Quebec Abatement)
+  const federalAbatementConfig = provincialConfig.federalAbatement;
+  const federalAbatementAmount = federalAbatementConfig
+    ? incomeTaxAmount * federalAbatementConfig.rate
+    : 0;
+
+  // Overall total (minus abatement)
+  const totalFederalTax =
+    incomeTaxAmount + payrollTotal - federalAbatementAmount;
 
   return (
     <div className="bg-card rounded-lg shadow-sm border p-6 flex flex-col">
@@ -309,6 +321,26 @@ function FederalTaxCard({ config, income }: FederalTaxCardProps) {
           config={config.incomeTax}
           income={income}
         />
+
+        {/* Federal Abatement (if applicable) */}
+        {federalAbatementConfig && federalAbatementAmount > 0 && (
+          <div className="mt-6 pt-4 border-t border-border">
+            <h4 className="font-semibold text-base mb-2">
+              {federalAbatementConfig.name}
+            </h4>
+            <div className="flex justify-between text-sm">
+              <span className="text-muted-foreground">
+                <Trans>
+                  {formatPercent(federalAbatementConfig.rate)} of federal income
+                  tax
+                </Trans>
+              </span>
+              <span className="font-medium text-red-600">
+                -{formatAmount(federalAbatementAmount)}
+              </span>
+            </div>
+          </div>
+        )}
 
         {/* Payroll Contributions */}
         <div className="mt-6 pt-4 border-t border-border">
@@ -560,7 +592,11 @@ function TaxDetails({
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <FederalTaxCard config={config.federal} income={income} />
+        <FederalTaxCard
+          config={config.federal}
+          provincialConfig={config.provincial}
+          income={income}
+        />
         <ProvincialTaxCard
           provinceName={provinceName}
           config={config.provincial}
