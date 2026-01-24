@@ -76,11 +76,19 @@ export interface FederalTaxConfig {
   cpp2: Cpp2Config;
 }
 
+// Federal abatement config (Quebec Abatement - reduces federal tax for Quebec residents)
+export interface FederalAbatementConfig {
+  type: "federalAbatement";
+  name: string;
+  rate: number; // e.g., 0.165 for 16.5%
+}
+
 // Provincial tax configuration
 export interface ProvincialTaxConfig {
   incomeTax: BracketTaxConfig;
   surtax?: SurtaxConfig;
   healthPremium?: HealthPremiumConfig;
+  federalAbatement?: FederalAbatementConfig;
 }
 
 // Spending data for a province
@@ -113,7 +121,8 @@ export interface TaxLineItem {
     | "cpp2"
     | "surtax"
     | "healthPremium"
-    | "incomeTaxProvincial";
+    | "incomeTaxProvincial"
+    | "federalAbatement";
 }
 
 // Detailed calculation result
@@ -137,6 +146,7 @@ export interface DetailedTaxCalculation {
   cpp2Contribution: number;
   surtax: number;
   healthPremium: number;
+  federalAbatement: number;
 
   // Metadata
   year: string;

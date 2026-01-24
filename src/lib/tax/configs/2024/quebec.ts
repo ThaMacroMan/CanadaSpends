@@ -12,4 +12,9 @@ export const QUEBEC_TAX_CONFIG: ProvincialTaxConfig = {
     ],
     basicPersonalAmount: 18056,
   },
+  federalAbatement: {
+    type: "federalAbatement",
+    name: "Quebec Abatement",
+    rate: 0.165, // 16.5% reduction in federal income tax
+  },
 };
