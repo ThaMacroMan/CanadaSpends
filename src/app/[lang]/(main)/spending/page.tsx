@@ -1,7 +1,7 @@
 "use client";
 
-import { TenureChart } from "@/app/[lang]/(main)/spending/TenureChart";
-import { SalaryDistributionChart } from "@/app/[lang]/(main)/spending/SalaryDistributionChart";
+import { TenureChart } from "@/app/[lang]/(main)/federal/spending/TenureChart";
+import { SalaryDistributionChart } from "@/app/[lang]/(main)/federal/spending/SalaryDistributionChart";
 import { BarChart } from "@/components/BarChart";
 import { DepartmentList } from "@/components/DepartmentList";
 import {
