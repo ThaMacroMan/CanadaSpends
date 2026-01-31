@@ -1,20 +1,22 @@
-# Canada Spends helps Canadians understand how their government spends their money
+# Canada Spends
 
-## Ambition
+_A Build Canada Project_
 
-Canada Spends aims to be the easiest way for Canadians to understand how their government spends their money.
-A government cannot be held accountable if people don't understand what the government is doing. We aim to
-bring transparency to every level of government in Canada: federal, provincial, municipal and school boards.
+Canada Spends is making Canada the most transparent country in the world so that our governments can be the most accountable country in the world.
+
+Canadian governments create and publish so much data but it's often published in ways that are so difficult to understand, process and correlate with other datasets. We're building tools so that you can understand the data in minutes, not hours.
+
+Canada Spends is building core civic infrastructure to make this easy. We organize public data in ways that you can understand in minutes, not hours.
+
+## Understanding How Governments work.
+
+We have found that the easiest way to understand what government priorities are is to take a bottom up approach and look at where public funds is actually being spent. There is so much noise in our media environment that it's easy to get a skewed view of what governments are actually doing. It's also easy for politicians to stay silent on spending that is not in the media spotlight given the scale of government operations.
 
 We bring this transparency in two ways:
 
 1. We parse, aggregate and visualize audited financial statements that governments publish so that everyone can
    understand how their government spends their money and how it changes over time.
 2. We aggregate and normalize government spending databases to make the data fast to search and accessible.
-
-### Roadmap
-
-By the end of 2025, we aim to have automated data ingestion pipelines for every province and territory and the largest 20 municipalities in Canada. See [Issues](https://github.com/BuildCanada/CanadaSpends/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22Public%20Accounts%22) for target provinces and cities.
 
 ## Getting Started
 
