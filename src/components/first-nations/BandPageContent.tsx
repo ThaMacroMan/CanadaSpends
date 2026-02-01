@@ -227,7 +227,7 @@ export function BandPageContent({
               </P>
             </Section>
             <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
-              <JurisdictionSankey data={sankeyData} />
+              <JurisdictionSankey data={sankeyData} amountScalingFactor={1} />
             </div>
           </>
         )}
