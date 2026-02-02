@@ -16,6 +16,11 @@ interface LocalSankeyNode {
  * Looks for actual_YYYY keys (not budget) and returns the most recent one
  */
 function getActualValue(item: StatementLineItem, year: number): number {
+  // Handle null/undefined values object
+  if (!item.values) {
+    return 0;
+  }
+
   // Try the specific year first
   const actualKey = `actual_${year}`;
   if (item.values[actualKey] !== null && item.values[actualKey] !== undefined) {
