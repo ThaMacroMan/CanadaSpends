@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { Trans } from "@lingui/react/macro";
 import {
   H1,
@@ -16,6 +17,11 @@ import { RemunerationTable } from "./RemunerationTable";
 import { FinancialPositionStats } from "./FinancialPositionStats";
 import { BandNotes } from "./BandNotes";
 import { BandYearSelector } from "./BandYearSelector";
+import {
+  SourceDocumentIcon,
+  SourceDocumentViewer,
+  FullReportLink,
+} from "./SourceDocumentViewer";
 import {
   statementOfOperationsToSankey,
   extractOperationsSummary,
@@ -83,6 +89,14 @@ function formatCurrency(value: number): string {
   }).format(value);
 }
 
+function buildSourceDocumentUrl(
+  bcid: string,
+  year: string,
+  documentType: string,
+): string {
+  return `https://cdn.canadaspends.com/financial_statements/${bcid}/${year}/source/${documentType}.pdf`;
+}
+
 const StatBox = ({
   title,
   value,
@@ -109,6 +123,26 @@ export function BandPageContent({
   lang,
 }: BandPageContentProps) {
   const fiscalYear = formatFiscalYear(year);
+
+  // State for PDF viewer toggles
+  const [showOperationsPdf, setShowOperationsPdf] = useState(false);
+  const [showPositionPdf, setShowPositionPdf] = useState(false);
+  const [showRemunerationPdf, setShowRemunerationPdf] = useState(false);
+
+  // Build source URLs
+  const operationsSourceUrl = statementOfOperations?.extraction_metadata
+    ?.source_file
+    ? `https://cdn.canadaspends.com/${statementOfOperations.extraction_metadata.source_file}`
+    : null;
+  const positionSourceUrl = statementOfFinancialPosition?.extraction_metadata
+    ?.source_file
+    ? `https://cdn.canadaspends.com/${statementOfFinancialPosition.extraction_metadata.source_file}`
+    : null;
+  const remunerationSourceUrl = buildSourceDocumentUrl(
+    band.bcid,
+    year,
+    "remuneration",
+  );
 
   // Generate sankey data if we have statement of operations
   const sankeyData: SankeyData | null = statementOfOperations
@@ -217,7 +251,15 @@ export function BandPageContent({
           <>
             <Section>
               <H2>
-                <Trans>Revenue and Expenses FY {fiscalYear}</Trans>
+                <span className="inline-flex items-center">
+                  <Trans>Revenue and Expenses FY {fiscalYear}</Trans>
+                  <SourceDocumentIcon
+                    sourceUrl={operationsSourceUrl}
+                    documentType="Statement of Operations"
+                    isOpen={showOperationsPdf}
+                    onToggle={() => setShowOperationsPdf(!showOperationsPdf)}
+                  />
+                </span>
               </H2>
               <P>
                 <Trans>
@@ -225,6 +267,11 @@ export function BandPageContent({
                   funds were spent during fiscal year {fiscalYear}.
                 </Trans>
               </P>
+              <SourceDocumentViewer
+                sourceUrl={operationsSourceUrl}
+                documentType="Statement of Operations"
+                isOpen={showOperationsPdf}
+              />
             </Section>
             <div className="sankey-chart-container relative overflow-hidden sm:(mr-0 ml-0) md:(min-h-[776px] min-w-[1280px] w-screen -ml-[50vw] -mr-[50vw] left-1/2 right-1/2)">
               <JurisdictionSankey data={sankeyData} amountScalingFactor={1} />
@@ -255,7 +302,15 @@ export function BandPageContent({
         {statementOfFinancialPosition && (
           <Section>
             <H2>
-              <Trans>Statement of Financial Position</Trans>
+              <span className="inline-flex items-center">
+                <Trans>Statement of Financial Position</Trans>
+                <SourceDocumentIcon
+                  sourceUrl={positionSourceUrl}
+                  documentType="Statement of Financial Position"
+                  isOpen={showPositionPdf}
+                  onToggle={() => setShowPositionPdf(!showPositionPdf)}
+                />
+              </span>
             </H2>
             <P>
               <Trans>
@@ -263,6 +318,11 @@ export function BandPageContent({
                 fiscal year {fiscalYear}.
               </Trans>
             </P>
+            <SourceDocumentViewer
+              sourceUrl={positionSourceUrl}
+              documentType="Statement of Financial Position"
+              isOpen={showPositionPdf}
+            />
             <FinancialPositionStats
               data={statementOfFinancialPosition}
               fiscalYear={fiscalYear}
@@ -276,7 +336,17 @@ export function BandPageContent({
           remuneration.entries.length > 0 && (
             <Section>
               <H2>
-                <Trans>Remuneration and Expenses</Trans>
+                <span className="inline-flex items-center">
+                  <Trans>Remuneration and Expenses</Trans>
+                  <SourceDocumentIcon
+                    sourceUrl={remunerationSourceUrl}
+                    documentType="Remuneration Schedule"
+                    isOpen={showRemunerationPdf}
+                    onToggle={() =>
+                      setShowRemunerationPdf(!showRemunerationPdf)
+                    }
+                  />
+                </span>
               </H2>
               <P>
                 <Trans>
@@ -285,6 +355,11 @@ export function BandPageContent({
                   {fiscalYear}.
                 </Trans>
               </P>
+              <SourceDocumentViewer
+                sourceUrl={remunerationSourceUrl}
+                documentType="Remuneration Schedule"
+                isOpen={showRemunerationPdf}
+              />
               <RemunerationTable data={remuneration} />
             </Section>
           )}
@@ -322,6 +397,15 @@ export function BandPageContent({
               notice any issues, please contact us.
             </Trans>
           </P>
+          <div className="mt-4">
+            <FullReportLink
+              sourceUrl={buildSourceDocumentUrl(
+                band.bcid,
+                year,
+                "financial_statement",
+              )}
+            />
+          </div>
         </Section>
       </PageContent>
     </Page>

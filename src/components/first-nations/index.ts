@@ -4,3 +4,8 @@ export { BandSearch } from "./BandSearch";
 export { BandYearSelector } from "./BandYearSelector";
 export { FinancialPositionStats } from "./FinancialPositionStats";
 export { RemunerationTable } from "./RemunerationTable";
+export {
+  SourceDocumentIcon,
+  SourceDocumentViewer,
+  FullReportLink,
+} from "./SourceDocumentViewer";
