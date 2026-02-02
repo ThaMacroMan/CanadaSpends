@@ -17,6 +17,7 @@ import { RemunerationTable } from "./RemunerationTable";
 import { FinancialPositionStats } from "./FinancialPositionStats";
 import { BandNotes } from "./BandNotes";
 import { BandYearSelector } from "./BandYearSelector";
+import { ClaimsTable } from "./ClaimsTable";
 import {
   SourceDocumentIcon,
   SourceDocumentViewer,
@@ -34,6 +35,7 @@ import type {
   Remuneration,
   Notes,
 } from "@/lib/supabase/types";
+import type { Claim } from "@/lib/supabase/claims";
 
 interface BandPageContentProps {
   band: BandInfo;
@@ -42,6 +44,7 @@ interface BandPageContentProps {
   statementOfFinancialPosition: StatementOfFinancialPosition | null;
   remuneration: Remuneration | null;
   notes: Notes | null;
+  claims: Claim[];
   lang: string;
 }
 
@@ -120,6 +123,7 @@ export function BandPageContent({
   statementOfFinancialPosition,
   remuneration,
   notes,
+  claims,
   lang,
 }: BandPageContentProps) {
   const fiscalYear = formatFiscalYear(year);
@@ -327,6 +331,21 @@ export function BandPageContent({
               data={statementOfFinancialPosition}
               fiscalYear={fiscalYear}
             />
+          </Section>
+        )}
+
+        {/* Land Claims */}
+        {claims && claims.length > 0 && (
+          <Section>
+            <H2>
+              <Trans>Land Claims</Trans>
+            </H2>
+            <P>
+              <Trans>
+                Historical and ongoing land claims involving {band.name}.
+              </Trans>
+            </P>
+            <ClaimsTable claims={claims} />
           </Section>
         )}
 

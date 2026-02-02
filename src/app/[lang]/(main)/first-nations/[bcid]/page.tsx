@@ -19,7 +19,7 @@ export async function generateStaticParams() {
   const bands = await getAllBands();
 
   return locales.flatMap((lang) =>
-    bands.slice(0, 100).map((band) => ({
+    bands.map((band) => ({
       lang,
       bcid: band.bcid,
     })),

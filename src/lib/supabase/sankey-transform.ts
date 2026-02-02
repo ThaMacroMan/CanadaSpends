@@ -92,9 +92,9 @@ export function statementOfOperationsToSankey(
       if (amount <= 0) return null;
 
       return {
-        id: `revenue_${index}_${item.name.replace(/\s+/g, "_").toLowerCase()}`,
-        displayName: item.name,
-        name: item.name,
+        id: `revenue_${index}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
+        displayName: item.name || "",
+        name: item.name || "",
         amount,
       };
     })
@@ -115,9 +115,9 @@ export function statementOfOperationsToSankey(
       if (amount <= 0) return null;
 
       return {
-        id: `spending_${index}_${item.name.replace(/\s+/g, "_").toLowerCase()}`,
-        displayName: item.name,
-        name: item.name,
+        id: `spending_${index}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
+        displayName: item.name || "",
+        name: item.name || "",
         amount,
       };
     })
@@ -165,7 +165,7 @@ export function extractOperationsSummary(
   const netRevenueItem = data.line_items.find(
     (item) =>
       item.major_category === "summary" &&
-      item.name.toLowerCase().includes("net revenue"),
+      item.name?.toLowerCase().includes("net revenue"),
   );
 
   const totalRevenue = totalRevenueItem

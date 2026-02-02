@@ -2,6 +2,7 @@ export { BandNotes } from "./BandNotes";
 export { BandPageContent } from "./BandPageContent";
 export { BandSearch } from "./BandSearch";
 export { BandYearSelector } from "./BandYearSelector";
+export { ClaimsTable } from "./ClaimsTable";
 export { FinancialPositionStats } from "./FinancialPositionStats";
 export { RemunerationTable } from "./RemunerationTable";
 export {

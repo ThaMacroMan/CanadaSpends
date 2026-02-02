@@ -37,4 +37,5 @@ export async function supabaseFetch<T>(
 
 export * from "./types";
 export * from "./bands";
+export * from "./claims";
 export * from "./sankey-transform";

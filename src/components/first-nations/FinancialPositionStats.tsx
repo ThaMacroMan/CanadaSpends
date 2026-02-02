@@ -112,32 +112,33 @@ export function FinancialPositionStats({
   const totalFinancialAssets = findLineItem(
     (item) =>
       item.is_subtotal &&
-      item.name.toLowerCase().includes("total financial assets"),
+      item.name?.toLowerCase().includes("total financial assets"),
   );
 
   const totalLiabilities = findLineItem(
     (item) =>
       item.is_subtotal &&
-      item.name.toLowerCase().includes("total financial liabilities"),
+      item.name?.toLowerCase().includes("total financial liabilities"),
   );
 
   const netDebt = findLineItem((item) =>
-    item.name.toLowerCase().includes("net debt"),
+    item.name?.toLowerCase().includes("net debt"),
   );
 
   const totalNonFinancialAssets = findLineItem(
     (item) =>
       item.is_subtotal &&
-      item.name.toLowerCase().includes("total non financial assets"),
+      item.name?.toLowerCase().includes("total non financial assets"),
   );
 
   const netAssets = findLineItem(
-    (item) => item.is_total && item.name.toLowerCase().includes("net assets"),
+    (item) => item.is_total && item.name?.toLowerCase().includes("net assets"),
   );
 
   const accumulatedSurplus = findLineItem(
     (item) =>
-      item.name.toLowerCase().includes("accumulated surplus") && !item.is_total,
+      item.name?.toLowerCase().includes("accumulated surplus") &&
+      !item.is_total,
   );
 
   const stats: {

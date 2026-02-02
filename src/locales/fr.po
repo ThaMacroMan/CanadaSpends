@@ -60,6 +60,12 @@ msgstr "Dépenses du gouvernement de {0}"
 msgid "{0} Government Workforce"
 msgstr "Effectifs du gouvernement de {0}"
 
+#. placeholder {0}: band.name
+#. placeholder {1}: band.province ? ` in ${band.province}` : ""
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:58
+msgid "{0} is a First Nation{1}."
+msgstr ""
+
 #. placeholder {0}: formatPercent(federalAbatementConfig.rate)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:333
 msgid "{0} of federal income tax"
@@ -212,11 +218,11 @@ msgstr "À propos de nous"
 msgid "Above {0}"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:182
+#: src/components/first-nations/FinancialPositionStats.tsx:181
 msgid "Accounts payable, long-term debt, and other obligations owed to external parties."
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:275
+#: src/components/first-nations/FinancialPositionStats.tsx:274
 msgid "Accumulated Surplus"
 msgstr ""
 
@@ -298,7 +304,7 @@ msgstr "Tous les articles"
 msgid "All data presented regarding government spending is sourced directly from official government databases. Unless otherwise noted, we have used <0>Public Accounts of Canada</0> data as the primary data source. While we strive to provide accurate, up-to-date information, we cannot guarantee the data's completeness, reliability, or timeliness. We assume no responsibility for any errors, omissions, or outcomes resulting from the use of this information. Please consult the original government sources for official and verified data."
 msgstr "Toutes les données présentées concernant les dépenses gouvernementales proviennent directement des bases de données officielles du gouvernement. Sauf indication contraire, nous avons utilisé les données des <0>Comptes publics du Canada</0> comme source principale. Bien que nous nous efforcions de fournir des informations précises et à jour, nous ne pouvons garantir l'exhaustivité, la fiabilité ou l'actualité des données. Nous n'assumons aucune responsabilité pour les erreurs, omissions ou résultats découlant de l'utilisation de ces informations. Veuillez consulter les sources gouvernementales originales pour des données officielles et vérifiées."
 
-#: src/components/first-nations/BandPageContent.tsx:185
+#: src/components/first-nations/BandPageContent.tsx:223
 msgid "All expenses incurred during the fiscal year including program delivery, administration, and capital costs."
 msgstr ""
 
@@ -325,7 +331,7 @@ msgstr "Toutes les dépenses de programmes et d'exploitation enregistrées pour 
 msgid "All revenue collected during the fiscal year, including taxes, transfers, and other sources."
 msgstr "Tous les revenus collectés pendant l'exercice financier, y compris les impôts, les transferts et d'autres sources."
 
-#: src/components/first-nations/BandPageContent.tsx:165
+#: src/components/first-nations/BandPageContent.tsx:203
 msgid "All revenue collected during the fiscal year, including transfers, own-source revenue, and other funding."
 msgstr ""
 
@@ -396,13 +402,13 @@ msgstr "Articles | Canada Spends"
 msgid "As of fiscal year end {0}"
 msgstr "À la fin de l'exercice financier {0}"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:170
-#: src/components/first-nations/FinancialPositionStats.tsx:193
-#: src/components/first-nations/FinancialPositionStats.tsx:243
+#: src/components/first-nations/FinancialPositionStats.tsx:169
+#: src/components/first-nations/FinancialPositionStats.tsx:192
+#: src/components/first-nations/FinancialPositionStats.tsx:242
 msgid "As of fiscal year end {fiscalYear}"
 msgstr ""
 
-#: src/components/first-nations/BandPageContent.tsx:261
+#: src/components/first-nations/BandPageContent.tsx:320
 msgid "Assets, liabilities, and net financial position as of the end of fiscal year {fiscalYear}."
 msgstr ""
 
@@ -424,7 +430,7 @@ msgstr "Retour à tous les articles"
 msgid "Balance for {0}"
 msgstr "Solde pour {0}"
 
-#: src/components/first-nations/BandPageContent.tsx:156
+#: src/components/first-nations/BandPageContent.tsx:194
 msgid "Balance for FY {fiscalYear}"
 msgstr ""
 
@@ -462,6 +468,10 @@ msgstr "TCS Colombie-Britannique"
 #: src/components/Sankey/index.tsx:462
 msgid "British Columbia STP"
 msgstr "TCS Colombie-Britannique"
+
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:83
+msgid "Browse all First Nations"
+msgstr ""
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:102
 #: src/components/MainLayout/_components/MobileMenu.tsx:93
@@ -573,7 +583,7 @@ msgstr "Remboursement de la taxe sur le carbone"
 msgid "Carbon Taxes"
 msgstr "Taxes sur le carbone"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:159
+#: src/components/first-nations/FinancialPositionStats.tsx:158
 msgid "Cash, investments, accounts receivable, and other assets that can be converted to cash."
 msgstr ""
 
@@ -589,6 +599,10 @@ msgstr "Prestations pour enfants"
 #: src/components/Sankey/index.tsx:311
 msgid "Citizenship + Passports"
 msgstr "Citoyenneté + Passeports"
+
+#: src/components/first-nations/ClaimsTable.tsx:127
+msgid "Claim"
+msgstr ""
 
 #: src/components/Sankey/index.tsx:640
 msgid "Claims Settlements"
@@ -652,7 +666,7 @@ msgstr "Connectez-vous avec nous"
 msgid "Contact"
 msgstr "Contact"
 
-#: src/components/first-nations/RemunerationTable.tsx:75
+#: src/components/first-nations/RemunerationTable.tsx:77
 msgid "Contract"
 msgstr ""
 
@@ -1257,19 +1271,23 @@ msgid "Finance Type"
 msgstr "Type de financement"
 
 #. placeholder {0}: band.name
-#: src/components/first-nations/BandPageContent.tsx:207
+#: src/components/first-nations/BandPageContent.tsx:245
 msgid "Financial data for {0} for fiscal year {fiscalYear}. Information is extracted from publicly available annual reports published under the First Nations Financial Transparency Act."
 msgstr ""
 
-#: src/components/first-nations/BandPageContent.tsx:315
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:72
+msgid "Financial data from annual reports published under the First Nations Financial Transparency Act will appear here once available."
+msgstr ""
+
+#: src/components/first-nations/BandPageContent.tsx:412
 msgid "Financial data is sourced from annual reports published under the First Nations Financial Transparency Act (FNFTA). Data is extracted using automated processes and may contain errors. If you notice any issues, please contact us."
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:220
+#: src/components/first-nations/FinancialPositionStats.tsx:219
 msgid "Financial liabilities less financial assets"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:206
+#: src/components/first-nations/FinancialPositionStats.tsx:205
 msgid "Financial liabilities minus financial assets. A negative value indicates net financial assets."
 msgstr ""
 
@@ -1278,7 +1296,7 @@ msgstr ""
 msgid "Financial Position {0}"
 msgstr "Situation financière {0}"
 
-#: src/components/first-nations/BandPageContent.tsx:239
+#: src/components/first-nations/BandPageContent.tsx:290
 msgid "Financial Summary FY {fiscalYear}"
 msgstr ""
 
@@ -1571,7 +1589,12 @@ msgstr "LICC administre la Stratégie nationale sur le logement, qui finance la 
 msgid "HICC spent $14.5 billion in fiscal year (FY) 2024. This was 2.8% of the $513.9 billion in overall federal spending. The department ranked eighth among federal departments in total spending."
 msgstr "LICC a dépensé 14,5 milliards de dollars au cours de l'exercice 2024. Cela représentait 2,8 % des 513,9 milliards de dollars de dépenses fédérales totales. Le ministère s'est classé huitième parmi les ministères fédéraux en termes de dépenses totales."
 
-#: src/components/first-nations/RemunerationTable.tsx:67
+#. placeholder {0}: band.name
+#: src/components/first-nations/BandPageContent.tsx:344
+msgid "Historical and ongoing land claims involving {0}."
+msgstr ""
+
+#: src/components/first-nations/RemunerationTable.tsx:69
 msgid "Honorarium"
 msgstr ""
 
@@ -1894,6 +1917,10 @@ msgstr "Diplomatie internationale"
 msgid "Investment, Growth and Commercialization"
 msgstr "Investissement, croissance et commercialisation"
 
+#: src/components/first-nations/ClaimsTable.tsx:268
+msgid "Involved Bands"
+msgstr ""
+
 #: src/app/[lang]/(main)/spending/immigration-refugees-and-citizenship/page.tsx:89
 msgid "IRCC accounted for 1.2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 msgstr "IRCC représentait 1,2 % de toutes les dépenses fédérales pour l'exercice 2024. 10 ministères gouvernementaux représentaient 73,2 % des dépenses fédérales pour l'exercice 2024"
@@ -1934,6 +1961,10 @@ msgstr "Ça ne doit pas être comme ça."
 msgid "Justice System"
 msgstr "Système de justice"
 
+#: src/components/first-nations/ClaimsTable.tsx:204
+msgid "Key Dates"
+msgstr ""
+
 #: src/app/[lang]/(main)/search/[database]/[id]/DetailsPage.tsx:82
 msgid "Keywords"
 msgstr "Mots-clés"
@@ -1942,12 +1973,20 @@ msgstr "Mots-clés"
 msgid "Labour Market Development Agreements (LMDAs): federal funding to provinces for job training and employment support."
 msgstr "Ententes sur le développement du marché du travail (EDMT) : financement fédéral aux provinces pour la formation professionnelle et le soutien à l'emploi."
 
+#: src/components/first-nations/BandPageContent.tsx:341
+msgid "Land Claims"
+msgstr ""
+
+#: src/components/first-nations/ClaimsTable.tsx:139
+msgid "Last Update"
+msgstr ""
+
 #: src/app/[lang]/(main)/budget/page.tsx:248
 #: src/app/[lang]/(main)/federal/budget/page.tsx:285
 msgid "Latest Budget News & Impact"
 msgstr "Dernières nouvelles budgétaires et impact"
 
-#: src/components/first-nations/BandSearch.tsx:85
+#: src/components/first-nations/BandSearch.tsx:90
 msgid "Latest:"
 msgstr ""
 
@@ -2062,7 +2101,7 @@ msgstr "La plupart des dépenses fédérales peuvent être classées comme direc
 msgid "Municipal"
 msgstr "Municipal"
 
-#: src/components/first-nations/RemunerationTable.tsx:52
+#: src/components/first-nations/RemunerationTable.tsx:54
 msgid "Name"
 msgstr ""
 
@@ -2110,11 +2149,11 @@ msgstr "Pertes actuarielles nettes"
 msgid "Net actuarial losses (gains)"
 msgstr "Pertes actuarielles nettes (gains)"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:252
+#: src/components/first-nations/FinancialPositionStats.tsx:251
 msgid "Net Assets"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:203
+#: src/components/first-nations/FinancialPositionStats.tsx:202
 #: src/components/JurisdictionPageContent.tsx:210
 msgid "Net Debt"
 msgstr "Dette nette"
@@ -2176,7 +2215,16 @@ msgstr ""
 msgid "No content available."
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:295
+#: src/components/first-nations/BandSearch.tsx:112
+msgid "No financial data available yet"
+msgstr ""
+
+#. placeholder {0}: band.name
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:67
+msgid "No financial data is currently available for {0}."
+msgstr ""
+
+#: src/components/first-nations/FinancialPositionStats.tsx:294
 msgid "No financial position data available."
 msgstr ""
 
@@ -2200,7 +2248,7 @@ msgstr "Non, nous ne sommes pas un groupe de pression. Nous ne sommes pas payés
 msgid "No, we're not copying the DOGE playbook from the US."
 msgstr "Non, nous ne copions pas le modèle DOGE des États-Unis."
 
-#: src/components/first-nations/FinancialPositionStats.tsx:229
+#: src/components/first-nations/FinancialPositionStats.tsx:228
 msgid "Non-Financial Assets"
 msgstr ""
 
@@ -2232,7 +2280,7 @@ msgstr "TPS Territoires du Nord-Ouest"
 msgid "Note the different salary ranges prior to 2023. Information for small numbers has been suppressed (values of 0 are actually counts of 1 to 5)."
 msgstr "Notez les différentes fourchettes salariales avant 2023. Les informations pour les petits nombres ont été supprimées (les valeurs de 0 représentent en fait des comptes de 1 à 5)."
 
-#: src/components/first-nations/BandPageContent.tsx:293
+#: src/components/first-nations/BandPageContent.tsx:390
 msgid "Notes to Financial Statements"
 msgstr ""
 
@@ -2385,7 +2433,7 @@ msgstr "Ouvrez le navigateur Tor et attendez qu'il se connecte."
 msgid "Operational Spend"
 msgstr "Dépenses opérationnelles"
 
-#: src/components/first-nations/BandSearch.tsx:90
+#: src/components/first-nations/BandSearch.tsx:95
 msgid "Operations"
 msgstr ""
 
@@ -2607,13 +2655,13 @@ msgstr "Tarification de la pollution"
 msgid "Pollution pricing proceeds"
 msgstr "Produits de la tarification de la pollution"
 
-#: src/components/first-nations/BandSearch.tsx:100
-#: src/components/first-nations/RemunerationTable.tsx:46
+#: src/components/first-nations/BandSearch.tsx:105
+#: src/components/first-nations/RemunerationTable.tsx:48
 msgid "Position"
 msgstr ""
 
 #. placeholder {0}: data.auditor_name
-#: src/components/first-nations/RemunerationTable.tsx:140
+#: src/components/first-nations/RemunerationTable.tsx:142
 msgid "Prepared by: {0}"
 msgstr ""
 
@@ -2848,11 +2896,11 @@ msgstr "Classe de bénéficiaire"
 msgid "Regions"
 msgstr "Régions"
 
-#: src/components/first-nations/BandSearch.tsx:95
+#: src/components/first-nations/BandSearch.tsx:100
 msgid "Remuneration"
 msgstr ""
 
-#: src/components/first-nations/BandPageContent.tsx:277
+#: src/components/first-nations/BandPageContent.tsx:359
 msgid "Remuneration and Expenses"
 msgstr ""
 
@@ -2924,7 +2972,7 @@ msgstr "Rendement des investissements"
 msgid "Revenue"
 msgstr "Revenus"
 
-#: src/components/first-nations/BandPageContent.tsx:220
+#: src/components/first-nations/BandPageContent.tsx:259
 msgid "Revenue and Expenses FY {fiscalYear}"
 msgstr ""
 
@@ -2936,11 +2984,11 @@ msgstr "Revenu Canada"
 msgid "Safety"
 msgstr "Sécurité"
 
-#: src/components/first-nations/BandPageContent.tsx:280
+#: src/components/first-nations/BandPageContent.tsx:371
 msgid "Salaries, honoraria, travel, and other expenses paid to elected officials and senior employees during fiscal year {fiscalYear}."
 msgstr ""
 
-#: src/components/first-nations/RemunerationTable.tsx:59
+#: src/components/first-nations/RemunerationTable.tsx:61
 msgid "Salary"
 msgstr ""
 
@@ -3001,6 +3049,10 @@ msgstr "Mécanisme de sélection"
 msgid "Service Canada: responsible for processing EI, CPP, and OAS benefits."
 msgstr "Service Canada : responsable du traitement des prestations d'AE, du RPC et de la SV."
 
+#: src/components/first-nations/ClaimsTable.tsx:234
+msgid "Settlement Amount"
+msgstr ""
+
 #: src/components/Sankey/index.tsx:299
 msgid "Settlement Assistance"
 msgstr "Aide à l'établissement"
@@ -3054,7 +3106,7 @@ msgstr "Source :"
 #: src/app/[lang]/(main)/federal/budget/page.tsx:304
 #: src/app/[lang]/(main)/federal/spending/page.tsx:275
 #: src/app/[lang]/(main)/spending/page.tsx:266
-#: src/components/first-nations/BandPageContent.tsx:312
+#: src/components/first-nations/BandPageContent.tsx:409
 #: src/components/JurisdictionPageContent.tsx:504
 msgid "Sources"
 msgstr "Sources"
@@ -3108,7 +3160,7 @@ msgstr "Date de début"
 msgid "Start reading"
 msgstr "Commencer la lecture"
 
-#: src/components/first-nations/BandPageContent.tsx:258
+#: src/components/first-nations/BandPageContent.tsx:310
 msgid "Statement of Financial Position"
 msgstr ""
 
@@ -3117,6 +3169,7 @@ msgid "Statistics Canada"
 msgstr "Statistique Canada"
 
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:234
+#: src/components/first-nations/ClaimsTable.tsx:133
 msgid "Status"
 msgstr "Statut"
 
@@ -3160,7 +3213,7 @@ msgstr "Soutien à la compétition mondiale"
 msgid "Support for Veterans"
 msgstr "Soutien aux anciens combattants"
 
-#: src/components/first-nations/BandPageContent.tsx:142
+#: src/components/first-nations/BandPageContent.tsx:180
 #: src/components/JurisdictionPageContent.tsx:140
 msgid "Surplus/Deficit"
 msgstr "Excédent/Déficit"
@@ -3169,7 +3222,7 @@ msgstr "Excédent/Déficit"
 msgid "Sustainable Bases, IT Systems, Infrastructure"
 msgstr "Bases durables, systèmes TI, infrastructure"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:232
+#: src/components/first-nations/FinancialPositionStats.tsx:231
 msgid "Tangible capital assets such as land, buildings, equipment, and infrastructure."
 msgstr ""
 
@@ -3244,7 +3297,7 @@ msgstr "L'Agence du revenu du Canada a dépensé 16,8 milliards de dollars au co
 msgid "The CRA accounted for 3.2% of all federal spending in FY 2024"
 msgstr "L'ARC représentait 3,2 % de toutes les dépenses fédérales pour l'exercice 2024"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:278
+#: src/components/first-nations/FinancialPositionStats.tsx:277
 msgid "The cumulative surplus accumulated over time from operations."
 msgstr ""
 
@@ -3332,7 +3385,7 @@ msgstr "Les dépenses du ministère ont augmenté moins que les dépenses global
 msgid "The difference between revenue and spending. A surplus indicates revenue exceeded spending."
 msgstr "La différence entre les revenus et les dépenses. Un excédent indique que les revenus ont dépassé les dépenses."
 
-#: src/components/first-nations/BandPageContent.tsx:145
+#: src/components/first-nations/BandPageContent.tsx:183
 msgid "The difference between total revenue and total expenses. A surplus indicates revenue exceeded expenses."
 msgstr ""
 
@@ -3404,11 +3457,11 @@ msgstr "Ces ministres sont parmi les <0>membres du cabinet</0> qui servent à la
 msgid "This page presents the official Fall 2025 Federal Budget as released by the Government of Canada on November 4th, 2025. All data is sourced directly from official government publications and public accounts from the Government of Canada."
 msgstr "Cette page présente le budget fédéral officiel de l'automne 2025 tel que publié par le gouvernement du Canada le 4 novembre 2025. Toutes les données proviennent directement des publications officielles du gouvernement et des comptes publics du gouvernement du Canada."
 
-#: src/components/first-nations/RemunerationTable.tsx:133
+#: src/components/first-nations/RemunerationTable.tsx:135
 msgid "This schedule has been audited."
 msgstr ""
 
-#: src/components/first-nations/RemunerationTable.tsx:135
+#: src/components/first-nations/RemunerationTable.tsx:137
 msgid "This schedule is unaudited."
 msgstr ""
 
@@ -3427,7 +3480,8 @@ msgstr "pour nous aider à soutenir notre mission."
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:261
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:398
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:509
-#: src/components/first-nations/RemunerationTable.tsx:90
+#: src/components/first-nations/ClaimsTable.tsx:290
+#: src/components/first-nations/RemunerationTable.tsx:92
 #: src/components/JurisdictionComparisonChart.tsx:282
 msgid "Total"
 msgstr ""
@@ -3436,11 +3490,11 @@ msgstr ""
 msgid "Total {provinceName} Tax"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:288
+#: src/components/first-nations/FinancialPositionStats.tsx:287
 msgid "Total accumulated surplus"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:255
+#: src/components/first-nations/FinancialPositionStats.tsx:254
 msgid "Total assets minus total liabilities. This represents the band's overall financial position."
 msgstr ""
 
@@ -3457,11 +3511,11 @@ msgstr "Dette totale"
 msgid "Total Debt is the government's complete outstanding debt. This is the figure on which interest payments are calculated."
 msgstr "La dette totale est la dette complète en cours du gouvernement. C'est le chiffre sur lequel les paiements d'intérêts sont calculés."
 
-#: src/components/first-nations/BandPageContent.tsx:182
+#: src/components/first-nations/BandPageContent.tsx:220
 msgid "Total Expenses"
 msgstr ""
 
-#: src/components/first-nations/BandPageContent.tsx:196
+#: src/components/first-nations/BandPageContent.tsx:234
 msgid "Total expenses in FY {fiscalYear}"
 msgstr ""
 
@@ -3469,7 +3523,7 @@ msgstr ""
 msgid "Total Federal Tax"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:156
+#: src/components/first-nations/FinancialPositionStats.tsx:155
 msgid "Total Financial Assets"
 msgstr ""
 
@@ -3478,19 +3532,23 @@ msgstr ""
 msgid "Total full-time equivalents"
 msgstr "Équivalents temps plein totaux"
 
-#: src/components/first-nations/FinancialPositionStats.tsx:179
+#: src/components/first-nations/FinancialPositionStats.tsx:178
 msgid "Total Liabilities"
 msgstr ""
 
-#: src/components/first-nations/FinancialPositionStats.tsx:266
+#: src/components/first-nations/FinancialPositionStats.tsx:265
 msgid "Total net assets"
+msgstr ""
+
+#: src/components/first-nations/ClaimsTable.tsx:145
+msgid "Total Payments"
 msgstr ""
 
 #: src/components/JurisdictionPageContent.tsx:318
 msgid "Total property tax revenue divided by population. Primary revenue source for municipalities."
 msgstr "Revenus totaux de l'impôt foncier divisés par la population. Source de revenus principale pour les municipalités."
 
-#: src/components/first-nations/BandPageContent.tsx:162
+#: src/components/first-nations/BandPageContent.tsx:200
 #: src/components/JurisdictionPageContent.tsx:160
 msgid "Total Revenue"
 msgstr "Revenus totaux"
@@ -3500,7 +3558,7 @@ msgstr "Revenus totaux"
 msgid "Total revenue in {0}"
 msgstr "Revenus totaux en {0}"
 
-#: src/components/first-nations/BandPageContent.tsx:176
+#: src/components/first-nations/BandPageContent.tsx:214
 msgid "Total revenue in FY {fiscalYear}"
 msgstr ""
 
@@ -3600,7 +3658,7 @@ msgstr "Transport + Communication"
 msgid "Transportation and Communication"
 msgstr "Transport et Communication"
 
-#: src/components/first-nations/RemunerationTable.tsx:83
+#: src/components/first-nations/RemunerationTable.tsx:85
 msgid "Travel"
 msgstr ""
 
@@ -3611,6 +3669,10 @@ msgstr ""
 #: src/components/Sankey/index.tsx:346
 msgid "Treasury Board"
 msgstr "Conseil du Trésor"
+
+#: src/components/first-nations/ClaimsTable.tsx:250
+msgid "Tribunal Award"
+msgstr ""
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:191
 #: src/app/[lang]/(main)/spending/page.tsx:182
@@ -3696,7 +3758,7 @@ msgid "Visitors, International Students + Temporary Workers"
 msgstr "Visiteurs, étudiants internationaux + travailleurs temporaires"
 
 #. placeholder {0}: band.name
-#: src/components/first-nations/BandPageContent.tsx:223
+#: src/components/first-nations/BandPageContent.tsx:269
 msgid "Visual breakdown of {0}'s revenue sources and how funds were spent during fiscal year {fiscalYear}."
 msgstr ""
 
@@ -3934,7 +3996,7 @@ msgstr "Pourquoi soumettre une information?"
 msgid "Year"
 msgstr "Année"
 
-#: src/components/first-nations/BandSearch.tsx:82
+#: src/components/first-nations/BandSearch.tsx:87
 msgid "Years available:"
 msgstr ""
 

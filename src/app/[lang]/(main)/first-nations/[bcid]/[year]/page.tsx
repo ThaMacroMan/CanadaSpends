@@ -1,7 +1,12 @@
 import { notFound } from "next/navigation";
 import { initLingui } from "@/initLingui";
 import { BandPageContent } from "@/components/first-nations";
-import { getBandById, getBandYearData, getAllBands } from "@/lib/supabase";
+import {
+  getAllBands,
+  getBandById,
+  getBandYearData,
+  getClaimsByBand,
+} from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 
 export const revalidate = 3600;
@@ -10,9 +15,9 @@ export const dynamicParams = true;
 export async function generateStaticParams() {
   const bands = await getAllBands();
 
-  // Pre-generate pages for top bands with their available years
-  const params = locales.flatMap((lang) =>
-    bands.slice(0, 50).flatMap((band) =>
+  // Pre-generate pages for all bands with all their available years
+  return locales.flatMap((lang) =>
+    bands.flatMap((band) =>
       band.availableYears.map((year) => ({
         lang,
         bcid: band.bcid,
@@ -20,9 +25,6 @@ export async function generateStaticParams() {
       })),
     ),
   );
-
-  // Limit total static params to avoid build timeout
-  return params.slice(0, 200);
 }
 
 export default async function BandYearPage({
@@ -44,12 +46,17 @@ export default async function BandYearPage({
     notFound();
   }
 
+  const [bandYearData, claims] = await Promise.all([
+    getBandYearData(bcid, year),
+    getClaimsByBand(bcid),
+  ]);
+
   const {
     statementOfOperations,
     statementOfFinancialPosition,
     remuneration,
     notes,
-  } = await getBandYearData(bcid, year);
+  } = bandYearData;
 
   // If no data at all, show not found
   if (
@@ -69,6 +76,7 @@ export default async function BandYearPage({
       statementOfFinancialPosition={statementOfFinancialPosition}
       remuneration={remuneration}
       notes={notes}
+      claims={claims}
       lang={lang}
     />
   );
