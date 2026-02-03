@@ -186,14 +186,14 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
                     </span>
                   </td>
                   <td className="px-4 py-4 align-top">
+                    {claim.status && (
+                      <div className="text-sm text-gray-900">
+                        {claim.status}
+                      </div>
+                    )}
                     <div className="text-xs text-gray-500">
                       {lastDetail.date}
                     </div>
-                    {lastDetail.label && (
-                      <div className="text-sm text-gray-900">
-                        {lastDetail.label}
-                      </div>
-                    )}
                   </td>
                   <td className="px-4 py-4 whitespace-nowrap text-right text-sm text-gray-900 align-top">
                     {claim.total_payments != null && claim.total_payments > 0

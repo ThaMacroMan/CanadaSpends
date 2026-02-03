@@ -67,6 +67,24 @@ const HelpIcon = () => (
   </svg>
 );
 
+const ExternalLinkIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+    <polyline points="15 3 21 3 21 9" />
+    <line x1="10" y1="14" x2="21" y2="3" />
+  </svg>
+);
+
 function formatFiscalYear(year: string): string {
   const yearNum = parseInt(year, 10);
   if (isNaN(yearNum)) return year;
@@ -338,7 +356,18 @@ export function BandPageContent({
         {claims && claims.length > 0 && (
           <Section>
             <H2>
-              <Trans>Land Claims</Trans>
+              <span className="inline-flex items-center gap-2">
+                <Trans>Land Claims</Trans>
+                <a
+                  href="https://services.aadnc-aandc.gc.ca/SCBRI_E/Main/ReportingCentre/External/externalreporting.aspx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-700"
+                  title="View data source"
+                >
+                  <ExternalLinkIcon />
+                </a>
+              </span>
             </H2>
             <P>
               <Trans>
