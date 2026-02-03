@@ -6,6 +6,22 @@ import { Trans } from "@lingui/react/macro";
 import { Search } from "lucide-react";
 import type { BandInfo } from "@/lib/supabase/types";
 
+const PROVINCE_NAMES: Record<string, string> = {
+  AB: "Alberta",
+  BC: "British Columbia",
+  MB: "Manitoba",
+  NB: "New Brunswick",
+  NL: "Newfoundland and Labrador",
+  NS: "Nova Scotia",
+  NT: "Northwest Territories",
+  NU: "Nunavut",
+  ON: "Ontario",
+  PE: "Prince Edward Island",
+  QC: "Quebec",
+  SK: "Saskatchewan",
+  YT: "Yukon",
+};
+
 interface BandSearchProps {
   bands: BandInfo[];
   lang: string;
@@ -20,12 +36,12 @@ const DataIndicator = ({
   hasR: boolean;
   href: string;
 }) => {
-  const fsClasses = `inline-flex items-center justify-center w-6 h-6 text-xs font-medium ${
+  const fsClasses = `inline-flex items-center justify-center w-6 h-6 text-xs font-medium select-none ${
     hasFS
       ? "bg-auburn-700 text-white hover:bg-auburn-800"
       : "bg-gray-200 text-gray-400"
   }`;
-  const rClasses = `inline-flex items-center justify-center w-6 h-6 text-xs font-medium ${
+  const rClasses = `inline-flex items-center justify-center w-6 h-6 text-xs font-medium select-none ${
     hasR
       ? "bg-auburn-700 text-white hover:bg-auburn-800"
       : "bg-gray-200 text-gray-400"
@@ -43,7 +59,11 @@ const DataIndicator = ({
         </span>
       )}
       {hasR ? (
-        <Link href={href} className={rClasses} title="Remuneration">
+        <Link
+          href={`${href}#remuneration`}
+          className={rClasses}
+          title="Remuneration"
+        >
           R
         </Link>
       ) : (
@@ -58,6 +78,7 @@ const DataIndicator = ({
 export function BandSearch({ bands, lang }: BandSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedYear, setSelectedYear] = useState<string>("");
+  const [selectedProvince, setSelectedProvince] = useState<string>("");
 
   // Extract all unique years from all bands, sorted ascending (oldest first)
   const availableYears = useMemo(() => {
@@ -66,6 +87,17 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       band.availableYears.forEach((year) => yearsSet.add(year));
     });
     return Array.from(yearsSet).sort((a, b) => a.localeCompare(b));
+  }, [bands]);
+
+  // Extract all unique provinces from all bands, sorted alphabetically
+  const availableProvinces = useMemo(() => {
+    const provincesSet = new Set<string>();
+    bands.forEach((band) => {
+      if (band.province) {
+        provincesSet.add(band.province);
+      }
+    });
+    return Array.from(provincesSet).sort((a, b) => a.localeCompare(b));
   }, [bands]);
 
   const filteredBands = useMemo(() => {
@@ -78,6 +110,11 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       );
     }
 
+    // Filter by province
+    if (selectedProvince) {
+      result = result.filter((band) => band.province === selectedProvince);
+    }
+
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
@@ -85,7 +122,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
     }
 
     return result;
-  }, [bands, searchQuery, selectedYear]);
+  }, [bands, searchQuery, selectedYear, selectedProvince]);
 
   // Years to display in columns (filtered if a year is selected)
   const displayYears = selectedYear ? [selectedYear] : availableYears;
@@ -116,6 +153,20 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base"
           />
         </div>
+        <div className="sm:w-64">
+          <select
+            value={selectedProvince}
+            onChange={(e) => setSelectedProvince(e.target.value)}
+            className="block w-full py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
+          >
+            <option value="">All provinces</option>
+            {availableProvinces.map((province) => (
+              <option key={province} value={province}>
+                {PROVINCE_NAMES[province] || province}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="sm:w-48">
           <select
             value={selectedYear}
@@ -133,7 +184,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       </div>
 
       <div className="mb-4 text-sm text-gray-600">
-        {searchQuery || selectedYear ? (
+        {searchQuery || selectedYear || selectedProvince ? (
           <Trans>
             Showing {filteredBands.length} of {bands.length} bands
           </Trans>
@@ -149,72 +200,64 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
           </p>
         </div>
       ) : (
-        <div
-          ref={tableContainerRef}
-          className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200"
-        >
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50 sticky top-0 z-20 shadow-sm">
-              <tr>
-                <th
-                  scope="col"
-                  className="sticky left-0 z-30 bg-gray-50 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[200px] border-r border-gray-200"
-                >
-                  <Trans>First Nation</Trans>
-                </th>
-                <th
-                  scope="col"
-                  className="sticky left-[200px] z-30 bg-gray-50 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[100px] border-r border-gray-200"
-                >
-                  <Trans>Province</Trans>
-                </th>
-                {displayYears.map((year) => (
+        <>
+          <div className="mb-2 text-xs text-gray-500 select-none flex gap-1">
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-auburn-700 text-white text-xs font-medium">
+                FS
+              </span>
+              <span>Financial Statements</span>
+            </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-auburn-700 text-white text-xs font-medium">
+                R
+              </span>
+              <span>Remuneration</span>
+            </span>
+          </div>
+          <div
+            ref={tableContainerRef}
+            className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200 flex justify-center"
+          >
+            <table className="divide-y divide-gray-200">
+              <thead className="bg-gray-50 sticky top-0 z-20 shadow-sm">
+                <tr>
                   <th
-                    key={year}
                     scope="col"
-                    className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[80px]"
+                    className="sticky left-0 z-30 bg-gray-50 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[250px] max-w-[250px]"
                   >
-                    {formatFiscalYearShort(year)}
+                    <Trans>First Nation</Trans>
                   </th>
+                  <th
+                    scope="col"
+                    className="sticky left-[250px] z-30 bg-gray-50 px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-[60px] shadow-[inset_1px_0_0_0_rgb(229,231,235),4px_0_0_0_rgb(249,250,251)]"
+                  >
+                    <Trans>Prov.</Trans>
+                  </th>
+                  {displayYears.map((year) => (
+                    <th
+                      key={year}
+                      scope="col"
+                      className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[80px]"
+                    >
+                      {formatFiscalYearShort(year)}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {filteredBands.map((band) => (
+                  <BandRow
+                    key={band.bcid}
+                    band={band}
+                    lang={lang}
+                    displayYears={displayYears}
+                  />
                 ))}
-                <th
-                  scope="col"
-                  className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px] border-l border-gray-200"
-                >
-                  <Trans>Revenue</Trans>
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]"
-                >
-                  <Trans>Expenses</Trans>
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[120px]"
-                >
-                  <Trans>Accum. Surplus</Trans>
-                </th>
-                <th
-                  scope="col"
-                  className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[100px]"
-                >
-                  <Trans>Population</Trans>
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {filteredBands.map((band) => (
-                <BandRow
-                  key={band.bcid}
-                  band={band}
-                  lang={lang}
-                  displayYears={displayYears}
-                />
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </tbody>
+            </table>
+          </div>
+        </>
       )}
     </div>
   );
@@ -230,16 +273,16 @@ function BandRow({
   displayYears: string[];
 }) {
   return (
-    <tr className="hover:bg-gray-50">
-      <td className="sticky left-0 z-10 bg-white px-4 py-3 border-r border-gray-200 group-hover:bg-gray-50">
+    <tr className="hover:bg-gray-50 group">
+      <td className="sticky left-0 z-20 bg-white px-4 py-3 group-hover:bg-gray-50 w-[250px] max-w-[250px]">
         <Link
           href={`/${lang}/first-nations/${band.bcid}`}
-          className="text-sm font-medium text-auburn-700 hover:text-auburn-900 hover:underline"
+          className="text-sm font-medium text-auburn-700 hover:text-auburn-900 hover:underline block truncate"
         >
           {band.name}
         </Link>
       </td>
-      <td className="sticky left-[200px] z-10 bg-white px-4 py-3 text-sm text-gray-600 border-r border-gray-200">
+      <td className="sticky left-[250px] z-20 bg-white px-4 py-3 text-sm text-gray-600 border-r border-gray-200 w-[60px] group-hover:bg-gray-50 shadow-[inset_1px_0_0_0_rgb(229,231,235)]">
         {band.province || "-"}
       </td>
       {displayYears.map((year) => {
@@ -256,12 +299,6 @@ function BandRow({
           </td>
         );
       })}
-      <td className="px-4 py-3 text-right text-sm text-gray-600 border-l border-gray-200">
-        -
-      </td>
-      <td className="px-4 py-3 text-right text-sm text-gray-600">-</td>
-      <td className="px-4 py-3 text-right text-sm text-gray-600">-</td>
-      <td className="px-4 py-3 text-right text-sm text-gray-600">-</td>
     </tr>
   );
 }

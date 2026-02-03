@@ -382,7 +382,7 @@ export function BandPageContent({
         {remuneration &&
           remuneration.entries &&
           remuneration.entries.length > 0 && (
-            <Section>
+            <Section className="scroll-mt-4" id="remuneration">
               <H2>
                 <span className="inline-flex items-center">
                   <Trans>Remuneration and Expenses</Trans>
