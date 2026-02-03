@@ -1,6 +1,6 @@
-// Types for First Nations band data from Supabase API
+// Types for First Nations data from Supabase API
 
-// API response type for extraction_availability (one row per band)
+// API response type for extraction_availability (one row per First Nation)
 export interface ExtractionAvailabilityResponse {
   bcid: string;
   name: string;
@@ -11,7 +11,7 @@ export interface ExtractionAvailabilityResponse {
 }
 
 // Internal type used by components
-export interface BandInfo {
+export interface FirstNationInfo {
   bcid: string;
   name: string;
   province?: string;
@@ -22,9 +22,9 @@ export interface BandInfo {
 }
 
 // Population API response types
-export interface PopulationSummaryByBand {
+export interface PopulationSummary {
   bcid: string;
-  band_name: string | null;
+  first_nation_name: string | null;
   latest_year: number;
   pop_on_reserve_total: number | null;
   pop_off_reserve_total: number | null;
@@ -105,7 +105,7 @@ export interface Remuneration {
   columns: RemunerationColumn[];
   context?: string;
   entries: RemunerationEntry[];
-  band_name: string;
+  first_nation_name: string;
   is_audited: boolean;
   auditor_name?: string;
   column_totals?: Record<string, number>;

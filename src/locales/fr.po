@@ -42,8 +42,8 @@ msgstr "{0}"
 
 #. placeholder {0}: bands.length
 #: src/components/first-nations/BandSearch.tsx:216
-msgid "{0} First Nations bands with financial data"
-msgstr "{0} bandes des Premières Nations avec des données financières"
+msgid "{0} First Nations with financial data"
+msgstr "{0} Premières Nations avec des données financières"
 
 #. placeholder {0}: jurisdiction.name
 #: src/components/JurisdictionPageContent.tsx:464
@@ -1052,8 +1052,8 @@ msgid "Explore federal employee salary distribution by year and demographic grou
 msgstr "Explorez la répartition des salaires des employés fédéraux par année et groupe démographique"
 
 #: src/app/[lang]/(main)/first-nations/page.tsx:33
-msgid "Explore financial data from First Nations bands across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
-msgstr "Explorez les données financières des bandes des Premières Nations à travers le Canada. Les données sont extraites des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations (LTFPN), y compris les états des résultats, la situation financière et la rémunération."
+msgid "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
+msgstr "Explorez les données financières des Premières Nations à travers le Canada. Les données sont extraites des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations (LTFPN), y compris les états des résultats, la situation financière et la rémunération."
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
@@ -1922,8 +1922,8 @@ msgid "Investment, Growth and Commercialization"
 msgstr "Investissement, croissance et commercialisation"
 
 #: src/components/first-nations/ClaimsTable.tsx:278
-msgid "Involved Bands"
-msgstr "Bandes impliquées"
+msgid "Involved First Nations"
+msgstr "Premières Nations impliquées"
 
 #: src/app/[lang]/(main)/spending/immigration-refugees-and-citizenship/page.tsx:89
 msgid "IRCC accounted for 1.2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
@@ -2208,8 +2208,8 @@ msgid "No articles available yet on Canada Spends. Check back soon!"
 msgstr "Aucun article disponible pour le moment sur Canada Spends. Revenez bientôt!"
 
 #: src/components/first-nations/BandSearch.tsx:223
-msgid "No bands found matching your search."
-msgstr "Aucune bande trouvée correspondant à votre recherche."
+msgid "No First Nations found matching your search."
+msgstr "Aucune Première Nation trouvée correspondant à votre recherche."
 
 #: src/components/first-nations/BandNotes.tsx:50
 msgid "No content available."
@@ -3051,8 +3051,8 @@ msgstr "Aide à l'établissement"
 #. placeholder {0}: filteredBands.length
 #. placeholder {1}: bands.length
 #: src/components/first-nations/BandSearch.tsx:212
-msgid "Showing {0} of {1} bands"
-msgstr "Affichage de {0} sur {1} bandes"
+msgid "Showing {0} of {1} First Nations"
+msgstr "Affichage de {0} sur {1} Premières Nations"
 
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:142
 msgid "Similarly, HICC expenditures experienced notable fluctuations during this period, surging from approximately $5.9 billion​ in 2019 (adjusted for inflation) to $14.5B in 2024."
@@ -3486,8 +3486,8 @@ msgid "Total accumulated surplus"
 msgstr "Surplus cumulé total"
 
 #: src/components/first-nations/FinancialPositionStats.tsx:255
-msgid "Total assets minus total liabilities. This represents the band's overall financial position."
-msgstr "Total des actifs moins total des passifs. Ceci représente la situation financière globale de la bande."
+msgid "Total assets minus total liabilities. This represents the First Nation's overall financial position."
+msgstr "Total des actifs moins total des passifs. Ceci représente la situation financière globale de la Première Nation."
 
 #: src/app/[lang]/(main)/budget/page.tsx:175
 #: src/app/[lang]/(main)/federal/budget/page.tsx:212

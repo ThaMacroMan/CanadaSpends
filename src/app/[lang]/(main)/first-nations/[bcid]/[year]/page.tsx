@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation";
 import { initLingui } from "@/initLingui";
-import { BandPageContent } from "@/components/first-nations";
+import { FirstNationsPageContent } from "@/components/first-nations";
 import {
-  getAllBands,
-  getBandById,
-  getBandYearData,
-  getClaimsByBand,
+  getAllFirstNations,
+  getFirstNationById,
+  getFirstNationYearData,
+  getClaimsByFirstNation,
 } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 
@@ -13,21 +13,21 @@ export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const bands = await getAllBands();
+  const firstNations = await getAllFirstNations();
 
-  // Pre-generate pages for all bands with all their available years
+  // Pre-generate pages for all First Nations with all their available years
   return locales.flatMap((lang) =>
-    bands.flatMap((band) =>
-      band.availableYears.map((year) => ({
+    firstNations.flatMap((firstNation) =>
+      firstNation.availableYears.map((year) => ({
         lang,
-        bcid: band.bcid,
+        bcid: firstNation.bcid,
         year,
       })),
     ),
   );
 }
 
-export default async function BandYearPage({
+export default async function FirstNationYearPage({
   params,
 }: {
   params: Promise<{ lang: string; bcid: string; year: string }>;
@@ -35,20 +35,20 @@ export default async function BandYearPage({
   const { lang, bcid, year } = await params;
   initLingui(lang);
 
-  const band = await getBandById(bcid);
+  const firstNation = await getFirstNationById(bcid);
 
-  if (!band) {
+  if (!firstNation) {
     notFound();
   }
 
-  // Check if the requested year is valid for this band
-  if (!band.availableYears.includes(year)) {
+  // Check if the requested year is valid for this First Nation
+  if (!firstNation.availableYears.includes(year)) {
     notFound();
   }
 
-  const [bandYearData, claims] = await Promise.all([
-    getBandYearData(bcid, year),
-    getClaimsByBand(bcid),
+  const [firstNationYearData, claims] = await Promise.all([
+    getFirstNationYearData(bcid, year),
+    getClaimsByFirstNation(bcid),
   ]);
 
   const {
@@ -56,7 +56,7 @@ export default async function BandYearPage({
     statementOfFinancialPosition,
     remuneration,
     notes,
-  } = bandYearData;
+  } = firstNationYearData;
 
   // If no data at all, show not found
   if (
@@ -69,8 +69,8 @@ export default async function BandYearPage({
   }
 
   return (
-    <BandPageContent
-      band={band}
+    <FirstNationsPageContent
+      firstNation={firstNation}
       year={year}
       statementOfOperations={statementOfOperations}
       statementOfFinancialPosition={statementOfFinancialPosition}

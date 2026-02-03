@@ -42,8 +42,8 @@ msgstr "{0}"
 
 #. placeholder {0}: bands.length
 #: src/components/first-nations/BandSearch.tsx:216
-msgid "{0} First Nations bands with financial data"
-msgstr "{0} First Nations bands with financial data"
+msgid "{0} First Nations with financial data"
+msgstr "{0} First Nations with financial data"
 
 #. placeholder {0}: jurisdiction.name
 #: src/components/JurisdictionPageContent.tsx:464
@@ -1052,8 +1052,8 @@ msgid "Explore federal employee salary distribution by year and demographic grou
 msgstr "Explore federal employee salary distribution by year and demographic group"
 
 #: src/app/[lang]/(main)/first-nations/page.tsx:33
-msgid "Explore financial data from First Nations bands across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
-msgstr "Explore financial data from First Nations bands across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
+msgid "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
+msgstr "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
@@ -1922,8 +1922,8 @@ msgid "Investment, Growth and Commercialization"
 msgstr "Investment, Growth and Commercialization"
 
 #: src/components/first-nations/ClaimsTable.tsx:278
-msgid "Involved Bands"
-msgstr "Involved Bands"
+msgid "Involved First Nations"
+msgstr "Involved First Nations"
 
 #: src/app/[lang]/(main)/spending/immigration-refugees-and-citizenship/page.tsx:89
 msgid "IRCC accounted for 1.2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
@@ -2208,8 +2208,8 @@ msgid "No articles available yet on Canada Spends. Check back soon!"
 msgstr "No articles available yet on Canada Spends. Check back soon!"
 
 #: src/components/first-nations/BandSearch.tsx:223
-msgid "No bands found matching your search."
-msgstr "No bands found matching your search."
+msgid "No First Nations found matching your search."
+msgstr "No First Nations found matching your search."
 
 #: src/components/first-nations/BandNotes.tsx:50
 msgid "No content available."
@@ -3051,8 +3051,8 @@ msgstr "Settlement Assistance"
 #. placeholder {0}: filteredBands.length
 #. placeholder {1}: bands.length
 #: src/components/first-nations/BandSearch.tsx:212
-msgid "Showing {0} of {1} bands"
-msgstr "Showing {0} of {1} bands"
+msgid "Showing {0} of {1} First Nations"
+msgstr "Showing {0} of {1} First Nations"
 
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:142
 msgid "Similarly, HICC expenditures experienced notable fluctuations during this period, surging from approximately $5.9 billion​ in 2019 (adjusted for inflation) to $14.5B in 2024."
@@ -3486,8 +3486,8 @@ msgid "Total accumulated surplus"
 msgstr "Total accumulated surplus"
 
 #: src/components/first-nations/FinancialPositionStats.tsx:255
-msgid "Total assets minus total liabilities. This represents the band's overall financial position."
-msgstr "Total assets minus total liabilities. This represents the band's overall financial position."
+msgid "Total assets minus total liabilities. This represents the First Nation's overall financial position."
+msgstr "Total assets minus total liabilities. This represents the First Nation's overall financial position."
 
 #: src/app/[lang]/(main)/budget/page.tsx:175
 #: src/app/[lang]/(main)/federal/budget/page.tsx:212

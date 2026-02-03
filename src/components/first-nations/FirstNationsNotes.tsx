@@ -9,11 +9,11 @@ import {
 } from "@/components/Accordion";
 import type { Notes, NoteEntry } from "@/lib/supabase/types";
 
-interface BandNotesProps {
+interface FirstNationsNotesProps {
   data: Notes;
 }
 
-export function BandNotes({ data }: BandNotesProps) {
+export function FirstNationsNotes({ data }: FirstNationsNotesProps) {
   if (!data.notes || data.notes.length === 0) {
     return (
       <p className="text-gray-500 italic">

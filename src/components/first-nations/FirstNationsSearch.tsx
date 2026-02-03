@@ -4,7 +4,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Trans } from "@lingui/react/macro";
 import { Search } from "lucide-react";
-import type { BandInfo } from "@/lib/supabase/types";
+import type { FirstNationInfo } from "@/lib/supabase/types";
 
 const PROVINCE_NAMES: Record<string, string> = {
   AB: "Alberta",
@@ -22,8 +22,8 @@ const PROVINCE_NAMES: Record<string, string> = {
   YT: "Yukon",
 };
 
-interface BandSearchProps {
-  bands: BandInfo[];
+interface FirstNationsSearchProps {
+  firstNations: FirstNationInfo[];
   lang: string;
 }
 
@@ -77,51 +77,58 @@ const DataIndicator = ({
 
 type SortOption = "alphabetical" | "population";
 
-export function BandSearch({ bands, lang }: BandSearchProps) {
+export function FirstNationsSearch({
+  firstNations,
+  lang,
+}: FirstNationsSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [selectedProvince, setSelectedProvince] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortOption>("alphabetical");
 
-  // Extract all unique years from all bands, sorted ascending (oldest first)
+  // Extract all unique years from all First Nations, sorted ascending (oldest first)
   const availableYears = useMemo(() => {
     const yearsSet = new Set<string>();
-    bands.forEach((band) => {
-      band.availableYears.forEach((year) => yearsSet.add(year));
+    firstNations.forEach((firstNation) => {
+      firstNation.availableYears.forEach((year) => yearsSet.add(year));
     });
     return Array.from(yearsSet).sort((a, b) => a.localeCompare(b));
-  }, [bands]);
+  }, [firstNations]);
 
-  // Extract all unique provinces from all bands, sorted alphabetically
+  // Extract all unique provinces from all First Nations, sorted alphabetically
   const availableProvinces = useMemo(() => {
     const provincesSet = new Set<string>();
-    bands.forEach((band) => {
-      if (band.province) {
-        provincesSet.add(band.province);
+    firstNations.forEach((firstNation) => {
+      if (firstNation.province) {
+        provincesSet.add(firstNation.province);
       }
     });
     return Array.from(provincesSet).sort((a, b) => a.localeCompare(b));
-  }, [bands]);
+  }, [firstNations]);
 
-  const filteredBands = useMemo(() => {
-    let result = bands;
+  const filteredFirstNations = useMemo(() => {
+    let result = firstNations;
 
     // Filter by year
     if (selectedYear) {
-      result = result.filter((band) =>
-        band.availableYears.includes(selectedYear),
+      result = result.filter((firstNation) =>
+        firstNation.availableYears.includes(selectedYear),
       );
     }
 
     // Filter by province
     if (selectedProvince) {
-      result = result.filter((band) => band.province === selectedProvince);
+      result = result.filter(
+        (firstNation) => firstNation.province === selectedProvince,
+      );
     }
 
     // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
-      result = result.filter((band) => band.name.toLowerCase().includes(query));
+      result = result.filter((firstNation) =>
+        firstNation.name.toLowerCase().includes(query),
+      );
     }
 
     // Sort results
@@ -136,7 +143,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
     }
 
     return result;
-  }, [bands, searchQuery, selectedYear, selectedProvince, sortBy]);
+  }, [firstNations, searchQuery, selectedYear, selectedProvince, sortBy]);
 
   // Years to display in columns (filtered if a year is selected)
   const displayYears = selectedYear ? [selectedYear] : availableYears;
@@ -150,7 +157,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       tableContainerRef.current.scrollLeft =
         tableContainerRef.current.scrollWidth;
     }
-  }, [filteredBands, displayYears]);
+  }, [filteredFirstNations, displayYears]);
 
   return (
     <div>
@@ -163,7 +170,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search First Nations bands..."
+            placeholder="Search First Nations..."
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base"
           />
         </div>
@@ -210,17 +217,18 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       <div className="mb-4 text-sm text-gray-600">
         {searchQuery || selectedYear || selectedProvince ? (
           <Trans>
-            Showing {filteredBands.length} of {bands.length} bands
+            Showing {filteredFirstNations.length} of {firstNations.length} First
+            Nations
           </Trans>
         ) : (
-          <Trans>{bands.length} First Nations bands with financial data</Trans>
+          <Trans>{firstNations.length} First Nations with financial data</Trans>
         )}
       </div>
 
-      {filteredBands.length === 0 ? (
+      {filteredFirstNations.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-gray-500">
-            <Trans>No bands found matching your search.</Trans>
+            <Trans>No First Nations found matching your search.</Trans>
           </p>
         </div>
       ) : (
@@ -270,10 +278,10 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredBands.map((band) => (
-                  <BandRow
-                    key={band.bcid}
-                    band={band}
+                {filteredFirstNations.map((firstNation) => (
+                  <FirstNationRow
+                    key={firstNation.bcid}
+                    firstNation={firstNation}
                     lang={lang}
                     displayYears={displayYears}
                   />
@@ -287,28 +295,28 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
   );
 }
 
-function BandRow({
-  band,
+function FirstNationRow({
+  firstNation,
   lang,
   displayYears,
 }: {
-  band: BandInfo;
+  firstNation: FirstNationInfo;
   lang: string;
   displayYears: string[];
 }) {
   const populationText =
-    band.populationOnReserve !== undefined && band.populationYear
-      ? `${band.populationYear} On-Reserve Population: ${band.populationOnReserve.toLocaleString()}`
+    firstNation.populationOnReserve !== undefined && firstNation.populationYear
+      ? `${firstNation.populationYear} On-Reserve Population: ${firstNation.populationOnReserve.toLocaleString()}`
       : null;
 
   return (
     <tr className="hover:bg-gray-50 group">
       <td className="sticky left-0 z-20 bg-white px-4 py-3 group-hover:bg-gray-50 w-[250px] max-w-[250px]">
         <Link
-          href={`/${lang}/first-nations/${band.bcid}`}
+          href={`/${lang}/first-nations/${firstNation.bcid}`}
           className="text-sm font-medium text-auburn-700 hover:text-auburn-900 hover:underline block truncate"
         >
-          {band.name}
+          {firstNation.name}
         </Link>
         {populationText && (
           <span className="text-xs text-gray-500 block truncate">
@@ -317,15 +325,15 @@ function BandRow({
         )}
       </td>
       <td className="sticky left-[250px] z-20 bg-white px-4 py-3 text-sm text-gray-600 border-r border-gray-200 w-[60px] group-hover:bg-gray-50 shadow-[inset_1px_0_0_0_rgb(229,231,235)]">
-        {band.province || "-"}
+        {firstNation.province || "-"}
       </td>
       {displayYears.map((year) => {
-        const chunkTypes = band.availableChunkTypes[year] || [];
+        const chunkTypes = firstNation.availableChunkTypes[year] || [];
         const hasFS =
           chunkTypes.includes("statement_of_operations") ||
           chunkTypes.includes("statement_of_financial_position");
         const hasR = chunkTypes.includes("remuneration");
-        const href = `/${lang}/first-nations/${band.bcid}/${year}`;
+        const href = `/${lang}/first-nations/${firstNation.bcid}/${year}`;
 
         return (
           <td key={year} className="px-3 py-3 text-center">

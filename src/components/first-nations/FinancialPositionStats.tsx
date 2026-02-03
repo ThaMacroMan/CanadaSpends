@@ -253,8 +253,8 @@ export function FinancialPositionStats({
           <Tooltip
             text={
               <Trans>
-                Total assets minus total liabilities. This represents the
-                band&apos;s overall financial position.
+                Total assets minus total liabilities. This represents the First
+                Nation&apos;s overall financial position.
               </Trans>
             }
           >

@@ -1,4 +1,4 @@
-// Supabase REST API client for First Nations band data
+// Supabase REST API client for First Nations data
 
 const BASE_URL = "https://api.buildcanada.com/rest/v1";
 const API_KEY = "sb_publishable_nDRd3MFmMdzRsDfAkDPc3g_xWbSiV19";
@@ -57,6 +57,6 @@ export async function supabaseFetch<T>(
 }
 
 export * from "./types";
-export * from "./bands";
+export * from "./first-nations";
 export * from "./claims";
 export * from "./sankey-transform";

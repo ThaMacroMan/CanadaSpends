@@ -1,7 +1,7 @@
 import { redirect, notFound } from "next/navigation";
 import { Trans } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
-import { getBandById, getAllBands } from "@/lib/supabase";
+import { getFirstNationById, getAllFirstNations } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 import {
   H1,
@@ -16,32 +16,32 @@ export const revalidate = 3600;
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
-  const bands = await getAllBands();
+  const firstNations = await getAllFirstNations();
 
   return locales.flatMap((lang) =>
-    bands.map((band) => ({
+    firstNations.map((firstNation) => ({
       lang,
-      bcid: band.bcid,
+      bcid: firstNation.bcid,
     })),
   );
 }
 
-export default async function BandOverviewPage({
+export default async function FirstNationOverviewPage({
   params,
 }: {
   params: Promise<{ lang: string; bcid: string }>;
 }) {
   const { lang, bcid } = await params;
 
-  const band = await getBandById(bcid);
+  const firstNation = await getFirstNationById(bcid);
 
-  if (!band) {
+  if (!firstNation) {
     notFound();
   }
 
-  const latestYear = band.availableYears[0];
+  const latestYear = firstNation.availableYears[0];
 
-  // If band has data, redirect to latest year
+  // If First Nation has data, redirect to latest year
   if (latestYear) {
     redirect(`/${lang}/first-nations/${bcid}/${latestYear}`);
   }
@@ -53,11 +53,11 @@ export default async function BandOverviewPage({
     <Page>
       <PageContent>
         <Section>
-          <H1>{band.name}</H1>
+          <H1>{firstNation.name}</H1>
           <Intro>
             <Trans>
-              {band.name} is a First Nation
-              {band.province ? ` in ${band.province}` : ""}.
+              {firstNation.name} is a First Nation
+              {firstNation.province ? ` in ${firstNation.province}` : ""}.
             </Trans>
           </Intro>
         </Section>
@@ -65,7 +65,7 @@ export default async function BandOverviewPage({
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 text-center">
             <p className="text-gray-600 mb-4">
               <Trans>
-                No financial data is currently available for {band.name}.
+                No financial data is currently available for {firstNation.name}.
               </Trans>
             </p>
             <p className="text-sm text-gray-500 mb-6">

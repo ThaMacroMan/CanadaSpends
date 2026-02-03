@@ -3,19 +3,19 @@
 import Link from "next/link";
 import { Trans } from "@lingui/react/macro";
 
-interface BandYearSelectorProps {
+interface FirstNationsYearSelectorProps {
   bcid: string;
   currentYear: string;
   availableYears: string[];
   lang: string;
 }
 
-export function BandYearSelector({
+export function FirstNationsYearSelector({
   bcid,
   currentYear,
   availableYears,
   lang,
-}: BandYearSelectorProps) {
+}: FirstNationsYearSelectorProps) {
   if (availableYears.length <= 1) {
     return null;
   }

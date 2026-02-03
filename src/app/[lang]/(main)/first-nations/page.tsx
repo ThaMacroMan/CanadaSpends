@@ -1,8 +1,8 @@
 import { Trans } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
 import { H1, Intro, Page, PageContent, Section } from "@/components/Layout";
-import { BandSearch } from "@/components/first-nations";
-import { getAllBands } from "@/lib/supabase";
+import { FirstNationsSearch } from "@/components/first-nations";
+import { getAllFirstNations } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 
 export const revalidate = 3600; // Revalidate every hour
@@ -20,7 +20,7 @@ export default async function FirstNationsIndexPage({
   const { lang } = await params;
   initLingui(lang);
 
-  const bands = await getAllBands();
+  const firstNations = await getAllFirstNations();
 
   return (
     <Page>
@@ -31,15 +31,15 @@ export default async function FirstNationsIndexPage({
           </H1>
           <Intro>
             <Trans>
-              Explore financial data from First Nations bands across Canada.
-              Data is extracted from annual reports published under the First
-              Nations Financial Transparency Act (FNFTA), including statements
-              of operations, financial position, and remuneration.
+              Explore financial data from First Nations across Canada. Data is
+              extracted from annual reports published under the First Nations
+              Financial Transparency Act (FNFTA), including statements of
+              operations, financial position, and remuneration.
             </Trans>
           </Intro>
         </Section>
         <Section>
-          <BandSearch bands={bands} lang={lang} />
+          <FirstNationsSearch firstNations={firstNations} lang={lang} />
         </Section>
       </PageContent>
     </Page>

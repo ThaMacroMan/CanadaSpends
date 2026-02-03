@@ -15,8 +15,8 @@ import { JurisdictionSankey } from "@/components/Sankey/JurisdictionSankey";
 import { Tooltip } from "@/components/Tooltip";
 import { RemunerationTable } from "./RemunerationTable";
 import { FinancialPositionStats } from "./FinancialPositionStats";
-import { BandNotes } from "./BandNotes";
-import { BandYearSelector } from "./BandYearSelector";
+import { FirstNationsNotes } from "./FirstNationsNotes";
+import { FirstNationsYearSelector } from "./FirstNationsYearSelector";
 import { ClaimsTable } from "./ClaimsTable";
 import {
   SourceDocumentIcon,
@@ -29,7 +29,7 @@ import {
 } from "@/lib/supabase/sankey-transform";
 import type { SankeyData } from "@/components/Sankey/SankeyChartD3";
 import type {
-  BandInfo,
+  FirstNationInfo,
   StatementOfOperations,
   StatementOfFinancialPosition,
   Remuneration,
@@ -37,8 +37,8 @@ import type {
 } from "@/lib/supabase/types";
 import type { Claim } from "@/lib/supabase/claims";
 
-interface BandPageContentProps {
-  band: BandInfo;
+interface FirstNationsPageContentProps {
+  firstNation: FirstNationInfo;
   year: string;
   statementOfOperations: StatementOfOperations | null;
   statementOfFinancialPosition: StatementOfFinancialPosition | null;
@@ -134,8 +134,8 @@ const StatBox = ({
   </div>
 );
 
-export function BandPageContent({
-  band,
+export function FirstNationsPageContent({
+  firstNation,
   year,
   statementOfOperations,
   statementOfFinancialPosition,
@@ -143,7 +143,7 @@ export function BandPageContent({
   notes,
   claims,
   lang,
-}: BandPageContentProps) {
+}: FirstNationsPageContentProps) {
   const fiscalYear = formatFiscalYear(year);
 
   // State for PDF viewer toggles
@@ -161,7 +161,7 @@ export function BandPageContent({
     ? `https://cdn.canadaspends.com/${statementOfFinancialPosition.extraction_metadata.source_file}`
     : null;
   const remunerationSourceUrl = buildSourceDocumentUrl(
-    band.bcid,
+    firstNation.bcid,
     year,
     "remuneration",
   );
@@ -258,11 +258,11 @@ export function BandPageContent({
     <Page>
       <PageContent>
         <Section>
-          <H1>{band.name}</H1>
+          <H1>{firstNation.name}</H1>
           <Intro>
             <Trans>
-              Financial data for {band.name} for fiscal year {fiscalYear}.
-              Information is extracted from publicly available annual reports
+              Financial data for {firstNation.name} for fiscal year {fiscalYear}
+              . Information is extracted from publicly available annual reports
               published under the First Nations Financial Transparency Act.
             </Trans>
           </Intro>
@@ -285,8 +285,8 @@ export function BandPageContent({
               </H2>
               <P>
                 <Trans>
-                  Visual breakdown of {band.name}&apos;s revenue sources and how
-                  funds were spent during fiscal year {fiscalYear}.
+                  Visual breakdown of {firstNation.name}&apos;s revenue sources
+                  and how funds were spent during fiscal year {fiscalYear}.
                 </Trans>
               </P>
               <SourceDocumentViewer
@@ -371,7 +371,7 @@ export function BandPageContent({
             </H2>
             <P>
               <Trans>
-                Historical and ongoing land claims involving {band.name}.
+                Historical and ongoing land claims involving {firstNation.name}.
               </Trans>
             </P>
             <ClaimsTable claims={claims} />
@@ -418,16 +418,16 @@ export function BandPageContent({
             <H2>
               <Trans>Notes to Financial Statements</Trans>
             </H2>
-            <BandNotes data={notes} />
+            <FirstNationsNotes data={notes} />
           </Section>
         )}
 
         {/* Year Selector */}
         <Section>
-          <BandYearSelector
-            bcid={band.bcid}
+          <FirstNationsYearSelector
+            bcid={firstNation.bcid}
             currentYear={year}
-            availableYears={band.availableYears}
+            availableYears={firstNation.availableYears}
             lang={lang}
           />
         </Section>
@@ -448,7 +448,7 @@ export function BandPageContent({
           <div className="mt-4">
             <FullReportLink
               sourceUrl={buildSourceDocumentUrl(
-                band.bcid,
+                firstNation.bcid,
                 year,
                 "financial_statement",
               )}

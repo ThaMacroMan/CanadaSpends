@@ -1,21 +1,23 @@
-// Data fetching functions for First Nations bands
+// Data fetching functions for First Nations
 
 import { supabaseFetch } from "./index";
 import type {
   AnnualReportExtraction,
-  BandInfo,
+  FirstNationInfo,
   ExtractionAvailabilityResponse,
   Notes,
-  PopulationSummaryByBand,
+  PopulationSummary,
   Remuneration,
   StatementOfFinancialPosition,
   StatementOfOperations,
 } from "./types";
 
 /**
- * Convert API response to internal BandInfo format
+ * Convert API response to internal FirstNationInfo format
  */
-function toBandInfo(row: ExtractionAvailabilityResponse): BandInfo {
+function toFirstNationInfo(
+  row: ExtractionAvailabilityResponse,
+): FirstNationInfo {
   return {
     bcid: row.bcid,
     name: row.name,
@@ -29,16 +31,16 @@ function toBandInfo(row: ExtractionAvailabilityResponse): BandInfo {
 }
 
 /**
- * Get population data for all bands
+ * Get population data for all First Nations
  */
 export async function getPopulationData(): Promise<
-  Map<string, PopulationSummaryByBand>
+  Map<string, PopulationSummary>
 > {
-  const data = await supabaseFetch<PopulationSummaryByBand[]>(
+  const data = await supabaseFetch<PopulationSummary[]>(
     "population_summary_by_band?select=bcid,latest_year,pop_on_reserve_total",
   );
 
-  const populationMap = new Map<string, PopulationSummaryByBand>();
+  const populationMap = new Map<string, PopulationSummary>();
   for (const record of data) {
     populationMap.set(record.bcid, record);
   }
@@ -46,33 +48,36 @@ export async function getPopulationData(): Promise<
 }
 
 /**
- * Get all unique bands that have available data
+ * Get all unique First Nations that have available data
  */
-export async function getAllBands(): Promise<BandInfo[]> {
-  const [bandsData, populationMap] = await Promise.all([
+export async function getAllFirstNations(): Promise<FirstNationInfo[]> {
+  const [firstNationsData, populationMap] = await Promise.all([
     supabaseFetch<ExtractionAvailabilityResponse[]>("extraction_availability"),
     getPopulationData(),
   ]);
 
   // Convert and add population data
-  const bands = bandsData.map((row) => {
-    const band = toBandInfo(row);
+  const firstNations = firstNationsData.map((row) => {
+    const firstNation = toFirstNationInfo(row);
     const population = populationMap.get(row.bcid);
     if (population) {
-      band.populationYear = population.latest_year;
-      band.populationOnReserve = population.pop_on_reserve_total ?? undefined;
+      firstNation.populationYear = population.latest_year;
+      firstNation.populationOnReserve =
+        population.pop_on_reserve_total ?? undefined;
     }
-    return band;
+    return firstNation;
   });
 
   // Sort alphabetically by name
-  return bands.sort((a, b) => a.name.localeCompare(b.name));
+  return firstNations.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
- * Get a single band's info by bcid
+ * Get a single First Nation's info by bcid
  */
-export async function getBandById(bcid: string): Promise<BandInfo | null> {
+export async function getFirstNationById(
+  bcid: string,
+): Promise<FirstNationInfo | null> {
   const data = await supabaseFetch<ExtractionAvailabilityResponse[]>(
     `extraction_availability?bcid=eq.${encodeURIComponent(bcid)}`,
   );
@@ -81,13 +86,13 @@ export async function getBandById(bcid: string): Promise<BandInfo | null> {
     return null;
   }
 
-  return toBandInfo(data[0]);
+  return toFirstNationInfo(data[0]);
 }
 
 /**
- * Get a specific extraction for a band
+ * Get a specific extraction for a First Nation
  */
-export async function getBandExtraction<T>(
+export async function getFirstNationExtraction<T>(
   bcid: string,
   year: string,
   chunkType: string,
@@ -104,9 +109,9 @@ export async function getBandExtraction<T>(
 }
 
 /**
- * Get all data for a band for a specific year
+ * Get all data for a First Nation for a specific year
  */
-export async function getBandYearData(
+export async function getFirstNationYearData(
   bcid: string,
   year: string,
 ): Promise<{
@@ -121,18 +126,18 @@ export async function getBandYearData(
     remuneration,
     notes,
   ] = await Promise.all([
-    getBandExtraction<StatementOfOperations>(
+    getFirstNationExtraction<StatementOfOperations>(
       bcid,
       year,
       "statement_of_operations",
     ),
-    getBandExtraction<StatementOfFinancialPosition>(
+    getFirstNationExtraction<StatementOfFinancialPosition>(
       bcid,
       year,
       "statement_of_financial_position",
     ),
-    getBandExtraction<Remuneration>(bcid, year, "remuneration"),
-    getBandExtraction<Notes>(bcid, year, "notes"),
+    getFirstNationExtraction<Remuneration>(bcid, year, "remuneration"),
+    getFirstNationExtraction<Notes>(bcid, year, "notes"),
   ]);
 
   return {
@@ -144,11 +149,13 @@ export async function getBandYearData(
 }
 
 /**
- * Search bands by name (client-side filtering, use for server-side if needed)
+ * Search First Nations by name (client-side filtering, use for server-side if needed)
  */
-export async function searchBands(query: string): Promise<BandInfo[]> {
+export async function searchFirstNations(
+  query: string,
+): Promise<FirstNationInfo[]> {
   if (!query.trim()) {
-    return getAllBands();
+    return getAllFirstNations();
   }
 
   // Use ilike for case-insensitive search
@@ -156,16 +163,20 @@ export async function searchBands(query: string): Promise<BandInfo[]> {
     `extraction_availability?name=ilike.*${encodeURIComponent(query)}*`,
   );
 
-  return data.map(toBandInfo).sort((a, b) => a.name.localeCompare(b.name));
+  return data
+    .map(toFirstNationInfo)
+    .sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**
- * Get the latest year for a band
+ * Get the latest year for a First Nation
  */
-export async function getBandLatestYear(bcid: string): Promise<string | null> {
-  const band = await getBandById(bcid);
-  if (!band || band.availableYears.length === 0) {
+export async function getFirstNationLatestYear(
+  bcid: string,
+): Promise<string | null> {
+  const firstNation = await getFirstNationById(bcid);
+  if (!firstNation || firstNation.availableYears.length === 0) {
     return null;
   }
-  return band.availableYears[0]; // Already sorted descending
+  return firstNation.availableYears[0]; // Already sorted descending
 }

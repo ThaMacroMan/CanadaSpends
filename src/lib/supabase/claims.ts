@@ -7,8 +7,8 @@ export interface Claim {
   id: number;
   claimant_bcid: string;
   claimant_name: string;
-  band_bcids: string[];
-  involved_band_names: string[];
+  first_nation_bcids: string[];
+  involved_first_nation_names: string[];
   province: string;
   claim_name: string;
   process_stage: string;
@@ -25,9 +25,9 @@ export interface Claim {
 }
 
 /**
- * Get all claims for a specific band
+ * Get all claims for a specific First Nation
  */
-export async function getClaimsByBand(bcid: string): Promise<Claim[]> {
+export async function getClaimsByFirstNation(bcid: string): Promise<Claim[]> {
   const url = `${BASE_URL}/rpc/get_claims_by_band`;
 
   const response = await fetch(url, {

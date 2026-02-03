@@ -271,14 +271,14 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
                                 )}
                               </div>
                             )}
-                          {claim.involved_band_names &&
-                            claim.involved_band_names.length > 1 && (
+                          {claim.involved_first_nation_names &&
+                            claim.involved_first_nation_names.length > 1 && (
                               <div className="col-span-2">
                                 <div className="text-gray-500">
-                                  <Trans>Involved Bands</Trans>
+                                  <Trans>Involved First Nations</Trans>
                                 </div>
                                 <div className="text-gray-900">
-                                  {claim.involved_band_names.join(", ")}
+                                  {claim.involved_first_nation_names.join(", ")}
                                 </div>
                               </div>
                             )}
