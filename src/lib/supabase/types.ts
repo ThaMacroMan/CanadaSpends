@@ -17,6 +17,20 @@ export interface BandInfo {
   province?: string;
   availableYears: string[];
   availableChunkTypes: Record<string, string[]>; // year -> chunk_types
+  populationYear?: number;
+  populationOnReserve?: number;
+}
+
+// Population API response types
+export interface PopulationSummaryByBand {
+  bcid: string;
+  band_name: string | null;
+  latest_year: number;
+  pop_on_reserve_total: number | null;
+  pop_off_reserve_total: number | null;
+  pop_total_total: number | null;
+  region_en: string | null;
+  province_en: string | null;
 }
 
 // Statement of Operations types (actual API structure)

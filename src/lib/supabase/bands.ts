@@ -6,6 +6,7 @@ import type {
   BandInfo,
   ExtractionAvailabilityResponse,
   Notes,
+  PopulationSummaryByBand,
   Remuneration,
   StatementOfFinancialPosition,
   StatementOfOperations,
@@ -28,15 +29,44 @@ function toBandInfo(row: ExtractionAvailabilityResponse): BandInfo {
 }
 
 /**
+ * Get population data for all bands
+ */
+export async function getPopulationData(): Promise<
+  Map<string, PopulationSummaryByBand>
+> {
+  const data = await supabaseFetch<PopulationSummaryByBand[]>(
+    "population_summary_by_band?select=bcid,latest_year,pop_on_reserve_total",
+  );
+
+  const populationMap = new Map<string, PopulationSummaryByBand>();
+  for (const record of data) {
+    populationMap.set(record.bcid, record);
+  }
+  return populationMap;
+}
+
+/**
  * Get all unique bands that have available data
  */
 export async function getAllBands(): Promise<BandInfo[]> {
-  const data = await supabaseFetch<ExtractionAvailabilityResponse[]>(
-    "extraction_availability",
-  );
+  const [bandsData, populationMap] = await Promise.all([
+    supabaseFetch<ExtractionAvailabilityResponse[]>("extraction_availability"),
+    getPopulationData(),
+  ]);
 
-  // Convert and sort alphabetically by name
-  return data.map(toBandInfo).sort((a, b) => a.name.localeCompare(b.name));
+  // Convert and add population data
+  const bands = bandsData.map((row) => {
+    const band = toBandInfo(row);
+    const population = populationMap.get(row.bcid);
+    if (population) {
+      band.populationYear = population.latest_year;
+      band.populationOnReserve = population.pop_on_reserve_total ?? undefined;
+    }
+    return band;
+  });
+
+  // Sort alphabetically by name
+  return bands.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

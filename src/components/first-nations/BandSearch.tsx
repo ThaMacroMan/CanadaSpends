@@ -75,10 +75,13 @@ const DataIndicator = ({
   );
 };
 
+type SortOption = "alphabetical" | "population";
+
 export function BandSearch({ bands, lang }: BandSearchProps) {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [selectedProvince, setSelectedProvince] = useState<string>("");
+  const [sortBy, setSortBy] = useState<SortOption>("alphabetical");
 
   // Extract all unique years from all bands, sorted ascending (oldest first)
   const availableYears = useMemo(() => {
@@ -121,8 +124,19 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       result = result.filter((band) => band.name.toLowerCase().includes(query));
     }
 
+    // Sort results
+    if (sortBy === "alphabetical") {
+      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === "population") {
+      result = [...result].sort((a, b) => {
+        const popA = a.populationOnReserve ?? 0;
+        const popB = b.populationOnReserve ?? 0;
+        return popB - popA; // Descending order (highest population first)
+      });
+    }
+
     return result;
-  }, [bands, searchQuery, selectedYear, selectedProvince]);
+  }, [bands, searchQuery, selectedYear, selectedProvince, sortBy]);
 
   // Years to display in columns (filtered if a year is selected)
   const displayYears = selectedYear ? [selectedYear] : availableYears;
@@ -179,6 +193,16 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
                 {formatFiscalYear(year)}
               </option>
             ))}
+          </select>
+        </div>
+        <div className="sm:w-48">
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value as SortOption)}
+            className="block w-full py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
+          >
+            <option value="alphabetical">Sort: A-Z</option>
+            <option value="population">Sort: Population</option>
           </select>
         </div>
       </div>
@@ -272,6 +296,11 @@ function BandRow({
   lang: string;
   displayYears: string[];
 }) {
+  const populationText =
+    band.populationOnReserve !== undefined && band.populationYear
+      ? `${band.populationYear} On-Reserve Population: ${band.populationOnReserve.toLocaleString()}`
+      : null;
+
   return (
     <tr className="hover:bg-gray-50 group">
       <td className="sticky left-0 z-20 bg-white px-4 py-3 group-hover:bg-gray-50 w-[250px] max-w-[250px]">
@@ -281,6 +310,11 @@ function BandRow({
         >
           {band.name}
         </Link>
+        {populationText && (
+          <span className="text-xs text-gray-500 block truncate">
+            {populationText}
+          </span>
+        )}
       </td>
       <td className="sticky left-[250px] z-20 bg-white px-4 py-3 text-sm text-gray-600 border-r border-gray-200 w-[60px] group-hover:bg-gray-50 shadow-[inset_1px_0_0_0_rgb(229,231,235)]">
         {band.province || "-"}
