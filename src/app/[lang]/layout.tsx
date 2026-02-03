@@ -1,13 +1,19 @@
 import { allMessages } from "@/appRouterI18n";
 import { LinguiClientProvider } from "@/components/LinguiClientProvider";
 import { initLingui, PageLangParam } from "@/initLingui";
-import { generateHreflangAlternates } from "@/lib/utils";
+import { cn, generateHreflangAlternates } from "@/lib/utils";
 import { useLingui } from "@lingui/react/macro";
 import { Analytics } from "@vercel/analytics/next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { PropsWithChildren } from "react";
 import { Toaster } from "sonner";
 import "./globals.css";
 import { PostHogProvider } from "./providers";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  weight: ["600", "700"],
+  subsets: ["latin"],
+});
 
 export async function generateMetadata(
   props: PropsWithChildren<PageLangParam>,
@@ -68,7 +74,7 @@ export default async function RootLayout({
 
   return (
     <html lang={lang}>
-      <body className="antialiased">
+      <body className={cn("antialiased", plusJakartaSans.className)}>
         <PostHogProvider>
           <LinguiClientProvider
             initialLocale={lang}
