@@ -48,10 +48,30 @@ export function statementOfOperationsToSankey(
   const fiscalYear =
     data.fiscal_periods?.find((p) => !p.is_budget)?.year || 2024;
 
+  // Helper to check if an item is a deferred revenue entry (accounting adjustment)
+  const isDeferredRevenue = (item: StatementLineItem) =>
+    item.name?.toLowerCase().includes("deferred revenue");
+
   // Filter line items by category
-  const revenueItems = data.line_items.filter(
+  const regularRevenueItems = data.line_items.filter(
     (item) =>
-      item.major_category === "revenue" && !item.is_total && !item.is_subtotal,
+      item.major_category === "revenue" &&
+      !item.is_total &&
+      !item.is_subtotal &&
+      !isDeferredRevenue(item),
+  );
+
+  // Calculate net deferred revenue (sum of all deferred revenue items)
+  const deferredRevenueItems = data.line_items.filter(
+    (item) =>
+      item.major_category === "revenue" &&
+      !item.is_total &&
+      !item.is_subtotal &&
+      isDeferredRevenue(item),
+  );
+  const netDeferredRevenue = deferredRevenueItems.reduce(
+    (sum, item) => sum + getActualValue(item, fiscalYear),
+    0,
   );
 
   const expenseItems = data.line_items.filter(
@@ -61,7 +81,7 @@ export function statementOfOperationsToSankey(
       !item.is_subtotal,
   );
 
-  // Get totals
+  // Get totals from the statement (these already account for all adjustments)
   const totalRevenueItem = data.line_items.find(
     (item) => item.major_category === "revenue" && item.is_total,
   );
@@ -70,13 +90,13 @@ export function statementOfOperationsToSankey(
     (item) => item.major_category === "expenditures" && item.is_total,
   );
 
-  // Calculate totals from items or use the total line item
+  // Use stated totals from financial statements
   const totalRevenue = totalRevenueItem
     ? getActualValue(totalRevenueItem, fiscalYear)
-    : revenueItems.reduce(
+    : regularRevenueItems.reduce(
         (sum, item) => sum + getActualValue(item, fiscalYear),
         0,
-      );
+      ) + netDeferredRevenue;
 
   const totalExpenses = totalExpenseItem
     ? getActualValue(totalExpenseItem, fiscalYear)
@@ -85,8 +105,8 @@ export function statementOfOperationsToSankey(
         0,
       );
 
-  // Build revenue tree
-  const revenueChildren: SankeyNode[] = revenueItems
+  // Build revenue tree - only positive revenue items (unscaled first)
+  const rawRevenueChildren: LocalSankeyNode[] = regularRevenueItems
     .map((item, index): LocalSankeyNode | null => {
       const amount = getActualValue(item, fiscalYear);
       if (amount <= 0) return null;
@@ -100,16 +120,43 @@ export function statementOfOperationsToSankey(
     })
     .filter((node): node is LocalSankeyNode => node !== null);
 
+  // Add net deferred revenue as a single item if positive (inflow)
+  // If negative, it will be accounted for via scaling
+  if (netDeferredRevenue > 0) {
+    rawRevenueChildren.push({
+      id: "revenue_deferred_net",
+      displayName: "Deferred Revenue (Net)",
+      name: "Deferred Revenue (Net)",
+      amount: netDeferredRevenue,
+    });
+  }
+
+  // Calculate raw sum and scale factor to match stated total
+  // (SankeyChart uses hierarchy().sum() which sums children, so children must sum to stated total)
+  const rawRevenueSum = rawRevenueChildren.reduce(
+    (sum, child) => sum + child.amount,
+    0,
+  );
+  const revenueScaleFactor =
+    rawRevenueSum > 0 && totalRevenue > 0 ? totalRevenue / rawRevenueSum : 1;
+
+  // Scale children so their sum matches the stated total
+  const revenueChildren: SankeyNode[] = rawRevenueChildren.map((child) => ({
+    ...child,
+    amount: child.amount * revenueScaleFactor,
+  }));
+
   const revenueData: SankeyNode = {
     id: "revenue_root",
     displayName: "Total Revenue",
     name: "Total Revenue",
-    amount: totalRevenue,
+    // Root amount must be 0 because d3 hierarchy().sum() adds node.amount to children's sum
+    amount: 0,
     children: revenueChildren,
   };
 
-  // Build spending/expense tree
-  const spendingChildren: SankeyNode[] = expenseItems
+  // Build spending/expense tree - only positive expense items (unscaled first)
+  const rawSpendingChildren: LocalSankeyNode[] = expenseItems
     .map((item, index): LocalSankeyNode | null => {
       const amount = getActualValue(item, fiscalYear);
       if (amount <= 0) return null;
@@ -123,11 +170,38 @@ export function statementOfOperationsToSankey(
     })
     .filter((node): node is LocalSankeyNode => node !== null);
 
+  // Add net deferred revenue as an outflow if negative (deferring more than recognizing)
+  if (netDeferredRevenue < 0) {
+    rawSpendingChildren.push({
+      id: "spending_deferred_revenue",
+      displayName: "Deferred to Future Years",
+      name: "Deferred to Future Years",
+      amount: Math.abs(netDeferredRevenue),
+    });
+  }
+
+  // Calculate raw sum and scale factor to match stated total
+  const rawSpendingSum = rawSpendingChildren.reduce(
+    (sum, child) => sum + child.amount,
+    0,
+  );
+  const spendingScaleFactor =
+    rawSpendingSum > 0 && totalExpenses > 0
+      ? totalExpenses / rawSpendingSum
+      : 1;
+
+  // Scale children so their sum matches the stated total
+  const spendingChildren: SankeyNode[] = rawSpendingChildren.map((child) => ({
+    ...child,
+    amount: child.amount * spendingScaleFactor,
+  }));
+
   const spendingData: SankeyNode = {
     id: "spending_root",
     displayName: "Total Expenses",
     name: "Total Expenses",
-    amount: totalExpenses,
+    // Root amount must be 0 because d3 hierarchy().sum() adds node.amount to children's sum
+    amount: 0,
     children: spendingChildren,
   };
 
