@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import { Trans } from "@lingui/react/macro";
 import type { Claim } from "@/lib/supabase/claims";
 
@@ -155,9 +155,8 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
             const lastDetail = getLastKeyDateDetail(claim);
 
             return (
-              <>
+              <Fragment key={claim.id}>
                 <tr
-                  key={claim.id}
                   className="hover:bg-gray-50 cursor-pointer"
                   onClick={() => toggleRow(claim.id)}
                 >
@@ -288,7 +287,7 @@ export function ClaimsTable({ claims }: ClaimsTableProps) {
                     </td>
                   </tr>
                 )}
-              </>
+              </Fragment>
             );
           })}
         </tbody>
