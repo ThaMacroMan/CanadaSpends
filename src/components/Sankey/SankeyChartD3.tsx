@@ -692,6 +692,8 @@ export class SankeyChartD3 {
         source: null,
         target: null,
         link: null,
+        pathToRoot: [],
+        descendants: [],
       });
     }
 
