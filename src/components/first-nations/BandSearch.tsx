@@ -151,7 +151,7 @@ export function BandSearch({ bands, lang }: BandSearchProps) {
       ) : (
         <div
           ref={tableContainerRef}
-          className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto max-h-[70vh] border-y border-gray-200"
+          className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200"
         >
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50 sticky top-0 z-20 shadow-sm">
