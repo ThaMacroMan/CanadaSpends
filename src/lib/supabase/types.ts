@@ -161,3 +161,20 @@ export interface AnnualReportExtraction {
   created_at: string;
   updated_at: string;
 }
+
+// Population history API response type
+export interface FirstNationsPopulation {
+  bcid: string;
+  year: number;
+  region_en?: string | null;
+  province_en?: string | null;
+  pop_on_reserve_male: number | null;
+  pop_on_reserve_female: number | null;
+  pop_on_reserve_total: number | null;
+  pop_off_reserve_male: number | null;
+  pop_off_reserve_female: number | null;
+  pop_off_reserve_total: number | null;
+  pop_total_male: number | null;
+  pop_total_female: number | null;
+  pop_total_total: number | null;
+}

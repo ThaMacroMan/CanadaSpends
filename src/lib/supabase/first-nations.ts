@@ -3,8 +3,9 @@
 import { supabaseFetch } from "./index";
 import type {
   AnnualReportExtraction,
-  FirstNationInfo,
   ExtractionAvailabilityResponse,
+  FirstNationInfo,
+  FirstNationsPopulation,
   Notes,
   PopulationSummary,
   Remuneration,
@@ -179,4 +180,15 @@ export async function getFirstNationLatestYear(
     return null;
   }
   return firstNation.availableYears[0]; // Already sorted descending
+}
+
+/**
+ * Get population history for a First Nation
+ */
+export async function getFirstNationPopulationHistory(
+  bcid: string,
+): Promise<FirstNationsPopulation[]> {
+  return supabaseFetch<FirstNationsPopulation[]>(
+    `first_nations_population?bcid=eq.${encodeURIComponent(bcid)}&order=year.asc`,
+  );
 }

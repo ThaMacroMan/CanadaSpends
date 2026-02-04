@@ -3,9 +3,9 @@ import { initLingui } from "@/initLingui";
 import { FirstNationsPageContent } from "@/components/first-nations";
 import {
   getAllFirstNations,
+  getClaimsByFirstNation,
   getFirstNationById,
   getFirstNationYearData,
-  getClaimsByFirstNation,
 } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 

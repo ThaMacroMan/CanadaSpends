@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  // Transpile @buildcanada/charts which exports TypeScript source
+  transpilePackages: ["@buildcanada/charts"],
   // Enable MDX Support For .mdx Files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   experimental: {

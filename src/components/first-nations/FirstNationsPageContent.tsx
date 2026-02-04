@@ -13,15 +13,15 @@ import {
 } from "@/components/Layout";
 import { JurisdictionSankey } from "@/components/Sankey/JurisdictionSankey";
 import { Tooltip } from "@/components/Tooltip";
-import { RemunerationTable } from "./RemunerationTable";
+import { ClaimsTable } from "./ClaimsTable";
 import { FinancialPositionStats } from "./FinancialPositionStats";
 import { FirstNationsNotes } from "./FirstNationsNotes";
 import { FirstNationsYearSelector } from "./FirstNationsYearSelector";
-import { ClaimsTable } from "./ClaimsTable";
+import { RemunerationTable } from "./RemunerationTable";
 import {
+  FullReportLink,
   SourceDocumentIcon,
   SourceDocumentViewer,
-  FullReportLink,
 } from "./SourceDocumentViewer";
 import {
   statementOfOperationsToSankey,
@@ -30,10 +30,10 @@ import {
 import type { SankeyData } from "@/components/Sankey/SankeyChartD3";
 import type {
   FirstNationInfo,
-  StatementOfOperations,
-  StatementOfFinancialPosition,
-  Remuneration,
   Notes,
+  Remuneration,
+  StatementOfFinancialPosition,
+  StatementOfOperations,
 } from "@/lib/supabase/types";
 import type { Claim } from "@/lib/supabase/claims";
 
