@@ -17,9 +17,9 @@ export function MobileMenuButton(props: MobileMenuButtonProps) {
         href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile&utm_campaign=transparency"
         target="_blank"
         rel="noopener noreferrer"
-        className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors"
+        className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
       >
-        <Trans>Join Build Canada</Trans>
+        <Trans>Join</Trans>
       </a>
       <button
         type="button"
@@ -159,7 +159,7 @@ export function MobileMenu(props: MobileMenuProps) {
           active={pathname === `/${i18n.locale}/tax-visualizer`}
           onClick={() => setIsMenuOpen(false)}
         >
-          <Trans>Tax Calculator</Trans>
+          <Trans>Taxes</Trans>
         </MobileNavLink>
         <MobileNavLink
           href={`/${i18n.locale}/search`}

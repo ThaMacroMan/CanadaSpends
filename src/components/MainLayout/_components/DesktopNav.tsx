@@ -186,7 +186,7 @@ export default function DesktopNav(props: DesktopNavProps) {
         href={`/${i18n.locale}/tax-visualizer`}
         active={pathname === `/${i18n.locale}/tax-visualizer`}
       >
-        <Trans>Tax Visualizer</Trans>
+        <Trans>Taxes</Trans>
       </NavLink>
       <NavLink
         href={`/${i18n.locale}/search`}

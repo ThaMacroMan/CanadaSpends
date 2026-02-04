@@ -1992,8 +1992,11 @@ msgstr "ISED spent $10.2 billion in fiscal year (FY) 2024. This was 2% of the $5
 msgid "It doesn't have to be this way."
 msgstr "It doesn't have to be this way."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:257
 #: src/components/MainLayout/_components/MobileMenu.tsx:22
+msgid "Join"
+msgstr "Join"
+
+#: src/components/MainLayout/_components/DesktopNav.tsx:257
 #: src/components/MainLayout/_components/MobileMenu.tsx:199
 msgid "Join Build Canada"
 msgstr "Join Build Canada"
@@ -3291,8 +3294,8 @@ msgid "Tax calculations are based on {year} federal and provincial tax brackets.
 msgstr "Tax calculations are based on {year} federal and provincial tax brackets."
 
 #: src/components/MainLayout/_components/MobileMenu.tsx:162
-msgid "Tax Calculator"
-msgstr "Tax Calculator"
+#~ msgid "Tax Calculator"
+#~ msgstr "Tax Calculator"
 
 #. placeholder {0}: new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 0, maximumFractionDigits: 0, }).format(income)
 #: src/components/JurisdictionComparisonChart.tsx:123
@@ -3305,8 +3308,8 @@ msgid "Tax Details for {provinceName} ({0})"
 msgstr "Tax Details for {provinceName} ({0})"
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:189
-msgid "Tax Visualizer"
-msgstr "Tax Visualizer"
+#~ msgid "Tax Visualizer"
+#~ msgstr "Tax Visualizer"
 
 #: src/app/[lang]/(main)/tax-visualizer/layout.tsx:16
 msgid "Tax Visualizer | Canada Spends"
@@ -3315,6 +3318,11 @@ msgstr "Tax Visualizer | Canada Spends"
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:123
 msgid "Tax Year"
 msgstr "Tax Year"
+
+#: src/components/MainLayout/_components/DesktopNav.tsx:189
+#: src/components/MainLayout/_components/MobileMenu.tsx:162
+msgid "Taxes"
+msgstr "Taxes"
 
 #: src/app/[lang]/(main)/federal/spending/TenureChart.tsx:10
 msgid "Term"
