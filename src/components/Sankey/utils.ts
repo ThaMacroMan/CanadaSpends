@@ -18,7 +18,7 @@ export const formatNumber = (amount: number, scalingFactor = 1e9) => {
 // Generate a unique ID from a name string
 export function generateId(name: string, parentId?: string): string {
   // Clean the name: remove special characters, convert to lowercase, replace spaces with underscores
-  const cleanName = name
+  const cleanName = (name || "")
     .toLowerCase()
     .replace(/[^\w\s-]/g, "") // Remove special characters except word chars, spaces, and hyphens
     .replace(/\s+/g, "_") // Replace spaces with underscores
@@ -36,6 +36,7 @@ export function generateId(name: string, parentId?: string): string {
 
 // Extract display name from full hierarchical name
 export function extractDisplayName(fullName: string): string {
+  if (!fullName) return "Unknown";
   // Split by arrow (→) and take the last part
   const parts = fullName.split(" → ");
   return parts[parts.length - 1].trim();

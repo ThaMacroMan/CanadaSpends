@@ -40,8 +40,13 @@ msgstr "(ajusté pour l'inflation en dollars de 2025)"
 msgid "{0}"
 msgstr "{0}"
 
+#. placeholder {0}: firstNations.length
+#: src/components/first-nations/FirstNationsSearch.tsx:224
+msgid "{0} First Nations with financial data"
+msgstr "{0} Premières Nations avec des données financières"
+
 #. placeholder {0}: jurisdiction.name
-#: src/components/JurisdictionPageContent.tsx:462
+#: src/components/JurisdictionPageContent.tsx:464
 msgid "{0} Government Departments explained"
 msgstr "Ministères du gouvernement de {0} expliqués"
 
@@ -55,10 +60,16 @@ msgstr "Dépenses du gouvernement de {0}"
 msgid "{0} Government Workforce"
 msgstr "Effectifs du gouvernement de {0}"
 
+#. placeholder {0}: firstNation.name
+#. placeholder {1}: firstNation.province ? ` in ${firstNation.province}` : ""
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:58
+msgid "{0} is a First Nation{1}."
+msgstr "{0} est une Première Nation{1}."
+
 #. placeholder {0}: formatPercent(federalAbatementConfig.rate)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:333
 msgid "{0} of federal income tax"
-msgstr ""
+msgstr "{0} de l'impôt fédéral sur le revenu"
 
 #. placeholder {0}: jurisdiction.name
 #. placeholder {1}: jurisdiction.financialYear
@@ -82,19 +93,19 @@ msgstr "Revenus et dépenses de {0} pour l'exercice financier {1}"
 #: src/app/[lang]/(main)/provincial/[province]/[year]/departments/[department]/page.tsx:285
 #: src/app/[lang]/(main)/provincial/[province]/[year]/departments/[department]/page.tsx:324
 #: src/app/[lang]/(main)/provincial/[province]/[year]/departments/[department]/page.tsx:388
-#: src/components/JurisdictionPageContent.tsx:494
-#: src/components/JurisdictionPageContent.tsx:536
+#: src/components/JurisdictionPageContent.tsx:496
+#: src/components/JurisdictionPageContent.tsx:538
 msgid "{paragraph}"
 msgstr "{paragraph}"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:458
 #: src/components/TaxBreakdownAccordion.tsx:112
 msgid "{provinceName} Taxes"
-msgstr ""
+msgstr "Impôts de {provinceName}"
 
 #: src/components/TaxBreakdownAccordion.tsx:115
 msgid "{provinceName} Total"
-msgstr ""
+msgstr "Total de {provinceName}"
 
 #: src/components/MainLayout/Footer.tsx:96
 msgid "© 2025 Canada Spends. All rights reserved. A Project of <0>Build Canada</0>."
@@ -188,8 +199,8 @@ msgstr "Un aperçu de la façon dont Anciens Combattants Canada dépense son bud
 msgid "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 msgstr "Une partie importante du budget d'AMC soutient l'aide au développement international du Canada, avec des programmes clés axés sur l'adaptation au climat, l'égalité des genres et les initiatives de santé dans les pays en développement. Le ministère facilite également la diplomatie économique et les accords commerciaux qui profitent aux entreprises canadiennes et sécurisent les opportunités d'investissement à l'étranger."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:196
-#: src/components/MainLayout/_components/MobileMenu.tsx:156
+#: src/components/MainLayout/_components/DesktopNav.tsx:206
+#: src/components/MainLayout/_components/MobileMenu.tsx:168
 msgid "About"
 msgstr "À propos"
 
@@ -197,7 +208,7 @@ msgstr "À propos"
 msgid "About GlobaLeaks"
 msgstr "À propos de GlobaLeaks"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:210
+#: src/components/MainLayout/_components/DesktopNav.tsx:220
 #: src/components/MainLayout/Footer.tsx:41
 msgid "About Us"
 msgstr "À propos de nous"
@@ -205,7 +216,15 @@ msgstr "À propos de nous"
 #. placeholder {0}: formatAmount(tier.threshold)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:496
 msgid "Above {0}"
-msgstr ""
+msgstr "Au-dessus de {0}"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:182
+msgid "Accounts payable, long-term debt, and other obligations owed to external parties."
+msgstr "Comptes créditeurs, dette à long terme et autres obligations envers des tiers."
+
+#: src/components/first-nations/FinancialPositionStats.tsx:275
+msgid "Accumulated Surplus"
+msgstr "Excédent accumulé"
 
 #: src/app/[lang]/(main)/spending/global-affairs-canada/MiniSankey.tsx:47
 #: src/app/[lang]/(main)/spending/immigration-refugees-and-citizenship/MiniSankey.tsx:47
@@ -285,6 +304,10 @@ msgstr "Tous les articles"
 msgid "All data presented regarding government spending is sourced directly from official government databases. Unless otherwise noted, we have used <0>Public Accounts of Canada</0> data as the primary data source. While we strive to provide accurate, up-to-date information, we cannot guarantee the data's completeness, reliability, or timeliness. We assume no responsibility for any errors, omissions, or outcomes resulting from the use of this information. Please consult the original government sources for official and verified data."
 msgstr "Toutes les données présentées concernant les dépenses gouvernementales proviennent directement des bases de données officielles du gouvernement. Sauf indication contraire, nous avons utilisé les données des <0>Comptes publics du Canada</0> comme source principale. Bien que nous nous efforcions de fournir des informations précises et à jour, nous ne pouvons garantir l'exhaustivité, la fiabilité ou l'actualité des données. Nous n'assumons aucune responsabilité pour les erreurs, omissions ou résultats découlant de l'utilisation de ces informations. Veuillez consulter les sources gouvernementales originales pour des données officielles et vérifiées."
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:245
+msgid "All expenses incurred during the fiscal year including program delivery, administration, and capital costs."
+msgstr "Toutes les dépenses engagées au cours de l'exercice financier, y compris la prestation de programmes, l'administration et les coûts d'immobilisations."
+
 #: src/app/[lang]/(main)/budget/page.tsx:270
 #: src/app/[lang]/(main)/federal/budget/page.tsx:307
 msgid "All government budget data is sourced from official databases, but due to the complexity of these systems, occasional errors may occur despite our best efforts. This page is also based on government memos and leaks, so it is not an official release of the Fall 2025 Budget. We aim to make this information more accessible and accurate, and we welcome feedback. If you notice any issues, please let us know <0>here</0> — we appreciate it and will work to address them promptly."
@@ -292,7 +315,7 @@ msgstr "Toutes les données budgétaires gouvernementales proviennent de bases d
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:278
 #: src/app/[lang]/(main)/spending/page.tsx:269
-#: src/components/JurisdictionPageContent.tsx:505
+#: src/components/JurisdictionPageContent.tsx:507
 msgid "All government spending data is sourced from official databases, but due to the complexity of these systems, occasional errors may occur despite our best efforts. We aim to make this information more accessible and accurate, and we welcome feedback. If you notice any issues, please let us know <0>here</0> — we appreciate it and will work to address them promptly."
 msgstr "Toutes les données sur les dépenses gouvernementales proviennent de bases de données officielles, mais en raison de la complexité de ces systèmes, des erreurs occasionnelles peuvent survenir malgré nos meilleurs efforts. Nous visons à rendre cette information plus accessible et précise, et nous accueillons vos commentaires. Si vous remarquez des problèmes, veuillez nous en informer <0>ici</0> — nous l'apprécions et nous travaillerons à les résoudre rapidement."
 
@@ -308,13 +331,17 @@ msgstr "Toutes les dépenses de programmes et d'exploitation enregistrées pour 
 msgid "All revenue collected during the fiscal year, including taxes, transfers, and other sources."
 msgstr "Tous les revenus collectés pendant l'exercice financier, y compris les impôts, les transferts et d'autres sources."
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:225
+msgid "All revenue collected during the fiscal year, including transfers, own-source revenue, and other funding."
+msgstr "Tous les revenus perçus au cours de l'exercice financier, y compris les transferts, les revenus de sources propres et d'autres financements."
+
 #: src/app/[lang]/(main)/page.tsx:154
 msgid "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 msgstr "Toutes les informations proviennent des bases de données publiques et des rapports du gouvernement du Canada. Nous indiquons nos sources pour que vous sachiez exactement d'où elles proviennent."
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:580
 msgid "All the taxes that apply to your income"
-msgstr ""
+msgstr "Tous les impôts qui s'appliquent à votre revenu"
 
 #: src/app/[lang]/(main)/budget/page.tsx:62
 #: src/app/[lang]/(main)/federal/budget/page.tsx:62
@@ -351,7 +378,7 @@ msgstr "ID de la demande"
 #. placeholder {0}: formatAmount(provincialTax)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:475
 msgid "Applied to provincial tax of {0}"
-msgstr ""
+msgstr "Appliqué à l'impôt provincial de {0}"
 
 #: src/app/[lang]/(main)/about/faq.tsx:109
 msgid "Are you DOGE?"
@@ -375,6 +402,16 @@ msgstr "Articles | Canada Spends"
 msgid "As of fiscal year end {0}"
 msgstr "À la fin de l'exercice financier {0}"
 
+#: src/components/first-nations/FinancialPositionStats.tsx:170
+#: src/components/first-nations/FinancialPositionStats.tsx:193
+#: src/components/first-nations/FinancialPositionStats.tsx:243
+msgid "As of fiscal year end {fiscalYear}"
+msgstr "À la fin de l'exercice financier {fiscalYear}"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:342
+msgid "Assets, liabilities, and net financial position as of the end of fiscal year {fiscalYear}."
+msgstr "Actifs, passifs et situation financière nette à la fin de l'exercice financier {fiscalYear}."
+
 #: src/app/[lang]/(main)/federal/spending/page.tsx:178
 #: src/app/[lang]/(main)/spending/page.tsx:169
 msgid "Average annual compensation"
@@ -393,6 +430,10 @@ msgstr "Retour à tous les articles"
 msgid "Balance for {0}"
 msgstr "Solde pour {0}"
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:216
+msgid "Balance for FY {fiscalYear}"
+msgstr "Solde pour l'exercice {fiscalYear}"
+
 #: src/components/Sankey/index.tsx:161
 msgid "Banking + Finance"
 msgstr "Banques + Finances"
@@ -404,7 +445,7 @@ msgstr "Basé sur les données"
 #. placeholder {0}: formatAmount(income)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:528
 msgid "Based on income of {0}"
-msgstr ""
+msgstr "Basé sur un revenu de {0}"
 
 #: src/components/Sankey/index.tsx:291
 msgid "Border Security"
@@ -414,7 +455,7 @@ msgstr "Sécurité frontalière"
 #. placeholder {1}: formatPercent(lowestRate)
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:250
 msgid "BPA credit ({0} × {1})"
-msgstr ""
+msgstr "Crédit MPC ({0} × {1})"
 
 #: src/components/Sankey/index.tsx:519
 msgid "British Columbia EQP"
@@ -428,7 +469,11 @@ msgstr "TCS Colombie-Britannique"
 msgid "British Columbia STP"
 msgstr "TCS Colombie-Britannique"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:101
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:83
+msgid "Browse all First Nations"
+msgstr "Parcourir toutes les Premières Nations"
+
+#: src/components/MainLayout/_components/DesktopNav.tsx:102
 #: src/components/MainLayout/_components/MobileMenu.tsx:93
 msgid "Budget"
 msgstr "Budget"
@@ -538,6 +583,10 @@ msgstr "Remboursement de la taxe sur le carbone"
 msgid "Carbon Taxes"
 msgstr "Taxes sur le carbone"
 
+#: src/components/first-nations/FinancialPositionStats.tsx:159
+msgid "Cash, investments, accounts receivable, and other assets that can be converted to cash."
+msgstr "Encaisse, placements, comptes débiteurs et autres actifs pouvant être convertis en espèces."
+
 #: src/components/Sankey/index.tsx:651
 msgid "Childhood Claims Settlement"
 msgstr "Règlement des revendications relatives à l'enfance"
@@ -550,6 +599,10 @@ msgstr "Prestations pour enfants"
 #: src/components/Sankey/index.tsx:311
 msgid "Citizenship + Passports"
 msgstr "Citoyenneté + Passeports"
+
+#: src/components/first-nations/ClaimsTable.tsx:130
+msgid "Claim"
+msgstr "Revendication"
 
 #: src/components/Sankey/index.tsx:640
 msgid "Claims Settlements"
@@ -585,7 +638,7 @@ msgstr "Sécurité communautaire"
 
 #: src/components/JurisdictionComparisonChart.tsx:135
 msgid "Compare your total tax burden across all Canadian provinces and territories"
-msgstr ""
+msgstr "Comparez votre fardeau fiscal total dans toutes les provinces et territoires canadiens"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:176
 #: src/app/[lang]/(main)/spending/page.tsx:167
@@ -607,11 +660,15 @@ msgstr "Connectez-vous depuis un réseau public comme un café ou une bibliothè
 msgid "Connect with us"
 msgstr "Connectez-vous avec nous"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:227
-#: src/components/MainLayout/_components/MobileMenu.tsx:163
+#: src/components/MainLayout/_components/DesktopNav.tsx:237
+#: src/components/MainLayout/_components/MobileMenu.tsx:175
 #: src/components/MainLayout/Footer.tsx:54
 msgid "Contact"
 msgstr "Contact"
+
+#: src/components/first-nations/RemunerationTable.tsx:77
+msgid "Contract"
+msgstr "Contrat"
 
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:253
 msgid "Contributing Organization"
@@ -945,7 +1002,7 @@ msgstr "Impôt sur le revenu estimé payé au gouvernement fédéral"
 msgid "Estimated income tax paid to provincial government"
 msgstr "Impôt sur le revenu estimé payé au gouvernement provincial"
 
-#: src/components/JurisdictionPageContent.tsx:420
+#: src/components/JurisdictionPageContent.tsx:421
 msgid "Estimated public service workforce"
 msgstr "Effectifs de la fonction publique estimés"
 
@@ -983,7 +1040,7 @@ msgstr "Explorer le budget 2025"
 
 #: src/app/[lang]/(main)/federal/budget/layout.tsx:17
 msgid "Explore Canada's federal budget with interactive visualizations and detailed analysis of government revenue and expenditures."
-msgstr ""
+msgstr "Explorez le budget fédéral du Canada avec des visualisations interactives et une analyse détaillée des revenus et dépenses gouvernementales."
 
 #: src/app/[lang]/(main)/page.tsx:72
 msgid "Explore federal data"
@@ -994,9 +1051,13 @@ msgstr "Explorer les données fédérales"
 msgid "Explore federal employee salary distribution by year and demographic group"
 msgstr "Explorez la répartition des salaires des employés fédéraux par année et groupe démographique"
 
+#: src/app/[lang]/(main)/first-nations/page.tsx:33
+msgid "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
+msgstr "Explorez les données financières des Premières Nations à travers le Canada. Les données sont extraites des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations (LTFPN), y compris les états des résultats, la situation financière et la rémunération."
+
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
-msgstr ""
+msgstr "Découvrez comment le gouvernement fédéral canadien dépense vos impôts entre les ministères et les programmes."
 
 #: src/app/[lang]/(main)/articles/page.tsx:19
 msgid "Explore in-depth articles about Canadian government spending, budget analysis, and public finance. Stay informed about how your tax dollars are used through Canada Spends."
@@ -1055,14 +1116,14 @@ msgstr "Articles en vedette"
 
 #: src/components/JurisdictionComparisonChart.tsx:146
 #: src/components/JurisdictionComparisonChart.tsx:269
-#: src/components/MainLayout/_components/DesktopNav.tsx:92
+#: src/components/MainLayout/_components/DesktopNav.tsx:93
 #: src/components/MainLayout/_components/MobileMenu.tsx:83
 msgid "Federal"
 msgstr "Fédéral"
 
 #: src/app/[lang]/(main)/federal/budget/layout.tsx:16
 msgid "Federal Budget 2025 | Canada Spends"
-msgstr ""
+msgstr "Budget fédéral 2025 | Canada Spends"
 
 #: src/app/[lang]/(main)/spending/department-of-finance/page.tsx:178
 msgid "Federal departments often contain other entities including offices, crown corporations and agencies. In FY 2024, Department of Finance entities with the highest expenditures were the Office of the Superintendent of Financial Institutions, Office of the Auditor General, and the Financial Transactions and Reports Analysis Centre of Canada."
@@ -1111,7 +1172,7 @@ msgstr "Budget gouvernemental fédéral de l'automne 2025"
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:16
 msgid "Federal Government Spending | Canada Spends"
-msgstr ""
+msgstr "Dépenses du gouvernement fédéral | Canada Spends"
 
 #: src/app/[lang]/(main)/spending/department-of-finance/page.tsx:170
 #: src/app/[lang]/(main)/spending/global-affairs-canada/page.tsx:197
@@ -1195,11 +1256,11 @@ msgstr "Impôt fédéral"
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:315
 #: src/components/TaxBreakdownAccordion.tsx:105
 msgid "Federal Taxes"
-msgstr ""
+msgstr "Impôts fédéraux"
 
 #: src/components/TaxBreakdownAccordion.tsx:108
 msgid "Federal Total"
-msgstr ""
+msgstr "Total fédéral"
 
 #: src/hooks/useDepartments.ts:8
 msgid "Finance Canada"
@@ -1209,14 +1270,48 @@ msgstr "Finance Canada"
 msgid "Finance Type"
 msgstr "Type de financement"
 
+#. placeholder {0}: firstNation.name
+#: src/components/first-nations/FirstNationsPageContent.tsx:267
+msgid "Financial data for {0} for fiscal year {fiscalYear}. Information is extracted from publicly available annual reports published under the First Nations Financial Transparency Act."
+msgstr "Données financières pour {0} pour l'exercice financier {fiscalYear}. Les informations sont extraites des rapports annuels publics publiés en vertu de la Loi sur la transparence financière des Premières Nations."
+
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:72
+msgid "Financial data from annual reports published under the First Nations Financial Transparency Act will appear here once available."
+msgstr "Les données financières des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations apparaîtront ici une fois disponibles."
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:458
+msgid "Financial data is sourced from annual reports published under the First Nations Financial Transparency Act (FNFTA). Data is extracted using automated processes and may contain errors. If you notice any issues, please contact us."
+msgstr "Les données financières proviennent des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations (LTFPN). Les données sont extraites à l'aide de processus automatisés et peuvent contenir des erreurs. Si vous remarquez des problèmes, veuillez nous contacter."
+
+#: src/components/first-nations/FinancialPositionStats.tsx:220
+msgid "Financial liabilities less financial assets"
+msgstr "Passifs financiers moins actifs financiers"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:206
+msgid "Financial liabilities minus financial assets. A negative value indicates net financial assets."
+msgstr "Passifs financiers moins actifs financiers. Une valeur négative indique des actifs financiers nets."
+
 #. placeholder {0}: jurisdiction.financialYear
 #: src/components/JurisdictionPageContent.tsx:399
 msgid "Financial Position {0}"
 msgstr "Situation financière {0}"
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:312
+msgid "Financial Summary FY {fiscalYear}"
+msgstr "Résumé financier EF {fiscalYear}"
+
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:386
 msgid "First"
-msgstr ""
+msgstr "Premier"
+
+#: src/components/first-nations/FirstNationsSearch.tsx:261
+msgid "First Nation"
+msgstr "Première Nation"
+
+#: src/components/MainLayout/_components/DesktopNav.tsx:179
+#: src/components/MainLayout/_components/MobileMenu.tsx:145
+msgid "First Nations"
+msgstr "Premières Nations"
 
 #: src/components/Sankey/index.tsx:615
 msgid "First Nations and Inuit Health Infrastructure Support"
@@ -1229,6 +1324,10 @@ msgstr "Soins de santé primaires des Premières Nations et des Inuits"
 #: src/components/Sankey/index.tsx:607
 msgid "First Nations Elementary and Secondary Educational Advancement"
 msgstr "Avancement de l'éducation primaire et secondaire des Premières Nations"
+
+#: src/app/[lang]/(main)/first-nations/page.tsx:30
+msgid "First Nations Financial Data"
+msgstr "Données financières des Premières Nations"
 
 #: src/app/[lang]/(main)/spending/department-of-finance/MiniSankey.tsx:27
 msgid "Fiscal arrangements"
@@ -1312,7 +1411,7 @@ msgstr "Obtenez des analyses basées sur les données sur la façon dont les rev
 msgid "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 msgstr "Obtenez des analyses basées sur les données sur la façon dont les revenus et les dépenses du gouvernement de {0} affectent les résidents et les programmes de {1}."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:219
+#: src/components/MainLayout/_components/DesktopNav.tsx:229
 #: src/components/MainLayout/Footer.tsx:49
 msgid "Get Involved"
 msgstr "Impliquez-vous"
@@ -1378,13 +1477,13 @@ msgstr "Ministères gouvernementaux expliqués"
 msgid "Government IT Operations"
 msgstr "Opérations informatiques gouvernementales"
 
-#: src/components/JurisdictionPageContent.tsx:428
+#: src/components/JurisdictionPageContent.tsx:430
 msgid "Government organizations"
 msgstr "Organisations gouvernementales"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:120
 #: src/app/[lang]/(main)/spending/page.tsx:111
-#: src/components/MainLayout/_components/DesktopNav.tsx:78
+#: src/components/MainLayout/_components/DesktopNav.tsx:79
 #: src/components/MainLayout/_components/MobileMenu.tsx:75
 msgid "Government Spending"
 msgstr "Dépenses gouvernementales"
@@ -1493,6 +1592,15 @@ msgstr "LICC administre la Stratégie nationale sur le logement, qui finance la 
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:94
 msgid "HICC spent $14.5 billion in fiscal year (FY) 2024. This was 2.8% of the $513.9 billion in overall federal spending. The department ranked eighth among federal departments in total spending."
 msgstr "LICC a dépensé 14,5 milliards de dollars au cours de l'exercice 2024. Cela représentait 2,8 % des 513,9 milliards de dollars de dépenses fédérales totales. Le ministère s'est classé huitième parmi les ministères fédéraux en termes de dépenses totales."
+
+#. placeholder {0}: firstNation.name
+#: src/components/first-nations/FirstNationsPageContent.tsx:390
+msgid "Historical and ongoing land claims involving {0}."
+msgstr "Revendications territoriales historiques et en cours impliquant {0}."
+
+#: src/components/first-nations/RemunerationTable.tsx:69
+msgid "Honorarium"
+msgstr "Honoraires"
 
 #: src/components/Sankey/index.tsx:59
 msgid "Housing Assistance"
@@ -1608,7 +1716,7 @@ msgstr "Avis important"
 #. placeholder {2}: selectedProvinceData.effectiveRate.toFixed(1)
 #: src/components/JurisdictionComparisonChart.tsx:323
 msgid "In {0}, you pay <0>{1}</0> in total tax ({2}% effective rate)"
-msgstr ""
+msgstr "En {0}, vous payez <0>{1}</0> en impôts totaux (taux effectif de {2}%)"
 
 #. placeholder {0}: jurisdiction.financialYear
 #: src/app/[lang]/(main)/municipal/[province]/[municipality]/[year]/departments/[department]/page.tsx:138
@@ -1813,6 +1921,10 @@ msgstr "Diplomatie internationale"
 msgid "Investment, Growth and Commercialization"
 msgstr "Investissement, croissance et commercialisation"
 
+#: src/components/first-nations/ClaimsTable.tsx:278
+msgid "Involved First Nations"
+msgstr "Premières Nations impliquées"
+
 #: src/app/[lang]/(main)/spending/immigration-refugees-and-citizenship/page.tsx:89
 msgid "IRCC accounted for 1.2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 msgstr "IRCC représentait 1,2 % de toutes les dépenses fédérales pour l'exercice 2024. 10 ministères gouvernementaux représentaient 73,2 % des dépenses fédérales pour l'exercice 2024"
@@ -1853,6 +1965,10 @@ msgstr "Ça ne doit pas être comme ça."
 msgid "Justice System"
 msgstr "Système de justice"
 
+#: src/components/first-nations/ClaimsTable.tsx:212
+msgid "Key Dates"
+msgstr "Dates clés"
+
 #: src/app/[lang]/(main)/search/[database]/[id]/DetailsPage.tsx:82
 msgid "Keywords"
 msgstr "Mots-clés"
@@ -1860,6 +1976,14 @@ msgstr "Mots-clés"
 #: src/app/[lang]/(main)/spending/employment-and-social-development-canada/page.tsx:217
 msgid "Labour Market Development Agreements (LMDAs): federal funding to provinces for job training and employment support."
 msgstr "Ententes sur le développement du marché du travail (EDMT) : financement fédéral aux provinces pour la formation professionnelle et le soutien à l'emploi."
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:377
+msgid "Land Claims"
+msgstr "Revendications territoriales"
+
+#: src/components/first-nations/ClaimsTable.tsx:142
+msgid "Last Update"
+msgstr "Dernière mise à jour"
 
 #: src/app/[lang]/(main)/budget/page.tsx:248
 #: src/app/[lang]/(main)/federal/budget/page.tsx:285
@@ -1937,11 +2061,11 @@ msgstr "TPS Manitoba"
 msgid "Maximum Contribution"
 msgstr "Contribution maximale"
 
-#: src/components/JurisdictionPageContent.tsx:477
+#: src/components/JurisdictionPageContent.tsx:479
 msgid "Methodology"
 msgstr "Méthodologie"
 
-#: src/components/JurisdictionPageContent.tsx:424
+#: src/components/JurisdictionPageContent.tsx:426
 msgid "Ministries + Agencies"
 msgstr "Ministères + Organismes"
 
@@ -1972,10 +2096,14 @@ msgstr "La plupart des dépenses fédérales peuvent être classées comme direc
 msgid "Most federal spending can be categorized as direct or indirect. Direct spending refers to money the federal government spends on budget items such as federal programs, employee salaries, and debt interest. Indirect spending refers to federal transfers to other levels of government."
 msgstr "La plupart des dépenses fédérales peuvent être classées comme directes ou indirectes. Les dépenses directes font référence à l'argent que le gouvernement fédéral dépense pour des postes budgétaires tels que les programmes fédéraux, les salaires des employés et les intérêts sur la dette. Les dépenses indirectes font référence aux transferts fédéraux vers d'autres niveaux de gouvernement."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:131
+#: src/components/MainLayout/_components/DesktopNav.tsx:132
 #: src/components/MainLayout/_components/MobileMenu.tsx:116
 msgid "Municipal"
 msgstr "Municipal"
+
+#: src/components/first-nations/RemunerationTable.tsx:54
+msgid "Name"
+msgstr "Nom"
 
 #: src/hooks/useDepartments.ts:26
 msgid "National Defence"
@@ -2021,6 +2149,11 @@ msgstr "Pertes actuarielles nettes"
 msgid "Net actuarial losses (gains)"
 msgstr "Pertes actuarielles nettes (gains)"
 
+#: src/components/first-nations/FinancialPositionStats.tsx:252
+msgid "Net Assets"
+msgstr "Actifs nets"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:203
 #: src/components/JurisdictionPageContent.tsx:210
 msgid "Net Debt"
 msgstr "Dette nette"
@@ -2074,9 +2207,34 @@ msgstr "Source d'actualité et date"
 msgid "No articles available yet on Canada Spends. Check back soon!"
 msgstr "Aucun article disponible pour le moment sur Canada Spends. Revenez bientôt!"
 
+#: src/components/first-nations/FirstNationsNotes.tsx:50
+msgid "No content available."
+msgstr "Aucun contenu disponible."
+
+#. placeholder {0}: firstNation.name
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:67
+msgid "No financial data is currently available for {0}."
+msgstr "Aucune donnée financière n'est actuellement disponible pour {0}."
+
+#: src/components/first-nations/FinancialPositionStats.tsx:295
+msgid "No financial position data available."
+msgstr "Aucune donnée de situation financière disponible."
+
+#: src/components/first-nations/FirstNationsSearch.tsx:231
+msgid "No First Nations found matching your search."
+msgstr "Aucune Première Nation trouvée correspondant à votre recherche."
+
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:218
 msgid "No form of electronic communication can be made 100% secure. While we take every precaution to protect your identity, you use this service at your own risk. We encourage you to take the security precautions outlined above."
 msgstr "Aucune forme de communication électronique ne peut être rendue 100% sécurisée. Bien que nous prenions toutes les précautions pour protéger votre identité, vous utilisez ce service à vos propres risques. Nous vous encourageons à prendre les précautions de sécurité décrites ci-dessus."
+
+#: src/components/first-nations/FirstNationsNotes.tsx:20
+msgid "No notes available."
+msgstr "Aucune note disponible."
+
+#: src/components/first-nations/RemunerationTable.tsx:26
+msgid "No remuneration data available."
+msgstr "Aucune donnée de rémunération disponible."
 
 #: src/app/[lang]/(main)/about/faq.tsx:53
 msgid "No, we are not a lobby group. We are not paid, nor do we represent any special interest groups. Our mission is purely to share data-driven insights on federal government spending."
@@ -2085,6 +2243,10 @@ msgstr "Non, nous ne sommes pas un groupe de pression. Nous ne sommes pas payés
 #: src/app/[lang]/(main)/about/faq.tsx:113
 msgid "No, we're not copying the DOGE playbook from the US."
 msgstr "Non, nous ne copions pas le modèle DOGE des États-Unis."
+
+#: src/components/first-nations/FinancialPositionStats.tsx:229
+msgid "Non-Financial Assets"
+msgstr "Actifs non financiers"
 
 #: src/app/[lang]/(main)/page.tsx:166
 msgid "Non-Partisan"
@@ -2113,6 +2275,10 @@ msgstr "TPS Territoires du Nord-Ouest"
 #: src/app/[lang]/(main)/federal/spending/SalaryDistributionChart.tsx:159
 msgid "Note the different salary ranges prior to 2023. Information for small numbers has been suppressed (values of 0 are actually counts of 1 to 5)."
 msgstr "Notez les différentes fourchettes salariales avant 2023. Les informations pour les petits nombres ont été supprimées (les valeurs de 0 représentent en fait des comptes de 1 à 5)."
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:436
+msgid "Notes to Financial Statements"
+msgstr "Notes aux états financiers"
 
 #: src/components/Sankey/index.tsx:491
 msgid "Nova Scotia EQP"
@@ -2158,7 +2324,7 @@ msgstr "Obligations"
 #. placeholder {1}: department.name
 #: src/app/[lang]/(main)/municipal/[province]/[municipality]/[year]/departments/[department]/page.tsx:149
 msgid "of {0} municipal spending was by {1}"
-msgstr ""
+msgstr "des dépenses municipales de {0} ont été effectuées par {1}"
 
 #. placeholder {0}: jurisdiction.name
 #. placeholder {1}: department.name
@@ -2232,7 +2398,7 @@ msgstr "Bureau du secrétaire du gouverneur général"
 
 #: src/app/[lang]/(main)/federal/budget/page.tsx:168
 msgid "Official Fall 2025 Federal Budget Released"
-msgstr ""
+msgstr "Publication du budget fédéral officiel de l'automne 2025"
 
 #: src/components/Sankey/index.tsx:67
 msgid "Official Languages + Culture"
@@ -2409,7 +2575,7 @@ msgstr "Montant du paiement"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:348
 msgid "Payroll Contributions"
-msgstr ""
+msgstr "Cotisations salariales"
 
 #: src/components/Sankey/index.tsx:759
 msgid "Payroll Taxes"
@@ -2480,6 +2646,25 @@ msgstr "Tarification de la pollution"
 #: src/components/Sankey/BudgetSankey.tsx:504
 msgid "Pollution pricing proceeds"
 msgstr "Produits de la tarification de la pollution"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:363
+msgid "Population Trends"
+msgstr ""
+
+#. placeholder {0}: populationData[0]?.year
+#. placeholder {1}: populationData[populationData.length - 1]?.year
+#: src/components/first-nations/PopulationCharts.tsx:124
+msgid "Population trends for {bandName} from {0} to {1}."
+msgstr ""
+
+#: src/components/first-nations/RemunerationTable.tsx:48
+msgid "Position"
+msgstr "Poste"
+
+#. placeholder {0}: data.auditor_name
+#: src/components/first-nations/RemunerationTable.tsx:142
+msgid "Prepared by: {0}"
+msgstr "Préparé par : {0}"
 
 #: src/components/Sankey/index.tsx:623
 msgid "Prevention and Protection Services for Children, Youth, Families and Communities"
@@ -2560,6 +2745,10 @@ msgstr "Impôt foncier par habitant"
 msgid "Property tax revenue per {0} resident"
 msgstr "Revenus de l'impôt foncier par résident de {0}"
 
+#: src/components/first-nations/FirstNationsSearch.tsx:267
+msgid "Prov."
+msgstr "Prov."
+
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:75
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:121
 msgid "Province"
@@ -2571,7 +2760,7 @@ msgstr "Province/Territoire"
 
 #: src/components/JurisdictionComparisonChart.tsx:152
 #: src/components/JurisdictionComparisonChart.tsx:276
-#: src/components/MainLayout/_components/DesktopNav.tsx:107
+#: src/components/MainLayout/_components/DesktopNav.tsx:108
 #: src/components/MainLayout/_components/MobileMenu.tsx:99
 msgid "Provincial"
 msgstr "Provincial"
@@ -2590,7 +2779,7 @@ msgstr "SPAC a dépensé 8,3 milliards de dollars au cours de l'exercice 2024. C
 
 #. placeholder {0}: jurisdiction.name
 #. placeholder {1}: jurisdiction.financialYear
-#: src/components/JurisdictionPageContent.tsx:451
+#: src/components/JurisdictionPageContent.tsx:453
 msgid "Public Accounts of {0} FY {1}"
 msgstr "Comptes publics de {0} exercice {1}"
 
@@ -2636,7 +2825,7 @@ msgstr "Sécurité publique Canada a dépensé 13,9 milliards de dollars au cour
 msgid "Public Safety, Democratic Institutions and Intergovernmental Affairs Canada (Public Safety Canada) is the federal department responsible for national security, emergency preparedness, and community safety. Established in 2003, it consolidates security, law enforcement, and emergency management functions. It includes the RCMP, CSIS, and CBSA and coordinates federal responses to threats and develops policies on crime prevention, cyber resilience, and disaster preparedness while overseeing intelligence-sharing with domestic and international partners."
 msgstr "Sécurité publique, Institutions démocratiques et Affaires intergouvernementales Canada (Sécurité publique Canada) est le ministère fédéral responsable de la sécurité nationale, de la préparation aux urgences et de la sécurité communautaire. Établi en 2003, il regroupe les fonctions de sécurité, d'application de la loi et de gestion des urgences. Il comprend la GRC, le SCRS et l'ASFC et coordonne les réponses fédérales aux menaces et élabore des politiques sur la prévention du crime, la cyber-résilience et la préparation aux catastrophes tout en supervisant le partage de renseignements avec les partenaires nationaux et internationaux."
 
-#: src/components/JurisdictionPageContent.tsx:418
+#: src/components/JurisdictionPageContent.tsx:419
 msgid "Public Service Employees"
 msgstr "Employés de la fonction publique"
 
@@ -2681,11 +2870,11 @@ msgstr "Compensation fiscale du Québec"
 #. placeholder {1}: jurisdictionData.length
 #: src/components/JurisdictionComparisonChart.tsx:333
 msgid "Ranked <0>#{0}</0> of {1} lowest tax"
-msgstr ""
+msgstr "Classé <0>#{0}</0> sur {1} en termes d'impôt le plus bas"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:220
 msgid "Rate"
-msgstr ""
+msgstr "Taux"
 
 #: src/components/Sankey/index.tsx:262
 msgid "RCMP"
@@ -2711,6 +2900,10 @@ msgstr "Classe de bénéficiaire"
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:282
 msgid "Regions"
 msgstr "Régions"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:405
+msgid "Remuneration and Expenses"
+msgstr "Rémunération et dépenses"
 
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/MiniSankey.tsx:35
 #: src/app/[lang]/(main)/spending/employment-and-social-development-canada/MiniSankey.tsx:35
@@ -2780,6 +2973,10 @@ msgstr "Rendement des investissements"
 msgid "Revenue"
 msgstr "Revenus"
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:281
+msgid "Revenue and Expenses FY {fiscalYear}"
+msgstr "Revenus et dépenses EF {fiscalYear}"
+
 #: src/components/Sankey/index.tsx:51
 msgid "Revenue Canada"
 msgstr "Revenu Canada"
@@ -2787,6 +2984,14 @@ msgstr "Revenu Canada"
 #: src/components/Sankey/index.tsx:248
 msgid "Safety"
 msgstr "Sécurité"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:417
+msgid "Salaries, honoraria, travel, and other expenses paid to elected officials and senior employees during fiscal year {fiscalYear}."
+msgstr "Salaires, honoraires, déplacements et autres dépenses versés aux élus et aux cadres supérieurs au cours de l'exercice financier {fiscalYear}."
+
+#: src/components/first-nations/RemunerationTable.tsx:61
+msgid "Salary"
+msgstr "Salaire"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:247
 #: src/app/[lang]/(main)/spending/page.tsx:238
@@ -2831,7 +3036,7 @@ msgstr "Voyez comment le gouvernement du Canada dépense les dollars des contrib
 
 #: src/app/[lang]/(main)/tax-visualizer/layout.tsx:17
 msgid "See how your taxes are spent across federal and provincial programs. Interactive calculator for Canadian taxpayers."
-msgstr ""
+msgstr "Voyez comment vos impôts sont dépensés dans les programmes fédéraux et provinciaux. Calculateur interactif pour les contribuables canadiens."
 
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:82
 msgid "Selection Committee"
@@ -2845,9 +3050,19 @@ msgstr "Mécanisme de sélection"
 msgid "Service Canada: responsible for processing EI, CPP, and OAS benefits."
 msgstr "Service Canada : responsable du traitement des prestations d'AE, du RPC et de la SV."
 
+#: src/components/first-nations/ClaimsTable.tsx:244
+msgid "Settlement Amount"
+msgstr "Montant du règlement"
+
 #: src/components/Sankey/index.tsx:299
 msgid "Settlement Assistance"
 msgstr "Aide à l'établissement"
+
+#. placeholder {0}: filteredFirstNations.length
+#. placeholder {1}: firstNations.length
+#: src/components/first-nations/FirstNationsSearch.tsx:219
+msgid "Showing {0} of {1} First Nations"
+msgstr "Affichage de {0} sur {1} Premières Nations"
 
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:142
 msgid "Similarly, HICC expenditures experienced notable fluctuations during this period, surging from approximately $5.9 billion​ in 2019 (adjusted for inflation) to $14.5B in 2024."
@@ -2892,14 +3107,15 @@ msgstr "Source :"
 #: src/app/[lang]/(main)/federal/budget/page.tsx:304
 #: src/app/[lang]/(main)/federal/spending/page.tsx:275
 #: src/app/[lang]/(main)/spending/page.tsx:266
-#: src/components/JurisdictionPageContent.tsx:502
+#: src/components/first-nations/FirstNationsPageContent.tsx:455
+#: src/components/JurisdictionPageContent.tsx:504
 msgid "Sources"
 msgstr "Sources"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:235
 #: src/app/[lang]/(main)/spending/page.tsx:226
-#: src/components/JurisdictionPageContent.tsx:434
-#: src/components/JurisdictionPageContent.tsx:449
+#: src/components/JurisdictionPageContent.tsx:436
+#: src/components/JurisdictionPageContent.tsx:451
 msgid "Sources:"
 msgstr "Sources :"
 
@@ -2918,14 +3134,14 @@ msgstr "Dépenses"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:835
 msgid "Spending Breakdown Coming Soon"
-msgstr ""
+msgstr "Répartition des dépenses à venir"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:838
 msgid "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
-msgstr ""
+msgstr "Les données de dépenses ne sont pas encore disponibles pour cette combinaison de province et d'année. Le calcul de l'impôt sur le revenu ci-dessus reste exact selon les taux d'imposition de {year}."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:185
-#: src/components/MainLayout/_components/MobileMenu.tsx:149
+#: src/components/MainLayout/_components/DesktopNav.tsx:195
+#: src/components/MainLayout/_components/MobileMenu.tsx:161
 msgid "Spending Database"
 msgstr "Base de données des dépenses"
 
@@ -2945,11 +3161,16 @@ msgstr "Date de début"
 msgid "Start reading"
 msgstr "Commencer la lecture"
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:332
+msgid "Statement of Financial Position"
+msgstr "État de la situation financière"
+
 #: src/components/Sankey/index.tsx:97
 msgid "Statistics Canada"
 msgstr "Statistique Canada"
 
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:234
+#: src/components/first-nations/ClaimsTable.tsx:136
 msgid "Status"
 msgstr "Statut"
 
@@ -2993,6 +3214,7 @@ msgstr "Soutien à la compétition mondiale"
 msgid "Support for Veterans"
 msgstr "Soutien aux anciens combattants"
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:202
 #: src/components/JurisdictionPageContent.tsx:140
 msgid "Surplus/Deficit"
 msgstr "Excédent/Déficit"
@@ -3001,43 +3223,47 @@ msgstr "Excédent/Déficit"
 msgid "Sustainable Bases, IT Systems, Infrastructure"
 msgstr "Bases durables, systèmes TI, infrastructure"
 
+#: src/components/first-nations/FinancialPositionStats.tsx:232
+msgid "Tangible capital assets such as land, buildings, equipment, and infrastructure."
+msgstr "Immobilisations corporelles telles que terrains, bâtiments, équipements et infrastructures."
+
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:223
 msgid "Tax"
-msgstr ""
+msgstr "Impôt"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:217
 msgid "Tax bracket"
-msgstr ""
+msgstr "Tranche d'imposition"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:779
 msgid "Tax calculations are based on {year} federal and provincial tax brackets."
-msgstr ""
+msgstr "Les calculs d'impôt sont basés sur les tranches d'imposition fédérales et provinciales de {year}."
 
-#: src/components/MainLayout/_components/MobileMenu.tsx:142
+#: src/components/MainLayout/_components/MobileMenu.tsx:154
 msgid "Tax Calculator"
 msgstr "Calculateur d'impôt"
 
 #. placeholder {0}: new Intl.NumberFormat("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 0, maximumFractionDigits: 0, }).format(income)
 #: src/components/JurisdictionComparisonChart.tsx:123
 msgid "Tax Comparison Across Provinces at {0} Income"
-msgstr ""
+msgstr "Comparaison des impôts entre les provinces pour un revenu de {0}"
 
 #. placeholder {0}: config.year
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:575
 msgid "Tax Details for {provinceName} ({0})"
-msgstr ""
+msgstr "Détails fiscaux pour {provinceName} ({0})"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:179
+#: src/components/MainLayout/_components/DesktopNav.tsx:189
 msgid "Tax Visualizer"
 msgstr "Visualiseur d'impôt"
 
 #: src/app/[lang]/(main)/tax-visualizer/layout.tsx:16
 msgid "Tax Visualizer | Canada Spends"
-msgstr ""
+msgstr "Visualiseur d'impôt | Canada Spends"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:123
 msgid "Tax Year"
-msgstr ""
+msgstr "Année d'imposition"
 
 #: src/app/[lang]/(main)/federal/spending/TenureChart.tsx:10
 msgid "Term"
@@ -3071,6 +3297,10 @@ msgstr "L'Agence du revenu du Canada a dépensé 16,8 milliards de dollars au co
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:97
 msgid "The CRA accounted for 3.2% of all federal spending in FY 2024"
 msgstr "L'ARC représentait 3,2 % de toutes les dépenses fédérales pour l'exercice 2024"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:278
+msgid "The cumulative surplus accumulated over time from operations."
+msgstr "L'excédent cumulé accumulé au fil du temps à partir des opérations."
 
 #: src/app/[lang]/(main)/spending/employment-and-social-development-canada/page.tsx:230
 msgid "The Department is currently led by the <0>Minister of Jobs and Families</0> who is appointed by the Governor General on the advice of the Prime Minister and then formally sworn into office at Rideau Hall. They take the Oath of Office and the Oath of Allegiance and become a member of the King's Privy Council for Canada."
@@ -3156,6 +3386,10 @@ msgstr "Les dépenses du ministère ont augmenté moins que les dépenses global
 msgid "The difference between revenue and spending. A surplus indicates revenue exceeded spending."
 msgstr "La différence entre les revenus et les dépenses. Un excédent indique que les revenus ont dépassé les dépenses."
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:205
+msgid "The difference between total revenue and total expenses. A surplus indicates revenue exceeded expenses."
+msgstr "La différence entre les revenus totaux et les dépenses totales. Un excédent indique que les revenus ont dépassé les dépenses."
+
 #: src/app/[lang]/(main)/spending/indigenous-services-and-northern-affairs/page.tsx:193
 msgid "The leadership of ISC and CIRNAC are led by the <0>Minister of Indigenous Services Canada</0> and the <1>Minister of Crown-Indigenous Relations and Northern Affairs Canada</1>, respectively. These Ministers are appointed by the Governor General on the advice of the Prime Minister and then formally sworn into office at Rideau Hall. They take the Oath of Office and the Oath of Allegiance and become a member of the King's Privy Council for Canada."
 msgstr "La direction de SAC et RCAANC est assurée respectivement par le <0>ministre des Services aux Autochtones Canada</0> et le <1>ministre des Relations Couronne-Autochtones et des Affaires du Nord Canada</1>. Ces ministres sont nommés par le gouverneur général sur l'avis du premier ministre et sont ensuite officiellement assermentés à Rideau Hall. Ils prêtent le serment d'office et le serment d'allégeance et deviennent membres du Conseil privé du Roi pour le Canada."
@@ -3202,7 +3436,7 @@ msgstr "Services publics et Approvisionnement Canada (SPAC) est le ministère f�
 
 #: src/app/[lang]/(main)/federal/budget/page.tsx:194
 msgid "The values you see here are based on the FY 2024 Budget with preliminary updates based on government announcements, memos, and leaks, and are meant to provide a rough idea of the budget. Once the official Fall 2025 Budget is released on November 4th, we will update this page to reflect the official budget."
-msgstr ""
+msgstr "Les valeurs que vous voyez ici sont basées sur le budget de l'exercice 2024 avec des mises à jour préliminaires basées sur les annonces gouvernementales, les notes de service et les fuites, et sont destinées à donner une idée générale du budget. Une fois le budget officiel de l'automne 2025 publié le 4 novembre, nous mettrons à jour cette page pour refléter le budget officiel."
 
 #: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:128
 msgid "Theme"
@@ -3224,6 +3458,14 @@ msgstr "Ces ministres sont parmi les <0>membres du cabinet</0> qui servent à la
 msgid "This page presents the official Fall 2025 Federal Budget as released by the Government of Canada on November 4th, 2025. All data is sourced directly from official government publications and public accounts from the Government of Canada."
 msgstr "Cette page présente le budget fédéral officiel de l'automne 2025 tel que publié par le gouvernement du Canada le 4 novembre 2025. Toutes les données proviennent directement des publications officielles du gouvernement et des comptes publics du gouvernement du Canada."
 
+#: src/components/first-nations/RemunerationTable.tsx:135
+msgid "This schedule has been audited."
+msgstr "Ce tableau a été vérifié."
+
+#: src/components/first-nations/RemunerationTable.tsx:137
+msgid "This schedule is unaudited."
+msgstr "Ce tableau n'a pas été vérifié."
+
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:775
 msgid "This visualization shows how your income tax contributions are allocated across different government programs and services based on current government spending patterns. Amounts under $20 are grouped into \"Other\" for conciseness."
 msgstr "Cette visualisation montre comment vos contributions d'impôt sur le revenu sont allouées à différents programmes et services gouvernementaux en fonction des modèles de dépenses gouvernementales actuels. Les montants inférieurs à 20 $ sont regroupés dans \"Autre\" pour plus de concision."
@@ -3239,13 +3481,23 @@ msgstr "pour nous aider à soutenir notre mission."
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:261
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:398
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:509
+#: src/components/first-nations/ClaimsTable.tsx:300
+#: src/components/first-nations/RemunerationTable.tsx:92
 #: src/components/JurisdictionComparisonChart.tsx:282
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:542
 msgid "Total {provinceName} Tax"
-msgstr ""
+msgstr "Total impôt {provinceName}"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:288
+msgid "Total accumulated surplus"
+msgstr "Surplus cumulé total"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:255
+msgid "Total assets minus total liabilities. This represents the First Nation's overall financial position."
+msgstr "Total des actifs moins total des passifs. Ceci représente la situation financière globale de la Première Nation."
 
 #: src/app/[lang]/(main)/budget/page.tsx:175
 #: src/app/[lang]/(main)/federal/budget/page.tsx:212
@@ -3260,19 +3512,44 @@ msgstr "Dette totale"
 msgid "Total Debt is the government's complete outstanding debt. This is the figure on which interest payments are calculated."
 msgstr "La dette totale est la dette complète en cours du gouvernement. C'est le chiffre sur lequel les paiements d'intérêts sont calculés."
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:242
+msgid "Total Expenses"
+msgstr "Dépenses totales"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:256
+msgid "Total expenses in FY {fiscalYear}"
+msgstr "Dépenses totales pour l'exercice {fiscalYear}"
+
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:413
 msgid "Total Federal Tax"
-msgstr ""
+msgstr "Total impôt fédéral"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:156
+msgid "Total Financial Assets"
+msgstr "Total des actifs financiers"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:171
 #: src/app/[lang]/(main)/spending/page.tsx:162
 msgid "Total full-time equivalents"
 msgstr "Équivalents temps plein totaux"
 
+#: src/components/first-nations/FinancialPositionStats.tsx:179
+msgid "Total Liabilities"
+msgstr "Total des passifs"
+
+#: src/components/first-nations/FinancialPositionStats.tsx:266
+msgid "Total net assets"
+msgstr "Total des actifs nets"
+
+#: src/components/first-nations/ClaimsTable.tsx:148
+msgid "Total Payments"
+msgstr "Total des paiements"
+
 #: src/components/JurisdictionPageContent.tsx:318
 msgid "Total property tax revenue divided by population. Primary revenue source for municipalities."
 msgstr "Revenus totaux de l'impôt foncier divisés par la population. Source de revenus principale pour les municipalités."
 
+#: src/components/first-nations/FirstNationsPageContent.tsx:222
 #: src/components/JurisdictionPageContent.tsx:160
 msgid "Total Revenue"
 msgstr "Revenus totaux"
@@ -3281,6 +3558,10 @@ msgstr "Revenus totaux"
 #: src/components/JurisdictionPageContent.tsx:174
 msgid "Total revenue in {0}"
 msgstr "Revenus totaux en {0}"
+
+#: src/components/first-nations/FirstNationsPageContent.tsx:236
+msgid "Total revenue in FY {fiscalYear}"
+msgstr "Revenus totaux pour l'exercice {fiscalYear}"
 
 #: src/components/JurisdictionPageContent.tsx:180
 msgid "Total Spending"
@@ -3378,6 +3659,10 @@ msgstr "Transport + Communication"
 msgid "Transportation and Communication"
 msgstr "Transport et Communication"
 
+#: src/components/first-nations/RemunerationTable.tsx:85
+msgid "Travel"
+msgstr "Voyages"
+
 #: src/app/[lang]/(main)/federal/spending/page.tsx:241
 #: src/app/[lang]/(main)/federal/spending/page.tsx:262
 #: src/app/[lang]/(main)/spending/page.tsx:232
@@ -3385,6 +3670,10 @@ msgstr "Transport et Communication"
 #: src/components/Sankey/index.tsx:346
 msgid "Treasury Board"
 msgstr "Conseil du Trésor"
+
+#: src/components/first-nations/ClaimsTable.tsx:260
+msgid "Tribunal Award"
+msgstr "Décision du tribunal"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:191
 #: src/app/[lang]/(main)/spending/page.tsx:182
@@ -3443,11 +3732,15 @@ msgstr "Anciens Combattants Canada | Canada Dépense"
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:744
 #: src/components/TaxBreakdownAccordion.tsx:100
 msgid "View detailed tax breakdown"
-msgstr ""
+msgstr "Voir le détail des impôts"
 
 #: src/app/[lang]/(main)/federal/budget/page.tsx:174
 msgid "View Federal 2025 Budget Details"
-msgstr ""
+msgstr "Voir les détails du budget fédéral 2025"
+
+#: src/components/first-nations/FirstNationsYearSelector.tsx:26
+msgid "View Other Fiscal Years"
+msgstr "Voir les autres exercices financiers"
 
 #: src/app/[lang]/(main)/search/[database]/[id]/DetailsPage.tsx:101
 msgid "View source data"
@@ -3464,6 +3757,11 @@ msgstr "Voir ce graphique en plein écran"
 #: src/components/Sankey/index.tsx:307
 msgid "Visitors, International Students + Temporary Workers"
 msgstr "Visiteurs, étudiants internationaux + travailleurs temporaires"
+
+#. placeholder {0}: firstNation.name
+#: src/components/first-nations/FirstNationsPageContent.tsx:291
+msgid "Visual breakdown of {0}'s revenue sources and how funds were spent during fiscal year {fiscalYear}."
+msgstr "Répartition visuelle des sources de revenus de {0} et de la façon dont les fonds ont été dépensés au cours de l'exercice {fiscalYear}."
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:90
 msgid "Want even more anonymity?"
@@ -3621,8 +3919,8 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "Bien que ne figurant pas parmi les 10 premiers ministères en termes de dépenses, ISIC représentait 2 % de toutes les dépenses fédérales pour l'exercice 2024. 10 ministères gouvernementaux représentaient 73,2 % des dépenses fédérales pour l'exercice 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:237
-#: src/components/MainLayout/_components/MobileMenu.tsx:170
+#: src/components/MainLayout/_components/DesktopNav.tsx:247
+#: src/components/MainLayout/_components/MobileMenu.tsx:182
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"
 msgstr "Lanceurs d'alerte"
@@ -3709,7 +4007,7 @@ msgstr "Vous méritez les faits"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:778
 msgid "Your tax contributions are approximated based on employment income. Deductions such as basic personal amount are estimated and included. Other sources of income, such as self-employment, investment income, and capital gains, are not included in the calculations. Deductions such as RRSP and FHSA contributions are also not included."
-msgstr ""
+msgstr "Vos contributions fiscales sont estimées en fonction de votre revenu d'emploi. Les déductions telles que le montant personnel de base sont estimées et incluses. Les autres sources de revenus, comme le travail autonome, les revenus de placement et les gains en capital, ne sont pas incluses dans les calculs. Les déductions telles que les cotisations au REER et au CELIAPP ne sont pas non plus incluses."
 
 #: src/components/Sankey/index.tsx:523
 msgid "Yukon EQP"

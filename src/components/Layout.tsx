@@ -4,12 +4,16 @@ import { cn, localizedPath } from "@/lib/utils";
 export const Section = ({
   children,
   className = "",
+  id,
 }: {
   children: React.ReactNode;
   className?: string;
+  id?: string;
 }) => {
   return (
-    <div className={cn(`mt-8 max-w-5xl mx-auto`, className)}>{children}</div>
+    <div id={id} className={cn(`mt-8 max-w-5xl mx-auto`, className)}>
+      {children}
+    </div>
   );
 };
 
