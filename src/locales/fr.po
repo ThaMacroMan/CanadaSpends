@@ -276,7 +276,7 @@ msgstr "Âge"
 msgid "Agriculture"
 msgstr "Agriculture"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:266
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:270
 msgid "Aid Type"
 msgstr "Type d'aide"
 
@@ -371,7 +371,7 @@ msgstr "Dépenses municipales annuelles par résident de {0}"
 msgid "Annual payroll"
 msgstr "Masse salariale annuelle"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:90
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:94
 msgid "Application ID"
 msgstr "ID de la demande"
 
@@ -384,7 +384,7 @@ msgstr "Appliqué à l'impôt provincial de {0}"
 msgid "Are you DOGE?"
 msgstr "Êtes-vous DOGE?"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:176
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:180
 msgid "Area of Research"
 msgstr "Domaine de recherche"
 
@@ -418,7 +418,7 @@ msgstr "Actifs, passifs et situation financière nette à la fin de l'exercice f
 msgid "Average annual compensation"
 msgstr "Rémunération annuelle moyenne"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:67
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:71
 msgid "Awarded"
 msgstr "Attribué"
 
@@ -609,7 +609,7 @@ msgstr "Revendication"
 msgid "Claims Settlements"
 msgstr "Règlements des revendications"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:166
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:170
 msgid "Co-Applicant(s)"
 msgstr "Co-demandeur(s)"
 
@@ -617,7 +617,7 @@ msgstr "Co-demandeur(s)"
 msgid "Coastguard Operations"
 msgstr "Opérations de la Garde côtière"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:268
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:272
 msgid "Collaboration Type"
 msgstr "Type de collaboration"
 
@@ -646,9 +646,9 @@ msgstr "Comparez votre fardeau fiscal total dans toutes les provinces et territo
 msgid "Compensation per Employee"
 msgstr "Rémunération par employé"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:77
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:124
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:170
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:81
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:128
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:174
 msgid "Competition Year"
 msgstr "Année de concours"
 
@@ -667,7 +667,7 @@ msgstr "Connectez-vous avec nous"
 msgid "Contact"
 msgstr "Contact"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:253
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:257
 msgid "Contributing Organization"
 msgstr "Organisation contributrice"
 
@@ -691,7 +691,7 @@ msgstr "Impôts sur le revenu des sociétés"
 msgid "Corrections"
 msgstr "Services correctionnels"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:243
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:247
 msgid "Countries"
 msgstr "Pays"
 
@@ -778,8 +778,8 @@ msgstr "Équipe de la défense"
 msgid "Deficit"
 msgstr "Déficit"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:74
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:322
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:78
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:326
 msgid "Department"
 msgstr "Ministère"
 
@@ -837,7 +837,7 @@ msgstr "Les dépenses directes font référence à l'argent alloué aux programm
 msgid "Disaster Relief"
 msgstr "Secours aux sinistrés"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:174
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:178
 msgid "Discipline"
 msgstr "Discipline"
 
@@ -853,7 +853,7 @@ msgstr "Ne discutez pas de votre soumission avec quiconque et ne recherchez pas 
 msgid "Download and install the <0>Tor Browser</0> from the official Tor Project website."
 msgstr "Téléchargez et installez le <0>navigateur Tor</0> depuis le site officiel du projet Tor."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:122
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:126
 msgid "Duration"
 msgstr "Durée"
 
@@ -923,7 +923,7 @@ msgstr "Assurance-emploi"
 msgid "Employment Insurance Premiums"
 msgstr "Cotisations d'assurance-emploi"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:240
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:244
 msgid "End Date"
 msgstr "Date de fin"
 
@@ -1023,17 +1023,17 @@ msgstr "Taxe d'accise — Essence d'aviation et carburéacteur"
 msgid "Excise Tax — Gasoline"
 msgstr "Taxe d'accise — Essence"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:245
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:249
 msgid "Executing Agency/Partner"
 msgstr "Agence/Partenaire d'exécution"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:258
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:262
 msgid "Expected Results"
 msgstr "Résultats attendus"
 
 #: src/components/first-nations/RemunerationTable.tsx:259
 msgid "Expenses"
-msgstr ""
+msgstr "Dépenses"
 
 #: src/app/[lang]/(main)/federal/budget/layout.tsx:17
 msgid "Explore Canada's federal budget with interactive visualizations and detailed analysis of government revenue and expenditures."
@@ -1046,7 +1046,7 @@ msgstr "Explorez la répartition des salaires des employés fédéraux par anné
 
 #: src/app/[lang]/(main)/page.tsx:65
 msgid "Explore Federal Spending"
-msgstr ""
+msgstr "Explorer les dépenses fédérales"
 
 #: src/app/[lang]/(main)/first-nations/page.tsx:36
 msgid "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
@@ -1054,7 +1054,7 @@ msgstr "Explorez les données financières des Premières Nations à travers le 
 
 #: src/app/[lang]/(main)/page.tsx:75
 msgid "Explore First Nations"
-msgstr ""
+msgstr "Explorer les Premières Nations"
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
@@ -1086,7 +1086,7 @@ msgstr "Explorer d'autres ministères fédéraux"
 msgid "Explore revenue and spending categories or filter by agency for deeper insights."
 msgstr "Explorez les catégories de revenus et de dépenses ou filtrez par organisme pour des analyses plus approfondies."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:133
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:137
 msgid "External ID"
 msgstr "ID externe"
 
@@ -1263,7 +1263,7 @@ msgstr "Total fédéral"
 msgid "Finance Canada"
 msgstr "Finance Canada"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:271
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:275
 msgid "Finance Type"
 msgstr "Type de financement"
 
@@ -1273,7 +1273,7 @@ msgstr "Type de financement"
 #. placeholder {3}: firstNation.populationRegistered != null && firstNation.populationOnReserve != null && ( <> {" "} with a registered population of{" "} {firstNation.populationRegistered.toLocaleString()} and an on-reserve population of{" "} {firstNation.populationOnReserve.toLocaleString()} </> )
 #: src/components/first-nations/FirstNationsPageContent.tsx:286
 msgid "Financial data for {0} for fiscal year {fiscalYear}. {1} is a First Nation in {2}{3}. Information is extracted from publicly available annual reports published under the First Nations Financial Transparency Act."
-msgstr ""
+msgstr "Données financières pour {0} pour l'exercice {fiscalYear}. {1} est une Première Nation en {2}{3}. Les informations sont extraites des rapports annuels publiés en vertu de la Loi sur la transparence financière des Premières Nations."
 
 #: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:72
 msgid "Financial data from annual reports published under the First Nations Financial Transparency Act will appear here once available."
@@ -1333,9 +1333,9 @@ msgstr "Données financières des Premières Nations"
 msgid "Fiscal arrangements"
 msgstr "Arrangements fiscaux"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:80
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:173
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:326
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:84
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:177
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:330
 msgid "Fiscal Year"
 msgstr "Exercice financier"
 
@@ -1512,7 +1512,7 @@ msgstr "Données sur l'effectif et les dépenses gouvernementales | Voir la rép
 
 #: src/components/first-nations/RemunerationTable.tsx:285
 msgid "Grand Total"
-msgstr ""
+msgstr "Total général"
 
 #: src/components/Sankey/index.tsx:599
 msgid "Grants to Support the New Fiscal Relationship with First Nations"
@@ -1870,12 +1870,12 @@ msgstr "Innovation, Sciences et Industrie Canada | Canada Spends"
 msgid "Innovative and Sustainable Natural Resources Development"
 msgstr "Développement innovant et durable des ressources naturelles"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:68
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:72
 msgid "Installment"
 msgstr "Versement"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:73
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:120
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:77
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:124
 msgid "Institution"
 msgstr "Institution"
 
@@ -1983,7 +1983,7 @@ msgstr "Revendications territoriales"
 
 #: src/components/first-nations/FinancialPositionStats.tsx:290
 msgid "Land, buildings, equipment, vehicles, and infrastructure owned by the First Nation."
-msgstr ""
+msgstr "Terrains, bâtiments, équipements, véhicules et infrastructures appartenant à la Première Nation."
 
 #: src/components/first-nations/ClaimsTable.tsx:142
 msgid "Last Update"
@@ -1998,7 +1998,7 @@ msgstr "Dernières nouvelles budgétaires et impact"
 msgid "Learn more about the technology at <0>globaleaks.org</0>."
 msgstr "En savoir plus sur la technologie sur <0>globaleaks.org</0>."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:332
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:336
 msgid "Location"
 msgstr "Emplacement"
 
@@ -2061,7 +2061,7 @@ msgstr "TCS Manitoba"
 msgid "Manitoba STP"
 msgstr "TPS Manitoba"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:249
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:253
 msgid "Maximum Contribution"
 msgstr "Contribution maximale"
 
@@ -2073,7 +2073,7 @@ msgstr "Méthodologie"
 msgid "Ministries + Agencies"
 msgstr "Ministères + Organismes"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:325
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:329
 msgid "Ministry"
 msgstr "Ministère"
 
@@ -2083,7 +2083,7 @@ msgstr "Revenus divers"
 
 #: src/components/first-nations/RemunerationTable.tsx:122
 msgid "Months"
-msgstr ""
+msgstr "Mois"
 
 #: src/components/DepartmentList.tsx:45
 msgid "More coming soon..."
@@ -2441,7 +2441,7 @@ msgstr "Dépenses opérationnelles"
 msgid "or subscribe to"
 msgstr "ou abonnez-vous à"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:164
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:168
 msgid "Organization"
 msgstr "Organisation"
 
@@ -2577,7 +2577,7 @@ msgstr "Règlement hors cour"
 msgid "Parliament"
 msgstr "Parlement"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:334
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:338
 msgid "Payment Amount"
 msgstr "Montant du paiement"
 
@@ -2655,11 +2655,9 @@ msgstr "Tarification de la pollution"
 msgid "Pollution pricing proceeds"
 msgstr "Produits de la tarification de la pollution"
 
-#. placeholder {0}: populationData[0]?.year
-#. placeholder {1}: populationData[populationData.length - 1]?.year
 #: src/components/first-nations/PopulationCharts.tsx:125
-msgid "Population trends for {bandName} from {0} to {1}."
-msgstr ""
+#~ msgid "Population trends for {bandName} from {0} to {1}."
+#~ msgstr ""
 
 #: src/components/first-nations/RemunerationTable.tsx:107
 msgid "Position"
@@ -2686,12 +2684,12 @@ msgstr "TCS Île-du-Prince-Édouard"
 msgid "Prince Edward Island STP"
 msgstr "TPS Île-du-Prince-Édouard"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:161
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:165
 msgid "Principal Applicant"
 msgstr "Demandeur principal"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:70
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:117
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:74
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:121
 msgid "Principal Investigator"
 msgstr "Chercheur principal"
 
@@ -2718,15 +2716,15 @@ msgstr "Services professionnels + spéciaux"
 msgid "Professional and Special Services"
 msgstr "Services professionnels et spéciaux"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:276
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:280
 msgid "Program Name"
 msgstr "Nom du programme"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:127
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:131
 msgid "Program Type"
 msgstr "Type de programme"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:231
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:235
 msgid "Project Number"
 msgstr "Numéro de projet"
 
@@ -2753,8 +2751,8 @@ msgstr "Revenus de l'impôt foncier par résident de {0}"
 msgid "Prov."
 msgstr "Prov."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:75
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:121
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:79
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:125
 msgid "Province"
 msgstr "Province"
 
@@ -2893,21 +2891,21 @@ msgstr "Forces prêtes"
 msgid "Recent developments and their projected impact on the Fall 2025 Budget"
 msgstr "Développements récents et leur impact projeté sur le budget de l'automne 2025"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:331
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:335
 msgid "Recipient"
 msgstr "Bénéficiaire"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:328
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:332
 msgid "Recipient Class"
 msgstr "Classe de bénéficiaire"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:282
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:286
 msgid "Regions"
 msgstr "Régions"
 
 #: src/components/first-nations/RemunerationTable.tsx:233
 msgid "Remuneration"
-msgstr ""
+msgstr "Rémunération"
 
 #: src/components/first-nations/FirstNationsPageContent.tsx:423
 msgid "Remuneration and Expenses"
@@ -2948,7 +2946,7 @@ msgstr "Réparation + Entretien"
 msgid "Repair and Maintenance"
 msgstr "Réparation et entretien"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:273
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:277
 msgid "Reporting Organization"
 msgstr "Organisation déclarante"
 
@@ -2956,12 +2954,12 @@ msgstr "Organisation déclarante"
 msgid "Research"
 msgstr "Recherche"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:86
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:130
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:90
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:134
 msgid "Research Subject"
 msgstr "Sujet de recherche"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:263
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:267
 msgid "Results Achieved"
 msgstr "Résultats obtenus"
 
@@ -3042,11 +3040,11 @@ msgstr "Voyez comment le gouvernement du Canada dépense les dollars des contrib
 msgid "See how your taxes are spent across federal and provincial programs. Interactive calculator for Canadian taxpayers."
 msgstr "Voyez comment vos impôts sont dépensés dans les programmes fédéraux et provinciaux. Calculateur interactif pour les contribuables canadiens."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:82
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:86
 msgid "Selection Committee"
 msgstr "Comité de sélection"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:278
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:282
 msgid "Selection Mechanism"
 msgstr "Mécanisme de sélection"
 
@@ -3157,7 +3155,7 @@ msgstr "Niveau de vie"
 msgid "Standard of Living and Assistance to Address Inequalities"
 msgstr "Niveau de vie et aide pour réduire les inégalités"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:236
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:240
 msgid "Start Date"
 msgstr "Date de début"
 
@@ -3173,7 +3171,7 @@ msgstr "État de la situation financière"
 msgid "Statistics Canada"
 msgstr "Statistique Canada"
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:234
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:238
 #: src/components/first-nations/ClaimsTable.tsx:136
 msgid "Status"
 msgstr "Statut"
@@ -3200,11 +3198,11 @@ msgstr "Abonnez-vous à notre infolettre"
 
 #: src/components/first-nations/RemunerationTable.tsx:270
 msgid "Subtotal - Expenses"
-msgstr ""
+msgstr "Sous-total - Dépenses"
 
 #: src/components/first-nations/RemunerationTable.tsx:244
 msgid "Subtotal - Remuneration"
-msgstr ""
+msgstr "Sous-total - Rémunération"
 
 #: src/app/[lang]/(main)/search/[database]/[id]/DetailsPage.tsx:71
 msgid "Summary"
@@ -3237,7 +3235,7 @@ msgstr "Bases durables, systèmes TI, infrastructure"
 
 #: src/components/first-nations/FinancialPositionStats.tsx:287
 msgid "Tangible Capital Assets"
-msgstr ""
+msgstr "Immobilisations corporelles"
 
 #: src/components/first-nations/FinancialPositionStats.tsx:244
 msgid "Tangible capital assets such as land, buildings, equipment, and infrastructure."
@@ -3454,7 +3452,7 @@ msgstr "Services publics et Approvisionnement Canada (SPAC) est le ministère f�
 msgid "The values you see here are based on the FY 2024 Budget with preliminary updates based on government announcements, memos, and leaks, and are meant to provide a rough idea of the budget. Once the official Fall 2025 Budget is released on November 4th, we will update this page to reflect the official budget."
 msgstr "Les valeurs que vous voyez ici sont basées sur le budget de l'exercice 2024 avec des mises à jour préliminaires basées sur les annonces gouvernementales, les notes de service et les fuites, et sont destinées à donner une idée générale du budget. Une fois le budget officiel de l'automne 2025 publié le 4 novembre, nous mettrons à jour cette page pour refléter le budget officiel."
 
-#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:128
+#: src/app/[lang]/(main)/search/[database]/[id]/page.tsx:132
 msgid "Theme"
 msgstr "Thème"
 

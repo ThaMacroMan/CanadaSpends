@@ -48,6 +48,16 @@ const nextConfig: NextConfig = {
         destination: "/:locale/tax-visualizer",
         permanent: true,
       },
+      {
+        source: "/:locale/first_nations",
+        destination: "/:locale/first-nations",
+        permanent: true,
+      },
+      {
+        source: "/:locale/first_nations/:path*",
+        destination: "/:locale/first-nations/:path*",
+        permanent: true,
+      },
     ];
 
     // ========================================================================
