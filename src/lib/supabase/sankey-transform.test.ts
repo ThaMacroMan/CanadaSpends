@@ -219,6 +219,175 @@ describe("statementOfOperationsToSankey", () => {
   });
 });
 
+// Sample data with parent_category hierarchy
+const sampleWithHierarchy: StatementOfOperations = {
+  entity: "Test First Nation",
+  currency: "CAD",
+  period_ending: "2025-03-31",
+  statement_type: "statement_of_operations",
+  fiscal_periods: [{ year: 2025, is_budget: false, column_header: "2025" }],
+  line_items: [
+    // Revenue items with parent_category
+    {
+      name: "ISC Core Funding",
+      major_category: "revenue",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: "Government Transfers",
+      values: { actual_2025: 1000000 },
+    },
+    {
+      name: "Health Canada",
+      major_category: "revenue",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: "Government Transfers",
+      values: { actual_2025: 500000 },
+    },
+    {
+      name: "Casino Revenue",
+      major_category: "revenue",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: null,
+      values: { actual_2025: 200000 },
+    },
+    // Total Revenue
+    {
+      name: "Total Revenue",
+      major_category: "revenue",
+      is_total: true,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      values: { actual_2025: 1700000 },
+    },
+    // Expense items with parent_category
+    {
+      name: "Teacher Salaries",
+      major_category: "expenditures",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: "Education",
+      values: { actual_2025: 400000 },
+    },
+    {
+      name: "School Supplies",
+      major_category: "expenditures",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: "Education",
+      values: { actual_2025: 50000 },
+    },
+    {
+      name: "Nursing Services",
+      major_category: "expenditures",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: "Health Services",
+      values: { actual_2025: 300000 },
+    },
+    {
+      name: "Administration",
+      major_category: "expenditures",
+      is_total: false,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      parent_category: null,
+      values: { actual_2025: 250000 },
+    },
+    // Total Expenses
+    {
+      name: "Total Expenses",
+      major_category: "expenditures",
+      is_total: true,
+      is_subtotal: false,
+      is_calculated: false,
+      section: null,
+      values: { actual_2025: 1000000 },
+    },
+  ],
+};
+
+describe("statementOfOperationsToSankey with hierarchical data", () => {
+  it("should group items by parent_category", () => {
+    const result = statementOfOperationsToSankey(sampleWithHierarchy);
+
+    // Check revenue hierarchy
+    const revenueChildren = result.revenue_data.children || [];
+    const govTransfersNode = revenueChildren.find(
+      (c) => c.displayName === "Government Transfers",
+    );
+    const casinoNode = revenueChildren.find(
+      (c) => c.displayName === "Casino Revenue",
+    );
+
+    // Should have a "Government Transfers" parent node with children
+    expect(govTransfersNode).toBeDefined();
+    expect(govTransfersNode?.children).toBeDefined();
+    expect(govTransfersNode?.children?.length).toBe(2);
+
+    // Casino Revenue should be at top level (no parent_category)
+    expect(casinoNode).toBeDefined();
+    expect(casinoNode?.children).toBeUndefined();
+  });
+
+  it("should group expense items by parent_category", () => {
+    const result = statementOfOperationsToSankey(sampleWithHierarchy);
+
+    // Check spending hierarchy
+    const spendingChildren = result.spending_data.children || [];
+    const educationNode = spendingChildren.find(
+      (c) => c.displayName === "Education",
+    );
+    const healthNode = spendingChildren.find(
+      (c) => c.displayName === "Health Services",
+    );
+    const adminNode = spendingChildren.find(
+      (c) => c.displayName === "Administration",
+    );
+
+    // Should have "Education" parent node with children
+    expect(educationNode).toBeDefined();
+    expect(educationNode?.children?.length).toBe(2);
+    expect(educationNode?.children?.map((c) => c.name)).toContain(
+      "Teacher Salaries",
+    );
+    expect(educationNode?.children?.map((c) => c.name)).toContain(
+      "School Supplies",
+    );
+
+    // Should have "Health Services" parent node with one child
+    expect(healthNode).toBeDefined();
+    expect(healthNode?.children?.length).toBe(1);
+
+    // Administration should be at top level (no parent_category)
+    expect(adminNode).toBeDefined();
+    expect(adminNode?.children).toBeUndefined();
+  });
+
+  it("should correctly sum hierarchy for totals", () => {
+    const result = statementOfOperationsToSankey(sampleWithHierarchy);
+
+    // Total should still match stated totals
+    expect(result.revenue).toBe(1700000);
+    expect(result.spending).toBe(1000000);
+  });
+});
+
 describe("extractOperationsSummary", () => {
   it("should extract correct totals", () => {
     const summary = extractOperationsSummary(sampleStatementOfOperations, 2025);
