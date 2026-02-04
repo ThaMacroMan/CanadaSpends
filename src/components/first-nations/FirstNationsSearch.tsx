@@ -161,8 +161,9 @@ export function FirstNationsSearch({
 
   return (
     <div>
-      <div className="flex flex-col sm:flex-row gap-4 mb-6">
-        <div className="relative flex-1">
+      <div className="flex flex-col md:flex-row gap-4 mb-6">
+        {/* Search bar - full width on mobile, flex-1 on desktop */}
+        <div className="relative w-full md:flex-1">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
@@ -174,11 +175,12 @@ export function FirstNationsSearch({
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base"
           />
         </div>
-        <div className="sm:w-64">
+        {/* Filters - stacked on mobile, inline on desktop */}
+        <div className="grid grid-cols-3 gap-2 md:contents">
           <select
             value={selectedProvince}
             onChange={(e) => setSelectedProvince(e.target.value)}
-            className="block w-full py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
+            className="block w-full md:w-64 py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
           >
             <option value="">All provinces</option>
             {availableProvinces.map((province) => (
@@ -187,12 +189,10 @@ export function FirstNationsSearch({
               </option>
             ))}
           </select>
-        </div>
-        <div className="sm:w-48">
           <select
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
-            className="block w-full py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
+            className="block w-full md:w-48 py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
           >
             <option value="">All years</option>
             {availableYears.map((year) => (
@@ -201,12 +201,10 @@ export function FirstNationsSearch({
               </option>
             ))}
           </select>
-        </div>
-        <div className="sm:w-48">
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as SortOption)}
-            className="block w-full py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
+            className="block w-full md:w-48 py-3 px-3 border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base bg-white"
           >
             <option value="alphabetical">Sort: A-Z</option>
             <option value="population">Sort: Population</option>
@@ -233,7 +231,7 @@ export function FirstNationsSearch({
         </div>
       ) : (
         <>
-          <div className="mb-2 text-xs text-gray-500 select-none flex gap-1">
+          <div className="mb-2 text-xs text-gray-500 select-none flex flex-wrap gap-x-4 gap-y-1">
             <span className="inline-flex items-center gap-1">
               <span className="inline-flex items-center justify-center w-5 h-5 bg-auburn-700 text-white text-xs font-medium">
                 FS
@@ -246,10 +244,33 @@ export function FirstNationsSearch({
               </span>
               <span>Remuneration</span>
             </span>
+            <span className="inline-flex items-center gap-1">
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-gray-200 text-gray-400 text-xs font-medium">
+                FS
+              </span>
+              <span className="inline-flex items-center justify-center w-5 h-5 bg-gray-200 text-gray-400 text-xs font-medium">
+                R
+              </span>
+              <span>No data available</span>
+            </span>
           </div>
+
+          {/* Mobile Card View */}
+          <div className="md:hidden flex flex-col gap-3">
+            {filteredFirstNations.map((firstNation) => (
+              <FirstNationCard
+                key={firstNation.bcid}
+                firstNation={firstNation}
+                lang={lang}
+                displayYears={displayYears}
+              />
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
           <div
             ref={tableContainerRef}
-            className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200 flex justify-center"
+            className="hidden md:flex relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200 justify-center"
           >
             <table className="divide-y divide-gray-200 table-fixed">
               <thead className="bg-gray-50 sticky top-0 z-20 shadow-sm">
@@ -291,6 +312,115 @@ export function FirstNationsSearch({
           </div>
         </>
       )}
+    </div>
+  );
+}
+
+function FirstNationCard({
+  firstNation,
+  lang,
+  displayYears,
+}: {
+  firstNation: FirstNationInfo;
+  lang: string;
+  displayYears: string[];
+}) {
+  const populationText =
+    firstNation.populationOnReserve !== undefined && firstNation.populationYear
+      ? `${firstNation.populationYear} On-Reserve Population: ${firstNation.populationOnReserve.toLocaleString()}`
+      : null;
+
+  // Get years with data for this First Nation
+  const yearsWithData = displayYears.filter((year) =>
+    firstNation.availableYears.includes(year),
+  );
+
+  // Generate message for sub-band or self-governed status
+  const renderStatusMessage = () => {
+    if (firstNation.isSubBand) {
+      if (firstNation.parentBandBcid && firstNation.parentBandName) {
+        return (
+          <p className="text-sm text-gray-500 italic mt-2">
+            Reports financial statements under{" "}
+            <Link
+              href={`/${lang}/first-nations/${firstNation.parentBandBcid}`}
+              className="text-auburn-700 hover:text-auburn-900 hover:underline not-italic"
+            >
+              {firstNation.parentBandName}
+            </Link>
+          </p>
+        );
+      }
+      return (
+        <p className="text-sm text-gray-500 italic mt-2">
+          Reports financial statements under a different band
+        </p>
+      );
+    }
+    if (firstNation.isSelfGoverned) {
+      return (
+        <p className="text-sm text-gray-500 italic mt-2">
+          Self-governing under{" "}
+          {firstNation.membershipAuthority || "their membership authority"} -
+          exempt from FNFTA
+        </p>
+      );
+    }
+    return null;
+  };
+
+  return (
+    <div className="bg-white border border-gray-200 p-4 shadow-sm">
+      <div className="flex justify-between items-start mb-2">
+        <div className="flex-1 min-w-0">
+          <Link
+            href={`/${lang}/first-nations/${firstNation.bcid}`}
+            className="text-base font-medium text-auburn-700 hover:text-auburn-900 hover:underline block"
+          >
+            {firstNation.name}
+          </Link>
+          {populationText && (
+            <span className="text-xs text-gray-500 block">
+              {populationText}
+            </span>
+          )}
+        </div>
+        {firstNation.province && (
+          <span className="text-sm text-gray-600 ml-2 flex-shrink-0">
+            {PROVINCE_NAMES[firstNation.province] || firstNation.province}
+          </span>
+        )}
+      </div>
+
+      {yearsWithData.length > 0 && (
+        <div className="mt-3">
+          <p className="text-xs text-gray-500 mb-2">Available Data:</p>
+          <div className="flex flex-wrap gap-2">
+            {yearsWithData.map((year) => {
+              const chunkTypes = firstNation.availableChunkTypes[year] || [];
+              const hasFS =
+                chunkTypes.includes("statement_of_operations") ||
+                chunkTypes.includes("statement_of_financial_position");
+              const hasR = chunkTypes.includes("remuneration");
+              const href = `/${lang}/first-nations/${firstNation.bcid}/${year}`;
+
+              return (
+                <div
+                  key={year}
+                  className="flex items-center gap-1 bg-gray-50 px-2 py-1 border border-gray-200 w-[105px] justify-between"
+                >
+                  <span className="text-xs font-medium text-gray-700">
+                    {formatFiscalYearShort(year)}
+                  </span>
+                  <DataIndicator hasFS={hasFS} hasR={hasR} href={href} />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {renderStatusMessage()}
     </div>
   );
 }
