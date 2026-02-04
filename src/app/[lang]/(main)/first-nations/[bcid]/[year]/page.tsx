@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { useLingui } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
 import { FirstNationsPageContent } from "@/components/first-nations";
 import {
@@ -8,6 +9,8 @@ import {
   getFirstNationYearData,
 } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
+import { generateHreflangAlternates } from "@/lib/utils";
+import { Metadata } from "next";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -25,6 +28,53 @@ export async function generateStaticParams() {
       })),
     ),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; bcid: string; year: string }>;
+}): Promise<Metadata> {
+  const { lang, bcid, year } = await params;
+
+  const firstNation = await getFirstNationById(bcid);
+
+  if (!firstNation) {
+    return {};
+  }
+
+  initLingui(lang);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = useLingui();
+
+  const provinceSuffix = firstNation.province
+    ? `, ${firstNation.province}`
+    : "";
+
+  // Create a descriptive title with the First Nation name, year, and location
+  const title = `${firstNation.name} ${year} Financial Data${provinceSuffix} | Canada Spends`;
+
+  // Create a rich description mentioning what data is available
+  const description = t`View ${year} financial statements for ${firstNation.name}${provinceSuffix}. Includes statement of operations, financial position, and remuneration data from the First Nations Financial Transparency Act annual report.`;
+
+  return {
+    title,
+    description,
+    alternates: generateHreflangAlternates(
+      lang,
+      "/first-nations/[bcid]/[year]",
+      {
+        bcid,
+        year,
+      },
+    ),
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
+  };
 }
 
 export default async function FirstNationYearPage({

@@ -11,10 +11,12 @@ const NavLink = memo(
     href,
     children,
     active = false,
+    className = "",
   }: {
     href: string;
     children: React.ReactNode;
     active?: boolean;
+    className?: string;
   }) => {
     return (
       <Link
@@ -23,7 +25,7 @@ const NavLink = memo(
           active
             ? "text-foreground after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-foreground"
             : "text-muted-foreground/80 hover:text-foreground"
-        }`}
+        } ${className}`}
       >
         {children}
       </Link>
@@ -62,11 +64,10 @@ export default function DesktopNav(props: DesktopNavProps) {
   const spendingActive =
     pathname.startsWith(`/${i18n.locale}/spending`) ||
     pathname.startsWith(`/${i18n.locale}/budget`) ||
-    pathname.startsWith(`/${i18n.locale}/first-nations`) ||
     (firstSegment ? jurisdictionSlugsSet.has(firstSegment) : false);
 
   return (
-    <nav className="hidden md:flex items-center space-x-8">
+    <nav className="hidden min-[900px]:flex items-center space-x-8">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button
@@ -76,7 +77,7 @@ export default function DesktopNav(props: DesktopNavProps) {
                 : "text-gray-600 hover:text-black"
             }`}
           >
-            <Trans>Government Spending</Trans>
+            <Trans>Spending</Trans>
             <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenu.Trigger>
@@ -170,27 +171,66 @@ export default function DesktopNav(props: DesktopNavProps) {
                 </DropdownMenu.SubContent>
               </DropdownMenu.Portal>
             </DropdownMenu.Sub>
-
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+      <NavLink
+        href={`/${i18n.locale}/first-nations`}
+        active={pathname.startsWith(`/${i18n.locale}/first-nations`)}
+      >
+        <Trans>First Nations</Trans>
+      </NavLink>
+      {/* Tools dropdown - shown below 1055px */}
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger asChild>
+          <button
+            className={`relative py-2 text-sm font-medium flex min-[1055px]:hidden items-center gap-1 ${
+              pathname === `/${i18n.locale}/tax-visualizer` ||
+              pathname === `/${i18n.locale}/search`
+                ? "text-black after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black"
+                : "text-gray-600 hover:text-black"
+            }`}
+          >
+            <Trans>Tools</Trans>
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            className="bg-popover rounded-md shadow-lg p-1 flex flex-col min-w-37.5 z-200"
+            sideOffset={4}
+          >
             <DropdownMenu.Item asChild>
               <Link
-                href={`/${i18n.locale}/first-nations`}
+                href={`/${i18n.locale}/tax-visualizer`}
                 className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
               >
-                <Trans>First Nations</Trans>
+                <Trans>Taxes</Trans>
+              </Link>
+            </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/search`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Spending Database</Trans>
               </Link>
             </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
+      {/* Individual links - shown above 1055px */}
       <NavLink
         href={`/${i18n.locale}/tax-visualizer`}
         active={pathname === `/${i18n.locale}/tax-visualizer`}
+        className="hidden min-[1055px]:block"
       >
-        <Trans>Tax Visualizer</Trans>
+        <Trans>Taxes</Trans>
       </NavLink>
       <NavLink
         href={`/${i18n.locale}/search`}
         active={pathname === `/${i18n.locale}/search`}
+        className="hidden min-[1055px]:block"
       >
         <Trans>Spending Database</Trans>
       </NavLink>
@@ -237,15 +277,25 @@ export default function DesktopNav(props: DesktopNavProps) {
                 <Trans>Contact</Trans>
               </Link>
             </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/whistleblowers`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Whistleblowers</Trans>
+              </Link>
+            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
-      <NavLink
-        href={`/${i18n.locale}/whistleblowers`}
-        active={pathname === `/${i18n.locale}/whistleblowers`}
+      <a
+        href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors"
       >
-        <Trans>Whistleblowers</Trans>
-      </NavLink>
+        <Trans>Join Build Canada</Trans>
+      </a>
     </nav>
   );
 }

@@ -1,8 +1,8 @@
 import { redirect, notFound } from "next/navigation";
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
 import { getFirstNationById, getAllFirstNations } from "@/lib/supabase";
-import { locales } from "@/lib/constants";
+import { locales, BASE_URL } from "@/lib/constants";
 import {
   H1,
   Intro,
@@ -11,6 +11,8 @@ import {
   Section,
   InternalLink,
 } from "@/components/Layout";
+import { generateHreflangAlternates } from "@/lib/utils";
+import { Metadata } from "next";
 
 export const revalidate = 3600;
 export const dynamicParams = true;
@@ -24,6 +26,54 @@ export async function generateStaticParams() {
       bcid: firstNation.bcid,
     })),
   );
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string; bcid: string }>;
+}): Promise<Metadata> {
+  const { lang, bcid } = await params;
+
+  const firstNation = await getFirstNationById(bcid);
+
+  if (!firstNation) {
+    return {};
+  }
+
+  initLingui(lang);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = useLingui();
+
+  const latestYear = firstNation.availableYears[0];
+
+  // If First Nation has data, set canonical to latest year
+  const canonical = latestYear
+    ? `${BASE_URL}/${lang}/first-nations/${bcid}/${latestYear}`
+    : `${BASE_URL}/${lang}/first-nations/${bcid}`;
+
+  const provinceSuffix = firstNation.province
+    ? `, ${firstNation.province}`
+    : "";
+  const title = `${firstNation.name}${provinceSuffix} | ${t`First Nations`} | Canada Spends`;
+  const description = latestYear
+    ? t`View financial data for ${firstNation.name}${provinceSuffix} from the First Nations Financial Transparency Act annual reports.`
+    : t`${firstNation.name}${provinceSuffix} - No financial data is currently available under the First Nations Financial Transparency Act.`;
+
+  return {
+    title,
+    description,
+    alternates: {
+      ...generateHreflangAlternates(lang, "/first-nations/[bcid]", { bcid }),
+      canonical,
+    },
+    openGraph: {
+      title,
+      description,
+      type: "website",
+    },
+  };
 }
 
 export default async function FirstNationOverviewPage({

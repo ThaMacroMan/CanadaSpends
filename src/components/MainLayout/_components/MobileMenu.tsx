@@ -12,7 +12,15 @@ interface MobileMenuButtonProps {
 export function MobileMenuButton(props: MobileMenuButtonProps) {
   const { isMenuOpen, setIsMenuOpen } = props;
   return (
-    <div className="flex md:hidden">
+    <div className="flex min-[900px]:hidden items-center gap-2">
+      <a
+        href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile&utm_campaign=transparency"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
+      >
+        <Trans>Join Build Canada</Trans>
+      </a>
       <button
         type="button"
         className="p-2 text-gray-700"
@@ -68,11 +76,11 @@ export function MobileMenu(props: MobileMenuProps) {
   const { pathname, setIsMenuOpen, provinces, municipalitiesByProvince } =
     props;
   return (
-    <div className="md:hidden border-t border-border">
+    <div className="min-[900px]:hidden border-t border-border">
       <div className="px-2 pt-2 pb-3 space-y-1">
         {/* Government Spending Submenu */}
         <p className="px-3 pt-3 text-base font-medium text-muted-foreground">
-          <Trans>Government Spending</Trans>
+          <Trans>Spending</Trans>
         </p>
         <MobileNavLink
           href={`/${i18n.locale}/spending`}
@@ -135,23 +143,19 @@ export function MobileMenu(props: MobileMenuProps) {
           </div>
         ))}
 
-        {/* First Nations */}
         <MobileNavLink
           href={`/${i18n.locale}/first-nations`}
           active={pathname.startsWith(`/${i18n.locale}/first-nations`)}
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="pl-4 inline-block">
-            <Trans>First Nations</Trans>
-          </span>
+          <Trans>First Nations</Trans>
         </MobileNavLink>
-
         <MobileNavLink
           href={`/${i18n.locale}/tax-visualizer`}
           active={pathname === `/${i18n.locale}/tax-visualizer`}
           onClick={() => setIsMenuOpen(false)}
         >
-          <Trans>Tax Calculator</Trans>
+          <Trans>Taxes</Trans>
         </MobileNavLink>
         <MobileNavLink
           href={`/${i18n.locale}/search`}
@@ -181,6 +185,15 @@ export function MobileMenu(props: MobileMenuProps) {
         >
           <Trans>Whistleblowers</Trans>
         </MobileNavLink>
+        <a
+          href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile_menu&utm_campaign=transparency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block mx-3 mt-4 bg-primary text-primary-foreground px-4 py-2 rounded-md text-base font-semibold text-center hover:bg-primary/90 transition-colors"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <Trans>Join Build Canada</Trans>
+        </a>
       </div>
     </div>
   );
