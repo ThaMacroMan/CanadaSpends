@@ -1,4 +1,4 @@
-import { Trans } from "@lingui/react/macro";
+import { Trans, useLingui } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
 import { H1, Intro, Page, PageContent, Section } from "@/components/Layout";
 import {
@@ -7,12 +7,37 @@ import {
 } from "@/components/first-nations";
 import { getAllFirstNations } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
+import { generateHreflangAlternates } from "@/lib/utils";
+import { Metadata } from "next";
 
 export const revalidate = 3600; // Revalidate every hour
 export const dynamicParams = true;
 
 export async function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  initLingui(lang);
+
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { t } = useLingui();
+
+  return {
+    title: t`First Nations Financial Data | Canada Spends`,
+    description: t`Explore financial data from First Nations across Canada. View statements of operations, financial positions, and remuneration from annual reports published under the First Nations Financial Transparency Act (FNFTA).`,
+    alternates: generateHreflangAlternates(lang, "/first-nations"),
+    openGraph: {
+      title: t`First Nations Financial Data | Canada Spends`,
+      description: t`Explore financial data from First Nations across Canada under the First Nations Financial Transparency Act.`,
+      type: "website",
+    },
+  };
 }
 
 export default async function FirstNationsIndexPage({
