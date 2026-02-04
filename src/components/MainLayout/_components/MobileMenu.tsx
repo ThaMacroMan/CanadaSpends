@@ -19,7 +19,7 @@ export function MobileMenuButton(props: MobileMenuButtonProps) {
         rel="noopener noreferrer"
         className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors whitespace-nowrap"
       >
-        <Trans>Join</Trans>
+        <Trans>Join Build Canada</Trans>
       </a>
       <button
         type="button"
