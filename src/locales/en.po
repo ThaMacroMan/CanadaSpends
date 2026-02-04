@@ -340,7 +340,7 @@ msgstr "All revenue collected during the fiscal year, including taxes, transfers
 msgid "All revenue collected during the fiscal year, including transfers, own-source revenue, and other funding."
 msgstr "All revenue collected during the fiscal year, including transfers, own-source revenue, and other funding."
 
-#: src/app/[lang]/(main)/page.tsx:146
+#: src/app/[lang]/(main)/page.tsx:134
 msgid "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 msgstr "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 
@@ -444,7 +444,7 @@ msgstr "Balance for FY {fiscalYear}"
 msgid "Banking + Finance"
 msgstr "Banking + Finance"
 
-#: src/app/[lang]/(main)/page.tsx:143
+#: src/app/[lang]/(main)/page.tsx:131
 msgid "Based on Data"
 msgstr "Based on Data"
 
@@ -532,7 +532,7 @@ msgid "Canada social transfer"
 msgstr "Canada social transfer"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(main)/page.tsx:110
+#: src/app/[lang]/(main)/page.tsx:98
 msgid "facts-2"
 msgstr "Canada Spends changes this. We take raw federal spending data and turn it into accurate, straightforward facts so you can understand how your money is used."
 
@@ -1049,7 +1049,7 @@ msgstr "Explore Canada's federal budget with interactive visualizations and deta
 msgid "Explore federal employee salary distribution by year and demographic group"
 msgstr "Explore federal employee salary distribution by year and demographic group"
 
-#: src/app/[lang]/(main)/page.tsx:65
+#: src/components/HeroButtons.tsx:34
 msgid "Explore Federal Spending"
 msgstr "Explore Federal Spending"
 
@@ -1066,8 +1066,12 @@ msgid "Explore financial data from First Nations across Canada. View statements 
 msgstr "Explore financial data from First Nations across Canada. View statements of operations, financial positions, and remuneration from annual reports published under the First Nations Financial Transparency Act (FNFTA)."
 
 #: src/app/[lang]/(main)/page.tsx:75
-msgid "Explore First Nations"
-msgstr "Explore First Nations"
+#~ msgid "Explore First Nations"
+#~ msgstr "Explore First Nations"
+
+#: src/components/HeroButtons.tsx:107
+msgid "Explore First Nations Spending"
+msgstr "Explore First Nations Spending"
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
@@ -1076,6 +1080,10 @@ msgstr "Explore how the Canadian federal government spends your tax dollars acro
 #: src/app/[lang]/(main)/articles/page.tsx:19
 msgid "Explore in-depth articles about Canadian government spending, budget analysis, and public finance. Stay informed about how your tax dollars are used through Canada Spends."
 msgstr "Explore in-depth articles about Canadian government spending, budget analysis, and public finance. Stay informed about how your tax dollars are used through Canada Spends."
+
+#: src/components/HeroButtons.tsx:70
+msgid "Explore Municipal Spending"
+msgstr "Explore Municipal Spending"
 
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:239
 #: src/app/[lang]/(main)/spending/department-of-finance/page.tsx:230
@@ -1093,6 +1101,10 @@ msgstr "Explore in-depth articles about Canadian government spending, budget ana
 #: src/app/[lang]/(main)/spending/veterans-affairs/page.tsx:199
 msgid "Explore other Federal Departments"
 msgstr "Explore other Federal Departments"
+
+#: src/components/HeroButtons.tsx:43
+msgid "Explore Provincial Spending"
+msgstr "Explore Provincial Spending"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:134
 #: src/app/[lang]/(main)/spending/page.tsx:125
@@ -1116,7 +1128,7 @@ msgstr "External ID"
 msgid "External Revenues"
 msgstr "External Revenues"
 
-#: src/app/[lang]/(main)/page.tsx:128
+#: src/app/[lang]/(main)/page.tsx:116
 msgid "Facts about Spending"
 msgstr "Facts about Spending"
 
@@ -1435,7 +1447,7 @@ msgstr "Get data-driven insights into how the {0} government’s revenue and spe
 msgid "Get Involved"
 msgstr "Get Involved"
 
-#: src/app/[lang]/(main)/page.tsx:41
+#: src/app/[lang]/(main)/page.tsx:47
 #: src/app/[lang]/layout.tsx:22
 msgid "Get The Facts About Government Spending"
 msgstr "Get The Facts About Government Spending"
@@ -1512,7 +1524,7 @@ msgid "Government spending is based on 2023-2024 fiscal spending. Attempts have 
 msgstr "Government spending is based on 2023-2024 fiscal spending. Attempts have been made to merge similar categories across federal and provincial spending."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(main)/page.tsx:101
+#: src/app/[lang]/(main)/page.tsx:89
 msgid "facts-1"
 msgstr "Government spending shouldn’t be a black box. Every year, the federal government spends hundreds of billions of dollars but most Canadians have no clue where it all goes. The data is available, but it’s buried on obscure websites and impossible to navigate."
 
@@ -2281,7 +2293,7 @@ msgstr "No, we're not copying the DOGE playbook from the US."
 msgid "Non-Financial Assets"
 msgstr "Non-Financial Assets"
 
-#: src/app/[lang]/(main)/page.tsx:158
+#: src/app/[lang]/(main)/page.tsx:146
 msgid "Non-Partisan"
 msgstr "Non-Partisan"
 
@@ -3184,7 +3196,7 @@ msgstr "Standard of Living and Assistance to Address Inequalities"
 msgid "Start Date"
 msgstr "Start Date"
 
-#: src/app/[lang]/(main)/page.tsx:86
+#: src/app/[lang]/(main)/page.tsx:74
 msgid "Start reading"
 msgstr "Start reading"
 
@@ -3895,11 +3907,11 @@ msgstr "We don't tell you what to think—we give you the facts. Meet the team m
 msgid "We love to hear from the community."
 msgstr "We love to hear from the community."
 
-#: src/app/[lang]/(main)/page.tsx:52
+#: src/app/[lang]/(main)/page.tsx:58
 msgid "We share clear insights to level up transparency"
 msgstr "We share clear insights to level up transparency"
 
-#: src/app/[lang]/(main)/page.tsx:131
+#: src/app/[lang]/(main)/page.tsx:119
 msgid "We turn complex government data into clear insights. We explain federal spending so every Canadian can understand where their money goes."
 msgstr "We turn complex government data into clear insights. We explain federal spending so every Canadian can understand where their money goes."
 
@@ -3911,7 +3923,7 @@ msgstr "We welcome passionate individuals who want to help make a difference. Wh
 msgid "We were frustrated by the lack of clear, accessible, unbiased data on government spending. We wanted to create a platform that focused on giving Canadians data-driven facts about how their money is being spent without spin."
 msgstr "We were frustrated by the lack of clear, accessible, unbiased data on government spending. We wanted to create a platform that focused on giving Canadians data-driven facts about how their money is being spent without spin."
 
-#: src/app/[lang]/(main)/page.tsx:161
+#: src/app/[lang]/(main)/page.tsx:149
 msgid "We're strictly non-partisan—we don't judge policies or debate spending decisions. Our only goal is to ensure that every Canadian understands how the federal government spends money."
 msgstr "We're strictly non-partisan—we don't judge policies or debate spending decisions. Our only goal is to ensure that every Canadian understands how the federal government spends money."
 
@@ -4047,7 +4059,7 @@ msgstr "Year"
 msgid "You can access our whistleblower platform directly through your web browser at:"
 msgstr "You can access our whistleblower platform directly through your web browser at:"
 
-#: src/app/[lang]/(main)/page.tsx:98
+#: src/app/[lang]/(main)/page.tsx:86
 msgid "You deserve the facts"
 msgstr "You deserve the facts"
 

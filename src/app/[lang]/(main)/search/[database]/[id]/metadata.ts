@@ -24,7 +24,7 @@ function optimizeTitle(
   baseTitle: string,
   suffix: string = " | Canada Spends",
 ): string {
-  let title = baseTitle + suffix;
+  const title = baseTitle + suffix;
 
   if (title.length > 70) {
     // Try removing optional parts from baseTitle (like periods in parentheses)

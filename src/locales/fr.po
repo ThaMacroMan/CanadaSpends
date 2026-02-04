@@ -340,7 +340,7 @@ msgstr "Tous les revenus collectés pendant l'exercice financier, y compris les 
 msgid "All revenue collected during the fiscal year, including transfers, own-source revenue, and other funding."
 msgstr "Tous les revenus perçus au cours de l'exercice financier, y compris les transferts, les revenus de sources propres et d'autres financements."
 
-#: src/app/[lang]/(main)/page.tsx:146
+#: src/app/[lang]/(main)/page.tsx:134
 msgid "All the information comes from public databases and reports by the Government of Canada. We show our sources, so you know exactly where it comes from."
 msgstr "Toutes les informations proviennent des bases de données publiques et des rapports du gouvernement du Canada. Nous indiquons nos sources pour que vous sachiez exactement d'où elles proviennent."
 
@@ -444,7 +444,7 @@ msgstr "Solde pour l'exercice {fiscalYear}"
 msgid "Banking + Finance"
 msgstr "Banques + Finances"
 
-#: src/app/[lang]/(main)/page.tsx:143
+#: src/app/[lang]/(main)/page.tsx:131
 msgid "Based on Data"
 msgstr "Basé sur les données"
 
@@ -532,7 +532,7 @@ msgid "Canada social transfer"
 msgstr "Transfert canadien en matière de programmes sociaux"
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(main)/page.tsx:110
+#: src/app/[lang]/(main)/page.tsx:98
 msgid "facts-2"
 msgstr "Canada Spends change cela. Nous prenons les données brutes des dépenses fédérales et les transformons en faits précis et directs pour que vous puissiez comprendre comment votre argent est utilisé."
 
@@ -1049,7 +1049,7 @@ msgstr "Explorez le budget fédéral du Canada avec des visualisations interacti
 msgid "Explore federal employee salary distribution by year and demographic group"
 msgstr "Explorez la répartition des salaires des employés fédéraux par année et groupe démographique"
 
-#: src/app/[lang]/(main)/page.tsx:65
+#: src/components/HeroButtons.tsx:34
 msgid "Explore Federal Spending"
 msgstr "Explorer les dépenses fédérales"
 
@@ -1066,8 +1066,12 @@ msgid "Explore financial data from First Nations across Canada. View statements 
 msgstr ""
 
 #: src/app/[lang]/(main)/page.tsx:75
-msgid "Explore First Nations"
-msgstr "Explorer les Premières Nations"
+#~ msgid "Explore First Nations"
+#~ msgstr "Explorer les Premières Nations"
+
+#: src/components/HeroButtons.tsx:107
+msgid "Explore First Nations Spending"
+msgstr "Explorer les dépenses des Premières Nations"
 
 #: src/app/[lang]/(main)/federal/spending/layout.tsx:17
 msgid "Explore how the Canadian federal government spends your tax dollars across departments and programs."
@@ -1076,6 +1080,10 @@ msgstr "Découvrez comment le gouvernement fédéral canadien dépense vos impô
 #: src/app/[lang]/(main)/articles/page.tsx:19
 msgid "Explore in-depth articles about Canadian government spending, budget analysis, and public finance. Stay informed about how your tax dollars are used through Canada Spends."
 msgstr "Explorez des articles approfondis sur les dépenses gouvernementales canadiennes, l'analyse budgétaire et les finances publiques. Restez informé de l'utilisation de vos dollars d'impôt grâce à Canada Spends."
+
+#: src/components/HeroButtons.tsx:70
+msgid "Explore Municipal Spending"
+msgstr "Explorer les dépenses municipales"
 
 #: src/app/[lang]/(main)/spending/canada-revenue-agency/page.tsx:239
 #: src/app/[lang]/(main)/spending/department-of-finance/page.tsx:230
@@ -1093,6 +1101,10 @@ msgstr "Explorez des articles approfondis sur les dépenses gouvernementales can
 #: src/app/[lang]/(main)/spending/veterans-affairs/page.tsx:199
 msgid "Explore other Federal Departments"
 msgstr "Explorer d'autres ministères fédéraux"
+
+#: src/components/HeroButtons.tsx:43
+msgid "Explore Provincial Spending"
+msgstr "Explorer les dépenses provinciales"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:134
 #: src/app/[lang]/(main)/spending/page.tsx:125
@@ -1116,7 +1128,7 @@ msgstr "ID externe"
 msgid "External Revenues"
 msgstr "Revenus externes"
 
-#: src/app/[lang]/(main)/page.tsx:128
+#: src/app/[lang]/(main)/page.tsx:116
 msgid "Facts about Spending"
 msgstr "Faits sur les dépenses"
 
@@ -1435,7 +1447,7 @@ msgstr "Obtenez des analyses basées sur les données sur la façon dont les rev
 msgid "Get Involved"
 msgstr "Impliquez-vous"
 
-#: src/app/[lang]/(main)/page.tsx:41
+#: src/app/[lang]/(main)/page.tsx:47
 #: src/app/[lang]/layout.tsx:22
 msgid "Get The Facts About Government Spending"
 msgstr "Découvrez les faits sur les dépenses gouvernementales"
@@ -1512,7 +1524,7 @@ msgid "Government spending is based on 2023-2024 fiscal spending. Attempts have 
 msgstr "Les dépenses gouvernementales sont basées sur les dépenses fiscales de 2023-2024. Des tentatives ont été faites pour fusionner des catégories similaires entre les dépenses fédérales et provinciales."
 
 #. js-lingui-explicit-id
-#: src/app/[lang]/(main)/page.tsx:101
+#: src/app/[lang]/(main)/page.tsx:89
 msgid "facts-1"
 msgstr "Les dépenses gouvernementales ne devraient pas être une boîte noire. Chaque année, le gouvernement fédéral dépense des centaines de milliards de dollars, mais la plupart des Canadiens n'ont aucune idée où tout cet argent va. Les données sont disponibles, mais elles sont enfouies sur des sites Web obscurs et impossibles à naviguer."
 
@@ -2281,7 +2293,7 @@ msgstr "Non, nous ne copions pas le modèle DOGE des États-Unis."
 msgid "Non-Financial Assets"
 msgstr "Actifs non financiers"
 
-#: src/app/[lang]/(main)/page.tsx:158
+#: src/app/[lang]/(main)/page.tsx:146
 msgid "Non-Partisan"
 msgstr "Non partisan"
 
@@ -3184,7 +3196,7 @@ msgstr "Niveau de vie et aide pour réduire les inégalités"
 msgid "Start Date"
 msgstr "Date de début"
 
-#: src/app/[lang]/(main)/page.tsx:86
+#: src/app/[lang]/(main)/page.tsx:74
 msgid "Start reading"
 msgstr "Commencer la lecture"
 
@@ -3895,11 +3907,11 @@ msgstr "Nous ne vous disons pas quoi penser—nous vous donnons les faits. Renco
 msgid "We love to hear from the community."
 msgstr "Nous aimons avoir des nouvelles de la communauté."
 
-#: src/app/[lang]/(main)/page.tsx:52
+#: src/app/[lang]/(main)/page.tsx:58
 msgid "We share clear insights to level up transparency"
 msgstr "Nous partageons des informations claires pour améliorer la transparence"
 
-#: src/app/[lang]/(main)/page.tsx:131
+#: src/app/[lang]/(main)/page.tsx:119
 msgid "We turn complex government data into clear insights. We explain federal spending so every Canadian can understand where their money goes."
 msgstr "Nous transformons des données gouvernementales complexes en informations claires. Nous expliquons les dépenses fédérales pour que chaque Canadien comprenne où va son argent."
 
@@ -3911,7 +3923,7 @@ msgstr "Nous accueillons des personnes passionnées qui veulent faire une diffé
 msgid "We were frustrated by the lack of clear, accessible, unbiased data on government spending. We wanted to create a platform that focused on giving Canadians data-driven facts about how their money is being spent without spin."
 msgstr "Nous étions frustrés par le manque de données claires, accessibles et impartiales sur les dépenses gouvernementales. Nous voulions créer une plateforme qui se concentre sur la présentation aux Canadiens de faits basés sur des données concernant la façon dont leur argent est dépensé, sans parti pris."
 
-#: src/app/[lang]/(main)/page.tsx:161
+#: src/app/[lang]/(main)/page.tsx:149
 msgid "We're strictly non-partisan—we don't judge policies or debate spending decisions. Our only goal is to ensure that every Canadian understands how the federal government spends money."
 msgstr "Nous sommes strictement non partisans—nous ne jugeons pas les politiques ni ne débattons des décisions de dépenses. Notre seul objectif est de nous assurer que chaque Canadien comprenne comment le gouvernement fédéral dépense l'argent."
 
@@ -4047,7 +4059,7 @@ msgstr "Année"
 msgid "You can access our whistleblower platform directly through your web browser at:"
 msgstr "Vous pouvez accéder à notre plateforme de dénonciation directement via votre navigateur web à :"
 
-#: src/app/[lang]/(main)/page.tsx:98
+#: src/app/[lang]/(main)/page.tsx:86
 msgid "You deserve the facts"
 msgstr "Vous méritez les faits"
 
