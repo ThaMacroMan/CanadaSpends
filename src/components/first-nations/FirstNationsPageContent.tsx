@@ -17,6 +17,8 @@ import { ClaimsTable } from "./ClaimsTable";
 import { FinancialPositionStats } from "./FinancialPositionStats";
 import { FirstNationsNotes } from "./FirstNationsNotes";
 import { FirstNationsYearSelector } from "./FirstNationsYearSelector";
+// TODO: Re-enable when @buildcanada/charts library is fixed
+// import { PopulationCharts } from "./PopulationCharts";
 import { RemunerationTable } from "./RemunerationTable";
 import {
   FullReportLink,
@@ -92,6 +94,27 @@ function formatFiscalYear(year: string): string {
   // Fiscal year ends in March, so FY 2024 = April 2023 - March 2024
   const startYear = yearNum - 1;
   return `${startYear}-${String(yearNum).slice(-2)}`;
+}
+
+const PROVINCE_NAMES: Record<string, string> = {
+  AB: "Alberta",
+  BC: "British Columbia",
+  MB: "Manitoba",
+  NB: "New Brunswick",
+  NL: "Newfoundland and Labrador",
+  NS: "Nova Scotia",
+  NT: "Northwest Territories",
+  NU: "Nunavut",
+  ON: "Ontario",
+  PE: "Prince Edward Island",
+  QC: "Quebec",
+  SK: "Saskatchewan",
+  YT: "Yukon",
+};
+
+function getProvinceName(code?: string): string {
+  if (!code) return "Canada";
+  return PROVINCE_NAMES[code.toUpperCase()] || code;
 }
 
 function formatCurrency(value: number): string {
@@ -262,6 +285,18 @@ export function FirstNationsPageContent({
           <Intro>
             <Trans>
               Financial data for {firstNation.name} for fiscal year {fiscalYear}
+              . {firstNation.name} is a First Nation in{" "}
+              {getProvinceName(firstNation.province)}
+              {firstNation.populationRegistered != null &&
+                firstNation.populationOnReserve != null && (
+                  <>
+                    {" "}
+                    with a registered population of{" "}
+                    {firstNation.populationRegistered.toLocaleString()} and an
+                    on-reserve population of{" "}
+                    {firstNation.populationOnReserve.toLocaleString()}
+                  </>
+                )}
               . Information is extracted from publicly available annual reports
               published under the First Nations Financial Transparency Act.
             </Trans>

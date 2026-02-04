@@ -122,8 +122,7 @@ export function FinancialPositionStats({
 
   const totalLiabilities = findLineItem(
     (item) =>
-      item.is_subtotal &&
-      item.name?.toLowerCase().includes("total financial liabilities"),
+      item.is_subtotal && item.name?.toLowerCase() === "total liabilities",
   );
 
   const netDebt = findLineItem((item) =>
@@ -143,7 +142,15 @@ export function FinancialPositionStats({
   const accumulatedSurplus = findLineItem(
     (item) =>
       item.name?.toLowerCase().includes("accumulated surplus") &&
-      !item.is_total,
+      item.is_total &&
+      item.major_category === "net_assets",
+  );
+
+  const tangibleCapitalAssets = findLineItem(
+    (item) =>
+      item.name?.toLowerCase().includes("tangible capital assets") &&
+      !item.is_total &&
+      !item.is_subtotal,
   );
 
   const stats: {
@@ -269,6 +276,29 @@ export function FinancialPositionStats({
       ),
       value: formatCurrency(getValue(netAssets.values, fullYear)),
       description: <Trans>Total net assets</Trans>,
+    });
+  }
+
+  if (tangibleCapitalAssets) {
+    stats.push({
+      key: "tangible-capital-assets",
+      title: (
+        <div className="flex items-center">
+          <Trans>Tangible Capital Assets</Trans>
+          <Tooltip
+            text={
+              <Trans>
+                Land, buildings, equipment, vehicles, and infrastructure owned
+                by the First Nation.
+              </Trans>
+            }
+          >
+            <HelpIcon />
+          </Tooltip>
+        </div>
+      ),
+      value: formatCurrency(getValue(tangibleCapitalAssets.values, fullYear)),
+      description: <Trans>As of fiscal year end {fiscalYear}</Trans>,
     });
   }
 

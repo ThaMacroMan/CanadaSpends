@@ -8,6 +8,11 @@ export interface ExtractionAvailabilityResponse {
   province: string;
   fiscal_years: number[];
   chunk_types_by_year: Record<string, string[]>;
+  membership_authority?: string;
+  is_sub_band?: boolean;
+  is_self_governed?: boolean;
+  parent_band_bcid?: string;
+  parent_band_name?: string;
 }
 
 // Internal type used by components
@@ -19,6 +24,12 @@ export interface FirstNationInfo {
   availableChunkTypes: Record<string, string[]>; // year -> chunk_types
   populationYear?: number;
   populationOnReserve?: number;
+  populationRegistered?: number;
+  membershipAuthority?: string;
+  isSubBand?: boolean;
+  isSelfGoverned?: boolean;
+  parentBandBcid?: string;
+  parentBandName?: string;
 }
 
 // Population API response types

@@ -9,6 +9,78 @@ interface LocalSankeyNode {
   displayName: string;
   name: string;
   amount: number;
+  children?: LocalSankeyNode[];
+}
+
+/**
+ * Build a hierarchical tree from flat items with parent_category relationships
+ * Items with the same parent_category are grouped under a parent node
+ * Results are sorted by total amount (largest first)
+ */
+function buildHierarchicalTree(
+  items: Array<{ item: StatementLineItem; amount: number }>,
+  prefix: string,
+): LocalSankeyNode[] {
+  // Group items by parent_category
+  const parentGroups = new Map<string | null, typeof items>();
+
+  for (const { item, amount } of items) {
+    const parentCat = item.parent_category || null;
+    if (!parentGroups.has(parentCat)) {
+      parentGroups.set(parentCat, []);
+    }
+    parentGroups.get(parentCat)!.push({ item, amount });
+  }
+
+  // Items without parent_category go directly at the top level
+  const topLevelItems = parentGroups.get(null) || [];
+  parentGroups.delete(null);
+
+  const result: LocalSankeyNode[] = [];
+
+  // Add items without parent_category as flat nodes
+  for (const { item, amount } of topLevelItems) {
+    result.push({
+      id: `${prefix}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
+      displayName: item.name || "",
+      name: item.name || "",
+      amount,
+    });
+  }
+
+  // Add parent categories with their children
+  for (const [parentCat, children] of parentGroups) {
+    if (!parentCat) continue;
+
+    const childNodes: LocalSankeyNode[] = children
+      .map(({ item, amount }) => ({
+        id: `${prefix}_${parentCat.replace(/\s+/g, "_").toLowerCase()}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
+        displayName: item.name || "",
+        name: item.name || "",
+        amount,
+      }))
+      // Sort children by amount (largest first)
+      .sort((a, b) => b.amount - a.amount);
+
+    // Create parent node with amount 0 (sum comes from children)
+    result.push({
+      id: `${prefix}_parent_${parentCat.replace(/\s+/g, "_").toLowerCase()}`,
+      displayName: parentCat,
+      name: parentCat,
+      amount: 0,
+      children: childNodes,
+    });
+  }
+
+  // Sort result by total amount (for parent nodes, sum children; for leaf nodes, use amount)
+  const getNodeTotal = (node: LocalSankeyNode): number => {
+    if (node.children && node.children.length > 0) {
+      return node.children.reduce((sum, child) => sum + child.amount, 0);
+    }
+    return node.amount;
+  };
+
+  return result.sort((a, b) => getNodeTotal(b) - getNodeTotal(a));
 }
 
 /**
@@ -105,20 +177,20 @@ export function statementOfOperationsToSankey(
         0,
       );
 
-  // Build revenue tree - only positive revenue items (unscaled first)
-  const rawRevenueChildren: LocalSankeyNode[] = regularRevenueItems
-    .map((item, index): LocalSankeyNode | null => {
-      const amount = getActualValue(item, fiscalYear);
-      if (amount <= 0) return null;
+  // Build revenue tree with hierarchical grouping by parent_category
+  // Only include positive revenue items
+  const positiveRevenueItems = regularRevenueItems
+    .map((item) => ({
+      item,
+      amount: getActualValue(item, fiscalYear),
+    }))
+    .filter(({ amount }) => amount > 0);
 
-      return {
-        id: `revenue_${index}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
-        displayName: item.name || "",
-        name: item.name || "",
-        amount,
-      };
-    })
-    .filter((node): node is LocalSankeyNode => node !== null);
+  // Build hierarchical tree from items with parent_category relationships
+  const rawRevenueChildren = buildHierarchicalTree(
+    positiveRevenueItems,
+    "revenue",
+  );
 
   // Add net deferred revenue as a single item if positive (inflow)
   // If negative, it will be accounted for via scaling
@@ -131,20 +203,54 @@ export function statementOfOperationsToSankey(
     });
   }
 
+  // Helper to get total amount for a node (sum children for parent nodes)
+  const getNodeTotal = (node: LocalSankeyNode): number => {
+    if (node.children && node.children.length > 0) {
+      return node.children.reduce((sum, child) => sum + child.amount, 0);
+    }
+    return node.amount;
+  };
+
+  // Re-sort after adding deferred revenue (largest first)
+  rawRevenueChildren.sort((a, b) => getNodeTotal(b) - getNodeTotal(a));
+
   // Calculate raw sum and scale factor to match stated total
-  // (SankeyChart uses hierarchy().sum() which sums children, so children must sum to stated total)
-  const rawRevenueSum = rawRevenueChildren.reduce(
-    (sum, child) => sum + child.amount,
-    0,
-  );
+  // For hierarchical nodes, we need to sum leaf amounts only
+  const sumLeafAmounts = (nodes: LocalSankeyNode[]): number =>
+    nodes.reduce((sum, node) => {
+      if (node.children && node.children.length > 0) {
+        return sum + sumLeafAmounts(node.children);
+      }
+      return sum + node.amount;
+    }, 0);
+
+  const rawRevenueSum = sumLeafAmounts(rawRevenueChildren);
   const revenueScaleFactor =
     rawRevenueSum > 0 && totalRevenue > 0 ? totalRevenue / rawRevenueSum : 1;
 
-  // Scale children so their sum matches the stated total
-  const revenueChildren: SankeyNode[] = rawRevenueChildren.map((child) => ({
-    ...child,
-    amount: child.amount * revenueScaleFactor,
-  }));
+  // Scale leaf children so their sum matches the stated total
+  const scaleNodes = (
+    nodes: LocalSankeyNode[],
+    factor: number,
+  ): SankeyNode[] => {
+    return nodes.map((node) => {
+      if (node.children && node.children.length > 0) {
+        return {
+          ...node,
+          children: scaleNodes(node.children, factor),
+        } as SankeyNode;
+      }
+      return {
+        ...node,
+        amount: node.amount * factor,
+      } as SankeyNode;
+    });
+  };
+
+  const revenueChildren: SankeyNode[] = scaleNodes(
+    rawRevenueChildren,
+    revenueScaleFactor,
+  );
 
   const revenueData: SankeyNode = {
     id: "revenue_root",
@@ -155,20 +261,20 @@ export function statementOfOperationsToSankey(
     children: revenueChildren,
   };
 
-  // Build spending/expense tree - only positive expense items (unscaled first)
-  const rawSpendingChildren: LocalSankeyNode[] = expenseItems
-    .map((item, index): LocalSankeyNode | null => {
-      const amount = getActualValue(item, fiscalYear);
-      if (amount <= 0) return null;
+  // Build spending/expense tree with hierarchical grouping by parent_category
+  // Only include positive expense items
+  const positiveExpenseItems = expenseItems
+    .map((item) => ({
+      item,
+      amount: getActualValue(item, fiscalYear),
+    }))
+    .filter(({ amount }) => amount > 0);
 
-      return {
-        id: `spending_${index}_${(item.name || "").replace(/\s+/g, "_").toLowerCase()}`,
-        displayName: item.name || "",
-        name: item.name || "",
-        amount,
-      };
-    })
-    .filter((node): node is LocalSankeyNode => node !== null);
+  // Build hierarchical tree from items with parent_category relationships
+  const rawSpendingChildren = buildHierarchicalTree(
+    positiveExpenseItems,
+    "spending",
+  );
 
   // Add net deferred revenue as an outflow if negative (deferring more than recognizing)
   if (netDeferredRevenue < 0) {
@@ -180,21 +286,21 @@ export function statementOfOperationsToSankey(
     });
   }
 
+  // Re-sort after adding deferred revenue (largest first)
+  rawSpendingChildren.sort((a, b) => getNodeTotal(b) - getNodeTotal(a));
+
   // Calculate raw sum and scale factor to match stated total
-  const rawSpendingSum = rawSpendingChildren.reduce(
-    (sum, child) => sum + child.amount,
-    0,
-  );
+  const rawSpendingSum = sumLeafAmounts(rawSpendingChildren);
   const spendingScaleFactor =
     rawSpendingSum > 0 && totalExpenses > 0
       ? totalExpenses / rawSpendingSum
       : 1;
 
   // Scale children so their sum matches the stated total
-  const spendingChildren: SankeyNode[] = rawSpendingChildren.map((child) => ({
-    ...child,
-    amount: child.amount * spendingScaleFactor,
-  }));
+  const spendingChildren: SankeyNode[] = scaleNodes(
+    rawSpendingChildren,
+    spendingScaleFactor,
+  );
 
   const spendingData: SankeyNode = {
     id: "spending_root",
