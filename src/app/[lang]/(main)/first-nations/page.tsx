@@ -1,7 +1,10 @@
 import { Trans } from "@lingui/react/macro";
 import { initLingui } from "@/initLingui";
 import { H1, Intro, Page, PageContent, Section } from "@/components/Layout";
-import { FirstNationsSearch } from "@/components/first-nations";
+import {
+  FirstNationsFAQ,
+  FirstNationsSearch,
+} from "@/components/first-nations";
 import { getAllFirstNations } from "@/lib/supabase";
 import { locales } from "@/lib/constants";
 
@@ -37,6 +40,9 @@ export default async function FirstNationsIndexPage({
               operations, financial position, and remuneration.
             </Trans>
           </Intro>
+        </Section>
+        <Section>
+          <FirstNationsFAQ />
         </Section>
         <Section>
           <FirstNationsSearch firstNations={firstNations} lang={lang} />
