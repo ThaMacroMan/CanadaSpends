@@ -204,8 +204,8 @@ msgstr "A look at how Veterans Affairs Canada spends its budget"
 msgid "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 msgstr "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:206
-#: src/components/MainLayout/_components/MobileMenu.tsx:176
+#: src/components/MainLayout/_components/DesktopNav.tsx:202
+#: src/components/MainLayout/_components/MobileMenu.tsx:172
 msgid "About"
 msgstr "About"
 
@@ -213,7 +213,7 @@ msgstr "About"
 msgid "About GlobaLeaks"
 msgstr "About GlobaLeaks"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:220
+#: src/components/MainLayout/_components/DesktopNav.tsx:216
 #: src/components/MainLayout/Footer.tsx:41
 msgid "About Us"
 msgstr "About Us"
@@ -479,7 +479,7 @@ msgstr "British Columbia STP"
 msgid "Browse all First Nations"
 msgstr "Browse all First Nations"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:102
+#: src/components/MainLayout/_components/DesktopNav.tsx:101
 #: src/components/MainLayout/_components/MobileMenu.tsx:101
 msgid "Budget"
 msgstr "Budget"
@@ -666,8 +666,8 @@ msgstr "Connect from a public network like a coffee shop or library, not your ho
 msgid "Connect with us"
 msgstr "Connect with us"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:237
-#: src/components/MainLayout/_components/MobileMenu.tsx:183
+#: src/components/MainLayout/_components/DesktopNav.tsx:233
+#: src/components/MainLayout/_components/MobileMenu.tsx:179
 #: src/components/MainLayout/Footer.tsx:54
 msgid "Contact"
 msgstr "Contact"
@@ -1138,7 +1138,7 @@ msgstr "Featured Articles"
 
 #: src/components/JurisdictionComparisonChart.tsx:146
 #: src/components/JurisdictionComparisonChart.tsx:269
-#: src/components/MainLayout/_components/DesktopNav.tsx:93
+#: src/components/MainLayout/_components/DesktopNav.tsx:92
 #: src/components/MainLayout/_components/MobileMenu.tsx:91
 msgid "Federal"
 msgstr "Federal"
@@ -1335,7 +1335,7 @@ msgstr "First Nation"
 
 #: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:59
 #: src/components/MainLayout/_components/DesktopNav.tsx:179
-#: src/components/MainLayout/_components/MobileMenu.tsx:153
+#: src/components/MainLayout/_components/MobileMenu.tsx:151
 msgid "First Nations"
 msgstr "First Nations"
 
@@ -1442,7 +1442,7 @@ msgstr "Get data-driven insights into how governmental revenue and spending affe
 msgid "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 msgstr "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:229
+#: src/components/MainLayout/_components/DesktopNav.tsx:225
 #: src/components/MainLayout/Footer.tsx:49
 msgid "Get Involved"
 msgstr "Get Involved"
@@ -1514,8 +1514,6 @@ msgstr "Government organizations"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:120
 #: src/app/[lang]/(main)/spending/page.tsx:111
-#: src/components/MainLayout/_components/DesktopNav.tsx:79
-#: src/components/MainLayout/_components/MobileMenu.tsx:83
 msgid "Government Spending"
 msgstr "Government Spending"
 
@@ -1996,8 +1994,8 @@ msgstr "It doesn't have to be this way."
 msgid "Join"
 msgstr "Join"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:257
-#: src/components/MainLayout/_components/MobileMenu.tsx:199
+#: src/components/MainLayout/_components/DesktopNav.tsx:253
+#: src/components/MainLayout/_components/MobileMenu.tsx:195
 msgid "Join Build Canada"
 msgstr "Join Build Canada"
 
@@ -2144,7 +2142,7 @@ msgstr "Most federal spending can be categorized as direct or indirect."
 msgid "Most federal spending can be categorized as direct or indirect. Direct spending refers to money the federal government spends on budget items such as federal programs, employee salaries, and debt interest. Indirect spending refers to federal transfers to other levels of government."
 msgstr "Most federal spending can be categorized as direct or indirect. Direct spending refers to money the federal government spends on budget items such as federal programs, employee salaries, and debt interest. Indirect spending refers to federal transfers to other levels of government."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:132
+#: src/components/MainLayout/_components/DesktopNav.tsx:131
 #: src/components/MainLayout/_components/MobileMenu.tsx:124
 msgid "Municipal"
 msgstr "Municipal"
@@ -2802,7 +2800,7 @@ msgstr "Province/Territory"
 
 #: src/components/JurisdictionComparisonChart.tsx:152
 #: src/components/JurisdictionComparisonChart.tsx:276
-#: src/components/MainLayout/_components/DesktopNav.tsx:108
+#: src/components/MainLayout/_components/DesktopNav.tsx:107
 #: src/components/MainLayout/_components/MobileMenu.tsx:107
 msgid "Provincial"
 msgstr "Provincial"
@@ -3169,6 +3167,8 @@ msgstr "Space"
 msgid "Speculation does not meet the level of a strong tip."
 msgstr "Speculation does not meet the level of a strong tip."
 
+#: src/components/MainLayout/_components/DesktopNav.tsx:78
+#: src/components/MainLayout/_components/MobileMenu.tsx:83
 #: src/components/Sankey/BudgetSankey.tsx:344
 #: src/components/Sankey/index.tsx:18
 msgid "Spending"
@@ -3182,8 +3182,8 @@ msgstr "Spending Breakdown Coming Soon"
 msgid "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 msgstr "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:195
-#: src/components/MainLayout/_components/MobileMenu.tsx:169
+#: src/components/MainLayout/_components/DesktopNav.tsx:191
+#: src/components/MainLayout/_components/MobileMenu.tsx:165
 msgid "Spending Database"
 msgstr "Spending Database"
 
@@ -3319,8 +3319,8 @@ msgstr "Tax Visualizer | Canada Spends"
 msgid "Tax Year"
 msgstr "Tax Year"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:189
-#: src/components/MainLayout/_components/MobileMenu.tsx:162
+#: src/components/MainLayout/_components/DesktopNav.tsx:185
+#: src/components/MainLayout/_components/MobileMenu.tsx:158
 msgid "Taxes"
 msgstr "Taxes"
 
@@ -3985,8 +3985,8 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "While not in the top 10 departments by spend, ISED accounted for 2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:245
-#: src/components/MainLayout/_components/MobileMenu.tsx:190
+#: src/components/MainLayout/_components/DesktopNav.tsx:241
+#: src/components/MainLayout/_components/MobileMenu.tsx:186
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"
 msgstr "Whistleblowers"

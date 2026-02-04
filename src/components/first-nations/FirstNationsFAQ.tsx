@@ -42,6 +42,18 @@ export function FirstNationsFAQ() {
       ),
     },
     {
+      question: "Why are there no Inuit nations from Nunavut?",
+      answer: (
+        <P>
+          Nunavut itself was created for the Inuit for their own self-governance
+          and is therefore exempt from the FNFTA. Nunavut was separated
+          officially from the Northwest Territories on April 1, 1999, via the
+          Nunavut Act and the Nunavut Land Claims Agreement Act, which provided
+          this territory to the Inuit for self-government.
+        </P>
+      ),
+    },
+    {
       question: "Why does this tool exist?",
       answer: (
         <P>

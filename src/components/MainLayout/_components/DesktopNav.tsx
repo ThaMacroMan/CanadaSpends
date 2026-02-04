@@ -62,7 +62,6 @@ export default function DesktopNav(props: DesktopNavProps) {
   const spendingActive =
     pathname.startsWith(`/${i18n.locale}/spending`) ||
     pathname.startsWith(`/${i18n.locale}/budget`) ||
-    pathname.startsWith(`/${i18n.locale}/first-nations`) ||
     (firstSegment ? jurisdictionSlugsSet.has(firstSegment) : false);
 
   return (
@@ -76,7 +75,7 @@ export default function DesktopNav(props: DesktopNavProps) {
                 : "text-gray-600 hover:text-black"
             }`}
           >
-            <Trans>Government Spending</Trans>
+            <Trans>Spending</Trans>
             <ChevronDown className="w-4 h-4" />
           </button>
         </DropdownMenu.Trigger>
@@ -170,18 +169,15 @@ export default function DesktopNav(props: DesktopNavProps) {
                 </DropdownMenu.SubContent>
               </DropdownMenu.Portal>
             </DropdownMenu.Sub>
-
-            <DropdownMenu.Item asChild>
-              <Link
-                href={`/${i18n.locale}/first-nations`}
-                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
-              >
-                <Trans>First Nations</Trans>
-              </Link>
-            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
+      <NavLink
+        href={`/${i18n.locale}/first-nations`}
+        active={pathname.startsWith(`/${i18n.locale}/first-nations`)}
+      >
+        <Trans>First Nations</Trans>
+      </NavLink>
       <NavLink
         href={`/${i18n.locale}/tax-visualizer`}
         active={pathname === `/${i18n.locale}/tax-visualizer`}

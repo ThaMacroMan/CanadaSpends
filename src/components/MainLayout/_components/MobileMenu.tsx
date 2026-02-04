@@ -80,7 +80,7 @@ export function MobileMenu(props: MobileMenuProps) {
       <div className="px-2 pt-2 pb-3 space-y-1">
         {/* Government Spending Submenu */}
         <p className="px-3 pt-3 text-base font-medium text-muted-foreground">
-          <Trans>Government Spending</Trans>
+          <Trans>Spending</Trans>
         </p>
         <MobileNavLink
           href={`/${i18n.locale}/spending`}
@@ -143,17 +143,13 @@ export function MobileMenu(props: MobileMenuProps) {
           </div>
         ))}
 
-        {/* First Nations */}
         <MobileNavLink
           href={`/${i18n.locale}/first-nations`}
           active={pathname.startsWith(`/${i18n.locale}/first-nations`)}
           onClick={() => setIsMenuOpen(false)}
         >
-          <span className="pl-4 inline-block">
-            <Trans>First Nations</Trans>
-          </span>
+          <Trans>First Nations</Trans>
         </MobileNavLink>
-
         <MobileNavLink
           href={`/${i18n.locale}/tax-visualizer`}
           active={pathname === `/${i18n.locale}/tax-visualizer`}
