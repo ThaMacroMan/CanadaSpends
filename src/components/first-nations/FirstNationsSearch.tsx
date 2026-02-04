@@ -309,6 +309,39 @@ function FirstNationRow({
       ? `${firstNation.populationYear} On-Reserve Population: ${firstNation.populationOnReserve.toLocaleString()}`
       : null;
 
+  // Find the index of the last year with data
+  const lastYearWithDataIndex = displayYears.reduce((lastIdx, year, idx) => {
+    const hasData = firstNation.availableYears.includes(year);
+    return hasData ? idx : lastIdx;
+  }, -1);
+
+  // Determine if we need a merged cell and how many columns it spans
+  const needsMergedCell =
+    (firstNation.isSubBand || firstNation.isSelfGoverned) &&
+    lastYearWithDataIndex < displayYears.length - 1;
+  const mergedColSpan = displayYears.length - lastYearWithDataIndex - 1;
+
+  // Generate the message content for merged cell
+  const renderMergedMessage = () => {
+    if (firstNation.isSubBand) {
+      if (firstNation.parentBandBcid && firstNation.parentBandName) {
+        return (
+          <>
+            {firstNation.name} reports their financial statements under{" "}
+            <Link
+              href={`/${lang}/first-nations/${firstNation.parentBandBcid}`}
+              className="text-auburn-700 hover:text-auburn-900 hover:underline not-italic"
+            >
+              {firstNation.parentBandName}
+            </Link>
+          </>
+        );
+      }
+      return `${firstNation.name} reports their financial statements under a different band`;
+    }
+    return `${firstNation.name} is a self governing first nation under ${firstNation.membershipAuthority || "their membership authority"} and is exempt from the FNFTA`;
+  };
+
   return (
     <tr className="hover:bg-gray-50 group">
       <td className="sticky left-0 z-20 bg-white px-4 py-3 group-hover:bg-gray-50 w-[250px] max-w-[250px]">
@@ -327,7 +360,8 @@ function FirstNationRow({
       <td className="sticky left-[250px] z-20 bg-white px-4 py-3 text-sm text-gray-600 border-r border-gray-200 w-[60px] group-hover:bg-gray-50 shadow-[inset_1px_0_0_0_rgb(229,231,235)]">
         {firstNation.province || "-"}
       </td>
-      {displayYears.map((year) => {
+      {/* Render year cells up to and including lastYearWithDataIndex */}
+      {displayYears.slice(0, lastYearWithDataIndex + 1).map((year) => {
         const chunkTypes = firstNation.availableChunkTypes[year] || [];
         const hasFS =
           chunkTypes.includes("statement_of_operations") ||
@@ -341,6 +375,31 @@ function FirstNationRow({
           </td>
         );
       })}
+      {/* Render merged cell for remaining years if sub-band or self-governed */}
+      {needsMergedCell && (
+        <td
+          colSpan={mergedColSpan}
+          className="text-gray-500 italic text-sm px-3 py-3 text-left"
+        >
+          {renderMergedMessage()}
+        </td>
+      )}
+      {/* If not sub-band/self-governed, render remaining year cells normally */}
+      {!needsMergedCell &&
+        displayYears.slice(lastYearWithDataIndex + 1).map((year) => {
+          const chunkTypes = firstNation.availableChunkTypes[year] || [];
+          const hasFS =
+            chunkTypes.includes("statement_of_operations") ||
+            chunkTypes.includes("statement_of_financial_position");
+          const hasR = chunkTypes.includes("remuneration");
+          const href = `/${lang}/first-nations/${firstNation.bcid}/${year}`;
+
+          return (
+            <td key={year} className="px-3 py-3 text-center">
+              <DataIndicator hasFS={hasFS} hasR={hasR} href={href} />
+            </td>
+          );
+        })}
     </tr>
   );
 }

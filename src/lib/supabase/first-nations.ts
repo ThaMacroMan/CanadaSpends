@@ -28,6 +28,11 @@ function toFirstNationInfo(
       .map((y) => String(y))
       .sort((a, b) => Number(b) - Number(a)),
     availableChunkTypes: row.chunk_types_by_year,
+    membershipAuthority: row.membership_authority,
+    isSubBand: row.is_sub_band,
+    isSelfGoverned: row.is_self_governed,
+    parentBandBcid: row.parent_band_bcid,
+    parentBandName: row.parent_band_name,
   };
 }
 
@@ -38,7 +43,7 @@ export async function getPopulationData(): Promise<
   Map<string, PopulationSummary>
 > {
   const data = await supabaseFetch<PopulationSummary[]>(
-    "population_summary_by_band?select=bcid,latest_year,pop_on_reserve_total",
+    "population_summary_by_band?select=bcid,latest_year,pop_on_reserve_total,pop_total_total",
   );
 
   const populationMap = new Map<string, PopulationSummary>();
@@ -65,6 +70,8 @@ export async function getAllFirstNations(): Promise<FirstNationInfo[]> {
       firstNation.populationYear = population.latest_year;
       firstNation.populationOnReserve =
         population.pop_on_reserve_total ?? undefined;
+      firstNation.populationRegistered =
+        population.pop_total_total ?? undefined;
     }
     return firstNation;
   });
@@ -79,15 +86,31 @@ export async function getAllFirstNations(): Promise<FirstNationInfo[]> {
 export async function getFirstNationById(
   bcid: string,
 ): Promise<FirstNationInfo | null> {
-  const data = await supabaseFetch<ExtractionAvailabilityResponse[]>(
-    `extraction_availability?bcid=eq.${encodeURIComponent(bcid)}`,
-  );
+  const [data, populationData] = await Promise.all([
+    supabaseFetch<ExtractionAvailabilityResponse[]>(
+      `extraction_availability?bcid=eq.${encodeURIComponent(bcid)}`,
+    ),
+    supabaseFetch<PopulationSummary[]>(
+      `population_summary_by_band?bcid=eq.${encodeURIComponent(bcid)}&select=bcid,latest_year,pop_on_reserve_total,pop_total_total`,
+    ),
+  ]);
 
   if (data.length === 0) {
     return null;
   }
 
-  return toFirstNationInfo(data[0]);
+  const firstNation = toFirstNationInfo(data[0]);
+
+  // Add population data if available
+  if (populationData.length > 0) {
+    const population = populationData[0];
+    firstNation.populationYear = population.latest_year;
+    firstNation.populationOnReserve =
+      population.pop_on_reserve_total ?? undefined;
+    firstNation.populationRegistered = population.pop_total_total ?? undefined;
+  }
+
+  return firstNation;
 }
 
 /**
@@ -188,7 +211,12 @@ export async function getFirstNationLatestYear(
 export async function getFirstNationPopulationHistory(
   bcid: string,
 ): Promise<FirstNationsPopulation[]> {
-  return supabaseFetch<FirstNationsPopulation[]>(
-    `first_nations_population?bcid=eq.${encodeURIComponent(bcid)}&order=year.asc`,
-  );
+  try {
+    return await supabaseFetch<FirstNationsPopulation[]>(
+      `first_nations_population?bcid=eq.${encodeURIComponent(bcid)}&order=year.asc`,
+    );
+  } catch {
+    // Return empty array if population data is not available
+    return [];
+  }
 }
