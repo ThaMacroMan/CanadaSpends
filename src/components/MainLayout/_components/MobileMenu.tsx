@@ -12,7 +12,15 @@ interface MobileMenuButtonProps {
 export function MobileMenuButton(props: MobileMenuButtonProps) {
   const { isMenuOpen, setIsMenuOpen } = props;
   return (
-    <div className="flex md:hidden">
+    <div className="flex md:hidden items-center gap-2">
+      <a
+        href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile&utm_campaign=transparency"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary text-primary-foreground px-3 py-1.5 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors"
+      >
+        <Trans>Join Build Canada</Trans>
+      </a>
       <button
         type="button"
         className="p-2 text-gray-700"
@@ -181,6 +189,15 @@ export function MobileMenu(props: MobileMenuProps) {
         >
           <Trans>Whistleblowers</Trans>
         </MobileNavLink>
+        <a
+          href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile_menu&utm_campaign=transparency"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block mx-3 mt-4 bg-primary text-primary-foreground px-4 py-2 rounded-md text-base font-semibold text-center hover:bg-primary/90 transition-colors"
+          onClick={() => setIsMenuOpen(false)}
+        >
+          <Trans>Join Build Canada</Trans>
+        </a>
       </div>
     </div>
   );

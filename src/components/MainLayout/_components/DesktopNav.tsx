@@ -237,15 +237,25 @@ export default function DesktopNav(props: DesktopNavProps) {
                 <Trans>Contact</Trans>
               </Link>
             </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/whistleblowers`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Whistleblowers</Trans>
+              </Link>
+            </DropdownMenu.Item>
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
-      <NavLink
-        href={`/${i18n.locale}/whistleblowers`}
-        active={pathname === `/${i18n.locale}/whistleblowers`}
+      <a
+        href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-semibold hover:bg-primary/90 transition-colors"
       >
-        <Trans>Whistleblowers</Trans>
-      </NavLink>
+        <Trans>Join Build Canada</Trans>
+      </a>
     </nav>
   );
 }

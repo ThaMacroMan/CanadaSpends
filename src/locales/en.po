@@ -62,7 +62,7 @@ msgstr "{0} Government Workforce"
 
 #. placeholder {0}: firstNation.name
 #. placeholder {1}: firstNation.province ? ` in ${firstNation.province}` : ""
-#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:58
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:108
 msgid "{0} is a First Nation{1}."
 msgstr "{0} is a First Nation{1}."
 
@@ -76,6 +76,11 @@ msgstr "{0} of federal income tax"
 #: src/components/JurisdictionPageContent.tsx:357
 msgid "{0}'s Revenue and Spending in Financial Year {1}"
 msgstr "{0}'s Revenue and Spending in Financial Year {1}"
+
+#. placeholder {0}: firstNation.name
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:62
+msgid "{0}{provinceSuffix} - No financial data is currently available under the First Nations Financial Transparency Act."
+msgstr "{0}{provinceSuffix} - No financial data is currently available under the First Nations Financial Transparency Act."
 
 #: src/app/[lang]/(main)/municipal/[province]/[municipality]/[year]/departments/[department]/page.tsx:124
 #: src/app/[lang]/(main)/municipal/[province]/[municipality]/[year]/departments/[department]/page.tsx:161
@@ -200,7 +205,7 @@ msgid "A significant portion of GAC's budget supports Canada's international dev
 msgstr "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:206
-#: src/components/MainLayout/_components/MobileMenu.tsx:168
+#: src/components/MainLayout/_components/MobileMenu.tsx:176
 msgid "About"
 msgstr "About"
 
@@ -470,12 +475,12 @@ msgstr "British Columbia HTP"
 msgid "British Columbia STP"
 msgstr "British Columbia STP"
 
-#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:83
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:133
 msgid "Browse all First Nations"
 msgstr "Browse all First Nations"
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:102
-#: src/components/MainLayout/_components/MobileMenu.tsx:93
+#: src/components/MainLayout/_components/MobileMenu.tsx:101
 msgid "Budget"
 msgstr "Budget"
 
@@ -662,7 +667,7 @@ msgid "Connect with us"
 msgstr "Connect with us"
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:237
-#: src/components/MainLayout/_components/MobileMenu.tsx:175
+#: src/components/MainLayout/_components/MobileMenu.tsx:183
 #: src/components/MainLayout/Footer.tsx:54
 msgid "Contact"
 msgstr "Contact"
@@ -1048,9 +1053,17 @@ msgstr "Explore federal employee salary distribution by year and demographic gro
 msgid "Explore Federal Spending"
 msgstr "Explore Federal Spending"
 
-#: src/app/[lang]/(main)/first-nations/page.tsx:36
+#: src/app/[lang]/(main)/first-nations/page.tsx:37
+msgid "Explore financial data from First Nations across Canada under the First Nations Financial Transparency Act."
+msgstr "Explore financial data from First Nations across Canada under the First Nations Financial Transparency Act."
+
+#: src/app/[lang]/(main)/first-nations/page.tsx:61
 msgid "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
 msgstr "Explore financial data from First Nations across Canada. Data is extracted from annual reports published under the First Nations Financial Transparency Act (FNFTA), including statements of operations, financial position, and remuneration."
+
+#: src/app/[lang]/(main)/first-nations/page.tsx:33
+msgid "Explore financial data from First Nations across Canada. View statements of operations, financial positions, and remuneration from annual reports published under the First Nations Financial Transparency Act (FNFTA)."
+msgstr "Explore financial data from First Nations across Canada. View statements of operations, financial positions, and remuneration from annual reports published under the First Nations Financial Transparency Act (FNFTA)."
 
 #: src/app/[lang]/(main)/page.tsx:75
 msgid "Explore First Nations"
@@ -1114,7 +1127,7 @@ msgstr "Featured Articles"
 #: src/components/JurisdictionComparisonChart.tsx:146
 #: src/components/JurisdictionComparisonChart.tsx:269
 #: src/components/MainLayout/_components/DesktopNav.tsx:93
-#: src/components/MainLayout/_components/MobileMenu.tsx:83
+#: src/components/MainLayout/_components/MobileMenu.tsx:91
 msgid "Federal"
 msgstr "Federal"
 
@@ -1275,7 +1288,7 @@ msgstr "Finance Type"
 msgid "Financial data for {0} for fiscal year {fiscalYear}. {1} is a First Nation in {2}{3}. Information is extracted from publicly available annual reports published under the First Nations Financial Transparency Act."
 msgstr "Financial data for {0} for fiscal year {fiscalYear}. {1} is a First Nation in {2}{3}. Information is extracted from publicly available annual reports published under the First Nations Financial Transparency Act."
 
-#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:72
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:122
 msgid "Financial data from annual reports published under the First Nations Financial Transparency Act will appear here once available."
 msgstr "Financial data from annual reports published under the First Nations Financial Transparency Act will appear here once available."
 
@@ -1308,8 +1321,9 @@ msgstr "First"
 msgid "First Nation"
 msgstr "First Nation"
 
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:59
 #: src/components/MainLayout/_components/DesktopNav.tsx:179
-#: src/components/MainLayout/_components/MobileMenu.tsx:145
+#: src/components/MainLayout/_components/MobileMenu.tsx:153
 msgid "First Nations"
 msgstr "First Nations"
 
@@ -1325,9 +1339,14 @@ msgstr "First Nations and Inuit Primary Health Care"
 msgid "First Nations Elementary and Secondary Educational Advancement"
 msgstr "First Nations Elementary and Secondary Educational Advancement"
 
-#: src/app/[lang]/(main)/first-nations/page.tsx:33
+#: src/app/[lang]/(main)/first-nations/page.tsx:58
 msgid "First Nations Financial Data"
 msgstr "First Nations Financial Data"
+
+#: src/app/[lang]/(main)/first-nations/page.tsx:32
+#: src/app/[lang]/(main)/first-nations/page.tsx:36
+msgid "First Nations Financial Data | Canada Spends"
+msgstr "First Nations Financial Data | Canada Spends"
 
 #: src/app/[lang]/(main)/spending/department-of-finance/MiniSankey.tsx:27
 msgid "Fiscal arrangements"
@@ -1484,7 +1503,7 @@ msgstr "Government organizations"
 #: src/app/[lang]/(main)/federal/spending/page.tsx:120
 #: src/app/[lang]/(main)/spending/page.tsx:111
 #: src/components/MainLayout/_components/DesktopNav.tsx:79
-#: src/components/MainLayout/_components/MobileMenu.tsx:75
+#: src/components/MainLayout/_components/MobileMenu.tsx:83
 msgid "Government Spending"
 msgstr "Government Spending"
 
@@ -1961,6 +1980,12 @@ msgstr "ISED spent $10.2 billion in fiscal year (FY) 2024. This was 2% of the $5
 msgid "It doesn't have to be this way."
 msgstr "It doesn't have to be this way."
 
+#: src/components/MainLayout/_components/DesktopNav.tsx:257
+#: src/components/MainLayout/_components/MobileMenu.tsx:22
+#: src/components/MainLayout/_components/MobileMenu.tsx:199
+msgid "Join Build Canada"
+msgstr "Join Build Canada"
+
 #: src/components/Sankey/index.tsx:282
 msgid "Justice System"
 msgstr "Justice System"
@@ -2105,7 +2130,7 @@ msgid "Most federal spending can be categorized as direct or indirect. Direct sp
 msgstr "Most federal spending can be categorized as direct or indirect. Direct spending refers to money the federal government spends on budget items such as federal programs, employee salaries, and debt interest. Indirect spending refers to federal transfers to other levels of government."
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:132
-#: src/components/MainLayout/_components/MobileMenu.tsx:116
+#: src/components/MainLayout/_components/MobileMenu.tsx:124
 msgid "Municipal"
 msgstr "Municipal"
 
@@ -2220,7 +2245,7 @@ msgid "No content available."
 msgstr "No content available."
 
 #. placeholder {0}: firstNation.name
-#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:67
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:117
 msgid "No financial data is currently available for {0}."
 msgstr "No financial data is currently available for {0}."
 
@@ -2763,7 +2788,7 @@ msgstr "Province/Territory"
 #: src/components/JurisdictionComparisonChart.tsx:152
 #: src/components/JurisdictionComparisonChart.tsx:276
 #: src/components/MainLayout/_components/DesktopNav.tsx:108
-#: src/components/MainLayout/_components/MobileMenu.tsx:99
+#: src/components/MainLayout/_components/MobileMenu.tsx:107
 msgid "Provincial"
 msgstr "Provincial"
 
@@ -3143,7 +3168,7 @@ msgid "Spending data is not yet available for this province and year combination
 msgstr "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 
 #: src/components/MainLayout/_components/DesktopNav.tsx:195
-#: src/components/MainLayout/_components/MobileMenu.tsx:161
+#: src/components/MainLayout/_components/MobileMenu.tsx:169
 msgid "Spending Database"
 msgstr "Spending Database"
 
@@ -3253,7 +3278,7 @@ msgstr "Tax bracket"
 msgid "Tax calculations are based on {year} federal and provincial tax brackets."
 msgstr "Tax calculations are based on {year} federal and provincial tax brackets."
 
-#: src/components/MainLayout/_components/MobileMenu.tsx:154
+#: src/components/MainLayout/_components/MobileMenu.tsx:162
 msgid "Tax Calculator"
 msgstr "Tax Calculator"
 
@@ -3740,6 +3765,11 @@ msgstr "Veterans Affairs Canada (VAC) is led by the Minister of Veterans Affairs
 msgid "Veterans Affairs Canada | Canada Spends"
 msgstr "Veterans Affairs Canada | Canada Spends"
 
+#. placeholder {0}: firstNation.name
+#: src/app/[lang]/(main)/first-nations/[bcid]/[year]/page.tsx:59
+msgid "View {year} financial statements for {0}{provinceSuffix}. Includes statement of operations, financial position, and remuneration data from the First Nations Financial Transparency Act annual report."
+msgstr "View {year} financial statements for {0}{provinceSuffix}. Includes statement of operations, financial position, and remuneration data from the First Nations Financial Transparency Act annual report."
+
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:744
 #: src/components/TaxBreakdownAccordion.tsx:100
 msgid "View detailed tax breakdown"
@@ -3748,6 +3778,11 @@ msgstr "View detailed tax breakdown"
 #: src/app/[lang]/(main)/federal/budget/page.tsx:174
 msgid "View Federal 2025 Budget Details"
 msgstr "View Federal 2025 Budget Details"
+
+#. placeholder {0}: firstNation.name
+#: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:61
+msgid "View financial data for {0}{provinceSuffix} from the First Nations Financial Transparency Act annual reports."
+msgstr "View financial data for {0}{provinceSuffix} from the First Nations Financial Transparency Act annual reports."
 
 #: src/components/first-nations/FirstNationsYearSelector.tsx:26
 msgid "View Other Fiscal Years"
@@ -3930,8 +3965,8 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "While not in the top 10 departments by spend, ISED accounted for 2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:247
-#: src/components/MainLayout/_components/MobileMenu.tsx:182
+#: src/components/MainLayout/_components/DesktopNav.tsx:245
+#: src/components/MainLayout/_components/MobileMenu.tsx:190
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"
 msgstr "Whistleblowers"
