@@ -11,10 +11,12 @@ const NavLink = memo(
     href,
     children,
     active = false,
+    className = "",
   }: {
     href: string;
     children: React.ReactNode;
     active?: boolean;
+    className?: string;
   }) => {
     return (
       <Link
@@ -23,7 +25,7 @@ const NavLink = memo(
           active
             ? "text-foreground after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-foreground"
             : "text-muted-foreground/80 hover:text-foreground"
-        }`}
+        } ${className}`}
       >
         {children}
       </Link>
@@ -178,15 +180,57 @@ export default function DesktopNav(props: DesktopNavProps) {
       >
         <Trans>First Nations</Trans>
       </NavLink>
+      {/* Tools dropdown - shown below 1050px */}
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger asChild>
+          <button
+            className={`relative py-2 text-sm font-medium flex min-[1050px]:hidden items-center gap-1 ${
+              pathname === `/${i18n.locale}/tax-visualizer` ||
+              pathname === `/${i18n.locale}/search`
+                ? "text-black after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black"
+                : "text-gray-600 hover:text-black"
+            }`}
+          >
+            <Trans>Tools</Trans>
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            className="bg-popover rounded-md shadow-lg p-1 flex flex-col min-w-37.5 z-200"
+            sideOffset={4}
+          >
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/tax-visualizer`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Taxes</Trans>
+              </Link>
+            </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/search`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Spending Database</Trans>
+              </Link>
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+      {/* Individual links - shown above 1050px */}
       <NavLink
         href={`/${i18n.locale}/tax-visualizer`}
         active={pathname === `/${i18n.locale}/tax-visualizer`}
+        className="hidden min-[1050px]:block"
       >
         <Trans>Taxes</Trans>
       </NavLink>
       <NavLink
         href={`/${i18n.locale}/search`}
         active={pathname === `/${i18n.locale}/search`}
+        className="hidden min-[1050px]:block"
       >
         <Trans>Spending Database</Trans>
       </NavLink>

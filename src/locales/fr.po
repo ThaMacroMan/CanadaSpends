@@ -204,7 +204,7 @@ msgstr "Un aperçu de la façon dont Anciens Combattants Canada dépense son bud
 msgid "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 msgstr "Une partie importante du budget d'AMC soutient l'aide au développement international du Canada, avec des programmes clés axés sur l'adaptation au climat, l'égalité des genres et les initiatives de santé dans les pays en développement. Le ministère facilite également la diplomatie économique et les accords commerciaux qui profitent aux entreprises canadiennes et sécurisent les opportunités d'investissement à l'étranger."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:202
+#: src/components/MainLayout/_components/DesktopNav.tsx:246
 #: src/components/MainLayout/_components/MobileMenu.tsx:172
 msgid "About"
 msgstr "À propos"
@@ -213,7 +213,7 @@ msgstr "À propos"
 msgid "About GlobaLeaks"
 msgstr "À propos de GlobaLeaks"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:216
+#: src/components/MainLayout/_components/DesktopNav.tsx:260
 #: src/components/MainLayout/Footer.tsx:41
 msgid "About Us"
 msgstr "À propos de nous"
@@ -479,7 +479,7 @@ msgstr "TCS Colombie-Britannique"
 msgid "Browse all First Nations"
 msgstr "Parcourir toutes les Premières Nations"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:101
+#: src/components/MainLayout/_components/DesktopNav.tsx:103
 #: src/components/MainLayout/_components/MobileMenu.tsx:101
 msgid "Budget"
 msgstr "Budget"
@@ -666,7 +666,7 @@ msgstr "Connectez-vous depuis un réseau public comme un café ou une bibliothè
 msgid "Connect with us"
 msgstr "Connectez-vous avec nous"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:233
+#: src/components/MainLayout/_components/DesktopNav.tsx:277
 #: src/components/MainLayout/_components/MobileMenu.tsx:179
 #: src/components/MainLayout/Footer.tsx:54
 msgid "Contact"
@@ -1138,7 +1138,7 @@ msgstr "Articles en vedette"
 
 #: src/components/JurisdictionComparisonChart.tsx:146
 #: src/components/JurisdictionComparisonChart.tsx:269
-#: src/components/MainLayout/_components/DesktopNav.tsx:92
+#: src/components/MainLayout/_components/DesktopNav.tsx:94
 #: src/components/MainLayout/_components/MobileMenu.tsx:91
 msgid "Federal"
 msgstr "Fédéral"
@@ -1334,7 +1334,7 @@ msgid "First Nation"
 msgstr "Première Nation"
 
 #: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:59
-#: src/components/MainLayout/_components/DesktopNav.tsx:179
+#: src/components/MainLayout/_components/DesktopNav.tsx:181
 #: src/components/MainLayout/_components/MobileMenu.tsx:151
 msgid "First Nations"
 msgstr "Premières Nations"
@@ -1442,7 +1442,7 @@ msgstr "Obtenez des analyses basées sur les données sur la façon dont les rev
 msgid "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 msgstr "Obtenez des analyses basées sur les données sur la façon dont les revenus et les dépenses du gouvernement de {0} affectent les résidents et les programmes de {1}."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:225
+#: src/components/MainLayout/_components/DesktopNav.tsx:269
 #: src/components/MainLayout/Footer.tsx:49
 msgid "Get Involved"
 msgstr "Impliquez-vous"
@@ -1994,7 +1994,7 @@ msgstr "Ça ne doit pas être comme ça."
 msgid "Join"
 msgstr "Rejoindre"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:253
+#: src/components/MainLayout/_components/DesktopNav.tsx:297
 #: src/components/MainLayout/_components/MobileMenu.tsx:195
 msgid "Join Build Canada"
 msgstr "Rejoindre Build Canada"
@@ -2142,7 +2142,7 @@ msgstr "La plupart des dépenses fédérales peuvent être classées comme direc
 msgid "Most federal spending can be categorized as direct or indirect. Direct spending refers to money the federal government spends on budget items such as federal programs, employee salaries, and debt interest. Indirect spending refers to federal transfers to other levels of government."
 msgstr "La plupart des dépenses fédérales peuvent être classées comme directes ou indirectes. Les dépenses directes font référence à l'argent que le gouvernement fédéral dépense pour des postes budgétaires tels que les programmes fédéraux, les salaires des employés et les intérêts sur la dette. Les dépenses indirectes font référence aux transferts fédéraux vers d'autres niveaux de gouvernement."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:131
+#: src/components/MainLayout/_components/DesktopNav.tsx:133
 #: src/components/MainLayout/_components/MobileMenu.tsx:124
 msgid "Municipal"
 msgstr "Municipal"
@@ -2800,7 +2800,7 @@ msgstr "Province/Territoire"
 
 #: src/components/JurisdictionComparisonChart.tsx:152
 #: src/components/JurisdictionComparisonChart.tsx:276
-#: src/components/MainLayout/_components/DesktopNav.tsx:107
+#: src/components/MainLayout/_components/DesktopNav.tsx:109
 #: src/components/MainLayout/_components/MobileMenu.tsx:107
 msgid "Provincial"
 msgstr "Provincial"
@@ -3167,7 +3167,7 @@ msgstr "Espace"
 msgid "Speculation does not meet the level of a strong tip."
 msgstr "La spéculation n'atteint pas le niveau d'une information solide."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:78
+#: src/components/MainLayout/_components/DesktopNav.tsx:80
 #: src/components/MainLayout/_components/MobileMenu.tsx:83
 #: src/components/Sankey/BudgetSankey.tsx:344
 #: src/components/Sankey/index.tsx:18
@@ -3182,7 +3182,8 @@ msgstr "Répartition des dépenses à venir"
 msgid "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 msgstr "Les données de dépenses ne sont pas encore disponibles pour cette combinaison de province et d'année. Le calcul de l'impôt sur le revenu ci-dessus reste exact selon les taux d'imposition de {year}."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:191
+#: src/components/MainLayout/_components/DesktopNav.tsx:216
+#: src/components/MainLayout/_components/DesktopNav.tsx:235
 #: src/components/MainLayout/_components/MobileMenu.tsx:165
 msgid "Spending Database"
 msgstr "Base de données des dépenses"
@@ -3319,7 +3320,8 @@ msgstr "Visualiseur d'impôt | Canada Spends"
 msgid "Tax Year"
 msgstr "Année d'imposition"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:185
+#: src/components/MainLayout/_components/DesktopNav.tsx:208
+#: src/components/MainLayout/_components/DesktopNav.tsx:228
 #: src/components/MainLayout/_components/MobileMenu.tsx:158
 msgid "Taxes"
 msgstr "Impôts"
@@ -3536,6 +3538,10 @@ msgstr "Par l'intermédiaire de l'Agence de la santé publique du Canada (ASPC),
 #: src/app/[lang]/(main)/about/faq.tsx:74
 msgid "to help us support our mission."
 msgstr "pour nous aider à soutenir notre mission."
+
+#: src/components/MainLayout/_components/DesktopNav.tsx:194
+msgid "Tools"
+msgstr "Outils"
 
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:261
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:398
@@ -3985,7 +3991,7 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "Bien que ne figurant pas parmi les 10 premiers ministères en termes de dépenses, ISIC représentait 2 % de toutes les dépenses fédérales pour l'exercice 2024. 10 ministères gouvernementaux représentaient 73,2 % des dépenses fédérales pour l'exercice 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:241
+#: src/components/MainLayout/_components/DesktopNav.tsx:285
 #: src/components/MainLayout/_components/MobileMenu.tsx:186
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"

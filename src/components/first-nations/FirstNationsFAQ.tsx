@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/Accordion";
 import { ExternalLink, P } from "@/components/Layout";
+import { Trans } from "@lingui/react/macro";
 
 export function FirstNationsFAQ() {
   const faqs = [
@@ -42,14 +43,16 @@ export function FirstNationsFAQ() {
       ),
     },
     {
-      question: "Why are there no Inuit nations from Nunavut?",
+      question: <Trans>Why are there no Inuit nations from Nunavut?</Trans>,
       answer: (
         <P>
-          Nunavut itself was created for the Inuit for their own self-governance
-          and is therefore exempt from the FNFTA. Nunavut was separated
-          officially from the Northwest Territories on April 1, 1999, via the
-          Nunavut Act and the Nunavut Land Claims Agreement Act, which provided
-          this territory to the Inuit for self-government.
+          <Trans>
+            Nunavut itself was created for the Inuit for their own
+            self-governance and is therefore exempt from the FNFTA. Nunavut was
+            separated officially from the Northwest Territories on April 1,
+            1999, via the Nunavut Act and the Nunavut Land Claims Agreement Act,
+            which provided this territory to the Inuit for self-government.
+          </Trans>
         </P>
       ),
     },
