@@ -12,7 +12,7 @@ interface MobileMenuButtonProps {
 export function MobileMenuButton(props: MobileMenuButtonProps) {
   const { isMenuOpen, setIsMenuOpen } = props;
   return (
-    <div className="flex md:hidden items-center gap-2">
+    <div className="flex min-[900px]:hidden items-center gap-2">
       <a
         href="https://buildcanada.com/get-involved?utm_source=canadaspends&utm_medium=header_mobile&utm_campaign=transparency"
         target="_blank"
@@ -76,7 +76,7 @@ export function MobileMenu(props: MobileMenuProps) {
   const { pathname, setIsMenuOpen, provinces, municipalitiesByProvince } =
     props;
   return (
-    <div className="md:hidden border-t border-border">
+    <div className="min-[900px]:hidden border-t border-border">
       <div className="px-2 pt-2 pb-3 space-y-1">
         {/* Government Spending Submenu */}
         <p className="px-3 pt-3 text-base font-medium text-muted-foreground">

@@ -67,7 +67,7 @@ export default function DesktopNav(props: DesktopNavProps) {
     (firstSegment ? jurisdictionSlugsSet.has(firstSegment) : false);
 
   return (
-    <nav className="hidden md:flex items-center space-x-8">
+    <nav className="hidden min-[900px]:flex items-center space-x-8">
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button
