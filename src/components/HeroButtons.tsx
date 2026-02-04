@@ -21,12 +21,12 @@ export function HeroButtons({
   const { i18n } = useLingui();
 
   const buttonBaseClass =
-    "items-center font-medium justify-center py-2 px-4 relative flex w-full sm:w-auto min-w-28 max-w-full overflow-hidden";
+    "items-center font-medium justify-center py-3 px-4 relative flex w-full overflow-hidden";
   const primaryButtonClass = `${buttonBaseClass} text-card bg-lake-700 hover:bg-lake-800`;
   const secondaryButtonClass = `${buttonBaseClass} bg-accent text-accent-foreground border-border border-2 hover:bg-muted`;
 
   return (
-    <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4 w-full sm:w-auto justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-2xl">
       {/* Federal Spending */}
       <Link className={primaryButtonClass} href={`/${i18n.locale}/spending`}>
         <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
