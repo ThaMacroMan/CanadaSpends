@@ -251,7 +251,7 @@ export function FirstNationsSearch({
             ref={tableContainerRef}
             className="relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200 flex justify-center"
           >
-            <table className="divide-y divide-gray-200">
+            <table className="divide-y divide-gray-200 table-fixed">
               <thead className="bg-gray-50 sticky top-0 z-20 shadow-sm">
                 <tr>
                   <th
@@ -270,7 +270,7 @@ export function FirstNationsSearch({
                     <th
                       key={year}
                       scope="col"
-                      className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider min-w-[80px]"
+                      className="px-3 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider w-[80px]"
                     >
                       {formatFiscalYearShort(year)}
                     </th>
