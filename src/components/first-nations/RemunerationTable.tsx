@@ -1,13 +1,13 @@
 "use client";
 
 import { Trans } from "@lingui/react/macro";
-import type { Remuneration } from "@/lib/supabase/types";
+import type { Remuneration, RemunerationEntry } from "@/lib/supabase/types";
 
 interface RemunerationTableProps {
   data: Remuneration;
 }
 
-function formatCurrency(value: number | undefined): string {
+function formatCurrency(value: number | undefined | null): string {
   if (value === undefined || value === null) {
     return "-";
   }
@@ -19,6 +19,26 @@ function formatCurrency(value: number | undefined): string {
   }).format(value);
 }
 
+function calculateRowTotal(entry: RemunerationEntry): number {
+  // Use row_total if available
+  if (entry.row_total !== null && entry.row_total !== undefined) {
+    return entry.row_total;
+  }
+  // Use values.total if available
+  if (entry.values.total !== undefined) {
+    return entry.values.total;
+  }
+  // Calculate from values if neither is available (exclude 'total' key)
+  return Object.entries(entry.values).reduce<number>(
+    (sum, [key, val]) => (key === "total" ? sum : sum + (val || 0)),
+    0,
+  );
+}
+
+function calculateSubtotal(entries: RemunerationEntry[]): number {
+  return entries.reduce((sum, entry) => sum + calculateRowTotal(entry), 0);
+}
+
 export function RemunerationTable({ data }: RemunerationTableProps) {
   if (!data.entries || data.entries.length === 0) {
     return (
@@ -28,107 +48,209 @@ export function RemunerationTable({ data }: RemunerationTableProps) {
     );
   }
 
-  // Determine which columns to show based on the data
-  const hasHonorarium = data.entries.some(
-    (e) => e.values.honorarium !== undefined,
+  // Split entries into remuneration (individual) and expenses (collective)
+  const remunerationEntries = data.entries.filter(
+    (e) => !e.is_collective_expense,
   );
-  const hasContract = data.entries.some((e) => e.values.contract !== undefined);
-  const hasSalary = data.entries.some((e) => e.values.salary !== undefined);
-  const hasTravel = data.entries.some((e) => e.values.travel !== undefined);
+  const expenseEntries = data.entries.filter((e) => e.is_collective_expense);
+
+  // Calculate subtotals
+  const remunerationSubtotal = calculateSubtotal(remunerationEntries);
+  const expensesSubtotal = calculateSubtotal(expenseEntries);
+  const grandTotal = remunerationSubtotal + expensesSubtotal;
+
+  // Check if we have both sections
+  const hasBothSections =
+    remunerationEntries.length > 0 && expenseEntries.length > 0;
+
+  // Check if any entries have months
+  const hasMonths = data.entries.some((e) => e.months !== undefined);
+
+  // Get column keys from the data.columns array
+  const columnKeys = data.columns.map((col) => col.normalized_key);
+
+  // Check if data has a total column
+  const hasTotalColumn = columnKeys.includes("total");
+
+  // Helper to get column header
+  const getColumnHeader = (key: string): string => {
+    const col = data.columns.find((c) => c.normalized_key === key);
+    if (col) {
+      // Remove footnote references like (2), (3) from headers
+      return col.header.replace(/\s*\(\d+\)\s*$/, "");
+    }
+    // Fallback: capitalize first letter
+    return key.charAt(0).toUpperCase() + key.slice(1);
+  };
+
+  const renderTableHeader = (showName: boolean) => (
+    <thead className="bg-gray-50">
+      <tr>
+        <th
+          scope="col"
+          className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+        >
+          <Trans>Position</Trans>
+        </th>
+        {showName && (
+          <th
+            scope="col"
+            className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+          >
+            <Trans>Name</Trans>
+          </th>
+        )}
+        {hasMonths && (
+          <th
+            scope="col"
+            className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+          >
+            <Trans>Months</Trans>
+          </th>
+        )}
+        {columnKeys.map((key) => (
+          <th
+            key={key}
+            scope="col"
+            className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+          >
+            {getColumnHeader(key)}
+          </th>
+        ))}
+        {!hasTotalColumn && (
+          <th
+            scope="col"
+            className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
+          >
+            <Trans>Total</Trans>
+          </th>
+        )}
+      </tr>
+    </thead>
+  );
+
+  const renderTableRow = (
+    entry: RemunerationEntry,
+    index: number,
+    showName: boolean,
+  ) => (
+    <tr key={index} className="hover:bg-gray-50">
+      <td className="px-4 py-3 text-sm text-gray-900">
+        {entry.position || "-"}
+      </td>
+      {showName && (
+        <td className="px-4 py-3 text-sm text-gray-900">{entry.name || "-"}</td>
+      )}
+      {hasMonths && (
+        <td className="px-4 py-3 text-sm text-gray-900 text-right">
+          {entry.months !== undefined ? entry.months : "-"}
+        </td>
+      )}
+      {columnKeys.map((key) => (
+        <td key={key} className="px-4 py-3 text-sm text-gray-900 text-right">
+          {formatCurrency(entry.values[key])}
+        </td>
+      ))}
+      {!hasTotalColumn && (
+        <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
+          {formatCurrency(calculateRowTotal(entry))}
+        </td>
+      )}
+    </tr>
+  );
+
+  const renderSubtotalRow = (
+    label: React.ReactNode,
+    subtotal: number,
+    showName: boolean,
+  ) => {
+    // Count columns before the total column
+    let colSpan = 1; // Position
+    if (showName) colSpan++;
+    if (hasMonths) colSpan++;
+    // If data has total column, span all but the last data column
+    // If no total column, span all data columns (calculated total is separate)
+    colSpan += hasTotalColumn ? columnKeys.length - 1 : columnKeys.length;
+
+    return (
+      <tr className="bg-gray-100 font-semibold">
+        <td colSpan={colSpan} className="px-4 py-3 text-sm text-gray-900">
+          {label}
+        </td>
+        <td className="px-4 py-3 text-sm text-gray-900 text-right">
+          {formatCurrency(subtotal)}
+        </td>
+      </tr>
+    );
+  };
 
   return (
-    <div className="overflow-x-auto">
-      <table className="min-w-full divide-y divide-gray-200">
-        <thead className="bg-gray-50">
-          <tr>
-            <th
-              scope="col"
-              className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              <Trans>Position</Trans>
-            </th>
-            <th
-              scope="col"
-              className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              <Trans>Name</Trans>
-            </th>
-            {hasSalary && (
-              <th
-                scope="col"
-                className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                <Trans>Salary</Trans>
-              </th>
-            )}
-            {hasHonorarium && (
-              <th
-                scope="col"
-                className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                <Trans>Honorarium</Trans>
-              </th>
-            )}
-            {hasContract && (
-              <th
-                scope="col"
-                className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                <Trans>Contract</Trans>
-              </th>
-            )}
-            {hasTravel && (
-              <th
-                scope="col"
-                className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-              >
-                <Trans>Travel</Trans>
-              </th>
-            )}
-            <th
-              scope="col"
-              className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider"
-            >
-              <Trans>Total</Trans>
-            </th>
-          </tr>
-        </thead>
-        <tbody className="bg-white divide-y divide-gray-200">
-          {data.entries.map((entry, index) => (
-            <tr key={index} className="hover:bg-gray-50">
-              <td className="px-4 py-3 text-sm text-gray-900">
-                {entry.position || "-"}
-              </td>
-              <td className="px-4 py-3 text-sm text-gray-900">
-                {entry.name || "-"}
-              </td>
-              {hasSalary && (
-                <td className="px-4 py-3 text-sm text-gray-900 text-right">
-                  {formatCurrency(entry.values.salary)}
-                </td>
+    <div className="space-y-6">
+      {/* Remuneration Section */}
+      {remunerationEntries.length > 0 && (
+        <div className="overflow-x-auto">
+          {hasBothSections && (
+            <h4 className="text-lg font-semibold text-gray-800 mb-3">
+              <Trans>Remuneration</Trans>
+            </h4>
+          )}
+          <table className="min-w-full divide-y divide-gray-200">
+            {renderTableHeader(true)}
+            <tbody className="bg-white divide-y divide-gray-200">
+              {remunerationEntries.map((entry, index) =>
+                renderTableRow(entry, index, true),
               )}
-              {hasHonorarium && (
-                <td className="px-4 py-3 text-sm text-gray-900 text-right">
-                  {formatCurrency(entry.values.honorarium)}
-                </td>
+              {hasBothSections &&
+                renderSubtotalRow(
+                  <Trans>Subtotal - Remuneration</Trans>,
+                  remunerationSubtotal,
+                  true,
+                )}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Expenses Section */}
+      {expenseEntries.length > 0 && (
+        <div className="overflow-x-auto">
+          {hasBothSections && (
+            <h4 className="text-lg font-semibold text-gray-800 mb-3">
+              <Trans>Expenses</Trans>
+            </h4>
+          )}
+          <table className="min-w-full divide-y divide-gray-200">
+            {renderTableHeader(false)}
+            <tbody className="bg-white divide-y divide-gray-200">
+              {expenseEntries.map((entry, index) =>
+                renderTableRow(entry, index, false),
               )}
-              {hasContract && (
-                <td className="px-4 py-3 text-sm text-gray-900 text-right">
-                  {formatCurrency(entry.values.contract)}
-                </td>
-              )}
-              {hasTravel && (
-                <td className="px-4 py-3 text-sm text-gray-900 text-right">
-                  {formatCurrency(entry.values.travel)}
-                </td>
-              )}
-              <td className="px-4 py-3 text-sm font-medium text-gray-900 text-right">
-                {formatCurrency(entry.row_total)}
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              {hasBothSections &&
+                renderSubtotalRow(
+                  <Trans>Subtotal - Expenses</Trans>,
+                  expensesSubtotal,
+                  false,
+                )}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {/* Grand Total */}
+      {hasBothSections && (
+        <div className="border-t-2 border-gray-300 pt-4">
+          <div className="flex justify-between items-center px-4">
+            <span className="text-lg font-bold text-gray-900">
+              <Trans>Grand Total</Trans>
+            </span>
+            <span className="text-lg font-bold text-gray-900">
+              {formatCurrency(grandTotal)}
+            </span>
+          </div>
+        </div>
+      )}
+
+      {/* Audit Information */}
       {data.is_audited !== undefined && (
         <p className="mt-4 text-sm text-gray-500">
           {data.is_audited ? (
