@@ -180,11 +180,11 @@ export default function DesktopNav(props: DesktopNavProps) {
       >
         <Trans>First Nations</Trans>
       </NavLink>
-      {/* Tools dropdown - shown below 1050px */}
+      {/* Tools dropdown - shown below 1055px */}
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>
           <button
-            className={`relative py-2 text-sm font-medium flex min-[1050px]:hidden items-center gap-1 ${
+            className={`relative py-2 text-sm font-medium flex min-[1055px]:hidden items-center gap-1 ${
               pathname === `/${i18n.locale}/tax-visualizer` ||
               pathname === `/${i18n.locale}/search`
                 ? "text-black after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black"
@@ -219,18 +219,18 @@ export default function DesktopNav(props: DesktopNavProps) {
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
-      {/* Individual links - shown above 1050px */}
+      {/* Individual links - shown above 1055px */}
       <NavLink
         href={`/${i18n.locale}/tax-visualizer`}
         active={pathname === `/${i18n.locale}/tax-visualizer`}
-        className="hidden min-[1050px]:block"
+        className="hidden min-[1055px]:block"
       >
         <Trans>Taxes</Trans>
       </NavLink>
       <NavLink
         href={`/${i18n.locale}/search`}
         active={pathname === `/${i18n.locale}/search`}
-        className="hidden min-[1050px]:block"
+        className="hidden min-[1055px]:block"
       >
         <Trans>Spending Database</Trans>
       </NavLink>

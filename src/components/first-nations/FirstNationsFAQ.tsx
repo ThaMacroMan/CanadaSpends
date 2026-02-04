@@ -43,7 +43,7 @@ export function FirstNationsFAQ() {
       ),
     },
     {
-      question: <Trans>Why are there no Inuit nations from Nunavut?</Trans>,
+      question: "Why are there no Inuit nations from Nunavut?",
       answer: (
         <P>
           <Trans>
