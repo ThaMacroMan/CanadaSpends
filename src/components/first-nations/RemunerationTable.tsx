@@ -39,6 +39,20 @@ function calculateSubtotal(entries: RemunerationEntry[]): number {
   return entries.reduce((sum, entry) => sum + calculateRowTotal(entry), 0);
 }
 
+function calculateColumnTotals(
+  entries: RemunerationEntry[],
+  columnKeys: string[],
+): Record<string, number> {
+  const totals: Record<string, number> = {};
+  for (const key of columnKeys) {
+    totals[key] = entries.reduce(
+      (sum, entry) => sum + (entry.values[key] || 0),
+      0,
+    );
+  }
+  return totals;
+}
+
 export function RemunerationTable({ data }: RemunerationTableProps) {
   if (!data.entries || data.entries.length === 0) {
     return (
@@ -184,6 +198,31 @@ export function RemunerationTable({ data }: RemunerationTableProps) {
     );
   };
 
+  const renderTotalRow = (entries: RemunerationEntry[], showName: boolean) => {
+    const columnTotals = calculateColumnTotals(entries, columnKeys);
+    const grandTotal = calculateSubtotal(entries);
+
+    return (
+      <tr className="bg-gray-100 font-semibold border-t-2 border-gray-300">
+        <td className="px-4 py-3 text-sm text-gray-900">
+          <Trans>Total</Trans>
+        </td>
+        {showName && <td className="px-4 py-3 text-sm text-gray-900"></td>}
+        {hasMonths && <td className="px-4 py-3 text-sm text-gray-900"></td>}
+        {columnKeys.map((key) => (
+          <td key={key} className="px-4 py-3 text-sm text-gray-900 text-right">
+            {formatCurrency(columnTotals[key])}
+          </td>
+        ))}
+        {!hasTotalColumn && (
+          <td className="px-4 py-3 text-sm text-gray-900 text-right">
+            {formatCurrency(grandTotal)}
+          </td>
+        )}
+      </tr>
+    );
+  };
+
   return (
     <div className="space-y-6">
       {/* Remuneration Section */}
@@ -206,6 +245,7 @@ export function RemunerationTable({ data }: RemunerationTableProps) {
                   remunerationSubtotal,
                   true,
                 )}
+              {!hasBothSections && renderTotalRow(remunerationEntries, true)}
             </tbody>
           </table>
         </div>
@@ -231,6 +271,7 @@ export function RemunerationTable({ data }: RemunerationTableProps) {
                   expensesSubtotal,
                   false,
                 )}
+              {!hasBothSections && renderTotalRow(expenseEntries, false)}
             </tbody>
           </table>
         </div>
