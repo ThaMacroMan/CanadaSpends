@@ -55,9 +55,9 @@ export default async function Page(props: PageLangParam) {
                     <br />
                   </p>
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
                   <Link
-                    className="text-card bg-lake-700 hover:bg-lake-800 items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-28 max-w-full overflow-hidden"
+                    className="text-card bg-lake-700 hover:bg-lake-800 items-center font-medium justify-center py-2 px-4 relative flex w-full sm:w-auto min-w-28 max-w-full overflow-hidden"
                     href={localizedPath("/federal/spending", lang)}
                   >
                     <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
@@ -67,7 +67,7 @@ export default async function Page(props: PageLangParam) {
                     </div>
                   </Link>
                   <Link
-                    className=" bg-accent text-accent-foreground border-border border-2 hover:bg-muted items-center font-medium justify-center py-2 px-4 relative flex w-auto min-w-28 max-w-full overflow-hidden"
+                    className="bg-accent text-accent-foreground border-border border-2 hover:bg-muted items-center font-medium justify-center py-2 px-4 relative flex w-full sm:w-auto min-w-28 max-w-full overflow-hidden"
                     href={localizedPath("/first-nations", lang)}
                   >
                     <div className="items-center cursor-pointer justify-center relative flex overflow-hidden">
