@@ -174,12 +174,43 @@ export default function DesktopNav(props: DesktopNavProps) {
           </DropdownMenu.Content>
         </DropdownMenu.Portal>
       </DropdownMenu.Root>
-      <NavLink
-        href={`/${i18n.locale}/first-nations`}
-        active={pathname.startsWith(`/${i18n.locale}/first-nations`)}
-      >
-        <Trans>First Nations</Trans>
-      </NavLink>
+      <DropdownMenu.Root>
+        <DropdownMenu.Trigger asChild>
+          <button
+            className={`relative py-2 text-sm font-medium flex items-center gap-1 ${
+              pathname.startsWith(`/${i18n.locale}/first-nations`)
+                ? "text-black after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-black"
+                : "text-gray-600 hover:text-black"
+            }`}
+          >
+            <Trans>First Nations</Trans>
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Portal>
+          <DropdownMenu.Content
+            className="bg-popover text-popover-foreground rounded-md shadow-lg p-1 flex flex-col min-w-37.5 z-200"
+            sideOffset={4}
+          >
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/first-nations`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Overview</Trans>
+              </Link>
+            </DropdownMenu.Item>
+            <DropdownMenu.Item asChild>
+              <Link
+                href={`/${i18n.locale}/first-nations/remuneration`}
+                className="px-3 py-2 text-sm hover:bg-accent hover:text-accent-foreground rounded cursor-pointer"
+              >
+                <Trans>Remuneration</Trans>
+              </Link>
+            </DropdownMenu.Item>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      </DropdownMenu.Root>
       {/* Tools dropdown - shown below 1055px */}
       <DropdownMenu.Root>
         <DropdownMenu.Trigger asChild>

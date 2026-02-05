@@ -40,8 +40,17 @@ msgstr "(inflation-adjusted to 2025 dollars)"
 msgid "{0}"
 msgstr "{0}"
 
+#. placeholder {0}: filtered.length
+#: src/components/first-nations/RemunerationOverview.tsx:264
+msgid "{0} bands with remuneration data"
+msgstr "{0} bands with remuneration data"
+
+#: src/components/first-nations/RemunerationOverview.tsx:205
+#~ msgid "{0} bands with remuneration data for FY {effectiveYear}"
+#~ msgstr "{0} bands with remuneration data for FY {effectiveYear}"
+
 #. placeholder {0}: firstNations.length
-#: src/components/first-nations/FirstNationsSearch.tsx:224
+#: src/components/first-nations/FirstNationsSearch.tsx:222
 msgid "{0} First Nations with financial data"
 msgstr "{0} First Nations with financial data"
 
@@ -204,8 +213,8 @@ msgstr "A look at how Veterans Affairs Canada spends its budget"
 msgid "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 msgstr "A significant portion of GAC's budget supports Canada's international development assistance, with key programs focused on climate adaptation, gender equality, and health initiatives in developing nations. The department also facilitates economic diplomacy and trade agreements that benefit Canadian businesses and secure investment opportunities abroad."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:246
-#: src/components/MainLayout/_components/MobileMenu.tsx:172
+#: src/components/MainLayout/_components/DesktopNav.tsx:277
+#: src/components/MainLayout/_components/MobileMenu.tsx:186
 msgid "About"
 msgstr "About"
 
@@ -213,7 +222,7 @@ msgstr "About"
 msgid "About GlobaLeaks"
 msgstr "About GlobaLeaks"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:260
+#: src/components/MainLayout/_components/DesktopNav.tsx:291
 #: src/components/MainLayout/Footer.tsx:41
 msgid "About Us"
 msgstr "About Us"
@@ -440,6 +449,19 @@ msgstr "Balance for {0}"
 msgid "Balance for FY {fiscalYear}"
 msgstr "Balance for FY {fiscalYear}"
 
+#: src/components/first-nations/RemunerationOverview.tsx:299
+msgid "Band Name"
+msgstr "Band Name"
+
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:58
+msgid "Band Remuneration Overview"
+msgstr "Band Remuneration Overview"
+
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:29
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:36
+msgid "Band Remuneration Overview | Canada Spends"
+msgstr "Band Remuneration Overview | Canada Spends"
+
 #: src/components/Sankey/index.tsx:161
 msgid "Banking + Finance"
 msgstr "Banking + Finance"
@@ -593,6 +615,10 @@ msgstr "Carbon Taxes"
 msgid "Cash, investments, accounts receivable, and other assets that can be converted to cash."
 msgstr "Cash, investments, accounts receivable, and other assets that can be converted to cash."
 
+#: src/components/first-nations/RemunerationOverview.tsx:339
+msgid "Chief"
+msgstr "Chief"
+
 #: src/components/Sankey/index.tsx:651
 msgid "Childhood Claims Settlement"
 msgstr "Childhood Claims Settlement"
@@ -642,9 +668,28 @@ msgstr "Community Infrastructure Grants"
 msgid "Community Safety"
 msgstr "Community Safety"
 
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:37
+msgid "Compare remuneration data across First Nations bands from annual reports published under the FNFTA."
+msgstr "Compare remuneration data across First Nations bands from annual reports published under the FNFTA."
+
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:61
+msgid "Compare remuneration data across First Nations bands. Data is extracted from remuneration schedules published under the First Nations Financial Transparency Act (FNFTA). Click any row to see individual official entries."
+msgstr "Compare remuneration data across First Nations bands. Data is extracted from remuneration schedules published under the First Nations Financial Transparency Act (FNFTA). Click any row to see individual official entries."
+
+#: src/app/[lang]/(main)/first-nations/remuneration/page.tsx:30
+msgid "Compare remuneration data across First Nations bands. View total compensation, per-capita spending, and individual official entries from annual reports."
+msgstr "Compare remuneration data across First Nations bands. View total compensation, per-capita spending, and individual official entries from annual reports."
+
 #: src/components/JurisdictionComparisonChart.tsx:135
 msgid "Compare your total tax burden across all Canadian provinces and territories"
 msgstr "Compare your total tax burden across all Canadian provinces and territories"
+
+#: src/components/first-nations/RemunerationOverview.tsx:355
+#: src/components/first-nations/RemunerationOverview.tsx:476
+#: src/components/first-nations/RemunerationOverview.tsx:555
+#: src/components/first-nations/RemunerationOverview.tsx:705
+msgid "Compensation"
+msgstr "Compensation"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:176
 #: src/app/[lang]/(main)/spending/page.tsx:167
@@ -666,8 +711,8 @@ msgstr "Connect from a public network like a coffee shop or library, not your ho
 msgid "Connect with us"
 msgstr "Connect with us"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:277
-#: src/components/MainLayout/_components/MobileMenu.tsx:179
+#: src/components/MainLayout/_components/DesktopNav.tsx:308
+#: src/components/MainLayout/_components/MobileMenu.tsx:193
 #: src/components/MainLayout/Footer.tsx:54
 msgid "Contact"
 msgstr "Contact"
@@ -1036,6 +1081,10 @@ msgstr "Executing Agency/Partner"
 msgid "Expected Results"
 msgstr "Expected Results"
 
+#: src/components/first-nations/RemunerationOverview.tsx:363
+#: src/components/first-nations/RemunerationOverview.tsx:484
+#: src/components/first-nations/RemunerationOverview.tsx:559
+#: src/components/first-nations/RemunerationOverview.tsx:708
 #: src/components/first-nations/RemunerationTable.tsx:259
 msgid "Expenses"
 msgstr "Expenses"
@@ -1325,13 +1374,13 @@ msgstr "Financial Summary FY {fiscalYear}"
 msgid "First"
 msgstr "First"
 
-#: src/components/first-nations/FirstNationsSearch.tsx:261
+#: src/components/first-nations/FirstNationsSearch.tsx:282
 msgid "First Nation"
 msgstr "First Nation"
 
 #: src/app/[lang]/(main)/first-nations/[bcid]/page.tsx:59
-#: src/components/MainLayout/_components/DesktopNav.tsx:181
-#: src/components/MainLayout/_components/MobileMenu.tsx:151
+#: src/components/MainLayout/_components/DesktopNav.tsx:186
+#: src/components/MainLayout/_components/MobileMenu.tsx:147
 msgid "First Nations"
 msgstr "First Nations"
 
@@ -1438,7 +1487,7 @@ msgstr "Get data-driven insights into how governmental revenue and spending affe
 msgid "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 msgstr "Get data-driven insights into how the {0} government’s revenue and spending affect {1} residents and programs."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:269
+#: src/components/MainLayout/_components/DesktopNav.tsx:300
 #: src/components/MainLayout/Footer.tsx:49
 msgid "Get Involved"
 msgstr "Get Involved"
@@ -1621,6 +1670,10 @@ msgstr "HICC administers the National Housing Strategy, which funds the construc
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:94
 msgid "HICC spent $14.5 billion in fiscal year (FY) 2024. This was 2.8% of the $513.9 billion in overall federal spending. The department ranked eighth among federal departments in total spending."
 msgstr "HICC spent $14.5 billion in fiscal year (FY) 2024. This was 2.8% of the $513.9 billion in overall federal spending. The department ranked eighth among federal departments in total spending."
+
+#: src/components/first-nations/RemunerationOverview.tsx:521
+msgid "Hide details"
+msgstr "Hide details"
 
 #. placeholder {0}: firstNation.name
 #: src/components/first-nations/FirstNationsPageContent.tsx:408
@@ -1987,11 +2040,12 @@ msgid "It doesn't have to be this way."
 msgstr "It doesn't have to be this way."
 
 #: src/components/MainLayout/_components/MobileMenu.tsx:22
-msgid "Join"
-msgstr "Join"
+#~ msgid "Join"
+#~ msgstr "Join"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:297
-#: src/components/MainLayout/_components/MobileMenu.tsx:195
+#: src/components/MainLayout/_components/DesktopNav.tsx:328
+#: src/components/MainLayout/_components/MobileMenu.tsx:22
+#: src/components/MainLayout/_components/MobileMenu.tsx:209
 msgid "Join Build Canada"
 msgstr "Join Build Canada"
 
@@ -2115,6 +2169,8 @@ msgstr "Ministry"
 msgid "Miscellaneous revenues"
 msgstr "Miscellaneous revenues"
 
+#: src/components/first-nations/RemunerationOverview.tsx:564
+#: src/components/first-nations/RemunerationOverview.tsx:714
 #: src/components/first-nations/RemunerationTable.tsx:122
 msgid "Months"
 msgstr "Months"
@@ -2143,6 +2199,7 @@ msgstr "Most federal spending can be categorized as direct or indirect. Direct s
 msgid "Municipal"
 msgstr "Municipal"
 
+#: src/components/first-nations/RemunerationOverview.tsx:699
 #: src/components/first-nations/RemunerationTable.tsx:114
 msgid "Name"
 msgstr "Name"
@@ -2249,6 +2306,10 @@ msgstr "News Source & Date"
 msgid "No articles available yet on Canada Spends. Check back soon!"
 msgstr "No articles available yet on Canada Spends. Check back soon!"
 
+#: src/components/first-nations/RemunerationOverview.tsx:273
+msgid "No bands found matching your search."
+msgstr "No bands found matching your search."
+
 #: src/components/first-nations/FirstNationsNotes.tsx:50
 msgid "No content available."
 msgstr "No content available."
@@ -2262,13 +2323,18 @@ msgstr "No financial data is currently available for {0}."
 msgid "No financial position data available."
 msgstr "No financial position data available."
 
-#: src/components/first-nations/FirstNationsSearch.tsx:231
+#: src/components/first-nations/FirstNationsSearch.tsx:229
 msgid "No First Nations found matching your search."
 msgstr "No First Nations found matching your search."
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:218
 msgid "No form of electronic communication can be made 100% secure. While we take every precaution to protect your identity, you use this service at your own risk. We encourage you to take the security precautions outlined above."
 msgstr "No form of electronic communication can be made 100% secure. While we take every precaution to protect your identity, you use this service at your own risk. We encourage you to take the security precautions outlined above."
+
+#: src/components/first-nations/RemunerationOverview.tsx:573
+#: src/components/first-nations/RemunerationOverview.tsx:747
+msgid "No individual entries available."
+msgstr "No individual entries available."
 
 #: src/components/first-nations/FirstNationsNotes.tsx:20
 msgid "No notes available."
@@ -2450,9 +2516,18 @@ msgstr "Official Fall 2025 Federal Budget Released"
 msgid "Official Languages + Culture"
 msgstr "Official Languages + Culture"
 
+#: src/components/first-nations/RemunerationOverview.tsx:347
+msgid "Officials"
+msgstr "Officials"
+
 #: src/components/Sankey/index.tsx:611
 msgid "On-reserve Income Support in Yukon Territory"
 msgstr "On-reserve Income Support in Yukon Territory"
+
+#: src/components/first-nations/RemunerationOverview.tsx:331
+#: src/components/first-nations/RemunerationOverview.tsx:468
+msgid "On-Reserve Pop."
+msgstr "On-Reserve Pop."
 
 #: src/components/Sankey/index.tsx:503
 msgid "Ontario EQP"
@@ -2611,6 +2686,11 @@ msgstr "Our government is going to have to make hard choices about our nation's 
 msgid "Out of Court Settlement"
 msgstr "Out of Court Settlement"
 
+#: src/components/MainLayout/_components/DesktopNav.tsx:200
+#: src/components/MainLayout/_components/MobileMenu.tsx:155
+msgid "Overview"
+msgstr "Overview"
+
 #: src/components/Sankey/index.tsx:338
 msgid "Parliament"
 msgstr "Parliament"
@@ -2631,6 +2711,16 @@ msgstr "Payroll Taxes"
 #: src/app/[lang]/(main)/spending/page.tsx:228
 msgid "PBO"
 msgstr "PBO"
+
+#: src/components/first-nations/RemunerationOverview.tsx:356
+#: src/components/first-nations/RemunerationOverview.tsx:487
+#~ msgid "Per Capita"
+#~ msgstr "Per Capita"
+
+#: src/components/first-nations/RemunerationOverview.tsx:266
+#: src/components/first-nations/RemunerationOverview.tsx:363
+#~ msgid "Per Capita (On-Reserve)"
+#~ msgstr "Per Capita (On-Reserve)"
 
 #: src/components/JurisdictionPageContent.tsx:283
 msgid "Per Capita Spending"
@@ -2693,6 +2783,18 @@ msgstr "Pollution pricing"
 msgid "Pollution pricing proceeds"
 msgstr "Pollution pricing proceeds"
 
+#: src/components/first-nations/RemunerationOverview.tsx:272
+#: src/components/first-nations/RemunerationOverview.tsx:377
+#~ msgid "Population"
+#~ msgstr "Population"
+
+#. placeholder {0}: populationData[0]?.year
+#. placeholder {1}: populationData[populationData.length - 1]?.year
+#: src/components/first-nations/PopulationCharts.tsx:116
+msgid "Population trends for {bandName} from {0} to {1}."
+msgstr "Population trends for {bandName} from {0} to {1}."
+
+#: src/components/first-nations/RemunerationOverview.tsx:702
 #: src/components/first-nations/RemunerationTable.tsx:107
 msgid "Position"
 msgstr "Position"
@@ -2781,7 +2883,8 @@ msgstr "Property Tax Per Capita"
 msgid "Property tax revenue per {0} resident"
 msgstr "Property tax revenue per {0} resident"
 
-#: src/components/first-nations/FirstNationsSearch.tsx:267
+#: src/components/first-nations/FirstNationsSearch.tsx:288
+#: src/components/first-nations/RemunerationOverview.tsx:307
 msgid "Prov."
 msgstr "Prov."
 
@@ -2938,6 +3041,8 @@ msgid "Regions"
 msgstr "Regions"
 
 #: src/components/first-nations/RemunerationTable.tsx:233
+#: src/components/MainLayout/_components/DesktopNav.tsx:208
+#: src/components/MainLayout/_components/MobileMenu.tsx:164
 msgid "Remuneration"
 msgstr "Remuneration"
 
@@ -3094,11 +3199,25 @@ msgstr "Settlement Amount"
 msgid "Settlement Assistance"
 msgstr "Settlement Assistance"
 
+#: src/components/first-nations/RemunerationOverview.tsx:526
+msgid "Show individual entries"
+msgstr "Show individual entries"
+
+#: src/components/first-nations/RemunerationOverview.tsx:201
+#~ msgid "Showing {0} bands for FY {effectiveYear}"
+#~ msgstr "Showing {0} bands for FY {effectiveYear}"
+
 #. placeholder {0}: filteredFirstNations.length
 #. placeholder {1}: firstNations.length
-#: src/components/first-nations/FirstNationsSearch.tsx:219
+#: src/components/first-nations/FirstNationsSearch.tsx:217
 msgid "Showing {0} of {1} First Nations"
 msgstr "Showing {0} of {1} First Nations"
+
+#. placeholder {0}: filtered.length
+#. placeholder {1}: summaries.length
+#: src/components/first-nations/RemunerationOverview.tsx:260
+msgid "Showing {0} of {1} results"
+msgstr "Showing {0} of {1} results"
 
 #: src/app/[lang]/(main)/spending/housing-infrastructure-communities/page.tsx:142
 msgid "Similarly, HICC expenditures experienced notable fluctuations during this period, surging from approximately $5.9 billion​ in 2019 (adjusted for inflation) to $14.5B in 2024."
@@ -3130,9 +3249,14 @@ msgstr "Social Security"
 msgid "Social Transfer to Provinces"
 msgstr "Social Transfer to Provinces"
 
+#: src/components/first-nations/RemunerationOverview.tsx:378
 #: src/components/JurisdictionPageContent.tsx:385
 msgid "Source"
 msgstr "Source"
+
+#: src/components/first-nations/RemunerationOverview.tsx:509
+msgid "Source PDF"
+msgstr "Source PDF"
 
 #: src/app/[lang]/(main)/federal/spending/page.tsx:260
 #: src/app/[lang]/(main)/spending/page.tsx:251
@@ -3178,9 +3302,9 @@ msgstr "Spending Breakdown Coming Soon"
 msgid "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 msgstr "Spending data is not yet available for this province and year combination. The income tax calculation above is still accurate based on {year} tax rates."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:216
-#: src/components/MainLayout/_components/DesktopNav.tsx:235
-#: src/components/MainLayout/_components/MobileMenu.tsx:165
+#: src/components/MainLayout/_components/DesktopNav.tsx:247
+#: src/components/MainLayout/_components/DesktopNav.tsx:266
+#: src/components/MainLayout/_components/MobileMenu.tsx:179
 msgid "Spending Database"
 msgstr "Spending Database"
 
@@ -3308,9 +3432,9 @@ msgstr "Tax Visualizer | Canada Spends"
 msgid "Tax Year"
 msgstr "Tax Year"
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:208
-#: src/components/MainLayout/_components/DesktopNav.tsx:228
-#: src/components/MainLayout/_components/MobileMenu.tsx:158
+#: src/components/MainLayout/_components/DesktopNav.tsx:239
+#: src/components/MainLayout/_components/DesktopNav.tsx:259
+#: src/components/MainLayout/_components/MobileMenu.tsx:172
 msgid "Taxes"
 msgstr "Taxes"
 
@@ -3527,7 +3651,7 @@ msgstr "Through the Public Health Agency of Canada (PHAC), Health Canada monitor
 msgid "to help us support our mission."
 msgstr "to help us support our mission."
 
-#: src/components/MainLayout/_components/DesktopNav.tsx:194
+#: src/components/MainLayout/_components/DesktopNav.tsx:225
 msgid "Tools"
 msgstr "Tools"
 
@@ -3535,6 +3659,7 @@ msgstr "Tools"
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:398
 #: src/app/[lang]/(main)/tax-visualizer/page.tsx:509
 #: src/components/first-nations/ClaimsTable.tsx:300
+#: src/components/first-nations/RemunerationOverview.tsx:711
 #: src/components/first-nations/RemunerationTable.tsx:139
 #: src/components/first-nations/RemunerationTable.tsx:208
 #: src/components/JurisdictionComparisonChart.tsx:282
@@ -3599,9 +3724,19 @@ msgstr "Total net assets"
 msgid "Total Payments"
 msgstr "Total Payments"
 
+#: src/components/first-nations/RemunerationOverview.tsx:323
+#: src/components/first-nations/RemunerationOverview.tsx:460
+msgid "Total Pop."
+msgstr "Total Pop."
+
 #: src/components/JurisdictionPageContent.tsx:318
 msgid "Total property tax revenue divided by population. Primary revenue source for municipalities."
 msgstr "Total property tax revenue divided by population. Primary revenue source for municipalities."
+
+#: src/components/first-nations/RemunerationOverview.tsx:371
+#: src/components/first-nations/RemunerationOverview.tsx:492
+msgid "Total Remuneration"
+msgstr "Total Remuneration"
 
 #: src/components/first-nations/FirstNationsPageContent.tsx:241
 #: src/components/JurisdictionPageContent.tsx:160
@@ -3979,8 +4114,8 @@ msgid "While not in the top 10 departments by spend, ISED accounted for 2% of al
 msgstr "While not in the top 10 departments by spend, ISED accounted for 2% of all federal spending in FY 2024. 10 government departments accounted for 73.2% of federal spending in FY 2024"
 
 #: src/app/[lang]/(main)/whistleblowers/page.tsx:44
-#: src/components/MainLayout/_components/DesktopNav.tsx:285
-#: src/components/MainLayout/_components/MobileMenu.tsx:186
+#: src/components/MainLayout/_components/DesktopNav.tsx:316
+#: src/components/MainLayout/_components/MobileMenu.tsx:200
 #: src/components/MainLayout/Footer.tsx:59
 msgid "Whistleblowers"
 msgstr "Whistleblowers"
@@ -4054,6 +4189,7 @@ msgid "Why Submit a Tip?"
 msgstr "Why Submit a Tip?"
 
 #: src/app/[lang]/(main)/federal/spending/SalaryDistributionChart.tsx:80
+#: src/components/first-nations/RemunerationOverview.tsx:315
 msgid "Year"
 msgstr "Year"
 
