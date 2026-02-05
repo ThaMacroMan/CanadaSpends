@@ -26,12 +26,12 @@ export async function generateMetadata({
   const { t } = useLingui();
 
   return {
-    title: t`Band Remuneration Overview | Canada Spends`,
-    description: t`Compare remuneration data across First Nations bands. View total compensation, per-capita spending, and individual official entries from annual reports.`,
+    title: t`First Nations Remuneration Overview | Canada Spends`,
+    description: t`Compare remuneration data across First Nations. View total compensation, per-capita spending, and individual official entries from annual reports.`,
     alternates: generateHreflangAlternates(lang, "/first-nations/remuneration"),
     openGraph: {
-      title: t`Band Remuneration Overview | Canada Spends`,
-      description: t`Compare remuneration data across First Nations bands from annual reports published under the FNFTA.`,
+      title: t`First Nations Remuneration Overview | Canada Spends`,
+      description: t`Compare remuneration data across First Nations from annual reports published under the FNFTA.`,
       type: "website",
     },
   };
@@ -52,13 +52,13 @@ export default async function RemunerationPage({
       <PageContent>
         <Section>
           <H1>
-            <Trans>Band Remuneration Overview</Trans>
+            <Trans>First Nations Remuneration Overview</Trans>
           </H1>
           <Intro>
             <Trans>
-              Compare remuneration data across First Nations bands. Data is
-              extracted from remuneration schedules published under the First
-              Nations Financial Transparency Act (FNFTA). Click any row to see
+              Compare remuneration data across First Nations. Data is extracted
+              from remuneration schedules published under the First Nations
+              Financial Transparency Act (FNFTA). Click any row to see
               individual official entries.
             </Trans>
           </Intro>

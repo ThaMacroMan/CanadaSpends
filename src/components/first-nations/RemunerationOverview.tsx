@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect, useRef, memo } from "react";
 import Link from "next/link";
 import { Trans } from "@lingui/react/macro";
 import {
@@ -16,6 +16,8 @@ import type {
   BandRemunerationSummary,
   RemunerationEntryRow,
 } from "@/lib/supabase/remuneration";
+
+const PAGE_SIZE = 100;
 
 const PROVINCE_NAMES: Record<string, string> = {
   AB: "Alberta",
@@ -132,10 +134,36 @@ export function RemunerationOverview({
   lang,
 }: RemunerationOverviewProps) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [debouncedSearch, setDebouncedSearch] = useState("");
   const [selectedProvince, setSelectedProvince] = useState("");
   const [selectedYear, setSelectedYear] = useState<string>("");
   const [sortKey, setSortKey] = useState<SortKey>("total_remuneration");
   const [sortDirection, setSortDirection] = useState<SortDirection>("desc");
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
+
+  // Debounce search input
+  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  useEffect(() => {
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+    debounceRef.current = setTimeout(() => {
+      setDebouncedSearch(searchQuery);
+      setVisibleCount(PAGE_SIZE); // Reset pagination on search change
+    }, 300);
+    return () => {
+      if (debounceRef.current) {
+        clearTimeout(debounceRef.current);
+      }
+    };
+  }, [searchQuery]);
+
+  // Reset pagination when filters change
+  useEffect(() => {
+    setVisibleCount(PAGE_SIZE);
+  }, [selectedProvince, selectedYear, sortKey, sortDirection]);
+
+  const isSearching = debouncedSearch !== searchQuery;
 
   const availableYears = useMemo(() => {
     const yearsSet = new Set<number>();
@@ -181,8 +209,8 @@ export function RemunerationOverview({
       result = result.filter((s) => s.province === selectedProvince);
     }
 
-    if (searchQuery.trim()) {
-      const query = searchQuery.toLowerCase();
+    if (debouncedSearch.trim()) {
+      const query = debouncedSearch.toLowerCase();
       result = result.filter(
         (s) =>
           s.band_name.toLowerCase().includes(query) ||
@@ -207,10 +235,18 @@ export function RemunerationOverview({
     summaries,
     selectedYear,
     selectedProvince,
-    searchQuery,
+    debouncedSearch,
     sortKey,
     sortDirection,
   ]);
+
+  // Paginated results - only render what's visible
+  const visibleResults = useMemo(
+    () => filtered.slice(0, visibleCount),
+    [filtered, visibleCount],
+  );
+
+  const hasMore = visibleCount < filtered.length;
 
   const thClass =
     "px-4 py-3 text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer hover:text-gray-700 select-none whitespace-nowrap";
@@ -227,7 +263,7 @@ export function RemunerationOverview({
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search bands or chiefs..."
+            placeholder="Search First Nations or chiefs..."
             className="block w-full pl-10 pr-3 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-auburn-500 focus:border-auburn-500 text-base"
           />
         </div>
@@ -260,27 +296,30 @@ export function RemunerationOverview({
       </div>
 
       {/* Results count */}
-      <div className="mb-4 text-sm text-gray-600">
+      <div className="mb-4 text-sm text-gray-600 flex items-center gap-2">
         {searchQuery || selectedProvince || selectedYear ? (
           <Trans>
             Showing {filtered.length} of {summaries.length} results
           </Trans>
         ) : (
-          <Trans>{filtered.length} bands with remuneration data</Trans>
+          <Trans>{filtered.length} First Nations with remuneration data</Trans>
+        )}
+        {isSearching && (
+          <Loader2 className="w-4 h-4 animate-spin text-gray-400" />
         )}
       </div>
 
       {filtered.length === 0 ? (
         <div className="text-center py-12">
           <p className="text-gray-500">
-            <Trans>No bands found matching your search.</Trans>
+            <Trans>No First Nations found matching your search.</Trans>
           </p>
         </div>
       ) : (
         <>
           {/* Mobile Card View */}
           <div className="md:hidden flex flex-col gap-3">
-            {filtered.map((band) => (
+            {visibleResults.map((band) => (
               <BandCard
                 key={`${band.bcid}-${band.fiscal_year_end}`}
                 band={band}
@@ -290,8 +329,8 @@ export function RemunerationOverview({
           </div>
 
           {/* Desktop Table View */}
-          <div className="hidden md:block overflow-x-auto border-y border-gray-200 w-screen relative -ml-[50vw] left-1/2 right-1/2">
-            <table className="w-full divide-y divide-gray-200">
+          <div className="hidden md:flex relative w-screen -ml-[50vw] left-1/2 right-1/2 overflow-auto border-y border-gray-200 justify-center">
+            <table className="divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
                   <th
@@ -299,7 +338,7 @@ export function RemunerationOverview({
                     className={`${thClass} text-left`}
                     onClick={() => handleSort("band_name")}
                   >
-                    <Trans>Band Name</Trans>
+                    <Trans>First Nation</Trans>
                     <SortIcon
                       columnKey="band_name"
                       activeKey={sortKey}
@@ -423,7 +462,7 @@ export function RemunerationOverview({
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filtered.map((band) => (
+                {visibleResults.map((band) => (
                   <ExpandableRow
                     key={`${band.bcid}-${band.fiscal_year_end}`}
                     band={band}
@@ -433,13 +472,27 @@ export function RemunerationOverview({
               </tbody>
             </table>
           </div>
+
+          {/* Show more button */}
+          {hasMore && (
+            <div className="flex justify-center mt-6">
+              <button
+                onClick={() => setVisibleCount((c) => c + PAGE_SIZE)}
+                className="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded transition-colors"
+              >
+                <Trans>
+                  Show more ({filtered.length - visibleCount} remaining)
+                </Trans>
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
   );
 }
 
-function BandCard({
+const BandCard = memo(function BandCard({
   band,
   lang,
 }: {
@@ -615,9 +668,9 @@ function BandCard({
       )}
     </div>
   );
-}
+});
 
-function ExpandableRow({
+const ExpandableRow = memo(function ExpandableRow({
   band,
   lang,
 }: {
@@ -789,4 +842,4 @@ function ExpandableRow({
       )}
     </>
   );
-}
+});
