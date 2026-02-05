@@ -59,4 +59,5 @@ export async function supabaseFetch<T>(
 export * from "./types";
 export * from "./first-nations";
 export * from "./claims";
+export * from "./remuneration";
 export * from "./sankey-transform";
