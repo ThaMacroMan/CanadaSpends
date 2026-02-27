@@ -849,6 +849,49 @@ export default function TaxCalculatorPage() {
         )}
       </Section>
 
+      {detailedCalculation && (
+        <Section>
+          <a
+            href={localizedPath(
+              `/globe?income=${income}&province=${PROVINCE_TO_CODE[province] || "ON"}&year=${year}`,
+              i18n.locale,
+            )}
+            className="block bg-card p-6 rounded-lg border border-border hover:border-primary/40 transition-colors group"
+          >
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                  <Trans>See Your Tax Dollars Flow Around the World</Trans>
+                </h3>
+                <p className="text-foreground/60 text-sm mt-1">
+                  <Trans>
+                    Explore an interactive 3D globe showing how your tax money
+                    travels from your province to Ottawa, then gets
+                    redistributed across Canada and sent abroad.
+                  </Trans>
+                </p>
+              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="flex-shrink-0 ml-4 text-foreground/40 group-hover:text-primary transition-colors"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20" />
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+            </div>
+          </a>
+        </Section>
+      )}
+
       {taxConfig && (
         <TaxDetails
           config={taxConfig}
