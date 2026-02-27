@@ -103,7 +103,7 @@ function GridLines() {
 
   return (
     <lineSegments geometry={geometry}>
-      <lineBasicMaterial color={COLORS.gridLine} transparent opacity={0.15} />
+      <lineBasicMaterial color={COLORS.gridLine} transparent opacity={0.25} />
     </lineSegments>
   );
 }
