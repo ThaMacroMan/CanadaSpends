@@ -4,6 +4,7 @@ import { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useLingui, Trans } from "@lingui/react/macro";
 
+import Link from "next/link";
 import { CombinedSpendingChart } from "@/components/CombinedSpendingChart";
 import { JurisdictionComparisonChart } from "@/components/JurisdictionComparisonChart";
 import { H1, H2, PageContent, Section } from "@/components/Layout";
@@ -730,7 +731,48 @@ export default function TaxCalculatorPage() {
               <TaxSummary taxCalculation={detailedCalculation} />
             </div>
 
+            {/* Globe CTA */}
             <div className="mt-6 text-center">
+              <Link
+                href={localizedPath(
+                  `/tax-visualizer/globe?income=${income}&province=${PROVINCE_TO_CODE[province] || "ON"}&year=${year}`,
+                  i18n.locale,
+                )}
+                className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-5 py-2.5 text-sm font-semibold text-white shadow-md hover:bg-gray-800 transition-colors"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                  <path d="M2 12h20" />
+                </svg>
+                <Trans>See your money flow on the globe</Trans>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="14"
+                  height="14"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="mt-4 text-center">
               <a
                 href="#tax-details"
                 className="inline-flex items-center gap-2 text-primary hover:underline"
